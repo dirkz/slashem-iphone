@@ -49,8 +49,16 @@ static void NDECL(wd_message);
 static boolean wiz_error_flag = FALSE;
 #endif
 
+#ifdef __APPLE__
+#include "TargetConditionals.h"
+#endif
+
 int
+#if TARGET_OS_IPHONE
+unixmain(argc,argv)
+#else
 main(argc,argv)
+#endif
 int argc;
 char *argv[];
 {

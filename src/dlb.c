@@ -443,7 +443,6 @@ dlb_init()
 #ifdef DLBRSRC
 	dlb_procs = &rsrc_dlb_procs;
 #endif
-
 	if (dlb_procs) 
 	    dlb_initialized = do_dlb_init();
     }

@@ -1972,6 +1972,7 @@ long* out_cnt;
 	/* oxymoron? temporarily assign permanent inventory letters */
 	if (!flags.invlet_constant) reassign();
 
+#if !TARGET_OS_IPHONE /* on iPhone, always display menus even if only one item */
 	if (lets && strlen(lets) == 1) {
 	    /* when only one item of interest, use pline instead of menus;
 	       we actually use a fake message-line menu in order to allow
@@ -1991,6 +1992,7 @@ long* out_cnt;
 #endif
 	    return ret;
 	}
+#endif /* TARGET_OS_IPHONE */
 
 	start_menu(win);
 nextclass:
@@ -2473,6 +2475,9 @@ boolean picked_some;
 		    You("%s no objects here.", verb);
 		return(!!Blind);
 	}
+#if TARGET_OS_IPHONE
+	skip_objects = (obj_cnt > 1);
+#endif
 	/* we know there is something here */
 
 	if (skip_objects) {
