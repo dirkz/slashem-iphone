@@ -163,6 +163,212 @@
 		437A9271114FF5D1000046FD /* zap.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A9204114FF5D1000046FD /* zap.c */; };
 		437A9291114FF8B4000046FD /* monstr.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A928F114FF8B4000046FD /* monstr.c */; };
 		437A9292114FF8B4000046FD /* vis_tab.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A9290114FF8B4000046FD /* vis_tab.c */; };
+		437A93A2114FFBF4000046FD /* air.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A929A114FFBF4000046FD /* air.lev */; };
+		437A93A3114FFBF4000046FD /* Arc-fila.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A929B114FFBF4000046FD /* Arc-fila.lev */; };
+		437A93A4114FFBF4000046FD /* Arc-filb.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A929C114FFBF4000046FD /* Arc-filb.lev */; };
+		437A93A5114FFBF4000046FD /* Arc-goal.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A929D114FFBF4000046FD /* Arc-goal.lev */; };
+		437A93A6114FFBF4000046FD /* Arc-loca.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A929E114FFBF4000046FD /* Arc-loca.lev */; };
+		437A93A7114FFBF4000046FD /* Arc-strt.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A929F114FFBF4000046FD /* Arc-strt.lev */; };
+		437A93A9114FFBF4000046FD /* asmodeus.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A92A1114FFBF4000046FD /* asmodeus.lev */; };
+		437A93AA114FFBF4000046FD /* astral.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A92A2114FFBF4000046FD /* astral.lev */; };
+		437A93AB114FFBF4000046FD /* baalz.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A92A3114FFBF4000046FD /* baalz.lev */; };
+		437A93AC114FFBF4000046FD /* Bar-fila.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A92A4114FFBF4000046FD /* Bar-fila.lev */; };
+		437A93AD114FFBF4000046FD /* Bar-filb.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A92A5114FFBF4000046FD /* Bar-filb.lev */; };
+		437A93AE114FFBF4000046FD /* Bar-goal.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A92A6114FFBF4000046FD /* Bar-goal.lev */; };
+		437A93AF114FFBF4000046FD /* Bar-loca.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A92A7114FFBF4000046FD /* Bar-loca.lev */; };
+		437A93B0114FFBF4000046FD /* Bar-strt.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A92A8114FFBF4000046FD /* Bar-strt.lev */; };
+		437A93B3114FFBF4000046FD /* beholder.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A92AB114FFBF4000046FD /* beholder.lev */; };
+		437A93B4114FFBF4000046FD /* bigrm-1.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A92AC114FFBF4000046FD /* bigrm-1.lev */; };
+		437A93B5114FFBF4000046FD /* bigrm-2.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A92AD114FFBF4000046FD /* bigrm-2.lev */; };
+		437A93B6114FFBF4000046FD /* bigrm-3.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A92AE114FFBF4000046FD /* bigrm-3.lev */; };
+		437A93B7114FFBF4000046FD /* bigrm-4.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A92AF114FFBF4000046FD /* bigrm-4.lev */; };
+		437A93B8114FFBF4000046FD /* bigrm-5.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A92B0114FFBF4000046FD /* bigrm-5.lev */; };
+		437A93BB114FFBF4000046FD /* blkmar.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A92B3114FFBF4000046FD /* blkmar.lev */; };
+		437A93BD114FFBF4000046FD /* castle.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A92B5114FFBF4000046FD /* castle.lev */; };
+		437A93BE114FFBF4000046FD /* Cav-fila.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A92B6114FFBF4000046FD /* Cav-fila.lev */; };
+		437A93BF114FFBF4000046FD /* Cav-filb.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A92B7114FFBF4000046FD /* Cav-filb.lev */; };
+		437A93C0114FFBF4000046FD /* Cav-goal.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A92B8114FFBF4000046FD /* Cav-goal.lev */; };
+		437A93C1114FFBF4000046FD /* Cav-loca.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A92B9114FFBF4000046FD /* Cav-loca.lev */; };
+		437A93C2114FFBF4000046FD /* Cav-strt.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A92BA114FFBF4000046FD /* Cav-strt.lev */; };
+		437A93C3114FFBF4000046FD /* cav2fill.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A92BB114FFBF4000046FD /* cav2fill.lev */; };
+		437A93C5114FFBF4000046FD /* cmdhelp in Resources */ = {isa = PBXBuildFile; fileRef = 437A92BD114FFBF4000046FD /* cmdhelp */; };
+		437A93C7114FFBF4000046FD /* data in Resources */ = {isa = PBXBuildFile; fileRef = 437A92BF114FFBF4000046FD /* data */; };
+		437A93C9114FFBF4000046FD /* demogorg.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A92C1114FFBF4000046FD /* demogorg.lev */; };
+		437A93CA114FFBF4000046FD /* dispater.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A92C2114FFBF4000046FD /* dispater.lev */; };
+		437A93CC114FFBF4000046FD /* dragons.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A92C4114FFBF4000046FD /* dragons.lev */; };
+		437A93CD114FFBF4000046FD /* dungeon in Resources */ = {isa = PBXBuildFile; fileRef = 437A92C5114FFBF4000046FD /* dungeon */; };
+		437A93CF114FFBF4000046FD /* dungeon.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 437A92C7114FFBF4000046FD /* dungeon.pdf */; };
+		437A93D0114FFBF4000046FD /* earth.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A92C8114FFBF4000046FD /* earth.lev */; };
+		437A93D2114FFBF4000046FD /* fakewiz1.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A92CA114FFBF4000046FD /* fakewiz1.lev */; };
+		437A93D3114FFBF4000046FD /* fakewiz2.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A92CB114FFBF4000046FD /* fakewiz2.lev */; };
+		437A93D4114FFBF4000046FD /* fire.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A92CC114FFBF4000046FD /* fire.lev */; };
+		437A93D5114FFBF4000046FD /* Fla-fila.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A92CD114FFBF4000046FD /* Fla-fila.lev */; };
+		437A93D6114FFBF4000046FD /* Fla-filb.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A92CE114FFBF4000046FD /* Fla-filb.lev */; };
+		437A93D7114FFBF4000046FD /* Fla-goal.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A92CF114FFBF4000046FD /* Fla-goal.lev */; };
+		437A93D8114FFBF4000046FD /* Fla-loca.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A92D0114FFBF4000046FD /* Fla-loca.lev */; };
+		437A93D9114FFBF4000046FD /* Fla-strt.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A92D1114FFBF4000046FD /* Fla-strt.lev */; };
+		437A93DC114FFBF4000046FD /* frnknstn.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A92D4114FFBF4000046FD /* frnknstn.lev */; };
+		437A93DE114FFBF4000046FD /* geryon.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A92D6114FFBF4000046FD /* geryon.lev */; };
+		437A93E0114FFBF4000046FD /* grund-1.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A92D8114FFBF4000046FD /* grund-1.lev */; };
+		437A93E1114FFBF4000046FD /* grund-2.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A92D9114FFBF4000046FD /* grund-2.lev */; };
+		437A93E2114FFBF4000046FD /* grund-3.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A92DA114FFBF4000046FD /* grund-3.lev */; };
+		437A93E5114FFBF4000046FD /* guild.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A92DD114FFBF4000046FD /* guild.lev */; };
+		437A93E6114FFBF4000046FD /* gypsy.txt in Resources */ = {isa = PBXBuildFile; fileRef = 437A92DE114FFBF4000046FD /* gypsy.txt */; };
+		437A93E7114FFBF4000046FD /* Hea-fila.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A92DF114FFBF4000046FD /* Hea-fila.lev */; };
+		437A93E8114FFBF4000046FD /* Hea-filb.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A92E0114FFBF4000046FD /* Hea-filb.lev */; };
+		437A93E9114FFBF4000046FD /* Hea-goal.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A92E1114FFBF4000046FD /* Hea-goal.lev */; };
+		437A93EA114FFBF4000046FD /* Hea-loca.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A92E2114FFBF4000046FD /* Hea-loca.lev */; };
+		437A93EB114FFBF4000046FD /* Hea-strt.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A92E3114FFBF4000046FD /* Hea-strt.lev */; };
+		437A93ED114FFBF4000046FD /* help in Resources */ = {isa = PBXBuildFile; fileRef = 437A92E5114FFBF4000046FD /* help */; };
+		437A93EE114FFBF4000046FD /* hh in Resources */ = {isa = PBXBuildFile; fileRef = 437A92E6114FFBF4000046FD /* hh */; };
+		437A93EF114FFBF4000046FD /* history in Resources */ = {isa = PBXBuildFile; fileRef = 437A92E7114FFBF4000046FD /* history */; };
+		437A93F0114FFBF4000046FD /* Ice-fila.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A92E8114FFBF4000046FD /* Ice-fila.lev */; };
+		437A93F1114FFBF4000046FD /* Ice-filb.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A92E9114FFBF4000046FD /* Ice-filb.lev */; };
+		437A93F2114FFBF4000046FD /* Ice-goal.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A92EA114FFBF4000046FD /* Ice-goal.lev */; };
+		437A93F3114FFBF4000046FD /* Ice-loca.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A92EB114FFBF4000046FD /* Ice-loca.lev */; };
+		437A93F4114FFBF4000046FD /* Ice-strt.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A92EC114FFBF4000046FD /* Ice-strt.lev */; };
+		437A93F6114FFBF4000046FD /* juiblex.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A92EE114FFBF4000046FD /* juiblex.lev */; };
+		437A93F7114FFBF4000046FD /* Kni-fila.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A92EF114FFBF4000046FD /* Kni-fila.lev */; };
+		437A93F8114FFBF4000046FD /* Kni-filb.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A92F0114FFBF4000046FD /* Kni-filb.lev */; };
+		437A93F9114FFBF4000046FD /* Kni-goal.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A92F1114FFBF4000046FD /* Kni-goal.lev */; };
+		437A93FA114FFBF4000046FD /* Kni-loca.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A92F2114FFBF4000046FD /* Kni-loca.lev */; };
+		437A93FB114FFBF4000046FD /* Kni-strt.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A92F3114FFBF4000046FD /* Kni-strt.lev */; };
+		437A93FE114FFBF4000046FD /* knox.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A92F6114FFBF4000046FD /* knox.lev */; };
+		437A9400114FFBF4000046FD /* kobold-1.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A92F8114FFBF4000046FD /* kobold-1.lev */; };
+		437A9402114FFBF4000046FD /* kobold-2.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A92FA114FFBF4000046FD /* kobold-2.lev */; };
+		437A9403114FFBF4000046FD /* license in Resources */ = {isa = PBXBuildFile; fileRef = 437A92FB114FFBF4000046FD /* license */; };
+		437A9405114FFBF4000046FD /* lich.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A92FD114FFBF4000046FD /* lich.lev */; };
+		437A9408114FFBF4000046FD /* mall-1.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A9300114FFBF4000046FD /* mall-1.lev */; };
+		437A940A114FFBF4000046FD /* mall-2.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A9302114FFBF4000046FD /* mall-2.lev */; };
+		437A940B114FFBF4000046FD /* mall.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A9303114FFBF4000046FD /* mall.lev */; };
+		437A940C114FFBF4000046FD /* medusa-1.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A9304114FFBF4000046FD /* medusa-1.lev */; };
+		437A940D114FFBF4000046FD /* medusa-2.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A9305114FFBF4000046FD /* medusa-2.lev */; };
+		437A940E114FFBF4000046FD /* medusa-3.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A9306114FFBF4000046FD /* medusa-3.lev */; };
+		437A940F114FFBF4000046FD /* medusa-4.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A9307114FFBF4000046FD /* medusa-4.lev */; };
+		437A9411114FFBF4000046FD /* minefill.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A9309114FFBF4000046FD /* minefill.lev */; };
+		437A9412114FFBF4000046FD /* mineking.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A930A114FFBF4000046FD /* mineking.lev */; };
+		437A9413114FFBF4000046FD /* minend-1.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A930B114FFBF4000046FD /* minend-1.lev */; };
+		437A9414114FFBF4000046FD /* minend-2.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A930C114FFBF4000046FD /* minend-2.lev */; };
+		437A9415114FFBF4000046FD /* minend-3.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A930D114FFBF4000046FD /* minend-3.lev */; };
+		437A9417114FFBF4000046FD /* minetn-1.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A930F114FFBF4000046FD /* minetn-1.lev */; };
+		437A9418114FFBF4000046FD /* minetn-2.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A9310114FFBF4000046FD /* minetn-2.lev */; };
+		437A9419114FFBF4000046FD /* minetn-3.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A9311114FFBF4000046FD /* minetn-3.lev */; };
+		437A941A114FFBF4000046FD /* minetn-4.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A9312114FFBF4000046FD /* minetn-4.lev */; };
+		437A941B114FFBF4000046FD /* minetn-5.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A9313114FFBF4000046FD /* minetn-5.lev */; };
+		437A941C114FFBF4000046FD /* minetn-6.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A9314114FFBF4000046FD /* minetn-6.lev */; };
+		437A941D114FFBF4000046FD /* minetn-7.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A9315114FFBF4000046FD /* minetn-7.lev */; };
+		437A941E114FFBF4000046FD /* Mon-fila.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A9316114FFBF4000046FD /* Mon-fila.lev */; };
+		437A941F114FFBF4000046FD /* Mon-filb.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A9317114FFBF4000046FD /* Mon-filb.lev */; };
+		437A9420114FFBF4000046FD /* Mon-goal.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A9318114FFBF4000046FD /* Mon-goal.lev */; };
+		437A9421114FFBF4000046FD /* Mon-loca.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A9319114FFBF4000046FD /* Mon-loca.lev */; };
+		437A9422114FFBF4000046FD /* Mon-strt.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A931A114FFBF4000046FD /* Mon-strt.lev */; };
+		437A9425114FFBF4000046FD /* mtemple.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A931D114FFBF4000046FD /* mtemple.lev */; };
+		437A9426114FFBF4000046FD /* Nec-fila.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A931E114FFBF4000046FD /* Nec-fila.lev */; };
+		437A9427114FFBF4000046FD /* Nec-filb.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A931F114FFBF4000046FD /* Nec-filb.lev */; };
+		437A9428114FFBF4000046FD /* Nec-goal.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A9320114FFBF4000046FD /* Nec-goal.lev */; };
+		437A9429114FFBF4000046FD /* Nec-loca.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A9321114FFBF4000046FD /* Nec-loca.lev */; };
+		437A942A114FFBF4000046FD /* Nec-strt.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A9322114FFBF4000046FD /* Nec-strt.lev */; };
+		437A942E114FFBF4000046FD /* nightmar.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A9326114FFBF4000046FD /* nightmar.lev */; };
+		437A9430114FFBF4000046FD /* nymph.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A9328114FFBF4000046FD /* nymph.lev */; };
+		437A9431114FFBF4000046FD /* opthelp in Resources */ = {isa = PBXBuildFile; fileRef = 437A9329114FFBF4000046FD /* opthelp */; };
+		437A9432114FFBF4000046FD /* options in Resources */ = {isa = PBXBuildFile; fileRef = 437A932A114FFBF4000046FD /* options */; };
+		437A9434114FFBF4000046FD /* oracle.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A932C114FFBF4000046FD /* oracle.lev */; };
+		437A9435114FFBF4000046FD /* oracles in Resources */ = {isa = PBXBuildFile; fileRef = 437A932D114FFBF4000046FD /* oracles */; };
+		437A9436114FFBF4000046FD /* oracles.txt in Resources */ = {isa = PBXBuildFile; fileRef = 437A932E114FFBF4000046FD /* oracles.txt */; };
+		437A9437114FFBF4000046FD /* orcus.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A932F114FFBF4000046FD /* orcus.lev */; };
+		437A9439114FFBF4000046FD /* Pri-fila.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A9331114FFBF4000046FD /* Pri-fila.lev */; };
+		437A943A114FFBF4000046FD /* Pri-filb.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A9332114FFBF4000046FD /* Pri-filb.lev */; };
+		437A943B114FFBF4000046FD /* Pri-goal.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A9333114FFBF4000046FD /* Pri-goal.lev */; };
+		437A943C114FFBF4000046FD /* Pri-loca.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A9334114FFBF4000046FD /* Pri-loca.lev */; };
+		437A943D114FFBF4000046FD /* Pri-strt.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A9335114FFBF4000046FD /* Pri-strt.lev */; };
+		437A943F114FFBF4000046FD /* quest.dat in Resources */ = {isa = PBXBuildFile; fileRef = 437A9337114FFBF4000046FD /* quest.dat */; };
+		437A9440114FFBF4000046FD /* quest.txt in Resources */ = {isa = PBXBuildFile; fileRef = 437A9338114FFBF4000046FD /* quest.txt */; };
+		437A9441114FFBF4000046FD /* quest_levs in Resources */ = {isa = PBXBuildFile; fileRef = 437A9339114FFBF4000046FD /* quest_levs */; };
+		437A9442114FFBF4000046FD /* Ran-fila.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A933A114FFBF4000046FD /* Ran-fila.lev */; };
+		437A9443114FFBF4000046FD /* Ran-filb.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A933B114FFBF4000046FD /* Ran-filb.lev */; };
+		437A9444114FFBF4000046FD /* Ran-goal.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A933C114FFBF4000046FD /* Ran-goal.lev */; };
+		437A9445114FFBF4000046FD /* Ran-loca.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A933D114FFBF4000046FD /* Ran-loca.lev */; };
+		437A9446114FFBF4000046FD /* Ran-strt.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A933E114FFBF4000046FD /* Ran-strt.lev */; };
+		437A9449114FFBF4000046FD /* rats.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A9341114FFBF4000046FD /* rats.lev */; };
+		437A944A114FFBF4000046FD /* Rog-fila.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A9342114FFBF4000046FD /* Rog-fila.lev */; };
+		437A944B114FFBF4000046FD /* Rog-filb.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A9343114FFBF4000046FD /* Rog-filb.lev */; };
+		437A944C114FFBF4000046FD /* Rog-goal.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A9344114FFBF4000046FD /* Rog-goal.lev */; };
+		437A944D114FFBF4000046FD /* Rog-loca.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A9345114FFBF4000046FD /* Rog-loca.lev */; };
+		437A944E114FFBF4000046FD /* Rog-strt.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A9346114FFBF4000046FD /* Rog-strt.lev */; };
+		437A9450114FFBF4000046FD /* rumors in Resources */ = {isa = PBXBuildFile; fileRef = 437A9348114FFBF4000046FD /* rumors */; };
+		437A9451114FFBF4000046FD /* rumors.fal in Resources */ = {isa = PBXBuildFile; fileRef = 437A9349114FFBF4000046FD /* rumors.fal */; };
+		437A9452114FFBF4000046FD /* rumors.tru in Resources */ = {isa = PBXBuildFile; fileRef = 437A934A114FFBF4000046FD /* rumors.tru */; };
+		437A9453114FFBF4000046FD /* Sam-fila.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A934B114FFBF4000046FD /* Sam-fila.lev */; };
+		437A9454114FFBF4000046FD /* Sam-filb.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A934C114FFBF4000046FD /* Sam-filb.lev */; };
+		437A9455114FFBF4000046FD /* Sam-goal.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A934D114FFBF4000046FD /* Sam-goal.lev */; };
+		437A9456114FFBF4000046FD /* Sam-loca.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A934E114FFBF4000046FD /* Sam-loca.lev */; };
+		437A9457114FFBF4000046FD /* Sam-strt.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A934F114FFBF4000046FD /* Sam-strt.lev */; };
+		437A9459114FFBF4000046FD /* sanctum.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A9351114FFBF4000046FD /* sanctum.lev */; };
+		437A945B114FFBF4000046FD /* sea.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A9353114FFBF4000046FD /* sea.lev */; };
+		437A945D114FFBF4000046FD /* soko1-1.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A9355114FFBF4000046FD /* soko1-1.lev */; };
+		437A945E114FFBF4000046FD /* soko1-2.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A9356114FFBF4000046FD /* soko1-2.lev */; };
+		437A945F114FFBF4000046FD /* soko1-3.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A9357114FFBF4000046FD /* soko1-3.lev */; };
+		437A9460114FFBF4000046FD /* soko1-4.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A9358114FFBF4000046FD /* soko1-4.lev */; };
+		437A9461114FFBF4000046FD /* soko2-1.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A9359114FFBF4000046FD /* soko2-1.lev */; };
+		437A9462114FFBF4000046FD /* soko2-2.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A935A114FFBF4000046FD /* soko2-2.lev */; };
+		437A9463114FFBF4000046FD /* soko2-3.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A935B114FFBF4000046FD /* soko2-3.lev */; };
+		437A9464114FFBF4000046FD /* soko2-4.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A935C114FFBF4000046FD /* soko2-4.lev */; };
+		437A9465114FFBF4000046FD /* soko2-5.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A935D114FFBF4000046FD /* soko2-5.lev */; };
+		437A9466114FFBF4000046FD /* soko2-6.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A935E114FFBF4000046FD /* soko2-6.lev */; };
+		437A9467114FFBF4000046FD /* soko2-7.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A935F114FFBF4000046FD /* soko2-7.lev */; };
+		437A9468114FFBF4000046FD /* soko3-1.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A9360114FFBF4000046FD /* soko3-1.lev */; };
+		437A9469114FFBF4000046FD /* soko3-2.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A9361114FFBF4000046FD /* soko3-2.lev */; };
+		437A946A114FFBF4000046FD /* soko3-3.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A9362114FFBF4000046FD /* soko3-3.lev */; };
+		437A946B114FFBF4000046FD /* soko3-4.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A9363114FFBF4000046FD /* soko3-4.lev */; };
+		437A946C114FFBF4000046FD /* soko3-5.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A9364114FFBF4000046FD /* soko3-5.lev */; };
+		437A946D114FFBF4000046FD /* soko3-6.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A9365114FFBF4000046FD /* soko3-6.lev */; };
+		437A946E114FFBF4000046FD /* soko3-7.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A9366114FFBF4000046FD /* soko3-7.lev */; };
+		437A946F114FFBF4000046FD /* soko4-1.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A9367114FFBF4000046FD /* soko4-1.lev */; };
+		437A9470114FFBF4000046FD /* soko4-2.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A9368114FFBF4000046FD /* soko4-2.lev */; };
+		437A9471114FFBF4000046FD /* soko4-3.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A9369114FFBF4000046FD /* soko4-3.lev */; };
+		437A9472114FFBF4000046FD /* soko4-4.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A936A114FFBF4000046FD /* soko4-4.lev */; };
+		437A9473114FFBF4000046FD /* soko4-5.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A936B114FFBF4000046FD /* soko4-5.lev */; };
+		437A9475114FFBF4000046FD /* spec_levs in Resources */ = {isa = PBXBuildFile; fileRef = 437A936D114FFBF4000046FD /* spec_levs */; };
+		437A9477114FFBF4000046FD /* spiders.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A936F114FFBF4000046FD /* spiders.lev */; };
+		437A9479114FFBF4000046FD /* stor-1.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A9371114FFBF4000046FD /* stor-1.lev */; };
+		437A947B114FFBF4000046FD /* stor-2.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A9373114FFBF4000046FD /* stor-2.lev */; };
+		437A947D114FFBF4000046FD /* stor-3.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A9375114FFBF4000046FD /* stor-3.lev */; };
+		437A9480114FFBF4000046FD /* tomb.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A9378114FFBF4000046FD /* tomb.lev */; };
+		437A9481114FFBF4000046FD /* Tou-fila.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A9379114FFBF4000046FD /* Tou-fila.lev */; };
+		437A9482114FFBF4000046FD /* Tou-filb.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A937A114FFBF4000046FD /* Tou-filb.lev */; };
+		437A9483114FFBF4000046FD /* Tou-goal.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A937B114FFBF4000046FD /* Tou-goal.lev */; };
+		437A9484114FFBF4000046FD /* Tou-loca.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A937C114FFBF4000046FD /* Tou-loca.lev */; };
+		437A9485114FFBF4000046FD /* Tou-strt.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A937D114FFBF4000046FD /* Tou-strt.lev */; };
+		437A9488114FFBF4000046FD /* tower1.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A9380114FFBF4000046FD /* tower1.lev */; };
+		437A9489114FFBF4000046FD /* tower2.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A9381114FFBF4000046FD /* tower2.lev */; };
+		437A948A114FFBF4000046FD /* tower3.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A9382114FFBF4000046FD /* tower3.lev */; };
+		437A948B114FFBF4000046FD /* Und-fila.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A9383114FFBF4000046FD /* Und-fila.lev */; };
+		437A948C114FFBF4000046FD /* Und-filb.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A9384114FFBF4000046FD /* Und-filb.lev */; };
+		437A948D114FFBF4000046FD /* Und-goal.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A9385114FFBF4000046FD /* Und-goal.lev */; };
+		437A948E114FFBF4000046FD /* Und-loca.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A9386114FFBF4000046FD /* Und-loca.lev */; };
+		437A948F114FFBF4000046FD /* Und-strt.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A9387114FFBF4000046FD /* Und-strt.lev */; };
+		437A9490114FFBF4000046FD /* Val-fila.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A9388114FFBF4000046FD /* Val-fila.lev */; };
+		437A9491114FFBF4000046FD /* Val-filb.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A9389114FFBF4000046FD /* Val-filb.lev */; };
+		437A9492114FFBF4000046FD /* Val-goal.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A938A114FFBF4000046FD /* Val-goal.lev */; };
+		437A9493114FFBF4000046FD /* Val-loca.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A938B114FFBF4000046FD /* Val-loca.lev */; };
+		437A9494114FFBF4000046FD /* Val-strt.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A938C114FFBF4000046FD /* Val-strt.lev */; };
+		437A9496114FFBF4000046FD /* valley.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A938E114FFBF4000046FD /* valley.lev */; };
+		437A9497114FFBF4000046FD /* water.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A938F114FFBF4000046FD /* water.lev */; };
+		437A9498114FFBF4000046FD /* Wiz-fila.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A9390114FFBF4000046FD /* Wiz-fila.lev */; };
+		437A9499114FFBF4000046FD /* Wiz-filb.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A9391114FFBF4000046FD /* Wiz-filb.lev */; };
+		437A949A114FFBF4000046FD /* Wiz-goal.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A9392114FFBF4000046FD /* Wiz-goal.lev */; };
+		437A949B114FFBF4000046FD /* Wiz-loca.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A9393114FFBF4000046FD /* Wiz-loca.lev */; };
+		437A949C114FFBF4000046FD /* Wiz-strt.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A9394114FFBF4000046FD /* Wiz-strt.lev */; };
+		437A949E114FFBF4000046FD /* wizard1.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A9396114FFBF4000046FD /* wizard1.lev */; };
+		437A949F114FFBF4000046FD /* wizard2.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A9397114FFBF4000046FD /* wizard2.lev */; };
+		437A94A0114FFBF4000046FD /* wizard3.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A9398114FFBF4000046FD /* wizard3.lev */; };
+		437A94A1114FFBF4000046FD /* wizhelp in Resources */ = {isa = PBXBuildFile; fileRef = 437A9399114FFBF4000046FD /* wizhelp */; };
+		437A94A2114FFBF4000046FD /* yeenoghu.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A939A114FFBF4000046FD /* yeenoghu.lev */; };
+		437A94A4114FFBF4000046FD /* Yeo-fila.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A939C114FFBF4000046FD /* Yeo-fila.lev */; };
+		437A94A5114FFBF4000046FD /* Yeo-filb.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A939D114FFBF4000046FD /* Yeo-filb.lev */; };
+		437A94A6114FFBF4000046FD /* Yeo-goal.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A939E114FFBF4000046FD /* Yeo-goal.lev */; };
+		437A94A7114FFBF4000046FD /* Yeo-loca.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A939F114FFBF4000046FD /* Yeo-loca.lev */; };
+		437A94A8114FFBF4000046FD /* Yeo-strt.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A93A0114FFBF4000046FD /* Yeo-strt.lev */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -475,6 +681,212 @@
 		437A928E114FF874000046FD /* vis_tab.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vis_tab.h; sourceTree = "<group>"; };
 		437A928F114FF8B4000046FD /* monstr.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = monstr.c; sourceTree = "<group>"; };
 		437A9290114FF8B4000046FD /* vis_tab.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = vis_tab.c; sourceTree = "<group>"; };
+		437A929A114FFBF4000046FD /* air.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = air.lev; sourceTree = "<group>"; };
+		437A929B114FFBF4000046FD /* Arc-fila.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Arc-fila.lev"; sourceTree = "<group>"; };
+		437A929C114FFBF4000046FD /* Arc-filb.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Arc-filb.lev"; sourceTree = "<group>"; };
+		437A929D114FFBF4000046FD /* Arc-goal.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Arc-goal.lev"; sourceTree = "<group>"; };
+		437A929E114FFBF4000046FD /* Arc-loca.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Arc-loca.lev"; sourceTree = "<group>"; };
+		437A929F114FFBF4000046FD /* Arc-strt.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Arc-strt.lev"; sourceTree = "<group>"; };
+		437A92A1114FFBF4000046FD /* asmodeus.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = asmodeus.lev; sourceTree = "<group>"; };
+		437A92A2114FFBF4000046FD /* astral.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = astral.lev; sourceTree = "<group>"; };
+		437A92A3114FFBF4000046FD /* baalz.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = baalz.lev; sourceTree = "<group>"; };
+		437A92A4114FFBF4000046FD /* Bar-fila.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Bar-fila.lev"; sourceTree = "<group>"; };
+		437A92A5114FFBF4000046FD /* Bar-filb.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Bar-filb.lev"; sourceTree = "<group>"; };
+		437A92A6114FFBF4000046FD /* Bar-goal.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Bar-goal.lev"; sourceTree = "<group>"; };
+		437A92A7114FFBF4000046FD /* Bar-loca.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Bar-loca.lev"; sourceTree = "<group>"; };
+		437A92A8114FFBF4000046FD /* Bar-strt.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Bar-strt.lev"; sourceTree = "<group>"; };
+		437A92AB114FFBF4000046FD /* beholder.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = beholder.lev; sourceTree = "<group>"; };
+		437A92AC114FFBF4000046FD /* bigrm-1.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "bigrm-1.lev"; sourceTree = "<group>"; };
+		437A92AD114FFBF4000046FD /* bigrm-2.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "bigrm-2.lev"; sourceTree = "<group>"; };
+		437A92AE114FFBF4000046FD /* bigrm-3.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "bigrm-3.lev"; sourceTree = "<group>"; };
+		437A92AF114FFBF4000046FD /* bigrm-4.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "bigrm-4.lev"; sourceTree = "<group>"; };
+		437A92B0114FFBF4000046FD /* bigrm-5.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "bigrm-5.lev"; sourceTree = "<group>"; };
+		437A92B3114FFBF4000046FD /* blkmar.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = blkmar.lev; sourceTree = "<group>"; };
+		437A92B5114FFBF4000046FD /* castle.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = castle.lev; sourceTree = "<group>"; };
+		437A92B6114FFBF4000046FD /* Cav-fila.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cav-fila.lev"; sourceTree = "<group>"; };
+		437A92B7114FFBF4000046FD /* Cav-filb.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cav-filb.lev"; sourceTree = "<group>"; };
+		437A92B8114FFBF4000046FD /* Cav-goal.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cav-goal.lev"; sourceTree = "<group>"; };
+		437A92B9114FFBF4000046FD /* Cav-loca.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cav-loca.lev"; sourceTree = "<group>"; };
+		437A92BA114FFBF4000046FD /* Cav-strt.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cav-strt.lev"; sourceTree = "<group>"; };
+		437A92BB114FFBF4000046FD /* cav2fill.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = cav2fill.lev; sourceTree = "<group>"; };
+		437A92BD114FFBF4000046FD /* cmdhelp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cmdhelp; sourceTree = "<group>"; };
+		437A92BF114FFBF4000046FD /* data */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = data; sourceTree = "<group>"; };
+		437A92C1114FFBF4000046FD /* demogorg.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = demogorg.lev; sourceTree = "<group>"; };
+		437A92C2114FFBF4000046FD /* dispater.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = dispater.lev; sourceTree = "<group>"; };
+		437A92C4114FFBF4000046FD /* dragons.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = dragons.lev; sourceTree = "<group>"; };
+		437A92C5114FFBF4000046FD /* dungeon */ = {isa = PBXFileReference; lastKnownFileType = file; path = dungeon; sourceTree = "<group>"; };
+		437A92C7114FFBF4000046FD /* dungeon.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = dungeon.pdf; sourceTree = "<group>"; };
+		437A92C8114FFBF4000046FD /* earth.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = earth.lev; sourceTree = "<group>"; };
+		437A92CA114FFBF4000046FD /* fakewiz1.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = fakewiz1.lev; sourceTree = "<group>"; };
+		437A92CB114FFBF4000046FD /* fakewiz2.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = fakewiz2.lev; sourceTree = "<group>"; };
+		437A92CC114FFBF4000046FD /* fire.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = fire.lev; sourceTree = "<group>"; };
+		437A92CD114FFBF4000046FD /* Fla-fila.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Fla-fila.lev"; sourceTree = "<group>"; };
+		437A92CE114FFBF4000046FD /* Fla-filb.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Fla-filb.lev"; sourceTree = "<group>"; };
+		437A92CF114FFBF4000046FD /* Fla-goal.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Fla-goal.lev"; sourceTree = "<group>"; };
+		437A92D0114FFBF4000046FD /* Fla-loca.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Fla-loca.lev"; sourceTree = "<group>"; };
+		437A92D1114FFBF4000046FD /* Fla-strt.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Fla-strt.lev"; sourceTree = "<group>"; };
+		437A92D4114FFBF4000046FD /* frnknstn.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = frnknstn.lev; sourceTree = "<group>"; };
+		437A92D6114FFBF4000046FD /* geryon.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = geryon.lev; sourceTree = "<group>"; };
+		437A92D8114FFBF4000046FD /* grund-1.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "grund-1.lev"; sourceTree = "<group>"; };
+		437A92D9114FFBF4000046FD /* grund-2.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "grund-2.lev"; sourceTree = "<group>"; };
+		437A92DA114FFBF4000046FD /* grund-3.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "grund-3.lev"; sourceTree = "<group>"; };
+		437A92DD114FFBF4000046FD /* guild.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = guild.lev; sourceTree = "<group>"; };
+		437A92DE114FFBF4000046FD /* gypsy.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = gypsy.txt; sourceTree = "<group>"; };
+		437A92DF114FFBF4000046FD /* Hea-fila.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Hea-fila.lev"; sourceTree = "<group>"; };
+		437A92E0114FFBF4000046FD /* Hea-filb.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Hea-filb.lev"; sourceTree = "<group>"; };
+		437A92E1114FFBF4000046FD /* Hea-goal.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Hea-goal.lev"; sourceTree = "<group>"; };
+		437A92E2114FFBF4000046FD /* Hea-loca.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Hea-loca.lev"; sourceTree = "<group>"; };
+		437A92E3114FFBF4000046FD /* Hea-strt.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Hea-strt.lev"; sourceTree = "<group>"; };
+		437A92E5114FFBF4000046FD /* help */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = help; sourceTree = "<group>"; };
+		437A92E6114FFBF4000046FD /* hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = hh; sourceTree = "<group>"; };
+		437A92E7114FFBF4000046FD /* history */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = history; sourceTree = "<group>"; };
+		437A92E8114FFBF4000046FD /* Ice-fila.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ice-fila.lev"; sourceTree = "<group>"; };
+		437A92E9114FFBF4000046FD /* Ice-filb.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ice-filb.lev"; sourceTree = "<group>"; };
+		437A92EA114FFBF4000046FD /* Ice-goal.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ice-goal.lev"; sourceTree = "<group>"; };
+		437A92EB114FFBF4000046FD /* Ice-loca.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ice-loca.lev"; sourceTree = "<group>"; };
+		437A92EC114FFBF4000046FD /* Ice-strt.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ice-strt.lev"; sourceTree = "<group>"; };
+		437A92EE114FFBF4000046FD /* juiblex.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = juiblex.lev; sourceTree = "<group>"; };
+		437A92EF114FFBF4000046FD /* Kni-fila.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Kni-fila.lev"; sourceTree = "<group>"; };
+		437A92F0114FFBF4000046FD /* Kni-filb.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Kni-filb.lev"; sourceTree = "<group>"; };
+		437A92F1114FFBF4000046FD /* Kni-goal.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Kni-goal.lev"; sourceTree = "<group>"; };
+		437A92F2114FFBF4000046FD /* Kni-loca.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Kni-loca.lev"; sourceTree = "<group>"; };
+		437A92F3114FFBF4000046FD /* Kni-strt.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Kni-strt.lev"; sourceTree = "<group>"; };
+		437A92F6114FFBF4000046FD /* knox.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = knox.lev; sourceTree = "<group>"; };
+		437A92F8114FFBF4000046FD /* kobold-1.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "kobold-1.lev"; sourceTree = "<group>"; };
+		437A92FA114FFBF4000046FD /* kobold-2.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "kobold-2.lev"; sourceTree = "<group>"; };
+		437A92FB114FFBF4000046FD /* license */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = license; sourceTree = "<group>"; };
+		437A92FD114FFBF4000046FD /* lich.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = lich.lev; sourceTree = "<group>"; };
+		437A9300114FFBF4000046FD /* mall-1.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "mall-1.lev"; sourceTree = "<group>"; };
+		437A9302114FFBF4000046FD /* mall-2.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "mall-2.lev"; sourceTree = "<group>"; };
+		437A9303114FFBF4000046FD /* mall.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = mall.lev; sourceTree = "<group>"; };
+		437A9304114FFBF4000046FD /* medusa-1.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "medusa-1.lev"; sourceTree = "<group>"; };
+		437A9305114FFBF4000046FD /* medusa-2.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "medusa-2.lev"; sourceTree = "<group>"; };
+		437A9306114FFBF4000046FD /* medusa-3.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "medusa-3.lev"; sourceTree = "<group>"; };
+		437A9307114FFBF4000046FD /* medusa-4.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "medusa-4.lev"; sourceTree = "<group>"; };
+		437A9309114FFBF4000046FD /* minefill.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = minefill.lev; sourceTree = "<group>"; };
+		437A930A114FFBF4000046FD /* mineking.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = mineking.lev; sourceTree = "<group>"; };
+		437A930B114FFBF4000046FD /* minend-1.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "minend-1.lev"; sourceTree = "<group>"; };
+		437A930C114FFBF4000046FD /* minend-2.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "minend-2.lev"; sourceTree = "<group>"; };
+		437A930D114FFBF4000046FD /* minend-3.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "minend-3.lev"; sourceTree = "<group>"; };
+		437A930F114FFBF4000046FD /* minetn-1.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "minetn-1.lev"; sourceTree = "<group>"; };
+		437A9310114FFBF4000046FD /* minetn-2.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "minetn-2.lev"; sourceTree = "<group>"; };
+		437A9311114FFBF4000046FD /* minetn-3.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "minetn-3.lev"; sourceTree = "<group>"; };
+		437A9312114FFBF4000046FD /* minetn-4.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "minetn-4.lev"; sourceTree = "<group>"; };
+		437A9313114FFBF4000046FD /* minetn-5.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "minetn-5.lev"; sourceTree = "<group>"; };
+		437A9314114FFBF4000046FD /* minetn-6.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "minetn-6.lev"; sourceTree = "<group>"; };
+		437A9315114FFBF4000046FD /* minetn-7.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "minetn-7.lev"; sourceTree = "<group>"; };
+		437A9316114FFBF4000046FD /* Mon-fila.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mon-fila.lev"; sourceTree = "<group>"; };
+		437A9317114FFBF4000046FD /* Mon-filb.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mon-filb.lev"; sourceTree = "<group>"; };
+		437A9318114FFBF4000046FD /* Mon-goal.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mon-goal.lev"; sourceTree = "<group>"; };
+		437A9319114FFBF4000046FD /* Mon-loca.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mon-loca.lev"; sourceTree = "<group>"; };
+		437A931A114FFBF4000046FD /* Mon-strt.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mon-strt.lev"; sourceTree = "<group>"; };
+		437A931D114FFBF4000046FD /* mtemple.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = mtemple.lev; sourceTree = "<group>"; };
+		437A931E114FFBF4000046FD /* Nec-fila.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nec-fila.lev"; sourceTree = "<group>"; };
+		437A931F114FFBF4000046FD /* Nec-filb.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nec-filb.lev"; sourceTree = "<group>"; };
+		437A9320114FFBF4000046FD /* Nec-goal.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nec-goal.lev"; sourceTree = "<group>"; };
+		437A9321114FFBF4000046FD /* Nec-loca.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nec-loca.lev"; sourceTree = "<group>"; };
+		437A9322114FFBF4000046FD /* Nec-strt.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nec-strt.lev"; sourceTree = "<group>"; };
+		437A9326114FFBF4000046FD /* nightmar.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = nightmar.lev; sourceTree = "<group>"; };
+		437A9328114FFBF4000046FD /* nymph.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = nymph.lev; sourceTree = "<group>"; };
+		437A9329114FFBF4000046FD /* opthelp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = opthelp; sourceTree = "<group>"; };
+		437A932A114FFBF4000046FD /* options */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = options; sourceTree = "<group>"; };
+		437A932C114FFBF4000046FD /* oracle.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = oracle.lev; sourceTree = "<group>"; };
+		437A932D114FFBF4000046FD /* oracles */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = oracles; sourceTree = "<group>"; };
+		437A932E114FFBF4000046FD /* oracles.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = oracles.txt; sourceTree = "<group>"; };
+		437A932F114FFBF4000046FD /* orcus.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = orcus.lev; sourceTree = "<group>"; };
+		437A9331114FFBF4000046FD /* Pri-fila.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pri-fila.lev"; sourceTree = "<group>"; };
+		437A9332114FFBF4000046FD /* Pri-filb.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pri-filb.lev"; sourceTree = "<group>"; };
+		437A9333114FFBF4000046FD /* Pri-goal.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pri-goal.lev"; sourceTree = "<group>"; };
+		437A9334114FFBF4000046FD /* Pri-loca.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pri-loca.lev"; sourceTree = "<group>"; };
+		437A9335114FFBF4000046FD /* Pri-strt.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pri-strt.lev"; sourceTree = "<group>"; };
+		437A9337114FFBF4000046FD /* quest.dat */ = {isa = PBXFileReference; lastKnownFileType = file; path = quest.dat; sourceTree = "<group>"; };
+		437A9338114FFBF4000046FD /* quest.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = quest.txt; sourceTree = "<group>"; };
+		437A9339114FFBF4000046FD /* quest_levs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = quest_levs; sourceTree = "<group>"; };
+		437A933A114FFBF4000046FD /* Ran-fila.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ran-fila.lev"; sourceTree = "<group>"; };
+		437A933B114FFBF4000046FD /* Ran-filb.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ran-filb.lev"; sourceTree = "<group>"; };
+		437A933C114FFBF4000046FD /* Ran-goal.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ran-goal.lev"; sourceTree = "<group>"; };
+		437A933D114FFBF4000046FD /* Ran-loca.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ran-loca.lev"; sourceTree = "<group>"; };
+		437A933E114FFBF4000046FD /* Ran-strt.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ran-strt.lev"; sourceTree = "<group>"; };
+		437A9341114FFBF4000046FD /* rats.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = rats.lev; sourceTree = "<group>"; };
+		437A9342114FFBF4000046FD /* Rog-fila.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rog-fila.lev"; sourceTree = "<group>"; };
+		437A9343114FFBF4000046FD /* Rog-filb.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rog-filb.lev"; sourceTree = "<group>"; };
+		437A9344114FFBF4000046FD /* Rog-goal.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rog-goal.lev"; sourceTree = "<group>"; };
+		437A9345114FFBF4000046FD /* Rog-loca.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rog-loca.lev"; sourceTree = "<group>"; };
+		437A9346114FFBF4000046FD /* Rog-strt.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rog-strt.lev"; sourceTree = "<group>"; };
+		437A9348114FFBF4000046FD /* rumors */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = rumors; sourceTree = "<group>"; };
+		437A9349114FFBF4000046FD /* rumors.fal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = rumors.fal; sourceTree = "<group>"; };
+		437A934A114FFBF4000046FD /* rumors.tru */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = rumors.tru; sourceTree = "<group>"; };
+		437A934B114FFBF4000046FD /* Sam-fila.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sam-fila.lev"; sourceTree = "<group>"; };
+		437A934C114FFBF4000046FD /* Sam-filb.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sam-filb.lev"; sourceTree = "<group>"; };
+		437A934D114FFBF4000046FD /* Sam-goal.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sam-goal.lev"; sourceTree = "<group>"; };
+		437A934E114FFBF4000046FD /* Sam-loca.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sam-loca.lev"; sourceTree = "<group>"; };
+		437A934F114FFBF4000046FD /* Sam-strt.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sam-strt.lev"; sourceTree = "<group>"; };
+		437A9351114FFBF4000046FD /* sanctum.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = sanctum.lev; sourceTree = "<group>"; };
+		437A9353114FFBF4000046FD /* sea.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = sea.lev; sourceTree = "<group>"; };
+		437A9355114FFBF4000046FD /* soko1-1.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "soko1-1.lev"; sourceTree = "<group>"; };
+		437A9356114FFBF4000046FD /* soko1-2.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "soko1-2.lev"; sourceTree = "<group>"; };
+		437A9357114FFBF4000046FD /* soko1-3.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "soko1-3.lev"; sourceTree = "<group>"; };
+		437A9358114FFBF4000046FD /* soko1-4.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "soko1-4.lev"; sourceTree = "<group>"; };
+		437A9359114FFBF4000046FD /* soko2-1.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "soko2-1.lev"; sourceTree = "<group>"; };
+		437A935A114FFBF4000046FD /* soko2-2.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "soko2-2.lev"; sourceTree = "<group>"; };
+		437A935B114FFBF4000046FD /* soko2-3.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "soko2-3.lev"; sourceTree = "<group>"; };
+		437A935C114FFBF4000046FD /* soko2-4.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "soko2-4.lev"; sourceTree = "<group>"; };
+		437A935D114FFBF4000046FD /* soko2-5.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "soko2-5.lev"; sourceTree = "<group>"; };
+		437A935E114FFBF4000046FD /* soko2-6.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "soko2-6.lev"; sourceTree = "<group>"; };
+		437A935F114FFBF4000046FD /* soko2-7.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "soko2-7.lev"; sourceTree = "<group>"; };
+		437A9360114FFBF4000046FD /* soko3-1.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "soko3-1.lev"; sourceTree = "<group>"; };
+		437A9361114FFBF4000046FD /* soko3-2.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "soko3-2.lev"; sourceTree = "<group>"; };
+		437A9362114FFBF4000046FD /* soko3-3.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "soko3-3.lev"; sourceTree = "<group>"; };
+		437A9363114FFBF4000046FD /* soko3-4.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "soko3-4.lev"; sourceTree = "<group>"; };
+		437A9364114FFBF4000046FD /* soko3-5.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "soko3-5.lev"; sourceTree = "<group>"; };
+		437A9365114FFBF4000046FD /* soko3-6.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "soko3-6.lev"; sourceTree = "<group>"; };
+		437A9366114FFBF4000046FD /* soko3-7.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "soko3-7.lev"; sourceTree = "<group>"; };
+		437A9367114FFBF4000046FD /* soko4-1.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "soko4-1.lev"; sourceTree = "<group>"; };
+		437A9368114FFBF4000046FD /* soko4-2.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "soko4-2.lev"; sourceTree = "<group>"; };
+		437A9369114FFBF4000046FD /* soko4-3.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "soko4-3.lev"; sourceTree = "<group>"; };
+		437A936A114FFBF4000046FD /* soko4-4.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "soko4-4.lev"; sourceTree = "<group>"; };
+		437A936B114FFBF4000046FD /* soko4-5.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "soko4-5.lev"; sourceTree = "<group>"; };
+		437A936D114FFBF4000046FD /* spec_levs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = spec_levs; sourceTree = "<group>"; };
+		437A936F114FFBF4000046FD /* spiders.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = spiders.lev; sourceTree = "<group>"; };
+		437A9371114FFBF4000046FD /* stor-1.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "stor-1.lev"; sourceTree = "<group>"; };
+		437A9373114FFBF4000046FD /* stor-2.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "stor-2.lev"; sourceTree = "<group>"; };
+		437A9375114FFBF4000046FD /* stor-3.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "stor-3.lev"; sourceTree = "<group>"; };
+		437A9378114FFBF4000046FD /* tomb.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = tomb.lev; sourceTree = "<group>"; };
+		437A9379114FFBF4000046FD /* Tou-fila.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Tou-fila.lev"; sourceTree = "<group>"; };
+		437A937A114FFBF4000046FD /* Tou-filb.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Tou-filb.lev"; sourceTree = "<group>"; };
+		437A937B114FFBF4000046FD /* Tou-goal.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Tou-goal.lev"; sourceTree = "<group>"; };
+		437A937C114FFBF4000046FD /* Tou-loca.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Tou-loca.lev"; sourceTree = "<group>"; };
+		437A937D114FFBF4000046FD /* Tou-strt.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Tou-strt.lev"; sourceTree = "<group>"; };
+		437A9380114FFBF4000046FD /* tower1.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = tower1.lev; sourceTree = "<group>"; };
+		437A9381114FFBF4000046FD /* tower2.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = tower2.lev; sourceTree = "<group>"; };
+		437A9382114FFBF4000046FD /* tower3.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = tower3.lev; sourceTree = "<group>"; };
+		437A9383114FFBF4000046FD /* Und-fila.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Und-fila.lev"; sourceTree = "<group>"; };
+		437A9384114FFBF4000046FD /* Und-filb.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Und-filb.lev"; sourceTree = "<group>"; };
+		437A9385114FFBF4000046FD /* Und-goal.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Und-goal.lev"; sourceTree = "<group>"; };
+		437A9386114FFBF4000046FD /* Und-loca.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Und-loca.lev"; sourceTree = "<group>"; };
+		437A9387114FFBF4000046FD /* Und-strt.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Und-strt.lev"; sourceTree = "<group>"; };
+		437A9388114FFBF4000046FD /* Val-fila.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Val-fila.lev"; sourceTree = "<group>"; };
+		437A9389114FFBF4000046FD /* Val-filb.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Val-filb.lev"; sourceTree = "<group>"; };
+		437A938A114FFBF4000046FD /* Val-goal.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Val-goal.lev"; sourceTree = "<group>"; };
+		437A938B114FFBF4000046FD /* Val-loca.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Val-loca.lev"; sourceTree = "<group>"; };
+		437A938C114FFBF4000046FD /* Val-strt.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Val-strt.lev"; sourceTree = "<group>"; };
+		437A938E114FFBF4000046FD /* valley.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = valley.lev; sourceTree = "<group>"; };
+		437A938F114FFBF4000046FD /* water.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = water.lev; sourceTree = "<group>"; };
+		437A9390114FFBF4000046FD /* Wiz-fila.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Wiz-fila.lev"; sourceTree = "<group>"; };
+		437A9391114FFBF4000046FD /* Wiz-filb.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Wiz-filb.lev"; sourceTree = "<group>"; };
+		437A9392114FFBF4000046FD /* Wiz-goal.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Wiz-goal.lev"; sourceTree = "<group>"; };
+		437A9393114FFBF4000046FD /* Wiz-loca.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Wiz-loca.lev"; sourceTree = "<group>"; };
+		437A9394114FFBF4000046FD /* Wiz-strt.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Wiz-strt.lev"; sourceTree = "<group>"; };
+		437A9396114FFBF4000046FD /* wizard1.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = wizard1.lev; sourceTree = "<group>"; };
+		437A9397114FFBF4000046FD /* wizard2.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = wizard2.lev; sourceTree = "<group>"; };
+		437A9398114FFBF4000046FD /* wizard3.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = wizard3.lev; sourceTree = "<group>"; };
+		437A9399114FFBF4000046FD /* wizhelp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = wizhelp; sourceTree = "<group>"; };
+		437A939A114FFBF4000046FD /* yeenoghu.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = yeenoghu.lev; sourceTree = "<group>"; };
+		437A939C114FFBF4000046FD /* Yeo-fila.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Yeo-fila.lev"; sourceTree = "<group>"; };
+		437A939D114FFBF4000046FD /* Yeo-filb.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Yeo-filb.lev"; sourceTree = "<group>"; };
+		437A939E114FFBF4000046FD /* Yeo-goal.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Yeo-goal.lev"; sourceTree = "<group>"; };
+		437A939F114FFBF4000046FD /* Yeo-loca.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Yeo-loca.lev"; sourceTree = "<group>"; };
+		437A93A0114FFBF4000046FD /* Yeo-strt.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Yeo-strt.lev"; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* SlashEM-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "SlashEM-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -537,6 +949,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				437A9299114FFBF4000046FD /* dat */,
 				28AD733E0D9D9553002E5188 /* MainWindow.xib */,
 				8D1107310486CEB800E47090 /* SlashEM-Info.plist */,
 			);
@@ -883,6 +1296,220 @@
 			path = ../../src;
 			sourceTree = SOURCE_ROOT;
 		};
+		437A9299114FFBF4000046FD /* dat */ = {
+			isa = PBXGroup;
+			children = (
+				437A929A114FFBF4000046FD /* air.lev */,
+				437A929B114FFBF4000046FD /* Arc-fila.lev */,
+				437A929C114FFBF4000046FD /* Arc-filb.lev */,
+				437A929D114FFBF4000046FD /* Arc-goal.lev */,
+				437A929E114FFBF4000046FD /* Arc-loca.lev */,
+				437A929F114FFBF4000046FD /* Arc-strt.lev */,
+				437A92A1114FFBF4000046FD /* asmodeus.lev */,
+				437A92A2114FFBF4000046FD /* astral.lev */,
+				437A92A3114FFBF4000046FD /* baalz.lev */,
+				437A92A4114FFBF4000046FD /* Bar-fila.lev */,
+				437A92A5114FFBF4000046FD /* Bar-filb.lev */,
+				437A92A6114FFBF4000046FD /* Bar-goal.lev */,
+				437A92A7114FFBF4000046FD /* Bar-loca.lev */,
+				437A92A8114FFBF4000046FD /* Bar-strt.lev */,
+				437A92AB114FFBF4000046FD /* beholder.lev */,
+				437A92AC114FFBF4000046FD /* bigrm-1.lev */,
+				437A92AD114FFBF4000046FD /* bigrm-2.lev */,
+				437A92AE114FFBF4000046FD /* bigrm-3.lev */,
+				437A92AF114FFBF4000046FD /* bigrm-4.lev */,
+				437A92B0114FFBF4000046FD /* bigrm-5.lev */,
+				437A92B3114FFBF4000046FD /* blkmar.lev */,
+				437A92B5114FFBF4000046FD /* castle.lev */,
+				437A92B6114FFBF4000046FD /* Cav-fila.lev */,
+				437A92B7114FFBF4000046FD /* Cav-filb.lev */,
+				437A92B8114FFBF4000046FD /* Cav-goal.lev */,
+				437A92B9114FFBF4000046FD /* Cav-loca.lev */,
+				437A92BA114FFBF4000046FD /* Cav-strt.lev */,
+				437A92BB114FFBF4000046FD /* cav2fill.lev */,
+				437A92BD114FFBF4000046FD /* cmdhelp */,
+				437A92BF114FFBF4000046FD /* data */,
+				437A92C1114FFBF4000046FD /* demogorg.lev */,
+				437A92C2114FFBF4000046FD /* dispater.lev */,
+				437A92C4114FFBF4000046FD /* dragons.lev */,
+				437A92C5114FFBF4000046FD /* dungeon */,
+				437A92C7114FFBF4000046FD /* dungeon.pdf */,
+				437A92C8114FFBF4000046FD /* earth.lev */,
+				437A92CA114FFBF4000046FD /* fakewiz1.lev */,
+				437A92CB114FFBF4000046FD /* fakewiz2.lev */,
+				437A92CC114FFBF4000046FD /* fire.lev */,
+				437A92CD114FFBF4000046FD /* Fla-fila.lev */,
+				437A92CE114FFBF4000046FD /* Fla-filb.lev */,
+				437A92CF114FFBF4000046FD /* Fla-goal.lev */,
+				437A92D0114FFBF4000046FD /* Fla-loca.lev */,
+				437A92D1114FFBF4000046FD /* Fla-strt.lev */,
+				437A92D4114FFBF4000046FD /* frnknstn.lev */,
+				437A92D6114FFBF4000046FD /* geryon.lev */,
+				437A92D8114FFBF4000046FD /* grund-1.lev */,
+				437A92D9114FFBF4000046FD /* grund-2.lev */,
+				437A92DA114FFBF4000046FD /* grund-3.lev */,
+				437A92DD114FFBF4000046FD /* guild.lev */,
+				437A92DE114FFBF4000046FD /* gypsy.txt */,
+				437A92DF114FFBF4000046FD /* Hea-fila.lev */,
+				437A92E0114FFBF4000046FD /* Hea-filb.lev */,
+				437A92E1114FFBF4000046FD /* Hea-goal.lev */,
+				437A92E2114FFBF4000046FD /* Hea-loca.lev */,
+				437A92E3114FFBF4000046FD /* Hea-strt.lev */,
+				437A92E5114FFBF4000046FD /* help */,
+				437A92E6114FFBF4000046FD /* hh */,
+				437A92E7114FFBF4000046FD /* history */,
+				437A92E8114FFBF4000046FD /* Ice-fila.lev */,
+				437A92E9114FFBF4000046FD /* Ice-filb.lev */,
+				437A92EA114FFBF4000046FD /* Ice-goal.lev */,
+				437A92EB114FFBF4000046FD /* Ice-loca.lev */,
+				437A92EC114FFBF4000046FD /* Ice-strt.lev */,
+				437A92EE114FFBF4000046FD /* juiblex.lev */,
+				437A92EF114FFBF4000046FD /* Kni-fila.lev */,
+				437A92F0114FFBF4000046FD /* Kni-filb.lev */,
+				437A92F1114FFBF4000046FD /* Kni-goal.lev */,
+				437A92F2114FFBF4000046FD /* Kni-loca.lev */,
+				437A92F3114FFBF4000046FD /* Kni-strt.lev */,
+				437A92F6114FFBF4000046FD /* knox.lev */,
+				437A92F8114FFBF4000046FD /* kobold-1.lev */,
+				437A92FA114FFBF4000046FD /* kobold-2.lev */,
+				437A92FB114FFBF4000046FD /* license */,
+				437A92FD114FFBF4000046FD /* lich.lev */,
+				437A9300114FFBF4000046FD /* mall-1.lev */,
+				437A9302114FFBF4000046FD /* mall-2.lev */,
+				437A9303114FFBF4000046FD /* mall.lev */,
+				437A9304114FFBF4000046FD /* medusa-1.lev */,
+				437A9305114FFBF4000046FD /* medusa-2.lev */,
+				437A9306114FFBF4000046FD /* medusa-3.lev */,
+				437A9307114FFBF4000046FD /* medusa-4.lev */,
+				437A9309114FFBF4000046FD /* minefill.lev */,
+				437A930A114FFBF4000046FD /* mineking.lev */,
+				437A930B114FFBF4000046FD /* minend-1.lev */,
+				437A930C114FFBF4000046FD /* minend-2.lev */,
+				437A930D114FFBF4000046FD /* minend-3.lev */,
+				437A930F114FFBF4000046FD /* minetn-1.lev */,
+				437A9310114FFBF4000046FD /* minetn-2.lev */,
+				437A9311114FFBF4000046FD /* minetn-3.lev */,
+				437A9312114FFBF4000046FD /* minetn-4.lev */,
+				437A9313114FFBF4000046FD /* minetn-5.lev */,
+				437A9314114FFBF4000046FD /* minetn-6.lev */,
+				437A9315114FFBF4000046FD /* minetn-7.lev */,
+				437A9316114FFBF4000046FD /* Mon-fila.lev */,
+				437A9317114FFBF4000046FD /* Mon-filb.lev */,
+				437A9318114FFBF4000046FD /* Mon-goal.lev */,
+				437A9319114FFBF4000046FD /* Mon-loca.lev */,
+				437A931A114FFBF4000046FD /* Mon-strt.lev */,
+				437A931D114FFBF4000046FD /* mtemple.lev */,
+				437A931E114FFBF4000046FD /* Nec-fila.lev */,
+				437A931F114FFBF4000046FD /* Nec-filb.lev */,
+				437A9320114FFBF4000046FD /* Nec-goal.lev */,
+				437A9321114FFBF4000046FD /* Nec-loca.lev */,
+				437A9322114FFBF4000046FD /* Nec-strt.lev */,
+				437A9326114FFBF4000046FD /* nightmar.lev */,
+				437A9328114FFBF4000046FD /* nymph.lev */,
+				437A9329114FFBF4000046FD /* opthelp */,
+				437A932A114FFBF4000046FD /* options */,
+				437A932C114FFBF4000046FD /* oracle.lev */,
+				437A932D114FFBF4000046FD /* oracles */,
+				437A932E114FFBF4000046FD /* oracles.txt */,
+				437A932F114FFBF4000046FD /* orcus.lev */,
+				437A9331114FFBF4000046FD /* Pri-fila.lev */,
+				437A9332114FFBF4000046FD /* Pri-filb.lev */,
+				437A9333114FFBF4000046FD /* Pri-goal.lev */,
+				437A9334114FFBF4000046FD /* Pri-loca.lev */,
+				437A9335114FFBF4000046FD /* Pri-strt.lev */,
+				437A9337114FFBF4000046FD /* quest.dat */,
+				437A9338114FFBF4000046FD /* quest.txt */,
+				437A9339114FFBF4000046FD /* quest_levs */,
+				437A933A114FFBF4000046FD /* Ran-fila.lev */,
+				437A933B114FFBF4000046FD /* Ran-filb.lev */,
+				437A933C114FFBF4000046FD /* Ran-goal.lev */,
+				437A933D114FFBF4000046FD /* Ran-loca.lev */,
+				437A933E114FFBF4000046FD /* Ran-strt.lev */,
+				437A9341114FFBF4000046FD /* rats.lev */,
+				437A9342114FFBF4000046FD /* Rog-fila.lev */,
+				437A9343114FFBF4000046FD /* Rog-filb.lev */,
+				437A9344114FFBF4000046FD /* Rog-goal.lev */,
+				437A9345114FFBF4000046FD /* Rog-loca.lev */,
+				437A9346114FFBF4000046FD /* Rog-strt.lev */,
+				437A9348114FFBF4000046FD /* rumors */,
+				437A9349114FFBF4000046FD /* rumors.fal */,
+				437A934A114FFBF4000046FD /* rumors.tru */,
+				437A934B114FFBF4000046FD /* Sam-fila.lev */,
+				437A934C114FFBF4000046FD /* Sam-filb.lev */,
+				437A934D114FFBF4000046FD /* Sam-goal.lev */,
+				437A934E114FFBF4000046FD /* Sam-loca.lev */,
+				437A934F114FFBF4000046FD /* Sam-strt.lev */,
+				437A9351114FFBF4000046FD /* sanctum.lev */,
+				437A9353114FFBF4000046FD /* sea.lev */,
+				437A9355114FFBF4000046FD /* soko1-1.lev */,
+				437A9356114FFBF4000046FD /* soko1-2.lev */,
+				437A9357114FFBF4000046FD /* soko1-3.lev */,
+				437A9358114FFBF4000046FD /* soko1-4.lev */,
+				437A9359114FFBF4000046FD /* soko2-1.lev */,
+				437A935A114FFBF4000046FD /* soko2-2.lev */,
+				437A935B114FFBF4000046FD /* soko2-3.lev */,
+				437A935C114FFBF4000046FD /* soko2-4.lev */,
+				437A935D114FFBF4000046FD /* soko2-5.lev */,
+				437A935E114FFBF4000046FD /* soko2-6.lev */,
+				437A935F114FFBF4000046FD /* soko2-7.lev */,
+				437A9360114FFBF4000046FD /* soko3-1.lev */,
+				437A9361114FFBF4000046FD /* soko3-2.lev */,
+				437A9362114FFBF4000046FD /* soko3-3.lev */,
+				437A9363114FFBF4000046FD /* soko3-4.lev */,
+				437A9364114FFBF4000046FD /* soko3-5.lev */,
+				437A9365114FFBF4000046FD /* soko3-6.lev */,
+				437A9366114FFBF4000046FD /* soko3-7.lev */,
+				437A9367114FFBF4000046FD /* soko4-1.lev */,
+				437A9368114FFBF4000046FD /* soko4-2.lev */,
+				437A9369114FFBF4000046FD /* soko4-3.lev */,
+				437A936A114FFBF4000046FD /* soko4-4.lev */,
+				437A936B114FFBF4000046FD /* soko4-5.lev */,
+				437A936D114FFBF4000046FD /* spec_levs */,
+				437A936F114FFBF4000046FD /* spiders.lev */,
+				437A9371114FFBF4000046FD /* stor-1.lev */,
+				437A9373114FFBF4000046FD /* stor-2.lev */,
+				437A9375114FFBF4000046FD /* stor-3.lev */,
+				437A9378114FFBF4000046FD /* tomb.lev */,
+				437A9379114FFBF4000046FD /* Tou-fila.lev */,
+				437A937A114FFBF4000046FD /* Tou-filb.lev */,
+				437A937B114FFBF4000046FD /* Tou-goal.lev */,
+				437A937C114FFBF4000046FD /* Tou-loca.lev */,
+				437A937D114FFBF4000046FD /* Tou-strt.lev */,
+				437A9380114FFBF4000046FD /* tower1.lev */,
+				437A9381114FFBF4000046FD /* tower2.lev */,
+				437A9382114FFBF4000046FD /* tower3.lev */,
+				437A9383114FFBF4000046FD /* Und-fila.lev */,
+				437A9384114FFBF4000046FD /* Und-filb.lev */,
+				437A9385114FFBF4000046FD /* Und-goal.lev */,
+				437A9386114FFBF4000046FD /* Und-loca.lev */,
+				437A9387114FFBF4000046FD /* Und-strt.lev */,
+				437A9388114FFBF4000046FD /* Val-fila.lev */,
+				437A9389114FFBF4000046FD /* Val-filb.lev */,
+				437A938A114FFBF4000046FD /* Val-goal.lev */,
+				437A938B114FFBF4000046FD /* Val-loca.lev */,
+				437A938C114FFBF4000046FD /* Val-strt.lev */,
+				437A938E114FFBF4000046FD /* valley.lev */,
+				437A938F114FFBF4000046FD /* water.lev */,
+				437A9390114FFBF4000046FD /* Wiz-fila.lev */,
+				437A9391114FFBF4000046FD /* Wiz-filb.lev */,
+				437A9392114FFBF4000046FD /* Wiz-goal.lev */,
+				437A9393114FFBF4000046FD /* Wiz-loca.lev */,
+				437A9394114FFBF4000046FD /* Wiz-strt.lev */,
+				437A9396114FFBF4000046FD /* wizard1.lev */,
+				437A9397114FFBF4000046FD /* wizard2.lev */,
+				437A9398114FFBF4000046FD /* wizard3.lev */,
+				437A9399114FFBF4000046FD /* wizhelp */,
+				437A939A114FFBF4000046FD /* yeenoghu.lev */,
+				437A939C114FFBF4000046FD /* Yeo-fila.lev */,
+				437A939D114FFBF4000046FD /* Yeo-filb.lev */,
+				437A939E114FFBF4000046FD /* Yeo-goal.lev */,
+				437A939F114FFBF4000046FD /* Yeo-loca.lev */,
+				437A93A0114FFBF4000046FD /* Yeo-strt.lev */,
+			);
+			name = dat;
+			path = ../../dat;
+			sourceTree = SOURCE_ROOT;
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -926,6 +1553,212 @@
 			buildActionMask = 2147483647;
 			files = (
 				28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */,
+				437A93A2114FFBF4000046FD /* air.lev in Resources */,
+				437A93A3114FFBF4000046FD /* Arc-fila.lev in Resources */,
+				437A93A4114FFBF4000046FD /* Arc-filb.lev in Resources */,
+				437A93A5114FFBF4000046FD /* Arc-goal.lev in Resources */,
+				437A93A6114FFBF4000046FD /* Arc-loca.lev in Resources */,
+				437A93A7114FFBF4000046FD /* Arc-strt.lev in Resources */,
+				437A93A9114FFBF4000046FD /* asmodeus.lev in Resources */,
+				437A93AA114FFBF4000046FD /* astral.lev in Resources */,
+				437A93AB114FFBF4000046FD /* baalz.lev in Resources */,
+				437A93AC114FFBF4000046FD /* Bar-fila.lev in Resources */,
+				437A93AD114FFBF4000046FD /* Bar-filb.lev in Resources */,
+				437A93AE114FFBF4000046FD /* Bar-goal.lev in Resources */,
+				437A93AF114FFBF4000046FD /* Bar-loca.lev in Resources */,
+				437A93B0114FFBF4000046FD /* Bar-strt.lev in Resources */,
+				437A93B3114FFBF4000046FD /* beholder.lev in Resources */,
+				437A93B4114FFBF4000046FD /* bigrm-1.lev in Resources */,
+				437A93B5114FFBF4000046FD /* bigrm-2.lev in Resources */,
+				437A93B6114FFBF4000046FD /* bigrm-3.lev in Resources */,
+				437A93B7114FFBF4000046FD /* bigrm-4.lev in Resources */,
+				437A93B8114FFBF4000046FD /* bigrm-5.lev in Resources */,
+				437A93BB114FFBF4000046FD /* blkmar.lev in Resources */,
+				437A93BD114FFBF4000046FD /* castle.lev in Resources */,
+				437A93BE114FFBF4000046FD /* Cav-fila.lev in Resources */,
+				437A93BF114FFBF4000046FD /* Cav-filb.lev in Resources */,
+				437A93C0114FFBF4000046FD /* Cav-goal.lev in Resources */,
+				437A93C1114FFBF4000046FD /* Cav-loca.lev in Resources */,
+				437A93C2114FFBF4000046FD /* Cav-strt.lev in Resources */,
+				437A93C3114FFBF4000046FD /* cav2fill.lev in Resources */,
+				437A93C5114FFBF4000046FD /* cmdhelp in Resources */,
+				437A93C7114FFBF4000046FD /* data in Resources */,
+				437A93C9114FFBF4000046FD /* demogorg.lev in Resources */,
+				437A93CA114FFBF4000046FD /* dispater.lev in Resources */,
+				437A93CC114FFBF4000046FD /* dragons.lev in Resources */,
+				437A93CD114FFBF4000046FD /* dungeon in Resources */,
+				437A93CF114FFBF4000046FD /* dungeon.pdf in Resources */,
+				437A93D0114FFBF4000046FD /* earth.lev in Resources */,
+				437A93D2114FFBF4000046FD /* fakewiz1.lev in Resources */,
+				437A93D3114FFBF4000046FD /* fakewiz2.lev in Resources */,
+				437A93D4114FFBF4000046FD /* fire.lev in Resources */,
+				437A93D5114FFBF4000046FD /* Fla-fila.lev in Resources */,
+				437A93D6114FFBF4000046FD /* Fla-filb.lev in Resources */,
+				437A93D7114FFBF4000046FD /* Fla-goal.lev in Resources */,
+				437A93D8114FFBF4000046FD /* Fla-loca.lev in Resources */,
+				437A93D9114FFBF4000046FD /* Fla-strt.lev in Resources */,
+				437A93DC114FFBF4000046FD /* frnknstn.lev in Resources */,
+				437A93DE114FFBF4000046FD /* geryon.lev in Resources */,
+				437A93E0114FFBF4000046FD /* grund-1.lev in Resources */,
+				437A93E1114FFBF4000046FD /* grund-2.lev in Resources */,
+				437A93E2114FFBF4000046FD /* grund-3.lev in Resources */,
+				437A93E5114FFBF4000046FD /* guild.lev in Resources */,
+				437A93E6114FFBF4000046FD /* gypsy.txt in Resources */,
+				437A93E7114FFBF4000046FD /* Hea-fila.lev in Resources */,
+				437A93E8114FFBF4000046FD /* Hea-filb.lev in Resources */,
+				437A93E9114FFBF4000046FD /* Hea-goal.lev in Resources */,
+				437A93EA114FFBF4000046FD /* Hea-loca.lev in Resources */,
+				437A93EB114FFBF4000046FD /* Hea-strt.lev in Resources */,
+				437A93ED114FFBF4000046FD /* help in Resources */,
+				437A93EE114FFBF4000046FD /* hh in Resources */,
+				437A93EF114FFBF4000046FD /* history in Resources */,
+				437A93F0114FFBF4000046FD /* Ice-fila.lev in Resources */,
+				437A93F1114FFBF4000046FD /* Ice-filb.lev in Resources */,
+				437A93F2114FFBF4000046FD /* Ice-goal.lev in Resources */,
+				437A93F3114FFBF4000046FD /* Ice-loca.lev in Resources */,
+				437A93F4114FFBF4000046FD /* Ice-strt.lev in Resources */,
+				437A93F6114FFBF4000046FD /* juiblex.lev in Resources */,
+				437A93F7114FFBF4000046FD /* Kni-fila.lev in Resources */,
+				437A93F8114FFBF4000046FD /* Kni-filb.lev in Resources */,
+				437A93F9114FFBF4000046FD /* Kni-goal.lev in Resources */,
+				437A93FA114FFBF4000046FD /* Kni-loca.lev in Resources */,
+				437A93FB114FFBF4000046FD /* Kni-strt.lev in Resources */,
+				437A93FE114FFBF4000046FD /* knox.lev in Resources */,
+				437A9400114FFBF4000046FD /* kobold-1.lev in Resources */,
+				437A9402114FFBF4000046FD /* kobold-2.lev in Resources */,
+				437A9403114FFBF4000046FD /* license in Resources */,
+				437A9405114FFBF4000046FD /* lich.lev in Resources */,
+				437A9408114FFBF4000046FD /* mall-1.lev in Resources */,
+				437A940A114FFBF4000046FD /* mall-2.lev in Resources */,
+				437A940B114FFBF4000046FD /* mall.lev in Resources */,
+				437A940C114FFBF4000046FD /* medusa-1.lev in Resources */,
+				437A940D114FFBF4000046FD /* medusa-2.lev in Resources */,
+				437A940E114FFBF4000046FD /* medusa-3.lev in Resources */,
+				437A940F114FFBF4000046FD /* medusa-4.lev in Resources */,
+				437A9411114FFBF4000046FD /* minefill.lev in Resources */,
+				437A9412114FFBF4000046FD /* mineking.lev in Resources */,
+				437A9413114FFBF4000046FD /* minend-1.lev in Resources */,
+				437A9414114FFBF4000046FD /* minend-2.lev in Resources */,
+				437A9415114FFBF4000046FD /* minend-3.lev in Resources */,
+				437A9417114FFBF4000046FD /* minetn-1.lev in Resources */,
+				437A9418114FFBF4000046FD /* minetn-2.lev in Resources */,
+				437A9419114FFBF4000046FD /* minetn-3.lev in Resources */,
+				437A941A114FFBF4000046FD /* minetn-4.lev in Resources */,
+				437A941B114FFBF4000046FD /* minetn-5.lev in Resources */,
+				437A941C114FFBF4000046FD /* minetn-6.lev in Resources */,
+				437A941D114FFBF4000046FD /* minetn-7.lev in Resources */,
+				437A941E114FFBF4000046FD /* Mon-fila.lev in Resources */,
+				437A941F114FFBF4000046FD /* Mon-filb.lev in Resources */,
+				437A9420114FFBF4000046FD /* Mon-goal.lev in Resources */,
+				437A9421114FFBF4000046FD /* Mon-loca.lev in Resources */,
+				437A9422114FFBF4000046FD /* Mon-strt.lev in Resources */,
+				437A9425114FFBF4000046FD /* mtemple.lev in Resources */,
+				437A9426114FFBF4000046FD /* Nec-fila.lev in Resources */,
+				437A9427114FFBF4000046FD /* Nec-filb.lev in Resources */,
+				437A9428114FFBF4000046FD /* Nec-goal.lev in Resources */,
+				437A9429114FFBF4000046FD /* Nec-loca.lev in Resources */,
+				437A942A114FFBF4000046FD /* Nec-strt.lev in Resources */,
+				437A942E114FFBF4000046FD /* nightmar.lev in Resources */,
+				437A9430114FFBF4000046FD /* nymph.lev in Resources */,
+				437A9431114FFBF4000046FD /* opthelp in Resources */,
+				437A9432114FFBF4000046FD /* options in Resources */,
+				437A9434114FFBF4000046FD /* oracle.lev in Resources */,
+				437A9435114FFBF4000046FD /* oracles in Resources */,
+				437A9436114FFBF4000046FD /* oracles.txt in Resources */,
+				437A9437114FFBF4000046FD /* orcus.lev in Resources */,
+				437A9439114FFBF4000046FD /* Pri-fila.lev in Resources */,
+				437A943A114FFBF4000046FD /* Pri-filb.lev in Resources */,
+				437A943B114FFBF4000046FD /* Pri-goal.lev in Resources */,
+				437A943C114FFBF4000046FD /* Pri-loca.lev in Resources */,
+				437A943D114FFBF4000046FD /* Pri-strt.lev in Resources */,
+				437A943F114FFBF4000046FD /* quest.dat in Resources */,
+				437A9440114FFBF4000046FD /* quest.txt in Resources */,
+				437A9441114FFBF4000046FD /* quest_levs in Resources */,
+				437A9442114FFBF4000046FD /* Ran-fila.lev in Resources */,
+				437A9443114FFBF4000046FD /* Ran-filb.lev in Resources */,
+				437A9444114FFBF4000046FD /* Ran-goal.lev in Resources */,
+				437A9445114FFBF4000046FD /* Ran-loca.lev in Resources */,
+				437A9446114FFBF4000046FD /* Ran-strt.lev in Resources */,
+				437A9449114FFBF4000046FD /* rats.lev in Resources */,
+				437A944A114FFBF4000046FD /* Rog-fila.lev in Resources */,
+				437A944B114FFBF4000046FD /* Rog-filb.lev in Resources */,
+				437A944C114FFBF4000046FD /* Rog-goal.lev in Resources */,
+				437A944D114FFBF4000046FD /* Rog-loca.lev in Resources */,
+				437A944E114FFBF4000046FD /* Rog-strt.lev in Resources */,
+				437A9450114FFBF4000046FD /* rumors in Resources */,
+				437A9451114FFBF4000046FD /* rumors.fal in Resources */,
+				437A9452114FFBF4000046FD /* rumors.tru in Resources */,
+				437A9453114FFBF4000046FD /* Sam-fila.lev in Resources */,
+				437A9454114FFBF4000046FD /* Sam-filb.lev in Resources */,
+				437A9455114FFBF4000046FD /* Sam-goal.lev in Resources */,
+				437A9456114FFBF4000046FD /* Sam-loca.lev in Resources */,
+				437A9457114FFBF4000046FD /* Sam-strt.lev in Resources */,
+				437A9459114FFBF4000046FD /* sanctum.lev in Resources */,
+				437A945B114FFBF4000046FD /* sea.lev in Resources */,
+				437A945D114FFBF4000046FD /* soko1-1.lev in Resources */,
+				437A945E114FFBF4000046FD /* soko1-2.lev in Resources */,
+				437A945F114FFBF4000046FD /* soko1-3.lev in Resources */,
+				437A9460114FFBF4000046FD /* soko1-4.lev in Resources */,
+				437A9461114FFBF4000046FD /* soko2-1.lev in Resources */,
+				437A9462114FFBF4000046FD /* soko2-2.lev in Resources */,
+				437A9463114FFBF4000046FD /* soko2-3.lev in Resources */,
+				437A9464114FFBF4000046FD /* soko2-4.lev in Resources */,
+				437A9465114FFBF4000046FD /* soko2-5.lev in Resources */,
+				437A9466114FFBF4000046FD /* soko2-6.lev in Resources */,
+				437A9467114FFBF4000046FD /* soko2-7.lev in Resources */,
+				437A9468114FFBF4000046FD /* soko3-1.lev in Resources */,
+				437A9469114FFBF4000046FD /* soko3-2.lev in Resources */,
+				437A946A114FFBF4000046FD /* soko3-3.lev in Resources */,
+				437A946B114FFBF4000046FD /* soko3-4.lev in Resources */,
+				437A946C114FFBF4000046FD /* soko3-5.lev in Resources */,
+				437A946D114FFBF4000046FD /* soko3-6.lev in Resources */,
+				437A946E114FFBF4000046FD /* soko3-7.lev in Resources */,
+				437A946F114FFBF4000046FD /* soko4-1.lev in Resources */,
+				437A9470114FFBF4000046FD /* soko4-2.lev in Resources */,
+				437A9471114FFBF4000046FD /* soko4-3.lev in Resources */,
+				437A9472114FFBF4000046FD /* soko4-4.lev in Resources */,
+				437A9473114FFBF4000046FD /* soko4-5.lev in Resources */,
+				437A9475114FFBF4000046FD /* spec_levs in Resources */,
+				437A9477114FFBF4000046FD /* spiders.lev in Resources */,
+				437A9479114FFBF4000046FD /* stor-1.lev in Resources */,
+				437A947B114FFBF4000046FD /* stor-2.lev in Resources */,
+				437A947D114FFBF4000046FD /* stor-3.lev in Resources */,
+				437A9480114FFBF4000046FD /* tomb.lev in Resources */,
+				437A9481114FFBF4000046FD /* Tou-fila.lev in Resources */,
+				437A9482114FFBF4000046FD /* Tou-filb.lev in Resources */,
+				437A9483114FFBF4000046FD /* Tou-goal.lev in Resources */,
+				437A9484114FFBF4000046FD /* Tou-loca.lev in Resources */,
+				437A9485114FFBF4000046FD /* Tou-strt.lev in Resources */,
+				437A9488114FFBF4000046FD /* tower1.lev in Resources */,
+				437A9489114FFBF4000046FD /* tower2.lev in Resources */,
+				437A948A114FFBF4000046FD /* tower3.lev in Resources */,
+				437A948B114FFBF4000046FD /* Und-fila.lev in Resources */,
+				437A948C114FFBF4000046FD /* Und-filb.lev in Resources */,
+				437A948D114FFBF4000046FD /* Und-goal.lev in Resources */,
+				437A948E114FFBF4000046FD /* Und-loca.lev in Resources */,
+				437A948F114FFBF4000046FD /* Und-strt.lev in Resources */,
+				437A9490114FFBF4000046FD /* Val-fila.lev in Resources */,
+				437A9491114FFBF4000046FD /* Val-filb.lev in Resources */,
+				437A9492114FFBF4000046FD /* Val-goal.lev in Resources */,
+				437A9493114FFBF4000046FD /* Val-loca.lev in Resources */,
+				437A9494114FFBF4000046FD /* Val-strt.lev in Resources */,
+				437A9496114FFBF4000046FD /* valley.lev in Resources */,
+				437A9497114FFBF4000046FD /* water.lev in Resources */,
+				437A9498114FFBF4000046FD /* Wiz-fila.lev in Resources */,
+				437A9499114FFBF4000046FD /* Wiz-filb.lev in Resources */,
+				437A949A114FFBF4000046FD /* Wiz-goal.lev in Resources */,
+				437A949B114FFBF4000046FD /* Wiz-loca.lev in Resources */,
+				437A949C114FFBF4000046FD /* Wiz-strt.lev in Resources */,
+				437A949E114FFBF4000046FD /* wizard1.lev in Resources */,
+				437A949F114FFBF4000046FD /* wizard2.lev in Resources */,
+				437A94A0114FFBF4000046FD /* wizard3.lev in Resources */,
+				437A94A1114FFBF4000046FD /* wizhelp in Resources */,
+				437A94A2114FFBF4000046FD /* yeenoghu.lev in Resources */,
+				437A94A4114FFBF4000046FD /* Yeo-fila.lev in Resources */,
+				437A94A5114FFBF4000046FD /* Yeo-filb.lev in Resources */,
+				437A94A6114FFBF4000046FD /* Yeo-goal.lev in Resources */,
+				437A94A7114FFBF4000046FD /* Yeo-loca.lev in Resources */,
+				437A94A8114FFBF4000046FD /* Yeo-strt.lev in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
