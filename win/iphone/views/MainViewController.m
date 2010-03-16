@@ -517,6 +517,9 @@ static MainViewController* instance;
 		if (u.ux == x && u.uy == y) {
 			// tap on self
 			NSArray *commands = [NhCommand directionCommands];
+			for (Action *action in commands) {
+				[action addTarget:self action:@selector(endDirectionQuestion) arg:nil];
+			}
 			self.actionViewController.actions = commands;
 			// show direction commands
 			[self presentModalViewController:actionViewController animated:YES];
