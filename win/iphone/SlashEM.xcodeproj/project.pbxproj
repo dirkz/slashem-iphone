@@ -375,6 +375,7 @@
 		437A957D11500A16000046FD /* gltile32.png in Resources */ = {isa = PBXBuildFile; fileRef = 437A957B11500A16000046FD /* gltile32.png */; };
 		437A957F11500A2D000046FD /* MenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 437A957E11500A2D000046FD /* MenuViewController.xib */; };
 		437A95CE11500E47000046FD /* TextViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 437A95CD11500E47000046FD /* TextViewController.xib */; };
+		437A960B11501275000046FD /* ActionBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 437A960A11501275000046FD /* ActionBar.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -897,6 +898,8 @@
 		437A957B11500A16000046FD /* gltile32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gltile32.png; sourceTree = "<group>"; };
 		437A957E11500A2D000046FD /* MenuViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuViewController.xib; sourceTree = "<group>"; };
 		437A95CD11500E47000046FD /* TextViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextViewController.xib; sourceTree = "<group>"; };
+		437A960911501275000046FD /* ActionBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionBar.h; sourceTree = "<group>"; };
+		437A960A11501275000046FD /* ActionBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionBar.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* SlashEM-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "SlashEM-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -1043,6 +1046,8 @@
 				437A910D114FF58E000046FD /* MainViewController.m */,
 				437A910E114FF58E000046FD /* MapView.h */,
 				437A910F114FF58E000046FD /* MapView.m */,
+				437A960911501275000046FD /* ActionBar.h */,
+				437A960A11501275000046FD /* ActionBar.m */,
 				437A9100114FF58E000046FD /* ActionViewController.h */,
 				437A9101114FF58E000046FD /* ActionViewController.m */,
 				437A9106114FF58E000046FD /* ExtendedCommandsController.h */,
@@ -1966,6 +1971,7 @@
 				437A9536115003E0000046FD /* unixmain.c in Sources */,
 				437A9538115003E0000046FD /* unixunix.c in Sources */,
 				437A954911500675000046FD /* tile.c in Sources */,
+				437A960B11501275000046FD /* ActionBar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

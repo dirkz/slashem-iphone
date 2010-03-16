@@ -20,7 +20,7 @@
  You should have received a copy of the GNU General Public License
  along with this program; if not, write to the Free Software
  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
-*/
+ */
 
 #import <UIKit/UIKit.h>
 #import "ZDirection.h"
@@ -33,6 +33,7 @@
 @class MenuViewController;
 @class MessageView;
 @class MapView;
+@class ActionBar;
 
 @interface MainViewController : UIViewController <UITextFieldDelegate> {
 
@@ -41,7 +42,7 @@
 	IBOutlet UILabel *statusView2;
 	IBOutlet UIScrollView *mapScrollView;
 	IBOutlet MapView *mapView;
-	IBOutlet UIToolbar *bottomToolbar;
+	IBOutlet ActionBar *actionBar;
 	
 	NhYnQuestion *currentYnQuestion;
 	ActionViewController *actionViewController;

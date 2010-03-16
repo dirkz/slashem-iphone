@@ -42,6 +42,7 @@
 #import "TileSetViewController.h"
 #import "ToolsViewController.h"
 #import "CommandButtonItem.h"
+#import "ActionBar.h"
 
 #import "winiphone.h" // ipad_getpos etc.
 
@@ -183,24 +184,20 @@ static MainViewController* instance;
 	if (![NSThread isMainThread]) {
 		[self performSelectorOnMainThread:@selector(nhPoskey) withObject:nil waitUntilDone:NO];
 	} else {
-		// build bottom toolbar
-		UIBarButtonItem *spacer = nil;
-		if (bottomToolbar.items.count == 1) {
-			NSArray *items = bottomToolbar.items;
-			spacer = [items objectAtIndex:0];
+		// build bottom bar
+		if (actionBar.actions.count == 0) {
 			NSMutableArray *toolbarItems = [NSMutableArray arrayWithCapacity:5];
-			[toolbarItems addObject:[CommandButtonItem buttonWithAction:[NhCommand commandWithTitle:"Wait" key:'.']]];
-			//[toolbarItems addObject:spacer];
-			[toolbarItems addObject:[CommandButtonItem buttonWithAction:[NhCommand commandWithTitle:"Search" keys:"9s"]]];
-			[toolbarItems addObject:[CommandButtonItem buttonWithAction:[NhCommand commandWithTitle:"Redo" key:C('a')]]];
-			[toolbarItems addObject:[self buttonWithTitle:@"Inv" target:self action:@selector(inventoryMenuAction:)]];
-			[toolbarItems addObject:[CommandButtonItem buttonWithAction:[NhCommand commandWithTitle:"Fire" key:'f']]];
-			[toolbarItems addObject:[CommandButtonItem buttonWithAction:[NhCommand commandWithTitle:"Alt" key:'x']]];
-			[toolbarItems addObject:[CommandButtonItem buttonWithAction:[NhCommand commandWithTitle:"Cast" key:'Z']]];
-			[toolbarItems addObject:[CommandButtonItem buttonWithAction:[NhCommand commandWithTitle:"Ext" key:'#']]];
-			[toolbarItems addObject:[self buttonWithTitle:@"Info" target:self action:@selector(infoMenuAction:)]];
-			[toolbarItems addObject:[self buttonWithTitle:@"Tilesets" target:self action:@selector(tilesetMenuAction:)]];
-			[toolbarItems addObject:[self buttonWithTitle:@"Tools" target:self action:@selector(toolsMenuAction:)]];
+			[toolbarItems addObject:[NhCommand commandWithTitle:"Wait" key:'.']];
+			[toolbarItems addObject:[NhCommand commandWithTitle:"Search" keys:"9s"]];
+			[toolbarItems addObject:[NhCommand commandWithTitle:"Redo" key:C('a')]];
+			[toolbarItems addObject:[Action actionWithTitle:@"Inv" target:self action:@selector(inventoryMenuAction:) arg:nil]];
+			[toolbarItems addObject:[NhCommand commandWithTitle:"Fire" key:'f']];
+			[toolbarItems addObject:[NhCommand commandWithTitle:"Alt" key:'x']];
+			[toolbarItems addObject:[NhCommand commandWithTitle:"Cast" key:'Z']];
+			[toolbarItems addObject:[NhCommand commandWithTitle:"Ext" key:'#']];
+			[toolbarItems addObject:[Action actionWithTitle:@"Info" target:self action:@selector(infoMenuAction:) arg:nil]];
+			[toolbarItems addObject:[Action actionWithTitle:@"Tilesets" target:self action:@selector(tilesetMenuAction:) arg:nil]];
+			[toolbarItems addObject:[Action actionWithTitle:@"Tools" target:self action:@selector(toolsMenuAction:) arg:nil]];
 			
 #if 0 // online shop
 			[toolbarItems addObject:[self buttonWithTitle:@"Shop" target:self action:@selector(shopMenuAction:)]];
@@ -214,7 +211,7 @@ static MainViewController* instance;
 			[toolbarItems addObject:[CommandButtonItem buttonWithAction:[NhCommand commandWithTitle:"Drop" key:'D']]];
 #endif
 			
-			[bottomToolbar setItems:toolbarItems animated:YES];
+			[actionBar setActions:toolbarItems];
 		}
 
 		[self refreshAllViews];
