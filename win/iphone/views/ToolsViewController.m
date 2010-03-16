@@ -30,11 +30,7 @@
 
 #include "hack.h"
 
-static const float popoverItemHeight = 44.0f;
-
 @implementation ToolsViewController
-
-@synthesize popover;
 
 #pragma mark -
 #pragma mark Initialization
@@ -53,10 +49,6 @@ static const float popoverItemHeight = 44.0f;
 		[self updateInventory];
     }
     return self;
-}
-
-- (CGSize)contentSizeForViewInPopoverView {
-	return CGSizeMake(320.0f, popoverItemHeight*items.count);
 }
 
 #pragma mark -
@@ -180,7 +172,6 @@ static const float popoverItemHeight = 44.0f;
 	char cmd[3];
 	sprintf(cmd, "a%c", item.inventoryLetter);
 	[[NhEventQueue instance] addKeys:cmd];
-	[popover dismissPopoverAnimated:NO];
 }
 
 #pragma mark -
@@ -200,7 +191,6 @@ static const float popoverItemHeight = 44.0f;
 
 - (void)dealloc {
 	[items release];
-	[popover release];
     [super dealloc];
 }
 

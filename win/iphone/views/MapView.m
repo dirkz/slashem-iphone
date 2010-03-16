@@ -26,7 +26,7 @@
 #import "NhMapWindow.h"
 #import "TileSet.h"
 #import "MainViewController.h"
-#import "winipad.h"
+#import "winiphone.h"
 
 @implementation MapView
 
@@ -50,11 +50,6 @@
 															  stringByAppendingPathComponent:@"petmark.png"]].CGImage);
 	
 	self.frame = CGRectMake(0.0f, 0.0f, tileSize.width*COLNO, tileSize.height*ROWNO);
-	
-	UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc]
-										 initWithTarget:self action:@selector(handleSingleTap:)];
-	[self addGestureRecognizer:singleTap];
-	[singleTap release];
 }
 
 - (id)initWithCoder:(NSCoder *)aDecoder {
@@ -142,13 +137,6 @@
 }
 
 #pragma mark touch handling
-
-- (void)handleSingleTap:(UIGestureRecognizer *)sender {
-	CGPoint p = [sender locationInView:self];
-	int tileX = p.x/tileSize.width;
-	int tileY = p.y/tileSize.height;
-	[[MainViewController instance] handleMapTapTileX:tileX y:tileY forLocation:p inView:self];
-}
 
 #pragma mark misc
 

@@ -40,6 +40,5 @@
 @property (nonatomic, readonly) CGSize tileSize;
 
 - (CGRect)rectForCoord:(coord)tp;
-- (void)handleSingleTap:(UIGestureRecognizer *)sender;
 
 @end

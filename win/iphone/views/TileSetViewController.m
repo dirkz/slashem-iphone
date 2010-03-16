@@ -27,7 +27,7 @@
 #import "MainViewController.h"
 #import "NhWindow.h"
 #import "NhMapWindow.h"
-#import "winipad.h"
+#import "winiphone.h"
 
 static const float popoverItemHeight = 44.0f;
 

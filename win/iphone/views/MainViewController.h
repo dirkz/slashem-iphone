@@ -31,10 +31,8 @@
 @class InventoryViewController;
 @class NhMenuWindow;
 @class MenuViewController;
-@class OptionsViewController;
 @class MessageView;
 @class MapView;
-@class DirectionPad;
 
 @interface MainViewController : UIViewController <UITextFieldDelegate> {
 
@@ -43,23 +41,17 @@
 	IBOutlet UILabel *statusView2;
 	IBOutlet UIScrollView *mapScrollView;
 	IBOutlet MapView *mapView;
-	IBOutlet DirectionPad *directionPad;
 	IBOutlet UIToolbar *bottomToolbar;
 	
 	NhYnQuestion *currentYnQuestion;
 	ActionViewController *actionViewController;
 	InventoryViewController *inventoryViewController;
 	MenuViewController *menuViewController;
-	OptionsViewController *optionsViewController;
 	
 	BOOL directionQuestion;
 	
 	// for hardware keyboard input
 	UITextField *dummyTextField;
-	
-	UIPopoverController *actionPopoverController;
-	UIPopoverController *inventoryPopoverController;
-	UIPopoverController *optionsPopoverController;
 	
 	int clipX;
 	int clipY;
@@ -67,14 +59,9 @@
 }
 
 @property (readonly) ActionViewController *actionViewController;
-@property (readonly) UIPopoverController *actionPopoverController;
 @property (readonly) InventoryViewController *inventoryViewController;
 @property (readonly) UINavigationController *inventoryNavigationController;
-@property (readonly) UIPopoverController *inventoryPopoverController;
 @property (readonly) MenuViewController *menuViewController;
-@property (readonly) OptionsViewController *optionsViewController;
-@property (readonly) UIPopoverController *optionsPopoverController;
-@property (readonly) UINavigationController *optionsNavigationController;
 
 + (MainViewController *) instance;
 
@@ -104,9 +91,6 @@
 - (void)handleDirectionDoubleTap:(e_direction)direction;
 
 // utility
-
-- (NSInvocation *)dismissPopoverInvocation:(UIPopoverController *)popover;
-- (void)resizePopover:(UIPopoverController *)popover;
 
 // called by popover controller for size measurements, actually the bounds of the containing scroll view
 - (CGRect)mapViewBounds;

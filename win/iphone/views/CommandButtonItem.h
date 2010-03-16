@@ -1,8 +1,8 @@
 //
-//  ToolViewController.h
+//  CommandButtonItem.h
 //  NetHack
 //
-//  Created by Dirk Zimmermann on 2/28/10.
+//  Created by dirk on 2/4/10.
 //  Copyright 2010 Dirk Zimmermann. All rights reserved.
 //
 
@@ -20,14 +20,20 @@
  You should have received a copy of the GNU General Public License
  along with this program; if not, write to the Free Software
  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
-*/
+ */
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import "Action.h"
 
-@interface ToolsViewController : UITableViewController {
+@interface CommandButtonItem : UIBarButtonItem {
 	
-	NSMutableArray *items;
+	Action *myAction;
 
 }
+
++ (id)buttonWithAction:(Action *)action;
+
+- (id)initWithAction:(Action *)action;
+- (void)invoke:(id)sender;
 
 @end

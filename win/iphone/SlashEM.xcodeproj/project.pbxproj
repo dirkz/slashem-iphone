@@ -44,7 +44,6 @@
 		437A9125114FF58E000046FD /* MapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 437A910F114FF58E000046FD /* MapView.m */; };
 		437A9126114FF58E000046FD /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 437A9111114FF58E000046FD /* MenuViewController.m */; };
 		437A9127114FF58E000046FD /* MessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 437A9113114FF58E000046FD /* MessageView.m */; };
-		437A9128114FF58E000046FD /* OptionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 437A9115114FF58E000046FD /* OptionsViewController.m */; };
 		437A9129114FF58E000046FD /* TextInputController.m in Sources */ = {isa = PBXBuildFile; fileRef = 437A9117114FF58E000046FD /* TextInputController.m */; };
 		437A912A114FF58E000046FD /* TextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 437A9119114FF58E000046FD /* TextViewController.m */; };
 		437A912B114FF58E000046FD /* TileSetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 437A911B114FF58E000046FD /* TileSetViewController.m */; };
@@ -367,6 +366,9 @@
 		437A94A7114FFBF4000046FD /* Yeo-loca.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A939F114FFBF4000046FD /* Yeo-loca.lev */; };
 		437A94A8114FFBF4000046FD /* Yeo-strt.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A93A0114FFBF4000046FD /* Yeo-strt.lev */; };
 		437A94B9114FFDEC000046FD /* winiphone.m in Sources */ = {isa = PBXBuildFile; fileRef = 437A94B8114FFDEC000046FD /* winiphone.m */; };
+		437A94DA1150019A000046FD /* CommandButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 437A94D91150019A000046FD /* CommandButtonItem.m */; };
+		437A9536115003E0000046FD /* unixmain.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A9526115003E0000046FD /* unixmain.c */; };
+		437A9538115003E0000046FD /* unixunix.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A9528115003E0000046FD /* unixunix.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -441,8 +443,6 @@
 		437A9111114FF58E000046FD /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
 		437A9112114FF58E000046FD /* MessageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageView.h; sourceTree = "<group>"; };
 		437A9113114FF58E000046FD /* MessageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageView.m; sourceTree = "<group>"; };
-		437A9114114FF58E000046FD /* OptionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptionsViewController.h; sourceTree = "<group>"; };
-		437A9115114FF58E000046FD /* OptionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OptionsViewController.m; sourceTree = "<group>"; };
 		437A9116114FF58E000046FD /* TextInputController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextInputController.h; sourceTree = "<group>"; };
 		437A9117114FF58E000046FD /* TextInputController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextInputController.m; sourceTree = "<group>"; };
 		437A9118114FF58E000046FD /* TextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextViewController.h; sourceTree = "<group>"; };
@@ -881,6 +881,10 @@
 		437A93A0114FFBF4000046FD /* Yeo-strt.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Yeo-strt.lev"; sourceTree = "<group>"; };
 		437A94B7114FFDEC000046FD /* winiphone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = winiphone.h; sourceTree = "<group>"; };
 		437A94B8114FFDEC000046FD /* winiphone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = winiphone.m; sourceTree = "<group>"; };
+		437A94D81150019A000046FD /* CommandButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommandButtonItem.h; sourceTree = "<group>"; };
+		437A94D91150019A000046FD /* CommandButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommandButtonItem.m; sourceTree = "<group>"; };
+		437A9526115003E0000046FD /* unixmain.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = unixmain.c; sourceTree = "<group>"; };
+		437A9528115003E0000046FD /* unixunix.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = unixunix.c; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* SlashEM-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "SlashEM-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -922,6 +926,7 @@
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				437A90FF114FF58E000046FD /* views */,
 				437A90B6114FF57A000046FD /* iHack */,
+				437A9518115003E0000046FD /* unix */,
 				437A94AC114FFDD3000046FD /* win */,
 				437A912D114FF5D1000046FD /* include */,
 				437A9197114FF5D1000046FD /* src */,
@@ -1033,8 +1038,6 @@
 				437A9111114FF58E000046FD /* MenuViewController.m */,
 				437A9112114FF58E000046FD /* MessageView.h */,
 				437A9113114FF58E000046FD /* MessageView.m */,
-				437A9114114FF58E000046FD /* OptionsViewController.h */,
-				437A9115114FF58E000046FD /* OptionsViewController.m */,
 				437A9116114FF58E000046FD /* TextInputController.h */,
 				437A9117114FF58E000046FD /* TextInputController.m */,
 				437A9118114FF58E000046FD /* TextViewController.h */,
@@ -1043,6 +1046,8 @@
 				437A911B114FF58E000046FD /* TileSetViewController.m */,
 				437A911C114FF58E000046FD /* ToolsViewController.h */,
 				437A911D114FF58E000046FD /* ToolsViewController.m */,
+				437A94D81150019A000046FD /* CommandButtonItem.h */,
+				437A94D91150019A000046FD /* CommandButtonItem.m */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -1508,6 +1513,16 @@
 			name = win;
 			sourceTree = "<group>";
 		};
+		437A9518115003E0000046FD /* unix */ = {
+			isa = PBXGroup;
+			children = (
+				437A9526115003E0000046FD /* unixmain.c */,
+				437A9528115003E0000046FD /* unixunix.c */,
+			);
+			name = unix;
+			path = ../../sys/unix;
+			sourceTree = SOURCE_ROOT;
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1800,7 +1815,6 @@
 				437A9125114FF58E000046FD /* MapView.m in Sources */,
 				437A9126114FF58E000046FD /* MenuViewController.m in Sources */,
 				437A9127114FF58E000046FD /* MessageView.m in Sources */,
-				437A9128114FF58E000046FD /* OptionsViewController.m in Sources */,
 				437A9129114FF58E000046FD /* TextInputController.m in Sources */,
 				437A912A114FF58E000046FD /* TextViewController.m in Sources */,
 				437A912B114FF58E000046FD /* TileSetViewController.m in Sources */,
@@ -1917,6 +1931,9 @@
 				437A9291114FF8B4000046FD /* monstr.c in Sources */,
 				437A9292114FF8B4000046FD /* vis_tab.c in Sources */,
 				437A94B9114FFDEC000046FD /* winiphone.m in Sources */,
+				437A94DA1150019A000046FD /* CommandButtonItem.m in Sources */,
+				437A9536115003E0000046FD /* unixmain.c in Sources */,
+				437A9538115003E0000046FD /* unixunix.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

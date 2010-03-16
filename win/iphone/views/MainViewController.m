@@ -30,22 +30,20 @@
 #import "NhMenuWindow.h"
 #import "NhEvent.h"
 #import "NhCommand.h"
-#import "CommandButtonItem.h"
 #import "ActionViewController.h"
-#import "PopoverNhCommand.h"
 #import "InventoryViewController.h"
 #import "MenuViewController.h"
 #import "TextInputController.h"
 #import "TextViewController.h"
-#import "OptionsViewController.h"
 #import "ExtendedCommandsController.h"
 #import "NhTextInputEvent.h"
 #import "MessageView.h"
 #import "MapView.h"
 #import "TileSetViewController.h"
 #import "ToolsViewController.h"
+#import "CommandButtonItem.h"
 
-#import "winipad.h" // ipad_getpos etc.
+#import "winiphone.h" // ipad_getpos etc.
 
 #include "hack.h" // BUFSZ etc.
 
@@ -100,9 +98,6 @@ static MainViewController* instance;
 #pragma mark menus/actions
 
 - (void)inventoryMenuAction:(id)sender {
-	[self resizePopover:self.inventoryPopoverController];
-	[self.inventoryPopoverController presentPopoverFromBarButtonItem:sender
-											permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
 }
 
 - (void)infoMenuAction:(id)sender {
@@ -115,54 +110,27 @@ static MainViewController* instance;
 						 [NhCommand commandWithTitle:"Toggle Autopickup" key:'@'],
 						 nil];
 	self.actionViewController.actions = commands;
-
-	// dismiss popover
-	NSInvocation *inv = [self dismissPopoverInvocation:self.actionPopoverController];
-	for (Action *a in commands) {
-		[a addInvocation:inv];
-	}
-
-	[self resizePopover:self.actionPopoverController];
-	[self.actionPopoverController presentPopoverFromBarButtonItem:sender
-										 permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
 }
 
 - (void)tilesetMenuAction:(id)sender {
 	TileSetViewController *tilesetViewController = [[TileSetViewController alloc]
 													initWithStyle:UITableViewStylePlain];
-	UIPopoverController *tilesetPopoverController = [[UIPopoverController alloc]
-													 initWithContentViewController:tilesetViewController];
-	[self resizePopover:tilesetPopoverController];
-	[tilesetPopoverController presentPopoverFromBarButtonItem:sender
-									 permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
 }
 
 - (void)toolsMenuAction:(id)sender {
 	ToolsViewController *toolsViewController = [[ToolsViewController alloc]
 												initWithStyle:UITableViewStylePlain];
-	UIPopoverController *toolsPopoverController = [[UIPopoverController alloc]
-												   initWithContentViewController:toolsViewController];
-	toolsViewController.popover = toolsPopoverController;
-	[self resizePopover:toolsPopoverController];
-	[toolsPopoverController presentPopoverFromBarButtonItem:sender
-									 permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
 }
 
 - (void)wizardMenuAction:(id)sender {
 	NSArray *commands = [NSArray arrayWithObjects:
-						 [PopoverNhCommand commandWithTitle:"Magic Mapping" key:C('f') popover:self.actionPopoverController],
-						 [PopoverNhCommand commandWithTitle:"Wish" key:C('w') popover:self.actionPopoverController],
+						 [NhCommand commandWithTitle:"Magic Mapping" key:C('f')],
+						 [NhCommand commandWithTitle:"Wish" key:C('w')],
 						 nil];
 	self.actionViewController.actions = commands;
-	[self resizePopover:self.actionPopoverController];
-	[self.actionPopoverController presentPopoverFromBarButtonItem:sender
-										 permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
 }
 
 - (void)optionsViewAction:(id)sender {
-	[self resizePopover:self.optionsPopoverController];
-	[self.optionsPopoverController presentPopoverFromBarButtonItem:sender
-										  permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
 }
 
 - (void)buyIdAction:(id)sender {
@@ -175,14 +143,6 @@ static MainViewController* instance;
 						 nil];
 	self.actionViewController.actions = commands;
 
-	// dismiss popover
-	NSInvocation *inv = [self dismissPopoverInvocation:self.actionPopoverController];
-	for (Action *a in commands) {
-		[a addInvocation:inv];
-	}
-	[self resizePopover:self.actionPopoverController];
-	[self.actionPopoverController presentPopoverFromBarButtonItem:sender
-										 permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
 }
 
 - (UIBarButtonItem *)buttonWithTitle:(NSString *)title target:(id)target action:(SEL)action {
@@ -191,13 +151,6 @@ static MainViewController* instance;
 }
 
 #pragma mark view controllers
-
-- (UIPopoverController *)actionPopoverController {
-	if (!actionPopoverController) {
-		actionPopoverController = [[UIPopoverController alloc] initWithContentViewController:self.actionViewController];
-	}
-	return actionPopoverController;
-}
 
 - (ActionViewController *)actionViewController {
 	if (!actionViewController) {
@@ -217,38 +170,11 @@ static MainViewController* instance;
 	return [[[UINavigationController alloc] initWithRootViewController:self.inventoryViewController] autorelease];
 }
 
-- (UIPopoverController *)inventoryPopoverController {
-	if (!inventoryPopoverController) {
-		inventoryPopoverController = [[UIPopoverController alloc]
-									  initWithContentViewController:self.inventoryNavigationController];
-	}
-	return inventoryPopoverController;
-}
-
 - (MenuViewController *)menuViewController {
 	if (!menuViewController) {
 		menuViewController = [[MenuViewController alloc] initWithNibName:@"MenuViewController" bundle:nil];
 	}
 	return menuViewController;
-}
-
-- (OptionsViewController *)optionsViewController {
-	if (!optionsViewController) {
-		optionsViewController = [[OptionsViewController alloc] initWithStyle:UITableViewStyleGrouped];
-	}
-	return optionsViewController;
-}
-
-- (UINavigationController *)optionsNavigationController {
-	return [[[UINavigationController alloc] initWithRootViewController:self.optionsViewController] autorelease];
-}
-
-- (UIPopoverController *)optionsPopoverController {
-	if (!optionsPopoverController) {
-		optionsPopoverController = [[UIPopoverController alloc]
-									initWithContentViewController:self.optionsNavigationController];
-	}
-	return optionsPopoverController;
 }
 
 #pragma mark window API
@@ -329,9 +255,6 @@ static MainViewController* instance;
 
 - (void)handleDirectionQuestion:(NhYnQuestion *)q {
 	directionQuestion = YES;
-	if (inventoryPopoverController && inventoryPopoverController.popoverVisible) {
-		[inventoryPopoverController dismissPopoverAnimated:NO];
-	}
 }
 
 // Parses the stuff in [] and returns the special characters like $-?* etc.
@@ -451,7 +374,6 @@ static MainViewController* instance;
 	} else {
 		TextViewController *textViewController = [[[TextViewController alloc]
 												   initWithNibName:@"TextViewController" bundle:nil] autorelease];
-		textViewController.modalPresentationStyle = UIModalPresentationFormSheet;
 		textViewController.text = text;
 		textViewController.blocking = blocking;
 		[self presentModalViewController:textViewController animated:YES];
@@ -486,7 +408,6 @@ static MainViewController* instance;
 		[self performSelectorOnMainThread:@selector(showMenuWindow:) withObject:w waitUntilDone:NO];
 	} else {
 		self.menuViewController.menuWindow = w;
-		self.menuViewController.modalPresentationStyle = UIModalPresentationFormSheet;
 		[self presentModalViewController:menuViewController animated:YES];
 	}
 }
@@ -529,7 +450,6 @@ static MainViewController* instance;
 	} else {
 		TextInputController *textInputController = [[TextInputController alloc]
 													initWithNibName:@"TextInputController" bundle:nil];
-		textInputController.modalPresentationStyle = UIModalPresentationFormSheet;
 		[self presentModalViewController:textInputController animated:YES];
 		[textInputController release];
 	}
@@ -541,7 +461,6 @@ static MainViewController* instance;
 	} else {
 		ExtendedCommandsController *extendedCommandsController = [[ExtendedCommandsController alloc]
 																  initWithNibName:@"ExtendedCommandsController" bundle:nil];
-		extendedCommandsController.modalPresentationStyle = UIModalPresentationFormSheet;
 		[self presentModalViewController:extendedCommandsController animated:YES];
 		[extendedCommandsController release];
 	}
@@ -608,15 +527,7 @@ static MainViewController* instance;
 			CGRect tapRect = [self rectForCoord:CoordMake(x,y)];
 			NSArray *commands = [NhCommand directionCommands];
 			self.actionViewController.actions = commands;
-			// dismiss popover
-			NSInvocation *dismissInv = [self dismissPopoverInvocation:self.actionPopoverController];
-			for (Action *action in commands) {
-				[action addInvocation:dismissInv];
-				[action addTarget:self action:@selector(endDirectionQuestion) arg:nil];
-			}
-			[self resizePopover:self.actionPopoverController];
-			[self.actionPopoverController presentPopoverFromRect:tapRect inView:self.view
-										permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+			// show direction commands
 		} else {
 			directionQuestion = NO;
 			CGPoint delta = CGPointMake(x*32.0f-u.ux*32.0f, y*32.0f-u.uy*32.0f);
@@ -627,21 +538,13 @@ static MainViewController* instance;
 			//NSLog(@"key %c", key);
 			[[NhEventQueue instance] addKey:key];
 		}
-	} else if (!ipad_getpos) {
+	} else if (!iphone_getpos) {
 		if (u.ux == x && u.uy == y) {
 			// tap on self
 			CGRect tapRect = [self rectForCoord:CoordMake(x,y)];
 
 			NSArray *commands = [NhCommand currentCommands];
 			self.actionViewController.actions = commands;
-			// dismiss popover
-			NSInvocation *dismissInv = [self dismissPopoverInvocation:self.actionPopoverController];
-			for (Action *action in commands) {
-				[action addInvocation:dismissInv];
-			}
-			[self resizePopover:self.actionPopoverController];
-			[self.actionPopoverController presentPopoverFromRect:tapRect inView:self.view
-												 permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
 		} else {
 			coord delta = CoordMake(u.ux-x, u.uy-y);
 			if (abs(delta.x) <= 1 && abs(delta.y) <= 1 ) {
@@ -649,15 +552,6 @@ static MainViewController* instance;
 				NSArray *commands = [NhCommand commandsForAdjacentTile:CoordMake(x, y)];
 				if (commands.count > 0) {
 					self.actionViewController.actions = commands;
-					// dismiss popover
-					NSInvocation *dismissInv = [self dismissPopoverInvocation:self.actionPopoverController];
-					for (Action *action in commands) {
-						[action addInvocation:dismissInv];
-					}
-					CGRect tapRect = [self rectForCoord:CoordMake(x,y)];
-					[self resizePopover:self.actionPopoverController];
-					[self.actionPopoverController presentPopoverFromRect:tapRect inView:self.view
-												permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
 				} else {
 					// movement
 					[[NhEventQueue instance] addEvent:[NhEvent eventWithX:x y:y]];
@@ -673,7 +567,7 @@ static MainViewController* instance;
 }
 
 - (void)handleDirectionTap:(e_direction)direction {
-	if (!ipad_getpos) {
+	if (!iphone_getpos) {
 		if (directionQuestion) {
 			directionQuestion = NO;
 			int key = [self keyFromDirection:direction];
@@ -721,15 +615,6 @@ static MainViewController* instance;
 					NSArray *commands = [NhCommand commandsForAdjacentTile:tp];
 					if (commands.count > 0) {
 						self.actionViewController.actions = commands;
-						// dismiss popover
-						NSInvocation *dismissInv = [self dismissPopoverInvocation:self.actionPopoverController];
-						for (Action *action in commands) {
-							[action addInvocation:dismissInv];
-						}
-						CGRect tapRect = [self rectForCoord:tp];
-						[self resizePopover:self.actionPopoverController];
-						[self.actionPopoverController presentPopoverFromRect:tapRect inView:self.view
-													permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
 					}
 				} else {
 					[[NhEventQueue instance] addKey:key];
@@ -742,7 +627,7 @@ static MainViewController* instance;
 }
 
 - (void)handleDirectionDoubleTap:(e_direction)direction {
-	if (!ipad_getpos) {
+	if (!iphone_getpos) {
 		int key = [self keyFromDirection:direction];
 		[[NhEventQueue instance] addKey:'g'];
 		[[NhEventQueue instance] addKey:key];
@@ -751,21 +636,6 @@ static MainViewController* instance;
 }
 
 #pragma mark utility
-
-- (NSInvocation *)dismissPopoverInvocation:(UIPopoverController *)popover {
-	NSInvocation *inv = [NSInvocation invocationWithMethodSignature:
-						 [popover methodSignatureForSelector:@selector(dismissPopoverAnimated:)]];
-	[inv setTarget:popover];
-	[inv setSelector:@selector(dismissPopoverAnimated:)];
-	BOOL arg = YES;
-	[inv setArgument:&arg atIndex:2];
-	[inv retainArguments];
-	return inv;
-}
-
-- (void)resizePopover:(UIPopoverController *)popover {
-	[popover setPopoverContentSize:popover.contentViewController.contentSizeForViewInPopover];
-}
 
 - (CGRect)mapViewBounds {
 	return mapScrollView.bounds;

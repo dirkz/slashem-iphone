@@ -1,8 +1,8 @@
 //
-//  OptionsViewController.h
+//  CommandButtonItem.m
 //  NetHack
 //
-//  Created by Dirk Zimmermann on 2/19/10.
+//  Created by dirk on 2/4/10.
 //  Copyright 2010 Dirk Zimmermann. All rights reserved.
 //
 
@@ -20,14 +20,30 @@
  You should have received a copy of the GNU General Public License
  along with this program; if not, write to the Free Software
  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
-*/
+ */
 
-#import <UIKit/UIKit.h>
+#import "CommandButtonItem.h"
 
-@interface OptionsViewController : UITableViewController {
-	
-	NSMutableArray *options;
+@implementation CommandButtonItem
 
++ (id)buttonWithAction:(Action *)action {
+	return [[[self alloc] initWithAction:action] autorelease];
+}
+
+- (id)initWithAction:(Action *)action {
+	if (self = [super initWithTitle:action.title style:UIBarButtonItemStyleBordered target:self action:@selector(invoke:)]) {
+		myAction = [action retain];
+	}
+	return self;
+}
+
+- (void)invoke:(id)sender {
+	[myAction invoke:sender];
+}
+
+- (void)dealloc {
+	[myAction release];
+	[super dealloc];
 }
 
 @end
