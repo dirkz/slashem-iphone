@@ -111,16 +111,19 @@ static MainViewController* instance;
 						 [NhCommand commandWithTitle:"Toggle Autopickup" key:'@'],
 						 nil];
 	self.actionViewController.actions = commands;
+	[self presentModalViewController:actionViewController animated:YES];
 }
 
 - (void)tilesetMenuAction:(id)sender {
 	TileSetViewController *tilesetViewController = [[TileSetViewController alloc]
 													initWithStyle:UITableViewStylePlain];
+	[self presentModalViewController:tilesetViewController animated:YES];
 }
 
 - (void)toolsMenuAction:(id)sender {
 	ToolsViewController *toolsViewController = [[ToolsViewController alloc]
 												initWithStyle:UITableViewStylePlain];
+	[self presentModalViewController:toolsViewController animated:YES];
 }
 
 - (void)wizardMenuAction:(id)sender {
@@ -129,6 +132,7 @@ static MainViewController* instance;
 						 [NhCommand commandWithTitle:"Wish" key:C('w')],
 						 nil];
 	self.actionViewController.actions = commands;
+	[self presentModalViewController:actionViewController animated:YES];
 }
 
 - (void)optionsViewAction:(id)sender {
@@ -143,7 +147,7 @@ static MainViewController* instance;
 						 [Action actionWithTitle:@"Blessed scroll of ID" target:self action:@selector(buyIdAction:) arg:nil],
 						 nil];
 	self.actionViewController.actions = commands;
-
+	[self presentModalViewController:actionViewController animated:YES];
 }
 
 - (UIBarButtonItem *)buttonWithTitle:(NSString *)title target:(id)target action:(SEL)action {
@@ -155,7 +159,7 @@ static MainViewController* instance;
 
 - (ActionViewController *)actionViewController {
 	if (!actionViewController) {
-		actionViewController = [[ActionViewController alloc] initWithStyle:UITableViewStylePlain];
+		actionViewController = [[ActionViewController alloc] initWithNibName:@"ActionViewController" bundle:nil];
 	}
 	return actionViewController;
 }
@@ -511,10 +515,10 @@ static MainViewController* instance;
 	if (directionQuestion) {
 		if (u.ux == x && u.uy == y) {
 			// tap on self
-			CGRect tapRect = [self rectForCoord:CoordMake(x,y)];
 			NSArray *commands = [NhCommand directionCommands];
 			self.actionViewController.actions = commands;
 			// show direction commands
+			[self presentModalViewController:actionViewController animated:YES];
 		} else {
 			directionQuestion = NO;
 			CGPoint delta = CGPointMake(x*32.0f-u.ux*32.0f, y*32.0f-u.uy*32.0f);
@@ -528,10 +532,9 @@ static MainViewController* instance;
 	} else if (!iphone_getpos) {
 		if (u.ux == x && u.uy == y) {
 			// tap on self
-			CGRect tapRect = [self rectForCoord:CoordMake(x,y)];
-
 			NSArray *commands = [NhCommand currentCommands];
 			self.actionViewController.actions = commands;
+			[self presentModalViewController:actionViewController animated:YES];
 		} else {
 			coord delta = CoordMake(u.ux-x, u.uy-y);
 			if (abs(delta.x) <= 1 && abs(delta.y) <= 1 ) {
@@ -539,6 +542,7 @@ static MainViewController* instance;
 				NSArray *commands = [NhCommand commandsForAdjacentTile:CoordMake(x, y)];
 				if (commands.count > 0) {
 					self.actionViewController.actions = commands;
+					[self presentModalViewController:actionViewController animated:YES];
 				} else {
 					// movement
 					[[NhEventQueue instance] addEvent:[NhEvent eventWithX:x y:y]];
@@ -602,6 +606,7 @@ static MainViewController* instance;
 					NSArray *commands = [NhCommand commandsForAdjacentTile:tp];
 					if (commands.count > 0) {
 						self.actionViewController.actions = commands;
+						[self presentModalViewController:actionViewController animated:YES];
 					}
 				} else {
 					[[NhEventQueue instance] addKey:key];

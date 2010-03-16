@@ -24,13 +24,18 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ActionViewController : UITableViewController {
+@interface ActionViewController : UIViewController {
 	
+	IBOutlet UITableView *tv;
+
 	// should be Action objects
 	NSArray *actions;
 
 }
 
+@property (nonatomic, readonly) UITableView *tableView;
 @property (nonatomic, retain) NSArray *actions;
+
+- (IBAction)cancelAction:(id)sender;
 
 @end

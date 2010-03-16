@@ -25,11 +25,10 @@
 #import "ActionViewController.h"
 #import "Action.h"
 
-static const float popoverItemHeight = 44.0f;
-
 @implementation ActionViewController
 
 @synthesize actions;
+@synthesize tableView = tv;
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     return YES;
@@ -44,8 +43,8 @@ static const float popoverItemHeight = 44.0f;
 	[self.tableView reloadData];
 }
 
-- (CGSize)contentSizeForViewInPopoverView {
-	return CGSizeMake(320.0f, popoverItemHeight*actions.count);
+- (IBAction)cancelAction:(id)sender {
+	[self dismissModalViewControllerAnimated:NO];
 }
 
 #pragma mark Table view methods
@@ -81,6 +80,7 @@ static const float popoverItemHeight = 44.0f;
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	Action *action = [actions objectAtIndex:[indexPath row]];
 	[action invoke:self];
+	[self dismissModalViewControllerAnimated:NO];
 }
 
 - (void)dealloc {
