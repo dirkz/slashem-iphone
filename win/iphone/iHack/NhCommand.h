@@ -24,7 +24,7 @@
 
 #import <Foundation/Foundation.h>
 #import "Action.h"
-#import "winipad.h"
+#import "winiphone.h"
 
 #ifndef M
 # ifndef NHSTDC

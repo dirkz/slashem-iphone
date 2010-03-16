@@ -25,7 +25,6 @@
 		437A90F0114FF57A000046FD /* NhMapWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 437A90CA114FF57A000046FD /* NhMapWindow.m */; };
 		437A90F1114FF57A000046FD /* NhMenuWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 437A90CC114FF57A000046FD /* NhMenuWindow.m */; };
 		437A90F2114FF57A000046FD /* NhObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 437A90CE114FF57A000046FD /* NhObject.m */; };
-		437A90F3114FF57A000046FD /* NhOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 437A90D0114FF57A000046FD /* NhOption.m */; };
 		437A90F4114FF57A000046FD /* NhStatusWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 437A90D2114FF57A000046FD /* NhStatusWindow.m */; };
 		437A90F5114FF57A000046FD /* NhTextInputEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 437A90D4114FF57A000046FD /* NhTextInputEvent.m */; };
 		437A90F6114FF57A000046FD /* NhWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 437A90D6114FF57A000046FD /* NhWindow.m */; };
@@ -38,8 +37,6 @@
 		437A90FD114FF57A000046FD /* ZTouchInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 437A90E4114FF57A000046FD /* ZTouchInfo.m */; };
 		437A90FE114FF57A000046FD /* ZTouchInfoStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 437A90E6114FF57A000046FD /* ZTouchInfoStore.m */; };
 		437A911E114FF58E000046FD /* ActionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 437A9101114FF58E000046FD /* ActionViewController.m */; };
-		437A911F114FF58E000046FD /* DebugPopoverController.m in Sources */ = {isa = PBXBuildFile; fileRef = 437A9103114FF58E000046FD /* DebugPopoverController.m */; };
-		437A9120114FF58E000046FD /* DirectionPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 437A9105114FF58E000046FD /* DirectionPad.m */; };
 		437A9121114FF58E000046FD /* ExtendedCommandsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 437A9107114FF58E000046FD /* ExtendedCommandsController.m */; };
 		437A9122114FF58E000046FD /* InventoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 437A9109114FF58E000046FD /* InventoryViewController.m */; };
 		437A9123114FF58E000046FD /* ItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 437A910B114FF58E000046FD /* ItemViewController.m */; };
@@ -369,6 +366,7 @@
 		437A94A6114FFBF4000046FD /* Yeo-goal.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A939E114FFBF4000046FD /* Yeo-goal.lev */; };
 		437A94A7114FFBF4000046FD /* Yeo-loca.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A939F114FFBF4000046FD /* Yeo-loca.lev */; };
 		437A94A8114FFBF4000046FD /* Yeo-strt.lev in Resources */ = {isa = PBXBuildFile; fileRef = 437A93A0114FFBF4000046FD /* Yeo-strt.lev */; };
+		437A94B9114FFDEC000046FD /* winiphone.m in Sources */ = {isa = PBXBuildFile; fileRef = 437A94B8114FFDEC000046FD /* winiphone.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -405,8 +403,6 @@
 		437A90CC114FF57A000046FD /* NhMenuWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NhMenuWindow.m; sourceTree = "<group>"; };
 		437A90CD114FF57A000046FD /* NhObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NhObject.h; sourceTree = "<group>"; };
 		437A90CE114FF57A000046FD /* NhObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NhObject.m; sourceTree = "<group>"; };
-		437A90CF114FF57A000046FD /* NhOption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NhOption.h; sourceTree = "<group>"; };
-		437A90D0114FF57A000046FD /* NhOption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NhOption.m; sourceTree = "<group>"; };
 		437A90D1114FF57A000046FD /* NhStatusWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NhStatusWindow.h; sourceTree = "<group>"; };
 		437A90D2114FF57A000046FD /* NhStatusWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NhStatusWindow.m; sourceTree = "<group>"; };
 		437A90D3114FF57A000046FD /* NhTextInputEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NhTextInputEvent.h; sourceTree = "<group>"; };
@@ -431,10 +427,6 @@
 		437A90E6114FF57A000046FD /* ZTouchInfoStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZTouchInfoStore.m; sourceTree = "<group>"; };
 		437A9100114FF58E000046FD /* ActionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionViewController.h; sourceTree = "<group>"; };
 		437A9101114FF58E000046FD /* ActionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionViewController.m; sourceTree = "<group>"; };
-		437A9102114FF58E000046FD /* DebugPopoverController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DebugPopoverController.h; sourceTree = "<group>"; };
-		437A9103114FF58E000046FD /* DebugPopoverController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DebugPopoverController.m; sourceTree = "<group>"; };
-		437A9104114FF58E000046FD /* DirectionPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DirectionPad.h; sourceTree = "<group>"; };
-		437A9105114FF58E000046FD /* DirectionPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DirectionPad.m; sourceTree = "<group>"; };
 		437A9106114FF58E000046FD /* ExtendedCommandsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExtendedCommandsController.h; sourceTree = "<group>"; };
 		437A9107114FF58E000046FD /* ExtendedCommandsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExtendedCommandsController.m; sourceTree = "<group>"; };
 		437A9108114FF58E000046FD /* InventoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InventoryViewController.h; sourceTree = "<group>"; };
@@ -887,6 +879,8 @@
 		437A939E114FFBF4000046FD /* Yeo-goal.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Yeo-goal.lev"; sourceTree = "<group>"; };
 		437A939F114FFBF4000046FD /* Yeo-loca.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Yeo-loca.lev"; sourceTree = "<group>"; };
 		437A93A0114FFBF4000046FD /* Yeo-strt.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Yeo-strt.lev"; sourceTree = "<group>"; };
+		437A94B7114FFDEC000046FD /* winiphone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = winiphone.h; sourceTree = "<group>"; };
+		437A94B8114FFDEC000046FD /* winiphone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = winiphone.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* SlashEM-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "SlashEM-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -928,6 +922,7 @@
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				437A90FF114FF58E000046FD /* views */,
 				437A90B6114FF57A000046FD /* iHack */,
+				437A94AC114FFDD3000046FD /* win */,
 				437A912D114FF5D1000046FD /* include */,
 				437A9197114FF5D1000046FD /* src */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
@@ -993,8 +988,6 @@
 				437A90CC114FF57A000046FD /* NhMenuWindow.m */,
 				437A90CD114FF57A000046FD /* NhObject.h */,
 				437A90CE114FF57A000046FD /* NhObject.m */,
-				437A90CF114FF57A000046FD /* NhOption.h */,
-				437A90D0114FF57A000046FD /* NhOption.m */,
 				437A90D1114FF57A000046FD /* NhStatusWindow.h */,
 				437A90D2114FF57A000046FD /* NhStatusWindow.m */,
 				437A90D3114FF57A000046FD /* NhTextInputEvent.h */,
@@ -1024,22 +1017,18 @@
 		437A90FF114FF58E000046FD /* views */ = {
 			isa = PBXGroup;
 			children = (
+				437A910C114FF58E000046FD /* MainViewController.h */,
+				437A910D114FF58E000046FD /* MainViewController.m */,
+				437A910E114FF58E000046FD /* MapView.h */,
+				437A910F114FF58E000046FD /* MapView.m */,
 				437A9100114FF58E000046FD /* ActionViewController.h */,
 				437A9101114FF58E000046FD /* ActionViewController.m */,
-				437A9102114FF58E000046FD /* DebugPopoverController.h */,
-				437A9103114FF58E000046FD /* DebugPopoverController.m */,
-				437A9104114FF58E000046FD /* DirectionPad.h */,
-				437A9105114FF58E000046FD /* DirectionPad.m */,
 				437A9106114FF58E000046FD /* ExtendedCommandsController.h */,
 				437A9107114FF58E000046FD /* ExtendedCommandsController.m */,
 				437A9108114FF58E000046FD /* InventoryViewController.h */,
 				437A9109114FF58E000046FD /* InventoryViewController.m */,
 				437A910A114FF58E000046FD /* ItemViewController.h */,
 				437A910B114FF58E000046FD /* ItemViewController.m */,
-				437A910C114FF58E000046FD /* MainViewController.h */,
-				437A910D114FF58E000046FD /* MainViewController.m */,
-				437A910E114FF58E000046FD /* MapView.h */,
-				437A910F114FF58E000046FD /* MapView.m */,
 				437A9110114FF58E000046FD /* MenuViewController.h */,
 				437A9111114FF58E000046FD /* MenuViewController.m */,
 				437A9112114FF58E000046FD /* MessageView.h */,
@@ -1510,6 +1499,15 @@
 			path = ../../dat;
 			sourceTree = SOURCE_ROOT;
 		};
+		437A94AC114FFDD3000046FD /* win */ = {
+			isa = PBXGroup;
+			children = (
+				437A94B7114FFDEC000046FD /* winiphone.h */,
+				437A94B8114FFDEC000046FD /* winiphone.m */,
+			);
+			name = win;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1783,7 +1781,6 @@
 				437A90F0114FF57A000046FD /* NhMapWindow.m in Sources */,
 				437A90F1114FF57A000046FD /* NhMenuWindow.m in Sources */,
 				437A90F2114FF57A000046FD /* NhObject.m in Sources */,
-				437A90F3114FF57A000046FD /* NhOption.m in Sources */,
 				437A90F4114FF57A000046FD /* NhStatusWindow.m in Sources */,
 				437A90F5114FF57A000046FD /* NhTextInputEvent.m in Sources */,
 				437A90F6114FF57A000046FD /* NhWindow.m in Sources */,
@@ -1796,8 +1793,6 @@
 				437A90FD114FF57A000046FD /* ZTouchInfo.m in Sources */,
 				437A90FE114FF57A000046FD /* ZTouchInfoStore.m in Sources */,
 				437A911E114FF58E000046FD /* ActionViewController.m in Sources */,
-				437A911F114FF58E000046FD /* DebugPopoverController.m in Sources */,
-				437A9120114FF58E000046FD /* DirectionPad.m in Sources */,
 				437A9121114FF58E000046FD /* ExtendedCommandsController.m in Sources */,
 				437A9122114FF58E000046FD /* InventoryViewController.m in Sources */,
 				437A9123114FF58E000046FD /* ItemViewController.m in Sources */,
@@ -1921,6 +1916,7 @@
 				437A9271114FF5D1000046FD /* zap.c in Sources */,
 				437A9291114FF8B4000046FD /* monstr.c in Sources */,
 				437A9292114FF8B4000046FD /* vis_tab.c in Sources */,
+				437A94B9114FFDEC000046FD /* winiphone.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1962,7 +1958,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;
-				SDKROOT = iphoneos3.1.2;
+				SDKROOT = iphoneos3.0;
 			};
 			name = Debug;
 		};
@@ -1975,7 +1971,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;
-				SDKROOT = iphoneos3.1.2;
+				SDKROOT = iphoneos3.0;
 			};
 			name = Release;
 		};
