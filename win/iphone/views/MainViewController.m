@@ -216,15 +216,7 @@ static MainViewController* instance;
 			
 			[bottomToolbar setItems:toolbarItems animated:YES];
 		}
-		
-		if (!dummyTextField) {
-			dummyTextField = [[UITextField alloc] initWithFrame:CGRectZero];
-			dummyTextField.delegate = self;
-			dummyTextField.autocorrectionType = UITextAutocorrectionTypeNo;
-			dummyTextField.autocapitalizationType = UITextAutocapitalizationTypeNone;
-			[self.view addSubview:dummyTextField];
-			[dummyTextField release];
-		}
+
 		[self refreshAllViews];
 	}
 }
@@ -233,8 +225,6 @@ static MainViewController* instance;
 	if (![NSThread isMainThread]) {
 		[self performSelectorOnMainThread:@selector(refreshAllViews) withObject:nil waitUntilDone:NO];
 	} else {
-		// hardware keyboard
-		[dummyTextField becomeFirstResponder];
 		[self refreshMessages];
 	}
 }
@@ -652,24 +642,6 @@ static MainViewController* instance;
 		// add no-event
 		[[NhEventQueue instance] addKey:-1];
 	}
-}
-
-#pragma mark UITextFieldDelegate for hardware keyboard
-
-- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
-	if (textField == dummyTextField) {
-		const char *pStr = [string cStringUsingEncoding:NSASCIIStringEncoding];
-		char c;
-		while (c = *pStr++) {
-			if ([self isMovementKey:c]) {
-				e_direction direction = [self directionFromKey:c];
-				[self handleDirectionTap:direction];
-			} else {
-				[[NhEventQueue instance] addKey:c];
-			}
-		}
-	}
-	return NO;
 }
 
 #pragma mark misc

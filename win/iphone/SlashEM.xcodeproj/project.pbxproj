@@ -374,6 +374,7 @@
 		437A957C11500A16000046FD /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 437A957911500A16000046FD /* Icon.png */; };
 		437A957D11500A16000046FD /* gltile32.png in Resources */ = {isa = PBXBuildFile; fileRef = 437A957B11500A16000046FD /* gltile32.png */; };
 		437A957F11500A2D000046FD /* MenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 437A957E11500A2D000046FD /* MenuViewController.xib */; };
+		437A95CE11500E47000046FD /* TextViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 437A95CD11500E47000046FD /* TextViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -895,6 +896,7 @@
 		437A957911500A16000046FD /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		437A957B11500A16000046FD /* gltile32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gltile32.png; sourceTree = "<group>"; };
 		437A957E11500A2D000046FD /* MenuViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuViewController.xib; sourceTree = "<group>"; };
+		437A95CD11500E47000046FD /* TextViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextViewController.xib; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* SlashEM-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "SlashEM-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -966,6 +968,7 @@
 				8D1107310486CEB800E47090 /* SlashEM-Info.plist */,
 				437A9560115007ED000046FD /* MainViewController.xib */,
 				437A957E11500A2D000046FD /* MenuViewController.xib */,
+				437A95CD11500E47000046FD /* TextViewController.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -1799,6 +1802,7 @@
 				437A957C11500A16000046FD /* Icon.png in Resources */,
 				437A957D11500A16000046FD /* gltile32.png in Resources */,
 				437A957F11500A2D000046FD /* MenuViewController.xib in Resources */,
+				437A95CE11500E47000046FD /* TextViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -50,9 +50,6 @@
 	
 	BOOL directionQuestion;
 	
-	// for hardware keyboard input
-	UITextField *dummyTextField;
-	
 	int clipX;
 	int clipY;
 	
