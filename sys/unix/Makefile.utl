@@ -89,8 +89,8 @@
 # flags for debugging:
 # CFLAGS = -g -I../include
 
-CFLAGS = -O -I../include
-LFLAGS =
+CFLAGS = -arch i386 -O -I../include
+LFLAGS = -m32
 
 LIBS =
  
