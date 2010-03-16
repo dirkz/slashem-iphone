@@ -370,6 +370,10 @@
 		437A9536115003E0000046FD /* unixmain.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A9526115003E0000046FD /* unixmain.c */; };
 		437A9538115003E0000046FD /* unixunix.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A9528115003E0000046FD /* unixunix.c */; };
 		437A954911500675000046FD /* tile.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A954811500675000046FD /* tile.c */; };
+		437A9561115007ED000046FD /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 437A9560115007ED000046FD /* MainViewController.xib */; };
+		437A957C11500A16000046FD /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 437A957911500A16000046FD /* Icon.png */; };
+		437A957D11500A16000046FD /* gltile32.png in Resources */ = {isa = PBXBuildFile; fileRef = 437A957B11500A16000046FD /* gltile32.png */; };
+		437A957F11500A2D000046FD /* MenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 437A957E11500A2D000046FD /* MenuViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -887,6 +891,10 @@
 		437A9526115003E0000046FD /* unixmain.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = unixmain.c; sourceTree = "<group>"; };
 		437A9528115003E0000046FD /* unixunix.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = unixunix.c; sourceTree = "<group>"; };
 		437A954811500675000046FD /* tile.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = tile.c; sourceTree = "<group>"; };
+		437A9560115007ED000046FD /* MainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
+		437A957911500A16000046FD /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		437A957B11500A16000046FD /* gltile32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gltile32.png; sourceTree = "<group>"; };
+		437A957E11500A2D000046FD /* MenuViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuViewController.xib; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* SlashEM-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "SlashEM-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -951,9 +959,13 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				437A957911500A16000046FD /* Icon.png */,
+				437A957A11500A16000046FD /* tilesets */,
 				437A9299114FFBF4000046FD /* dat */,
 				28AD733E0D9D9553002E5188 /* MainWindow.xib */,
 				8D1107310486CEB800E47090 /* SlashEM-Info.plist */,
+				437A9560115007ED000046FD /* MainViewController.xib */,
+				437A957E11500A2D000046FD /* MenuViewController.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -1526,6 +1538,14 @@
 			path = ../../sys/unix;
 			sourceTree = SOURCE_ROOT;
 		};
+		437A957A11500A16000046FD /* tilesets */ = {
+			isa = PBXGroup;
+			children = (
+				437A957B11500A16000046FD /* gltile32.png */,
+			);
+			path = tilesets;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1775,6 +1795,10 @@
 				437A94A6114FFBF4000046FD /* Yeo-goal.lev in Resources */,
 				437A94A7114FFBF4000046FD /* Yeo-loca.lev in Resources */,
 				437A94A8114FFBF4000046FD /* Yeo-strt.lev in Resources */,
+				437A9561115007ED000046FD /* MainViewController.xib in Resources */,
+				437A957C11500A16000046FD /* Icon.png in Resources */,
+				437A957D11500A16000046FD /* gltile32.png in Resources */,
+				437A957F11500A2D000046FD /* MenuViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
