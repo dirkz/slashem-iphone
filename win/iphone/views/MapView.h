@@ -26,6 +26,8 @@
 
 #include "hack.h"
 
+@class ZTouchInfoStore;
+
 @interface MapView : UIView {
 
 	CGSize tileSize;
@@ -34,6 +36,8 @@
 	CGSize minTileSize;
 
 	CGImageRef petMark;
+	
+	ZTouchInfoStore *touchInfoStore;
 
 }
 

@@ -27,6 +27,8 @@
 #import "TileSet.h"
 #import "MainViewController.h"
 #import "winiphone.h"
+#import "ZTouchInfo.h"
+#import "ZTouchInfoStore.h"
 
 @implementation MapView
 
@@ -50,6 +52,7 @@
 															  stringByAppendingPathComponent:@"petmark.png"]].CGImage);
 	
 	self.frame = CGRectMake(0.0f, 0.0f, tileSize.width*COLNO, tileSize.height*ROWNO);
+	touchInfoStore = [[ZTouchInfoStore alloc] init];
 }
 
 - (id)initWithCoder:(NSCoder *)aDecoder {
@@ -138,11 +141,54 @@
 
 #pragma mark touch handling
 
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+	[touchInfoStore storeTouches:touches];
+	if (touches.count == 1) {
+		UITouch *touch = [touches anyObject];
+		if (touch.tapCount == 2) {
+			ZTouchInfo *ti = [touchInfoStore touchInfoForTouch:touch];
+			NSTimeInterval touchDuration = touch.timestamp - touchInfoStore.singleTapTimestamp;
+			if (touchDuration < [ZTouchInfoStore doubleTapDuration]) {
+				ti.doubleTap = YES;
+			}
+		} else {
+			touchInfoStore.singleTapTimestamp = touch.timestamp;
+		}
+	}
+}
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+	if (touches.count == 1) {
+		UITouch *touch = [touches anyObject];
+		CGPoint p = [touch locationInView:self];
+		int tileX = p.x/tileSize.width;
+		int tileY = p.y/tileSize.height;
+		[[MainViewController instance] handleMapTapTileX:tileX y:tileY forLocation:p inView:self];
+
+		// direction based movement
+//		CGPoint center = CGPointMake(self.bounds.size.width/2, self.bounds.size.height/2);
+//		CGPoint delta = CGPointMake(p.x-center.x, center.y-p.y);
+//		e_direction direction = [ZDirection directionFromEuclideanPointDelta:&delta];
+//		ZTouchInfo *ti = [touchInfoStore touchInfoForTouch:touch];
+//		if (ti.doubleTap) {
+//			[[MainViewController instance] handleDirectionDoubleTap:direction];
+//		} else {
+//			[[MainViewController instance] handleDirectionTap:direction];
+//		}
+	}
+	[touchInfoStore removeTouches:touches];
+}
+
+- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
+	[touchInfoStore removeTouches:touches];
+}
+
 #pragma mark misc
 
 - (void)dealloc {
 	CGImageRelease(petMark);
 	[[TileSet instance] release];
+	[touchInfoStore release];
     [super dealloc];
 }
 
