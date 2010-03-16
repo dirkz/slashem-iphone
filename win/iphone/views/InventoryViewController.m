@@ -81,19 +81,27 @@
 }
 
 - (IBAction)dropAction:(id)sender {
+	[self dismissModalViewControllerAnimated:NO];
 	[[NhEventQueue instance] addKey:'D'];
 }
 
 - (IBAction)pickupAction:(id)sender {
+	[self dismissModalViewControllerAnimated:NO];
 	[[NhEventQueue instance] addKey:','];
 }
 
 - (IBAction)whatsHereAction:(id)sender {
+	[self dismissModalViewControllerAnimated:NO];
 	[[NhEventQueue instance] addKey:':'];
 }
 
 - (IBAction)disrobeAction:(id)sender {
+	[self dismissModalViewControllerAnimated:NO];
 	[[NhEventQueue instance] addKey:'A'];
+}
+
+- (IBAction)cancelAction:(id)sender {
+	[self dismissModalViewControllerAnimated:NO];
 }
 
 #pragma mark memory management

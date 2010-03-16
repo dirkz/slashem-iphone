@@ -42,5 +42,6 @@
 - (IBAction)pickupAction:(id)sender;
 - (IBAction)whatsHereAction:(id)sender;
 - (IBAction)disrobeAction:(id)sender;
+- (IBAction)cancelAction:(id)sender;
 
 @end

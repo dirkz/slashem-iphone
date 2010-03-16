@@ -24,7 +24,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ActionViewController : UIViewController {
+@interface ActionViewController : UIViewController <UITableViewDelegate,UITableViewDataSource> {
 	
 	IBOutlet UITableView *tv;
 

@@ -24,7 +24,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TileSetViewController : UIViewController {
+@interface TileSetViewController : UIViewController <UITableViewDelegate,UITableViewDataSource> {
 
 	NSArray *tilesets;
 	IBOutlet UITableView *tv;

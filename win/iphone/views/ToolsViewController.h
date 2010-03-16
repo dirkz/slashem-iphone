@@ -24,7 +24,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ToolsViewController : UIViewController {
+@interface ToolsViewController : UIViewController <UITableViewDelegate,UITableViewDataSource> {
 	
 	NSMutableArray *items;
 	IBOutlet UITableView *tv;

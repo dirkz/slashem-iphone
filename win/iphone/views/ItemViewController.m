@@ -218,11 +218,6 @@
 	}
 }
 
-- (CGSize)contentSizeForViewInPopoverView {
-	CGRect bounds = [[MainViewController instance] mapViewBounds];
-	return CGSizeMake(480.0f, bounds.size.height-44.0f);
-}
-
 - (void)dealloc {
 	[actions release];
     [super dealloc];
@@ -256,7 +251,8 @@
 - (void)tableView:(UITableView *)tv didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	Action *action = [actions objectAtIndex:[indexPath row]];
 	[action invoke:nil];
-	[self.navigationController popViewControllerAnimated:NO];
+	[self dismissModalViewControllerAnimated:NO];
+	//[self.navigationController popViewControllerAnimated:NO];
 }
 
 @end

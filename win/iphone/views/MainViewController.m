@@ -99,6 +99,7 @@ static MainViewController* instance;
 #pragma mark menus/actions
 
 - (void)inventoryMenuAction:(id)sender {
+	[self presentModalViewController:self.inventoryNavigationController animated:YES];
 }
 
 - (void)infoMenuAction:(id)sender {
