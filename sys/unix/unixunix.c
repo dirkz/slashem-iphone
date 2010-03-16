@@ -171,6 +171,10 @@ getlock()
 	} else {
 #ifndef FILE_AREAS
 		fq_lock = fqname(lock, LEVELPREFIX, 0);
+#if TARGET_OS_IPHONE
+		char orig_lock[strlen(lock)+1];
+		strcpy(orig_lock, lock);
+#endif
 		if((fd = open(fq_lock, 0, 0)) == -1) {
 #else
 		if((fd = open_area(FILE_AREA_LEVL, lock, 0, 0)) == -1) {
@@ -191,7 +195,26 @@ getlock()
 			goto gotlock;
 		(void) close(fd);
 
-		if(iflags.window_inited) {
+#if TARGET_OS_IPHONE
+			/* automatic recover */
+			if (recover_savefile()) {
+				/* success */
+				strcpy(lock, orig_lock);
+				fq_lock = fqname(lock, LEVELPREFIX, 0);
+				if((fd = open(fq_lock, 0)) == -1) {
+					if(errno == ENOENT) goto gotlock;    /* no such file */
+					perror(fq_lock);
+					unlock_file(HLOCK);
+					error("Cannot open %s", fq_lock);
+				}
+				
+				if(veryold(fd) /* closes fd if true */ && eraseoldlocks())
+					goto gotlock;
+				(void) close(fd);
+			}
+#endif /* TARGET_OS_IPHONE */
+
+			if(iflags.window_inited) {
 		    c = yn("There is already a game in progress under your name.  Destroy old game?");
 		} else {
 		    (void) printf("\nThere is already a game in progress under your name.");

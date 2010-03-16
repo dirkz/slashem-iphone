@@ -154,12 +154,21 @@
 
 /* #define NO_FILE_LINKS */	/* if no hard links */
 
+#if TARGET_OS_IPHONE
+#define NO_FILE_LINKS /* if no hard links */
+#define LOCKDIR "." /* where to put locks */
+#else
 #ifdef NO_FILE_LINKS
 # ifdef FILE_AREAS
 # define LOCKDIR FILE_AREA_VAR			/* where to put locks */
 # else
 # define LOCKDIR "/usr/games/lib/nethackdir"	/* where to put locks */
 # endif
+#endif
+#endif /* TARGET_OS_IPHONE */
+
+#if TARGET_OS_IPHONE
+#define SELF_RECOVER		/* Allow the game itself to recover from an aborted game */
 #endif
 
 /*
