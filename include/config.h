@@ -5,6 +5,10 @@
 #ifndef CONFIG_H /* make sure the compiler does not see the typedefs twice */
 #define CONFIG_H
 
+#ifdef __APPLE__
+#include "TargetConditionals.h"
+#endif
+
 #undef SHORT_FILENAMES
 
 
@@ -60,6 +64,11 @@
 /* #define MSWIN_GRAPHICS */	/* Windows NT, CE, Graphics */
 /* #define GL_GRAPHICS */	/* OpenGL graphics */
 /* #define SDL_GRAPHICS */	/* Software SDL graphics */
+
+#if TARGET_OS_IPHONE
+#undef TTY_GRAPHICS
+#define IPHONE_GRAPHICS
+#endif
 
 /*
  * Define the default window system.  This should be one that is compiled
@@ -188,6 +197,10 @@
 # endif
 #endif
 
+#ifdef IPHONE_GRAPHICS
+#define DEFAULT_WINDOW_SYS "iphone"
+#endif
+
 #ifndef DEFAULT_WINDOW_SYS
 # define DEFAULT_WINDOW_SYS "tty"
 #endif
@@ -229,9 +242,11 @@
  */
 
 #ifdef UNIX
+#if !TARGET_OS_IPHONE
 /* path and file name extension for compression program */
 # define COMPRESS "/usr/bin/compress" /* Lempel-Ziv compression */
 # define COMPRESS_EXTENSION ".Z"	     /* compress's extension */
+#endif /* !TARGET_OS_IPHONE */
 
 /* An example of one alternative you might want to use: */
 /* # define COMPRESS "/usr/local/bin/gzip" */   /* FSF gzip compression */
@@ -249,7 +264,11 @@
  *	a tar-like file, thus making a neater installation.  See *conf.h
  *	for detailed configuration.
  */
+#if TARGET_OS_IPHONE
+//#define DLB */             /* not supported on all platforms */
+#else
 /* #define DLB */             /* not supported on all platforms */
+#endif
 
 /*
  *	Defining INSURANCE slows down level changes, but allows games that

@@ -369,6 +369,7 @@
 		437A94DA1150019A000046FD /* CommandButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 437A94D91150019A000046FD /* CommandButtonItem.m */; };
 		437A9536115003E0000046FD /* unixmain.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A9526115003E0000046FD /* unixmain.c */; };
 		437A9538115003E0000046FD /* unixunix.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A9528115003E0000046FD /* unixunix.c */; };
+		437A954911500675000046FD /* tile.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A954811500675000046FD /* tile.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -885,6 +886,7 @@
 		437A94D91150019A000046FD /* CommandButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommandButtonItem.m; sourceTree = "<group>"; };
 		437A9526115003E0000046FD /* unixmain.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = unixmain.c; sourceTree = "<group>"; };
 		437A9528115003E0000046FD /* unixunix.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = unixunix.c; sourceTree = "<group>"; };
+		437A954811500675000046FD /* tile.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = tile.c; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* SlashEM-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "SlashEM-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -1174,6 +1176,7 @@
 		437A9197114FF5D1000046FD /* src */ = {
 			isa = PBXGroup;
 			children = (
+				437A954811500675000046FD /* tile.c */,
 				437A928F114FF8B4000046FD /* monstr.c */,
 				437A9290114FF8B4000046FD /* vis_tab.c */,
 				437A9198114FF5D1000046FD /* allmain.c */,
@@ -1934,6 +1937,7 @@
 				437A94DA1150019A000046FD /* CommandButtonItem.m in Sources */,
 				437A9536115003E0000046FD /* unixmain.c in Sources */,
 				437A9538115003E0000046FD /* unixunix.c in Sources */,
+				437A954911500675000046FD /* tile.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
