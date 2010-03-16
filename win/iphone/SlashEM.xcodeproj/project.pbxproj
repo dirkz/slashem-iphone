@@ -13,6 +13,154 @@
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
 		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
+		437A90E7114FF57A000046FD /* Action.m in Sources */ = {isa = PBXBuildFile; fileRef = 437A90B8114FF57A000046FD /* Action.m */; };
+		437A90E8114FF57A000046FD /* NhCharInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 437A90BA114FF57A000046FD /* NhCharInfo.m */; };
+		437A90E9114FF57A000046FD /* NhCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 437A90BC114FF57A000046FD /* NhCommand.m */; };
+		437A90EA114FF57A000046FD /* NhEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 437A90BE114FF57A000046FD /* NhEvent.m */; };
+		437A90EB114FF57A000046FD /* NhEventQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 437A90C0114FF57A000046FD /* NhEventQueue.m */; };
+		437A90EC114FF57A000046FD /* NhGoldObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 437A90C2114FF57A000046FD /* NhGoldObject.m */; };
+		437A90ED114FF57A000046FD /* NhInventory.m in Sources */ = {isa = PBXBuildFile; fileRef = 437A90C4114FF57A000046FD /* NhInventory.m */; };
+		437A90EE114FF57A000046FD /* NhItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 437A90C6114FF57A000046FD /* NhItem.m */; };
+		437A90EF114FF57A000046FD /* NhItemGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 437A90C8114FF57A000046FD /* NhItemGroup.m */; };
+		437A90F0114FF57A000046FD /* NhMapWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 437A90CA114FF57A000046FD /* NhMapWindow.m */; };
+		437A90F1114FF57A000046FD /* NhMenuWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 437A90CC114FF57A000046FD /* NhMenuWindow.m */; };
+		437A90F2114FF57A000046FD /* NhObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 437A90CE114FF57A000046FD /* NhObject.m */; };
+		437A90F3114FF57A000046FD /* NhOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 437A90D0114FF57A000046FD /* NhOption.m */; };
+		437A90F4114FF57A000046FD /* NhStatusWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 437A90D2114FF57A000046FD /* NhStatusWindow.m */; };
+		437A90F5114FF57A000046FD /* NhTextInputEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 437A90D4114FF57A000046FD /* NhTextInputEvent.m */; };
+		437A90F6114FF57A000046FD /* NhWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 437A90D6114FF57A000046FD /* NhWindow.m */; };
+		437A90F7114FF57A000046FD /* NhYnQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = 437A90D8114FF57A000046FD /* NhYnQuestion.m */; };
+		437A90F8114FF57A000046FD /* NSString+NetHack.m in Sources */ = {isa = PBXBuildFile; fileRef = 437A90DA114FF57A000046FD /* NSString+NetHack.m */; };
+		437A90F9114FF57A000046FD /* NSString+Z.m in Sources */ = {isa = PBXBuildFile; fileRef = 437A90DC114FF57A000046FD /* NSString+Z.m */; };
+		437A90FA114FF57A000046FD /* TileSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 437A90DE114FF57A000046FD /* TileSet.m */; };
+		437A90FB114FF57A000046FD /* ZDirection.m in Sources */ = {isa = PBXBuildFile; fileRef = 437A90E0114FF57A000046FD /* ZDirection.m */; };
+		437A90FC114FF57A000046FD /* ZObjectCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 437A90E2114FF57A000046FD /* ZObjectCache.m */; };
+		437A90FD114FF57A000046FD /* ZTouchInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 437A90E4114FF57A000046FD /* ZTouchInfo.m */; };
+		437A90FE114FF57A000046FD /* ZTouchInfoStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 437A90E6114FF57A000046FD /* ZTouchInfoStore.m */; };
+		437A911E114FF58E000046FD /* ActionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 437A9101114FF58E000046FD /* ActionViewController.m */; };
+		437A911F114FF58E000046FD /* DebugPopoverController.m in Sources */ = {isa = PBXBuildFile; fileRef = 437A9103114FF58E000046FD /* DebugPopoverController.m */; };
+		437A9120114FF58E000046FD /* DirectionPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 437A9105114FF58E000046FD /* DirectionPad.m */; };
+		437A9121114FF58E000046FD /* ExtendedCommandsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 437A9107114FF58E000046FD /* ExtendedCommandsController.m */; };
+		437A9122114FF58E000046FD /* InventoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 437A9109114FF58E000046FD /* InventoryViewController.m */; };
+		437A9123114FF58E000046FD /* ItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 437A910B114FF58E000046FD /* ItemViewController.m */; };
+		437A9124114FF58E000046FD /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 437A910D114FF58E000046FD /* MainViewController.m */; };
+		437A9125114FF58E000046FD /* MapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 437A910F114FF58E000046FD /* MapView.m */; };
+		437A9126114FF58E000046FD /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 437A9111114FF58E000046FD /* MenuViewController.m */; };
+		437A9127114FF58E000046FD /* MessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 437A9113114FF58E000046FD /* MessageView.m */; };
+		437A9128114FF58E000046FD /* OptionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 437A9115114FF58E000046FD /* OptionsViewController.m */; };
+		437A9129114FF58E000046FD /* TextInputController.m in Sources */ = {isa = PBXBuildFile; fileRef = 437A9117114FF58E000046FD /* TextInputController.m */; };
+		437A912A114FF58E000046FD /* TextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 437A9119114FF58E000046FD /* TextViewController.m */; };
+		437A912B114FF58E000046FD /* TileSetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 437A911B114FF58E000046FD /* TileSetViewController.m */; };
+		437A912C114FF58E000046FD /* ToolsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 437A911D114FF58E000046FD /* ToolsViewController.m */; };
+		437A9205114FF5D1000046FD /* allmain.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A9198114FF5D1000046FD /* allmain.c */; };
+		437A9206114FF5D1000046FD /* alloc.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A9199114FF5D1000046FD /* alloc.c */; };
+		437A9207114FF5D1000046FD /* apply.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A919A114FF5D1000046FD /* apply.c */; };
+		437A9208114FF5D1000046FD /* artifact.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A919B114FF5D1000046FD /* artifact.c */; };
+		437A9209114FF5D1000046FD /* attrib.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A919C114FF5D1000046FD /* attrib.c */; };
+		437A920A114FF5D1000046FD /* ball.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A919D114FF5D1000046FD /* ball.c */; };
+		437A920B114FF5D1000046FD /* bones.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A919E114FF5D1000046FD /* bones.c */; };
+		437A920C114FF5D1000046FD /* borg.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A919F114FF5D1000046FD /* borg.c */; };
+		437A920D114FF5D1000046FD /* botl.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A91A0114FF5D1000046FD /* botl.c */; };
+		437A920E114FF5D1000046FD /* cmd.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A91A1114FF5D1000046FD /* cmd.c */; };
+		437A920F114FF5D1000046FD /* dbridge.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A91A2114FF5D1000046FD /* dbridge.c */; };
+		437A9210114FF5D1000046FD /* decl.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A91A3114FF5D1000046FD /* decl.c */; };
+		437A9211114FF5D1000046FD /* detect.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A91A4114FF5D1000046FD /* detect.c */; };
+		437A9212114FF5D1000046FD /* dig.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A91A5114FF5D1000046FD /* dig.c */; };
+		437A9213114FF5D1000046FD /* display.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A91A6114FF5D1000046FD /* display.c */; };
+		437A9214114FF5D1000046FD /* dlb.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A91A7114FF5D1000046FD /* dlb.c */; };
+		437A9215114FF5D1000046FD /* do.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A91A8114FF5D1000046FD /* do.c */; };
+		437A9216114FF5D1000046FD /* do_name.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A91A9114FF5D1000046FD /* do_name.c */; };
+		437A9217114FF5D1000046FD /* do_wear.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A91AA114FF5D1000046FD /* do_wear.c */; };
+		437A9218114FF5D1000046FD /* dog.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A91AB114FF5D1000046FD /* dog.c */; };
+		437A9219114FF5D1000046FD /* dogmove.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A91AC114FF5D1000046FD /* dogmove.c */; };
+		437A921A114FF5D1000046FD /* dokick.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A91AD114FF5D1000046FD /* dokick.c */; };
+		437A921B114FF5D1000046FD /* dothrow.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A91AE114FF5D1000046FD /* dothrow.c */; };
+		437A921C114FF5D1000046FD /* drawing.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A91AF114FF5D1000046FD /* drawing.c */; };
+		437A921D114FF5D1000046FD /* dungeon.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A91B0114FF5D1000046FD /* dungeon.c */; };
+		437A921E114FF5D1000046FD /* eat.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A91B1114FF5D1000046FD /* eat.c */; };
+		437A921F114FF5D1000046FD /* end.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A91B2114FF5D1000046FD /* end.c */; };
+		437A9220114FF5D1000046FD /* engrave.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A91B3114FF5D1000046FD /* engrave.c */; };
+		437A9221114FF5D1000046FD /* exper.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A91B4114FF5D1000046FD /* exper.c */; };
+		437A9222114FF5D1000046FD /* explode.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A91B5114FF5D1000046FD /* explode.c */; };
+		437A9223114FF5D1000046FD /* extralev.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A91B6114FF5D1000046FD /* extralev.c */; };
+		437A9224114FF5D1000046FD /* files.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A91B7114FF5D1000046FD /* files.c */; };
+		437A9225114FF5D1000046FD /* fountain.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A91B8114FF5D1000046FD /* fountain.c */; };
+		437A9226114FF5D1000046FD /* gypsy.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A91B9114FF5D1000046FD /* gypsy.c */; };
+		437A9227114FF5D1000046FD /* hack.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A91BA114FF5D1000046FD /* hack.c */; };
+		437A9228114FF5D1000046FD /* hacklib.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A91BB114FF5D1000046FD /* hacklib.c */; };
+		437A9229114FF5D1000046FD /* invent.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A91BC114FF5D1000046FD /* invent.c */; };
+		437A922A114FF5D1000046FD /* light.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A91BD114FF5D1000046FD /* light.c */; };
+		437A922B114FF5D1000046FD /* lock.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A91BE114FF5D1000046FD /* lock.c */; };
+		437A922C114FF5D1000046FD /* mail.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A91BF114FF5D1000046FD /* mail.c */; };
+		437A922D114FF5D1000046FD /* makemon.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A91C0114FF5D1000046FD /* makemon.c */; };
+		437A922E114FF5D1000046FD /* mapglyph.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A91C1114FF5D1000046FD /* mapglyph.c */; };
+		437A922F114FF5D1000046FD /* mcastu.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A91C2114FF5D1000046FD /* mcastu.c */; };
+		437A9230114FF5D1000046FD /* mhitm.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A91C3114FF5D1000046FD /* mhitm.c */; };
+		437A9231114FF5D1000046FD /* mhitu.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A91C4114FF5D1000046FD /* mhitu.c */; };
+		437A9232114FF5D1000046FD /* minion.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A91C5114FF5D1000046FD /* minion.c */; };
+		437A9233114FF5D1000046FD /* mklev.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A91C6114FF5D1000046FD /* mklev.c */; };
+		437A9234114FF5D1000046FD /* mkmap.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A91C7114FF5D1000046FD /* mkmap.c */; };
+		437A9235114FF5D1000046FD /* mkmaze.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A91C8114FF5D1000046FD /* mkmaze.c */; };
+		437A9236114FF5D1000046FD /* mkobj.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A91C9114FF5D1000046FD /* mkobj.c */; };
+		437A9237114FF5D1000046FD /* mkroom.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A91CA114FF5D1000046FD /* mkroom.c */; };
+		437A9238114FF5D1000046FD /* mon.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A91CB114FF5D1000046FD /* mon.c */; };
+		437A9239114FF5D1000046FD /* mondata.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A91CC114FF5D1000046FD /* mondata.c */; };
+		437A923A114FF5D1000046FD /* monmove.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A91CD114FF5D1000046FD /* monmove.c */; };
+		437A923B114FF5D1000046FD /* monst.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A91CE114FF5D1000046FD /* monst.c */; };
+		437A923C114FF5D1000046FD /* mplayer.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A91CF114FF5D1000046FD /* mplayer.c */; };
+		437A923D114FF5D1000046FD /* mthrowu.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A91D0114FF5D1000046FD /* mthrowu.c */; };
+		437A923E114FF5D1000046FD /* muse.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A91D1114FF5D1000046FD /* muse.c */; };
+		437A923F114FF5D1000046FD /* music.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A91D2114FF5D1000046FD /* music.c */; };
+		437A9240114FF5D1000046FD /* o_init.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A91D3114FF5D1000046FD /* o_init.c */; };
+		437A9241114FF5D1000046FD /* objects.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A91D4114FF5D1000046FD /* objects.c */; };
+		437A9242114FF5D1000046FD /* objnam.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A91D5114FF5D1000046FD /* objnam.c */; };
+		437A9243114FF5D1000046FD /* options.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A91D6114FF5D1000046FD /* options.c */; };
+		437A9244114FF5D1000046FD /* pager.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A91D7114FF5D1000046FD /* pager.c */; };
+		437A9245114FF5D1000046FD /* pickup.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A91D8114FF5D1000046FD /* pickup.c */; };
+		437A9246114FF5D1000046FD /* pline.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A91D9114FF5D1000046FD /* pline.c */; };
+		437A9247114FF5D1000046FD /* polyself.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A91DA114FF5D1000046FD /* polyself.c */; };
+		437A9248114FF5D1000046FD /* potion.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A91DB114FF5D1000046FD /* potion.c */; };
+		437A9249114FF5D1000046FD /* pray.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A91DC114FF5D1000046FD /* pray.c */; };
+		437A924A114FF5D1000046FD /* priest.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A91DD114FF5D1000046FD /* priest.c */; };
+		437A924B114FF5D1000046FD /* quest.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A91DE114FF5D1000046FD /* quest.c */; };
+		437A924C114FF5D1000046FD /* questpgr.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A91DF114FF5D1000046FD /* questpgr.c */; };
+		437A924D114FF5D1000046FD /* read.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A91E0114FF5D1000046FD /* read.c */; };
+		437A924E114FF5D1000046FD /* rect.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A91E1114FF5D1000046FD /* rect.c */; };
+		437A924F114FF5D1000046FD /* region.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A91E2114FF5D1000046FD /* region.c */; };
+		437A9250114FF5D1000046FD /* restore.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A91E3114FF5D1000046FD /* restore.c */; };
+		437A9251114FF5D1000046FD /* rip.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A91E4114FF5D1000046FD /* rip.c */; };
+		437A9252114FF5D1000046FD /* rnd.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A91E5114FF5D1000046FD /* rnd.c */; };
+		437A9253114FF5D1000046FD /* role.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A91E6114FF5D1000046FD /* role.c */; };
+		437A9254114FF5D1000046FD /* rumors.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A91E7114FF5D1000046FD /* rumors.c */; };
+		437A9255114FF5D1000046FD /* save.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A91E8114FF5D1000046FD /* save.c */; };
+		437A9256114FF5D1000046FD /* shk.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A91E9114FF5D1000046FD /* shk.c */; };
+		437A9257114FF5D1000046FD /* shknam.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A91EA114FF5D1000046FD /* shknam.c */; };
+		437A9258114FF5D1000046FD /* sit.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A91EB114FF5D1000046FD /* sit.c */; };
+		437A9259114FF5D1000046FD /* sounds.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A91EC114FF5D1000046FD /* sounds.c */; };
+		437A925A114FF5D1000046FD /* sp_lev.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A91ED114FF5D1000046FD /* sp_lev.c */; };
+		437A925B114FF5D1000046FD /* spell.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A91EE114FF5D1000046FD /* spell.c */; };
+		437A925C114FF5D1000046FD /* steal.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A91EF114FF5D1000046FD /* steal.c */; };
+		437A925D114FF5D1000046FD /* steed.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A91F0114FF5D1000046FD /* steed.c */; };
+		437A925E114FF5D1000046FD /* tech.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A91F1114FF5D1000046FD /* tech.c */; };
+		437A925F114FF5D1000046FD /* teleport.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A91F2114FF5D1000046FD /* teleport.c */; };
+		437A9260114FF5D1000046FD /* timeout.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A91F3114FF5D1000046FD /* timeout.c */; };
+		437A9261114FF5D1000046FD /* topten.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A91F4114FF5D1000046FD /* topten.c */; };
+		437A9262114FF5D1000046FD /* track.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A91F5114FF5D1000046FD /* track.c */; };
+		437A9263114FF5D1000046FD /* trap.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A91F6114FF5D1000046FD /* trap.c */; };
+		437A9264114FF5D1000046FD /* u_init.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A91F7114FF5D1000046FD /* u_init.c */; };
+		437A9265114FF5D1000046FD /* uhitm.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A91F8114FF5D1000046FD /* uhitm.c */; };
+		437A9266114FF5D1000046FD /* vault.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A91F9114FF5D1000046FD /* vault.c */; };
+		437A9267114FF5D1000046FD /* version.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A91FA114FF5D1000046FD /* version.c */; };
+		437A9268114FF5D1000046FD /* vision.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A91FB114FF5D1000046FD /* vision.c */; };
+		437A9269114FF5D1000046FD /* weapon.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A91FC114FF5D1000046FD /* weapon.c */; };
+		437A926A114FF5D1000046FD /* were.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A91FD114FF5D1000046FD /* were.c */; };
+		437A926B114FF5D1000046FD /* wield.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A91FE114FF5D1000046FD /* wield.c */; };
+		437A926C114FF5D1000046FD /* windows.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A91FF114FF5D1000046FD /* windows.c */; };
+		437A926D114FF5D1000046FD /* wizard.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A9200114FF5D1000046FD /* wizard.c */; };
+		437A926E114FF5D1000046FD /* worm.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A9201114FF5D1000046FD /* worm.c */; };
+		437A926F114FF5D1000046FD /* worn.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A9202114FF5D1000046FD /* worn.c */; };
+		437A9270114FF5D1000046FD /* write.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A9203114FF5D1000046FD /* write.c */; };
+		437A9271114FF5D1000046FD /* zap.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A9204114FF5D1000046FD /* zap.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +173,298 @@
 		28AD733E0D9D9553002E5188 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* SlashEM_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlashEM_Prefix.pch; sourceTree = "<group>"; };
+		437A90B7114FF57A000046FD /* Action.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Action.h; sourceTree = "<group>"; };
+		437A90B8114FF57A000046FD /* Action.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Action.m; sourceTree = "<group>"; };
+		437A90B9114FF57A000046FD /* NhCharInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NhCharInfo.h; sourceTree = "<group>"; };
+		437A90BA114FF57A000046FD /* NhCharInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NhCharInfo.m; sourceTree = "<group>"; };
+		437A90BB114FF57A000046FD /* NhCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NhCommand.h; sourceTree = "<group>"; };
+		437A90BC114FF57A000046FD /* NhCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NhCommand.m; sourceTree = "<group>"; };
+		437A90BD114FF57A000046FD /* NhEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NhEvent.h; sourceTree = "<group>"; };
+		437A90BE114FF57A000046FD /* NhEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NhEvent.m; sourceTree = "<group>"; };
+		437A90BF114FF57A000046FD /* NhEventQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NhEventQueue.h; sourceTree = "<group>"; };
+		437A90C0114FF57A000046FD /* NhEventQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NhEventQueue.m; sourceTree = "<group>"; };
+		437A90C1114FF57A000046FD /* NhGoldObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NhGoldObject.h; sourceTree = "<group>"; };
+		437A90C2114FF57A000046FD /* NhGoldObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NhGoldObject.m; sourceTree = "<group>"; };
+		437A90C3114FF57A000046FD /* NhInventory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NhInventory.h; sourceTree = "<group>"; };
+		437A90C4114FF57A000046FD /* NhInventory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NhInventory.m; sourceTree = "<group>"; };
+		437A90C5114FF57A000046FD /* NhItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NhItem.h; sourceTree = "<group>"; };
+		437A90C6114FF57A000046FD /* NhItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NhItem.m; sourceTree = "<group>"; };
+		437A90C7114FF57A000046FD /* NhItemGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NhItemGroup.h; sourceTree = "<group>"; };
+		437A90C8114FF57A000046FD /* NhItemGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NhItemGroup.m; sourceTree = "<group>"; };
+		437A90C9114FF57A000046FD /* NhMapWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NhMapWindow.h; sourceTree = "<group>"; };
+		437A90CA114FF57A000046FD /* NhMapWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NhMapWindow.m; sourceTree = "<group>"; };
+		437A90CB114FF57A000046FD /* NhMenuWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NhMenuWindow.h; sourceTree = "<group>"; };
+		437A90CC114FF57A000046FD /* NhMenuWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NhMenuWindow.m; sourceTree = "<group>"; };
+		437A90CD114FF57A000046FD /* NhObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NhObject.h; sourceTree = "<group>"; };
+		437A90CE114FF57A000046FD /* NhObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NhObject.m; sourceTree = "<group>"; };
+		437A90CF114FF57A000046FD /* NhOption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NhOption.h; sourceTree = "<group>"; };
+		437A90D0114FF57A000046FD /* NhOption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NhOption.m; sourceTree = "<group>"; };
+		437A90D1114FF57A000046FD /* NhStatusWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NhStatusWindow.h; sourceTree = "<group>"; };
+		437A90D2114FF57A000046FD /* NhStatusWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NhStatusWindow.m; sourceTree = "<group>"; };
+		437A90D3114FF57A000046FD /* NhTextInputEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NhTextInputEvent.h; sourceTree = "<group>"; };
+		437A90D4114FF57A000046FD /* NhTextInputEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NhTextInputEvent.m; sourceTree = "<group>"; };
+		437A90D5114FF57A000046FD /* NhWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NhWindow.h; sourceTree = "<group>"; };
+		437A90D6114FF57A000046FD /* NhWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NhWindow.m; sourceTree = "<group>"; };
+		437A90D7114FF57A000046FD /* NhYnQuestion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NhYnQuestion.h; sourceTree = "<group>"; };
+		437A90D8114FF57A000046FD /* NhYnQuestion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NhYnQuestion.m; sourceTree = "<group>"; };
+		437A90D9114FF57A000046FD /* NSString+NetHack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+NetHack.h"; sourceTree = "<group>"; };
+		437A90DA114FF57A000046FD /* NSString+NetHack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+NetHack.m"; sourceTree = "<group>"; };
+		437A90DB114FF57A000046FD /* NSString+Z.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Z.h"; sourceTree = "<group>"; };
+		437A90DC114FF57A000046FD /* NSString+Z.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Z.m"; sourceTree = "<group>"; };
+		437A90DD114FF57A000046FD /* TileSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TileSet.h; sourceTree = "<group>"; };
+		437A90DE114FF57A000046FD /* TileSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TileSet.m; sourceTree = "<group>"; };
+		437A90DF114FF57A000046FD /* ZDirection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZDirection.h; sourceTree = "<group>"; };
+		437A90E0114FF57A000046FD /* ZDirection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZDirection.m; sourceTree = "<group>"; };
+		437A90E1114FF57A000046FD /* ZObjectCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZObjectCache.h; sourceTree = "<group>"; };
+		437A90E2114FF57A000046FD /* ZObjectCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZObjectCache.m; sourceTree = "<group>"; };
+		437A90E3114FF57A000046FD /* ZTouchInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZTouchInfo.h; sourceTree = "<group>"; };
+		437A90E4114FF57A000046FD /* ZTouchInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZTouchInfo.m; sourceTree = "<group>"; };
+		437A90E5114FF57A000046FD /* ZTouchInfoStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZTouchInfoStore.h; sourceTree = "<group>"; };
+		437A90E6114FF57A000046FD /* ZTouchInfoStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZTouchInfoStore.m; sourceTree = "<group>"; };
+		437A9100114FF58E000046FD /* ActionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionViewController.h; sourceTree = "<group>"; };
+		437A9101114FF58E000046FD /* ActionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionViewController.m; sourceTree = "<group>"; };
+		437A9102114FF58E000046FD /* DebugPopoverController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DebugPopoverController.h; sourceTree = "<group>"; };
+		437A9103114FF58E000046FD /* DebugPopoverController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DebugPopoverController.m; sourceTree = "<group>"; };
+		437A9104114FF58E000046FD /* DirectionPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DirectionPad.h; sourceTree = "<group>"; };
+		437A9105114FF58E000046FD /* DirectionPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DirectionPad.m; sourceTree = "<group>"; };
+		437A9106114FF58E000046FD /* ExtendedCommandsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExtendedCommandsController.h; sourceTree = "<group>"; };
+		437A9107114FF58E000046FD /* ExtendedCommandsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExtendedCommandsController.m; sourceTree = "<group>"; };
+		437A9108114FF58E000046FD /* InventoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InventoryViewController.h; sourceTree = "<group>"; };
+		437A9109114FF58E000046FD /* InventoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InventoryViewController.m; sourceTree = "<group>"; };
+		437A910A114FF58E000046FD /* ItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemViewController.h; sourceTree = "<group>"; };
+		437A910B114FF58E000046FD /* ItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemViewController.m; sourceTree = "<group>"; };
+		437A910C114FF58E000046FD /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		437A910D114FF58E000046FD /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		437A910E114FF58E000046FD /* MapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapView.h; sourceTree = "<group>"; };
+		437A910F114FF58E000046FD /* MapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapView.m; sourceTree = "<group>"; };
+		437A9110114FF58E000046FD /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
+		437A9111114FF58E000046FD /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
+		437A9112114FF58E000046FD /* MessageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageView.h; sourceTree = "<group>"; };
+		437A9113114FF58E000046FD /* MessageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageView.m; sourceTree = "<group>"; };
+		437A9114114FF58E000046FD /* OptionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptionsViewController.h; sourceTree = "<group>"; };
+		437A9115114FF58E000046FD /* OptionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OptionsViewController.m; sourceTree = "<group>"; };
+		437A9116114FF58E000046FD /* TextInputController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextInputController.h; sourceTree = "<group>"; };
+		437A9117114FF58E000046FD /* TextInputController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextInputController.m; sourceTree = "<group>"; };
+		437A9118114FF58E000046FD /* TextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextViewController.h; sourceTree = "<group>"; };
+		437A9119114FF58E000046FD /* TextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextViewController.m; sourceTree = "<group>"; };
+		437A911A114FF58E000046FD /* TileSetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TileSetViewController.h; sourceTree = "<group>"; };
+		437A911B114FF58E000046FD /* TileSetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TileSetViewController.m; sourceTree = "<group>"; };
+		437A911C114FF58E000046FD /* ToolsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolsViewController.h; sourceTree = "<group>"; };
+		437A911D114FF58E000046FD /* ToolsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolsViewController.m; sourceTree = "<group>"; };
+		437A912E114FF5D1000046FD /* align.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = align.h; sourceTree = "<group>"; };
+		437A912F114FF5D1000046FD /* amiconf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = amiconf.h; sourceTree = "<group>"; };
+		437A9130114FF5D1000046FD /* artifact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = artifact.h; sourceTree = "<group>"; };
+		437A9131114FF5D1000046FD /* artilist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = artilist.h; sourceTree = "<group>"; };
+		437A9132114FF5D1000046FD /* attk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = attk.h; sourceTree = "<group>"; };
+		437A9133114FF5D1000046FD /* attrib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = attrib.h; sourceTree = "<group>"; };
+		437A9134114FF5D1000046FD /* beconf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = beconf.h; sourceTree = "<group>"; };
+		437A9135114FF5D1000046FD /* bitmfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bitmfile.h; sourceTree = "<group>"; };
+		437A9136114FF5D1000046FD /* color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = color.h; sourceTree = "<group>"; };
+		437A9137114FF5D1000046FD /* config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = config.h; sourceTree = "<group>"; };
+		437A9138114FF5D1000046FD /* config1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = config1.h; sourceTree = "<group>"; };
+		437A9139114FF5D1000046FD /* coord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = coord.h; sourceTree = "<group>"; };
+		437A913A114FF5D1000046FD /* decl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = decl.h; sourceTree = "<group>"; };
+		437A913B114FF5D1000046FD /* def_os2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = def_os2.h; sourceTree = "<group>"; };
+		437A913C114FF5D1000046FD /* dgn_file.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dgn_file.h; sourceTree = "<group>"; };
+		437A913D114FF5D1000046FD /* display.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = display.h; sourceTree = "<group>"; };
+		437A913E114FF5D1000046FD /* dlb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dlb.h; sourceTree = "<group>"; };
+		437A913F114FF5D1000046FD /* dungeon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dungeon.h; sourceTree = "<group>"; };
+		437A9140114FF5D1000046FD /* edog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = edog.h; sourceTree = "<group>"; };
+		437A9141114FF5D1000046FD /* egyp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = egyp.h; sourceTree = "<group>"; };
+		437A9142114FF5D1000046FD /* emin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = emin.h; sourceTree = "<group>"; };
+		437A9143114FF5D1000046FD /* engrave.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = engrave.h; sourceTree = "<group>"; };
+		437A9144114FF5D1000046FD /* epri.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = epri.h; sourceTree = "<group>"; };
+		437A9145114FF5D1000046FD /* eshk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = eshk.h; sourceTree = "<group>"; };
+		437A9146114FF5D1000046FD /* extern.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = extern.h; sourceTree = "<group>"; };
+		437A9147114FF5D1000046FD /* file.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = file.h; sourceTree = "<group>"; };
+		437A9148114FF5D1000046FD /* flag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = flag.h; sourceTree = "<group>"; };
+		437A9149114FF5D1000046FD /* func_tab.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = func_tab.h; sourceTree = "<group>"; };
+		437A914A114FF5D1000046FD /* gem_rsc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gem_rsc.h; sourceTree = "<group>"; };
+		437A914B114FF5D1000046FD /* global.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = global.h; sourceTree = "<group>"; };
+		437A914C114FF5D1000046FD /* hack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hack.h; sourceTree = "<group>"; };
+		437A914D114FF5D1000046FD /* lev.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lev.h; sourceTree = "<group>"; };
+		437A914E114FF5D1000046FD /* load_img.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = load_img.h; sourceTree = "<group>"; };
+		437A914F114FF5D1000046FD /* mac-carbon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "mac-carbon.h"; sourceTree = "<group>"; };
+		437A9150114FF5D1000046FD /* mac-qt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "mac-qt.h"; sourceTree = "<group>"; };
+		437A9151114FF5D1000046FD /* mac-term.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "mac-term.h"; sourceTree = "<group>"; };
+		437A9152114FF5D1000046FD /* macconf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = macconf.h; sourceTree = "<group>"; };
+		437A9153114FF5D1000046FD /* macpopup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = macpopup.h; sourceTree = "<group>"; };
+		437A9154114FF5D1000046FD /* mactty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mactty.h; sourceTree = "<group>"; };
+		437A9155114FF5D1000046FD /* macwin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = macwin.h; sourceTree = "<group>"; };
+		437A9156114FF5D1000046FD /* mail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mail.h; sourceTree = "<group>"; };
+		437A9157114FF5D1000046FD /* md5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = md5.h; sourceTree = "<group>"; };
+		437A9158114FF5D1000046FD /* mfndpos.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mfndpos.h; sourceTree = "<group>"; };
+		437A9159114FF5D1000046FD /* micro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = micro.h; sourceTree = "<group>"; };
+		437A915A114FF5D1000046FD /* mkroom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mkroom.h; sourceTree = "<group>"; };
+		437A915B114FF5D1000046FD /* monattk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = monattk.h; sourceTree = "<group>"; };
+		437A915C114FF5D1000046FD /* mondata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mondata.h; sourceTree = "<group>"; };
+		437A915D114FF5D1000046FD /* monflag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = monflag.h; sourceTree = "<group>"; };
+		437A915E114FF5D1000046FD /* monst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = monst.h; sourceTree = "<group>"; };
+		437A915F114FF5D1000046FD /* monsym.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = monsym.h; sourceTree = "<group>"; };
+		437A9160114FF5D1000046FD /* mttypriv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mttypriv.h; sourceTree = "<group>"; };
+		437A9161114FF5D1000046FD /* nhlan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nhlan.h; sourceTree = "<group>"; };
+		437A9162114FF5D1000046FD /* nhxdr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nhxdr.h; sourceTree = "<group>"; };
+		437A9163114FF5D1000046FD /* ntconf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ntconf.h; sourceTree = "<group>"; };
+		437A9164114FF5D1000046FD /* obj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = obj.h; sourceTree = "<group>"; };
+		437A9165114FF5D1000046FD /* objclass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = objclass.h; sourceTree = "<group>"; };
+		437A9166114FF5D1000046FD /* os2conf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = os2conf.h; sourceTree = "<group>"; };
+		437A9167114FF5D1000046FD /* patchlevel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = patchlevel.h; sourceTree = "<group>"; };
+		437A9168114FF5D1000046FD /* pcconf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pcconf.h; sourceTree = "<group>"; };
+		437A9169114FF5D1000046FD /* permonst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = permonst.h; sourceTree = "<group>"; };
+		437A916A114FF5D1000046FD /* prop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = prop.h; sourceTree = "<group>"; };
+		437A916B114FF5D1000046FD /* proxycb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = proxycb.h; sourceTree = "<group>"; };
+		437A916C114FF5D1000046FD /* proxycom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = proxycom.h; sourceTree = "<group>"; };
+		437A916D114FF5D1000046FD /* prxyclnt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = prxyclnt.h; sourceTree = "<group>"; };
+		437A916E114FF5D1000046FD /* qt_clust.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = qt_clust.h; sourceTree = "<group>"; };
+		437A916F114FF5D1000046FD /* qt_kde0.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = qt_kde0.h; sourceTree = "<group>"; };
+		437A9170114FF5D1000046FD /* qt_win.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = qt_win.h; sourceTree = "<group>"; };
+		437A9171114FF5D1000046FD /* qt_xpms.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = qt_xpms.h; sourceTree = "<group>"; };
+		437A9172114FF5D1000046FD /* qtext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = qtext.h; sourceTree = "<group>"; };
+		437A9173114FF5D1000046FD /* qttableview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = qttableview.h; sourceTree = "<group>"; };
+		437A9174114FF5D1000046FD /* quest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = quest.h; sourceTree = "<group>"; };
+		437A9175114FF5D1000046FD /* rect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rect.h; sourceTree = "<group>"; };
+		437A9176114FF5D1000046FD /* region.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = region.h; sourceTree = "<group>"; };
+		437A9177114FF5D1000046FD /* rm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rm.h; sourceTree = "<group>"; };
+		437A9178114FF5D1000046FD /* skills.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = skills.h; sourceTree = "<group>"; };
+		437A9179114FF5D1000046FD /* sp_lev.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sp_lev.h; sourceTree = "<group>"; };
+		437A917A114FF5D1000046FD /* spell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = spell.h; sourceTree = "<group>"; };
+		437A917B114FF5D1000046FD /* system.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = system.h; sourceTree = "<group>"; };
+		437A917C114FF5D1000046FD /* tcap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tcap.h; sourceTree = "<group>"; };
+		437A917D114FF5D1000046FD /* tech.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tech.h; sourceTree = "<group>"; };
+		437A917E114FF5D1000046FD /* tile2x11.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tile2x11.h; sourceTree = "<group>"; };
+		437A917F114FF5D1000046FD /* timeout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = timeout.h; sourceTree = "<group>"; };
+		437A9180114FF5D1000046FD /* tosconf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tosconf.h; sourceTree = "<group>"; };
+		437A9181114FF5D1000046FD /* tradstdc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tradstdc.h; sourceTree = "<group>"; };
+		437A9182114FF5D1000046FD /* trampoli.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = trampoli.h; sourceTree = "<group>"; };
+		437A9183114FF5D1000046FD /* trap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = trap.h; sourceTree = "<group>"; };
+		437A9184114FF5D1000046FD /* unixconf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = unixconf.h; sourceTree = "<group>"; };
+		437A9185114FF5D1000046FD /* vault.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vault.h; sourceTree = "<group>"; };
+		437A9186114FF5D1000046FD /* vision.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vision.h; sourceTree = "<group>"; };
+		437A9187114FF5D1000046FD /* vmsconf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vmsconf.h; sourceTree = "<group>"; };
+		437A9188114FF5D1000046FD /* wceconf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = wceconf.h; sourceTree = "<group>"; };
+		437A9189114FF5D1000046FD /* winami.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = winami.h; sourceTree = "<group>"; };
+		437A918A114FF5D1000046FD /* wingem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = wingem.h; sourceTree = "<group>"; };
+		437A918B114FF5D1000046FD /* winGL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = winGL.h; sourceTree = "<group>"; };
+		437A918C114FF5D1000046FD /* winGnome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = winGnome.h; sourceTree = "<group>"; };
+		437A918D114FF5D1000046FD /* winGTK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = winGTK.h; sourceTree = "<group>"; };
+		437A918E114FF5D1000046FD /* winprocs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = winprocs.h; sourceTree = "<group>"; };
+		437A918F114FF5D1000046FD /* winproxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = winproxy.h; sourceTree = "<group>"; };
+		437A9190114FF5D1000046FD /* wintty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = wintty.h; sourceTree = "<group>"; };
+		437A9191114FF5D1000046FD /* wintype.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = wintype.h; sourceTree = "<group>"; };
+		437A9192114FF5D1000046FD /* winX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = winX.h; sourceTree = "<group>"; };
+		437A9193114FF5D1000046FD /* xwindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xwindow.h; sourceTree = "<group>"; };
+		437A9194114FF5D1000046FD /* xwindowp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xwindowp.h; sourceTree = "<group>"; };
+		437A9195114FF5D1000046FD /* you.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = you.h; sourceTree = "<group>"; };
+		437A9196114FF5D1000046FD /* youprop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = youprop.h; sourceTree = "<group>"; };
+		437A9198114FF5D1000046FD /* allmain.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = allmain.c; sourceTree = "<group>"; };
+		437A9199114FF5D1000046FD /* alloc.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = alloc.c; sourceTree = "<group>"; };
+		437A919A114FF5D1000046FD /* apply.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = apply.c; sourceTree = "<group>"; };
+		437A919B114FF5D1000046FD /* artifact.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = artifact.c; sourceTree = "<group>"; };
+		437A919C114FF5D1000046FD /* attrib.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = attrib.c; sourceTree = "<group>"; };
+		437A919D114FF5D1000046FD /* ball.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ball.c; sourceTree = "<group>"; };
+		437A919E114FF5D1000046FD /* bones.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = bones.c; sourceTree = "<group>"; };
+		437A919F114FF5D1000046FD /* borg.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = borg.c; sourceTree = "<group>"; };
+		437A91A0114FF5D1000046FD /* botl.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = botl.c; sourceTree = "<group>"; };
+		437A91A1114FF5D1000046FD /* cmd.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = cmd.c; sourceTree = "<group>"; };
+		437A91A2114FF5D1000046FD /* dbridge.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = dbridge.c; sourceTree = "<group>"; };
+		437A91A3114FF5D1000046FD /* decl.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = decl.c; sourceTree = "<group>"; };
+		437A91A4114FF5D1000046FD /* detect.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = detect.c; sourceTree = "<group>"; };
+		437A91A5114FF5D1000046FD /* dig.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = dig.c; sourceTree = "<group>"; };
+		437A91A6114FF5D1000046FD /* display.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = display.c; sourceTree = "<group>"; };
+		437A91A7114FF5D1000046FD /* dlb.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = dlb.c; sourceTree = "<group>"; };
+		437A91A8114FF5D1000046FD /* do.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = do.c; sourceTree = "<group>"; };
+		437A91A9114FF5D1000046FD /* do_name.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = do_name.c; sourceTree = "<group>"; };
+		437A91AA114FF5D1000046FD /* do_wear.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = do_wear.c; sourceTree = "<group>"; };
+		437A91AB114FF5D1000046FD /* dog.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = dog.c; sourceTree = "<group>"; };
+		437A91AC114FF5D1000046FD /* dogmove.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = dogmove.c; sourceTree = "<group>"; };
+		437A91AD114FF5D1000046FD /* dokick.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = dokick.c; sourceTree = "<group>"; };
+		437A91AE114FF5D1000046FD /* dothrow.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = dothrow.c; sourceTree = "<group>"; };
+		437A91AF114FF5D1000046FD /* drawing.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = drawing.c; sourceTree = "<group>"; };
+		437A91B0114FF5D1000046FD /* dungeon.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = dungeon.c; sourceTree = "<group>"; };
+		437A91B1114FF5D1000046FD /* eat.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = eat.c; sourceTree = "<group>"; };
+		437A91B2114FF5D1000046FD /* end.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = end.c; sourceTree = "<group>"; };
+		437A91B3114FF5D1000046FD /* engrave.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = engrave.c; sourceTree = "<group>"; };
+		437A91B4114FF5D1000046FD /* exper.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = exper.c; sourceTree = "<group>"; };
+		437A91B5114FF5D1000046FD /* explode.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = explode.c; sourceTree = "<group>"; };
+		437A91B6114FF5D1000046FD /* extralev.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = extralev.c; sourceTree = "<group>"; };
+		437A91B7114FF5D1000046FD /* files.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = files.c; sourceTree = "<group>"; };
+		437A91B8114FF5D1000046FD /* fountain.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = fountain.c; sourceTree = "<group>"; };
+		437A91B9114FF5D1000046FD /* gypsy.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gypsy.c; sourceTree = "<group>"; };
+		437A91BA114FF5D1000046FD /* hack.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = hack.c; sourceTree = "<group>"; };
+		437A91BB114FF5D1000046FD /* hacklib.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = hacklib.c; sourceTree = "<group>"; };
+		437A91BC114FF5D1000046FD /* invent.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = invent.c; sourceTree = "<group>"; };
+		437A91BD114FF5D1000046FD /* light.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = light.c; sourceTree = "<group>"; };
+		437A91BE114FF5D1000046FD /* lock.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = lock.c; sourceTree = "<group>"; };
+		437A91BF114FF5D1000046FD /* mail.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mail.c; sourceTree = "<group>"; };
+		437A91C0114FF5D1000046FD /* makemon.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = makemon.c; sourceTree = "<group>"; };
+		437A91C1114FF5D1000046FD /* mapglyph.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mapglyph.c; sourceTree = "<group>"; };
+		437A91C2114FF5D1000046FD /* mcastu.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mcastu.c; sourceTree = "<group>"; };
+		437A91C3114FF5D1000046FD /* mhitm.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mhitm.c; sourceTree = "<group>"; };
+		437A91C4114FF5D1000046FD /* mhitu.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mhitu.c; sourceTree = "<group>"; };
+		437A91C5114FF5D1000046FD /* minion.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = minion.c; sourceTree = "<group>"; };
+		437A91C6114FF5D1000046FD /* mklev.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mklev.c; sourceTree = "<group>"; };
+		437A91C7114FF5D1000046FD /* mkmap.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mkmap.c; sourceTree = "<group>"; };
+		437A91C8114FF5D1000046FD /* mkmaze.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mkmaze.c; sourceTree = "<group>"; };
+		437A91C9114FF5D1000046FD /* mkobj.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mkobj.c; sourceTree = "<group>"; };
+		437A91CA114FF5D1000046FD /* mkroom.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mkroom.c; sourceTree = "<group>"; };
+		437A91CB114FF5D1000046FD /* mon.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mon.c; sourceTree = "<group>"; };
+		437A91CC114FF5D1000046FD /* mondata.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mondata.c; sourceTree = "<group>"; };
+		437A91CD114FF5D1000046FD /* monmove.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = monmove.c; sourceTree = "<group>"; };
+		437A91CE114FF5D1000046FD /* monst.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = monst.c; sourceTree = "<group>"; };
+		437A91CF114FF5D1000046FD /* mplayer.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mplayer.c; sourceTree = "<group>"; };
+		437A91D0114FF5D1000046FD /* mthrowu.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mthrowu.c; sourceTree = "<group>"; };
+		437A91D1114FF5D1000046FD /* muse.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = muse.c; sourceTree = "<group>"; };
+		437A91D2114FF5D1000046FD /* music.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = music.c; sourceTree = "<group>"; };
+		437A91D3114FF5D1000046FD /* o_init.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = o_init.c; sourceTree = "<group>"; };
+		437A91D4114FF5D1000046FD /* objects.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = objects.c; sourceTree = "<group>"; };
+		437A91D5114FF5D1000046FD /* objnam.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = objnam.c; sourceTree = "<group>"; };
+		437A91D6114FF5D1000046FD /* options.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = options.c; sourceTree = "<group>"; };
+		437A91D7114FF5D1000046FD /* pager.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = pager.c; sourceTree = "<group>"; };
+		437A91D8114FF5D1000046FD /* pickup.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = pickup.c; sourceTree = "<group>"; };
+		437A91D9114FF5D1000046FD /* pline.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = pline.c; sourceTree = "<group>"; };
+		437A91DA114FF5D1000046FD /* polyself.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = polyself.c; sourceTree = "<group>"; };
+		437A91DB114FF5D1000046FD /* potion.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = potion.c; sourceTree = "<group>"; };
+		437A91DC114FF5D1000046FD /* pray.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = pray.c; sourceTree = "<group>"; };
+		437A91DD114FF5D1000046FD /* priest.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = priest.c; sourceTree = "<group>"; };
+		437A91DE114FF5D1000046FD /* quest.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = quest.c; sourceTree = "<group>"; };
+		437A91DF114FF5D1000046FD /* questpgr.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = questpgr.c; sourceTree = "<group>"; };
+		437A91E0114FF5D1000046FD /* read.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = read.c; sourceTree = "<group>"; };
+		437A91E1114FF5D1000046FD /* rect.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = rect.c; sourceTree = "<group>"; };
+		437A91E2114FF5D1000046FD /* region.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = region.c; sourceTree = "<group>"; };
+		437A91E3114FF5D1000046FD /* restore.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = restore.c; sourceTree = "<group>"; };
+		437A91E4114FF5D1000046FD /* rip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = rip.c; sourceTree = "<group>"; };
+		437A91E5114FF5D1000046FD /* rnd.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = rnd.c; sourceTree = "<group>"; };
+		437A91E6114FF5D1000046FD /* role.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = role.c; sourceTree = "<group>"; };
+		437A91E7114FF5D1000046FD /* rumors.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = rumors.c; sourceTree = "<group>"; };
+		437A91E8114FF5D1000046FD /* save.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = save.c; sourceTree = "<group>"; };
+		437A91E9114FF5D1000046FD /* shk.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = shk.c; sourceTree = "<group>"; };
+		437A91EA114FF5D1000046FD /* shknam.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = shknam.c; sourceTree = "<group>"; };
+		437A91EB114FF5D1000046FD /* sit.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = sit.c; sourceTree = "<group>"; };
+		437A91EC114FF5D1000046FD /* sounds.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = sounds.c; sourceTree = "<group>"; };
+		437A91ED114FF5D1000046FD /* sp_lev.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = sp_lev.c; sourceTree = "<group>"; };
+		437A91EE114FF5D1000046FD /* spell.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = spell.c; sourceTree = "<group>"; };
+		437A91EF114FF5D1000046FD /* steal.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = steal.c; sourceTree = "<group>"; };
+		437A91F0114FF5D1000046FD /* steed.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = steed.c; sourceTree = "<group>"; };
+		437A91F1114FF5D1000046FD /* tech.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = tech.c; sourceTree = "<group>"; };
+		437A91F2114FF5D1000046FD /* teleport.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = teleport.c; sourceTree = "<group>"; };
+		437A91F3114FF5D1000046FD /* timeout.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = timeout.c; sourceTree = "<group>"; };
+		437A91F4114FF5D1000046FD /* topten.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = topten.c; sourceTree = "<group>"; };
+		437A91F5114FF5D1000046FD /* track.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = track.c; sourceTree = "<group>"; };
+		437A91F6114FF5D1000046FD /* trap.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = trap.c; sourceTree = "<group>"; };
+		437A91F7114FF5D1000046FD /* u_init.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = u_init.c; sourceTree = "<group>"; };
+		437A91F8114FF5D1000046FD /* uhitm.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = uhitm.c; sourceTree = "<group>"; };
+		437A91F9114FF5D1000046FD /* vault.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = vault.c; sourceTree = "<group>"; };
+		437A91FA114FF5D1000046FD /* version.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = version.c; sourceTree = "<group>"; };
+		437A91FB114FF5D1000046FD /* vision.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = vision.c; sourceTree = "<group>"; };
+		437A91FC114FF5D1000046FD /* weapon.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = weapon.c; sourceTree = "<group>"; };
+		437A91FD114FF5D1000046FD /* were.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = were.c; sourceTree = "<group>"; };
+		437A91FE114FF5D1000046FD /* wield.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = wield.c; sourceTree = "<group>"; };
+		437A91FF114FF5D1000046FD /* windows.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = windows.c; sourceTree = "<group>"; };
+		437A9200114FF5D1000046FD /* wizard.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = wizard.c; sourceTree = "<group>"; };
+		437A9201114FF5D1000046FD /* worm.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = worm.c; sourceTree = "<group>"; };
+		437A9202114FF5D1000046FD /* worn.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = worn.c; sourceTree = "<group>"; };
+		437A9203114FF5D1000046FD /* write.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = write.c; sourceTree = "<group>"; };
+		437A9204114FF5D1000046FD /* zap.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = zap.c; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* SlashEM-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "SlashEM-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -64,6 +504,10 @@
 			children = (
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
+				437A90FF114FF58E000046FD /* views */,
+				437A90B6114FF57A000046FD /* iHack */,
+				437A912D114FF5D1000046FD /* include */,
+				437A9197114FF5D1000046FD /* src */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
@@ -98,6 +542,328 @@
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
+		};
+		437A90B6114FF57A000046FD /* iHack */ = {
+			isa = PBXGroup;
+			children = (
+				437A90B7114FF57A000046FD /* Action.h */,
+				437A90B8114FF57A000046FD /* Action.m */,
+				437A90B9114FF57A000046FD /* NhCharInfo.h */,
+				437A90BA114FF57A000046FD /* NhCharInfo.m */,
+				437A90BB114FF57A000046FD /* NhCommand.h */,
+				437A90BC114FF57A000046FD /* NhCommand.m */,
+				437A90BD114FF57A000046FD /* NhEvent.h */,
+				437A90BE114FF57A000046FD /* NhEvent.m */,
+				437A90BF114FF57A000046FD /* NhEventQueue.h */,
+				437A90C0114FF57A000046FD /* NhEventQueue.m */,
+				437A90C1114FF57A000046FD /* NhGoldObject.h */,
+				437A90C2114FF57A000046FD /* NhGoldObject.m */,
+				437A90C3114FF57A000046FD /* NhInventory.h */,
+				437A90C4114FF57A000046FD /* NhInventory.m */,
+				437A90C5114FF57A000046FD /* NhItem.h */,
+				437A90C6114FF57A000046FD /* NhItem.m */,
+				437A90C7114FF57A000046FD /* NhItemGroup.h */,
+				437A90C8114FF57A000046FD /* NhItemGroup.m */,
+				437A90C9114FF57A000046FD /* NhMapWindow.h */,
+				437A90CA114FF57A000046FD /* NhMapWindow.m */,
+				437A90CB114FF57A000046FD /* NhMenuWindow.h */,
+				437A90CC114FF57A000046FD /* NhMenuWindow.m */,
+				437A90CD114FF57A000046FD /* NhObject.h */,
+				437A90CE114FF57A000046FD /* NhObject.m */,
+				437A90CF114FF57A000046FD /* NhOption.h */,
+				437A90D0114FF57A000046FD /* NhOption.m */,
+				437A90D1114FF57A000046FD /* NhStatusWindow.h */,
+				437A90D2114FF57A000046FD /* NhStatusWindow.m */,
+				437A90D3114FF57A000046FD /* NhTextInputEvent.h */,
+				437A90D4114FF57A000046FD /* NhTextInputEvent.m */,
+				437A90D5114FF57A000046FD /* NhWindow.h */,
+				437A90D6114FF57A000046FD /* NhWindow.m */,
+				437A90D7114FF57A000046FD /* NhYnQuestion.h */,
+				437A90D8114FF57A000046FD /* NhYnQuestion.m */,
+				437A90D9114FF57A000046FD /* NSString+NetHack.h */,
+				437A90DA114FF57A000046FD /* NSString+NetHack.m */,
+				437A90DB114FF57A000046FD /* NSString+Z.h */,
+				437A90DC114FF57A000046FD /* NSString+Z.m */,
+				437A90DD114FF57A000046FD /* TileSet.h */,
+				437A90DE114FF57A000046FD /* TileSet.m */,
+				437A90DF114FF57A000046FD /* ZDirection.h */,
+				437A90E0114FF57A000046FD /* ZDirection.m */,
+				437A90E1114FF57A000046FD /* ZObjectCache.h */,
+				437A90E2114FF57A000046FD /* ZObjectCache.m */,
+				437A90E3114FF57A000046FD /* ZTouchInfo.h */,
+				437A90E4114FF57A000046FD /* ZTouchInfo.m */,
+				437A90E5114FF57A000046FD /* ZTouchInfoStore.h */,
+				437A90E6114FF57A000046FD /* ZTouchInfoStore.m */,
+			);
+			path = iHack;
+			sourceTree = "<group>";
+		};
+		437A90FF114FF58E000046FD /* views */ = {
+			isa = PBXGroup;
+			children = (
+				437A9100114FF58E000046FD /* ActionViewController.h */,
+				437A9101114FF58E000046FD /* ActionViewController.m */,
+				437A9102114FF58E000046FD /* DebugPopoverController.h */,
+				437A9103114FF58E000046FD /* DebugPopoverController.m */,
+				437A9104114FF58E000046FD /* DirectionPad.h */,
+				437A9105114FF58E000046FD /* DirectionPad.m */,
+				437A9106114FF58E000046FD /* ExtendedCommandsController.h */,
+				437A9107114FF58E000046FD /* ExtendedCommandsController.m */,
+				437A9108114FF58E000046FD /* InventoryViewController.h */,
+				437A9109114FF58E000046FD /* InventoryViewController.m */,
+				437A910A114FF58E000046FD /* ItemViewController.h */,
+				437A910B114FF58E000046FD /* ItemViewController.m */,
+				437A910C114FF58E000046FD /* MainViewController.h */,
+				437A910D114FF58E000046FD /* MainViewController.m */,
+				437A910E114FF58E000046FD /* MapView.h */,
+				437A910F114FF58E000046FD /* MapView.m */,
+				437A9110114FF58E000046FD /* MenuViewController.h */,
+				437A9111114FF58E000046FD /* MenuViewController.m */,
+				437A9112114FF58E000046FD /* MessageView.h */,
+				437A9113114FF58E000046FD /* MessageView.m */,
+				437A9114114FF58E000046FD /* OptionsViewController.h */,
+				437A9115114FF58E000046FD /* OptionsViewController.m */,
+				437A9116114FF58E000046FD /* TextInputController.h */,
+				437A9117114FF58E000046FD /* TextInputController.m */,
+				437A9118114FF58E000046FD /* TextViewController.h */,
+				437A9119114FF58E000046FD /* TextViewController.m */,
+				437A911A114FF58E000046FD /* TileSetViewController.h */,
+				437A911B114FF58E000046FD /* TileSetViewController.m */,
+				437A911C114FF58E000046FD /* ToolsViewController.h */,
+				437A911D114FF58E000046FD /* ToolsViewController.m */,
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
+		437A912D114FF5D1000046FD /* include */ = {
+			isa = PBXGroup;
+			children = (
+				437A912E114FF5D1000046FD /* align.h */,
+				437A912F114FF5D1000046FD /* amiconf.h */,
+				437A9130114FF5D1000046FD /* artifact.h */,
+				437A9131114FF5D1000046FD /* artilist.h */,
+				437A9132114FF5D1000046FD /* attk.h */,
+				437A9133114FF5D1000046FD /* attrib.h */,
+				437A9134114FF5D1000046FD /* beconf.h */,
+				437A9135114FF5D1000046FD /* bitmfile.h */,
+				437A9136114FF5D1000046FD /* color.h */,
+				437A9137114FF5D1000046FD /* config.h */,
+				437A9138114FF5D1000046FD /* config1.h */,
+				437A9139114FF5D1000046FD /* coord.h */,
+				437A913A114FF5D1000046FD /* decl.h */,
+				437A913B114FF5D1000046FD /* def_os2.h */,
+				437A913C114FF5D1000046FD /* dgn_file.h */,
+				437A913D114FF5D1000046FD /* display.h */,
+				437A913E114FF5D1000046FD /* dlb.h */,
+				437A913F114FF5D1000046FD /* dungeon.h */,
+				437A9140114FF5D1000046FD /* edog.h */,
+				437A9141114FF5D1000046FD /* egyp.h */,
+				437A9142114FF5D1000046FD /* emin.h */,
+				437A9143114FF5D1000046FD /* engrave.h */,
+				437A9144114FF5D1000046FD /* epri.h */,
+				437A9145114FF5D1000046FD /* eshk.h */,
+				437A9146114FF5D1000046FD /* extern.h */,
+				437A9147114FF5D1000046FD /* file.h */,
+				437A9148114FF5D1000046FD /* flag.h */,
+				437A9149114FF5D1000046FD /* func_tab.h */,
+				437A914A114FF5D1000046FD /* gem_rsc.h */,
+				437A914B114FF5D1000046FD /* global.h */,
+				437A914C114FF5D1000046FD /* hack.h */,
+				437A914D114FF5D1000046FD /* lev.h */,
+				437A914E114FF5D1000046FD /* load_img.h */,
+				437A914F114FF5D1000046FD /* mac-carbon.h */,
+				437A9150114FF5D1000046FD /* mac-qt.h */,
+				437A9151114FF5D1000046FD /* mac-term.h */,
+				437A9152114FF5D1000046FD /* macconf.h */,
+				437A9153114FF5D1000046FD /* macpopup.h */,
+				437A9154114FF5D1000046FD /* mactty.h */,
+				437A9155114FF5D1000046FD /* macwin.h */,
+				437A9156114FF5D1000046FD /* mail.h */,
+				437A9157114FF5D1000046FD /* md5.h */,
+				437A9158114FF5D1000046FD /* mfndpos.h */,
+				437A9159114FF5D1000046FD /* micro.h */,
+				437A915A114FF5D1000046FD /* mkroom.h */,
+				437A915B114FF5D1000046FD /* monattk.h */,
+				437A915C114FF5D1000046FD /* mondata.h */,
+				437A915D114FF5D1000046FD /* monflag.h */,
+				437A915E114FF5D1000046FD /* monst.h */,
+				437A915F114FF5D1000046FD /* monsym.h */,
+				437A9160114FF5D1000046FD /* mttypriv.h */,
+				437A9161114FF5D1000046FD /* nhlan.h */,
+				437A9162114FF5D1000046FD /* nhxdr.h */,
+				437A9163114FF5D1000046FD /* ntconf.h */,
+				437A9164114FF5D1000046FD /* obj.h */,
+				437A9165114FF5D1000046FD /* objclass.h */,
+				437A9166114FF5D1000046FD /* os2conf.h */,
+				437A9167114FF5D1000046FD /* patchlevel.h */,
+				437A9168114FF5D1000046FD /* pcconf.h */,
+				437A9169114FF5D1000046FD /* permonst.h */,
+				437A916A114FF5D1000046FD /* prop.h */,
+				437A916B114FF5D1000046FD /* proxycb.h */,
+				437A916C114FF5D1000046FD /* proxycom.h */,
+				437A916D114FF5D1000046FD /* prxyclnt.h */,
+				437A916E114FF5D1000046FD /* qt_clust.h */,
+				437A916F114FF5D1000046FD /* qt_kde0.h */,
+				437A9170114FF5D1000046FD /* qt_win.h */,
+				437A9171114FF5D1000046FD /* qt_xpms.h */,
+				437A9172114FF5D1000046FD /* qtext.h */,
+				437A9173114FF5D1000046FD /* qttableview.h */,
+				437A9174114FF5D1000046FD /* quest.h */,
+				437A9175114FF5D1000046FD /* rect.h */,
+				437A9176114FF5D1000046FD /* region.h */,
+				437A9177114FF5D1000046FD /* rm.h */,
+				437A9178114FF5D1000046FD /* skills.h */,
+				437A9179114FF5D1000046FD /* sp_lev.h */,
+				437A917A114FF5D1000046FD /* spell.h */,
+				437A917B114FF5D1000046FD /* system.h */,
+				437A917C114FF5D1000046FD /* tcap.h */,
+				437A917D114FF5D1000046FD /* tech.h */,
+				437A917E114FF5D1000046FD /* tile2x11.h */,
+				437A917F114FF5D1000046FD /* timeout.h */,
+				437A9180114FF5D1000046FD /* tosconf.h */,
+				437A9181114FF5D1000046FD /* tradstdc.h */,
+				437A9182114FF5D1000046FD /* trampoli.h */,
+				437A9183114FF5D1000046FD /* trap.h */,
+				437A9184114FF5D1000046FD /* unixconf.h */,
+				437A9185114FF5D1000046FD /* vault.h */,
+				437A9186114FF5D1000046FD /* vision.h */,
+				437A9187114FF5D1000046FD /* vmsconf.h */,
+				437A9188114FF5D1000046FD /* wceconf.h */,
+				437A9189114FF5D1000046FD /* winami.h */,
+				437A918A114FF5D1000046FD /* wingem.h */,
+				437A918B114FF5D1000046FD /* winGL.h */,
+				437A918C114FF5D1000046FD /* winGnome.h */,
+				437A918D114FF5D1000046FD /* winGTK.h */,
+				437A918E114FF5D1000046FD /* winprocs.h */,
+				437A918F114FF5D1000046FD /* winproxy.h */,
+				437A9190114FF5D1000046FD /* wintty.h */,
+				437A9191114FF5D1000046FD /* wintype.h */,
+				437A9192114FF5D1000046FD /* winX.h */,
+				437A9193114FF5D1000046FD /* xwindow.h */,
+				437A9194114FF5D1000046FD /* xwindowp.h */,
+				437A9195114FF5D1000046FD /* you.h */,
+				437A9196114FF5D1000046FD /* youprop.h */,
+			);
+			name = include;
+			path = ../../include;
+			sourceTree = SOURCE_ROOT;
+		};
+		437A9197114FF5D1000046FD /* src */ = {
+			isa = PBXGroup;
+			children = (
+				437A9198114FF5D1000046FD /* allmain.c */,
+				437A9199114FF5D1000046FD /* alloc.c */,
+				437A919A114FF5D1000046FD /* apply.c */,
+				437A919B114FF5D1000046FD /* artifact.c */,
+				437A919C114FF5D1000046FD /* attrib.c */,
+				437A919D114FF5D1000046FD /* ball.c */,
+				437A919E114FF5D1000046FD /* bones.c */,
+				437A919F114FF5D1000046FD /* borg.c */,
+				437A91A0114FF5D1000046FD /* botl.c */,
+				437A91A1114FF5D1000046FD /* cmd.c */,
+				437A91A2114FF5D1000046FD /* dbridge.c */,
+				437A91A3114FF5D1000046FD /* decl.c */,
+				437A91A4114FF5D1000046FD /* detect.c */,
+				437A91A5114FF5D1000046FD /* dig.c */,
+				437A91A6114FF5D1000046FD /* display.c */,
+				437A91A7114FF5D1000046FD /* dlb.c */,
+				437A91A8114FF5D1000046FD /* do.c */,
+				437A91A9114FF5D1000046FD /* do_name.c */,
+				437A91AA114FF5D1000046FD /* do_wear.c */,
+				437A91AB114FF5D1000046FD /* dog.c */,
+				437A91AC114FF5D1000046FD /* dogmove.c */,
+				437A91AD114FF5D1000046FD /* dokick.c */,
+				437A91AE114FF5D1000046FD /* dothrow.c */,
+				437A91AF114FF5D1000046FD /* drawing.c */,
+				437A91B0114FF5D1000046FD /* dungeon.c */,
+				437A91B1114FF5D1000046FD /* eat.c */,
+				437A91B2114FF5D1000046FD /* end.c */,
+				437A91B3114FF5D1000046FD /* engrave.c */,
+				437A91B4114FF5D1000046FD /* exper.c */,
+				437A91B5114FF5D1000046FD /* explode.c */,
+				437A91B6114FF5D1000046FD /* extralev.c */,
+				437A91B7114FF5D1000046FD /* files.c */,
+				437A91B8114FF5D1000046FD /* fountain.c */,
+				437A91B9114FF5D1000046FD /* gypsy.c */,
+				437A91BA114FF5D1000046FD /* hack.c */,
+				437A91BB114FF5D1000046FD /* hacklib.c */,
+				437A91BC114FF5D1000046FD /* invent.c */,
+				437A91BD114FF5D1000046FD /* light.c */,
+				437A91BE114FF5D1000046FD /* lock.c */,
+				437A91BF114FF5D1000046FD /* mail.c */,
+				437A91C0114FF5D1000046FD /* makemon.c */,
+				437A91C1114FF5D1000046FD /* mapglyph.c */,
+				437A91C2114FF5D1000046FD /* mcastu.c */,
+				437A91C3114FF5D1000046FD /* mhitm.c */,
+				437A91C4114FF5D1000046FD /* mhitu.c */,
+				437A91C5114FF5D1000046FD /* minion.c */,
+				437A91C6114FF5D1000046FD /* mklev.c */,
+				437A91C7114FF5D1000046FD /* mkmap.c */,
+				437A91C8114FF5D1000046FD /* mkmaze.c */,
+				437A91C9114FF5D1000046FD /* mkobj.c */,
+				437A91CA114FF5D1000046FD /* mkroom.c */,
+				437A91CB114FF5D1000046FD /* mon.c */,
+				437A91CC114FF5D1000046FD /* mondata.c */,
+				437A91CD114FF5D1000046FD /* monmove.c */,
+				437A91CE114FF5D1000046FD /* monst.c */,
+				437A91CF114FF5D1000046FD /* mplayer.c */,
+				437A91D0114FF5D1000046FD /* mthrowu.c */,
+				437A91D1114FF5D1000046FD /* muse.c */,
+				437A91D2114FF5D1000046FD /* music.c */,
+				437A91D3114FF5D1000046FD /* o_init.c */,
+				437A91D4114FF5D1000046FD /* objects.c */,
+				437A91D5114FF5D1000046FD /* objnam.c */,
+				437A91D6114FF5D1000046FD /* options.c */,
+				437A91D7114FF5D1000046FD /* pager.c */,
+				437A91D8114FF5D1000046FD /* pickup.c */,
+				437A91D9114FF5D1000046FD /* pline.c */,
+				437A91DA114FF5D1000046FD /* polyself.c */,
+				437A91DB114FF5D1000046FD /* potion.c */,
+				437A91DC114FF5D1000046FD /* pray.c */,
+				437A91DD114FF5D1000046FD /* priest.c */,
+				437A91DE114FF5D1000046FD /* quest.c */,
+				437A91DF114FF5D1000046FD /* questpgr.c */,
+				437A91E0114FF5D1000046FD /* read.c */,
+				437A91E1114FF5D1000046FD /* rect.c */,
+				437A91E2114FF5D1000046FD /* region.c */,
+				437A91E3114FF5D1000046FD /* restore.c */,
+				437A91E4114FF5D1000046FD /* rip.c */,
+				437A91E5114FF5D1000046FD /* rnd.c */,
+				437A91E6114FF5D1000046FD /* role.c */,
+				437A91E7114FF5D1000046FD /* rumors.c */,
+				437A91E8114FF5D1000046FD /* save.c */,
+				437A91E9114FF5D1000046FD /* shk.c */,
+				437A91EA114FF5D1000046FD /* shknam.c */,
+				437A91EB114FF5D1000046FD /* sit.c */,
+				437A91EC114FF5D1000046FD /* sounds.c */,
+				437A91ED114FF5D1000046FD /* sp_lev.c */,
+				437A91EE114FF5D1000046FD /* spell.c */,
+				437A91EF114FF5D1000046FD /* steal.c */,
+				437A91F0114FF5D1000046FD /* steed.c */,
+				437A91F1114FF5D1000046FD /* tech.c */,
+				437A91F2114FF5D1000046FD /* teleport.c */,
+				437A91F3114FF5D1000046FD /* timeout.c */,
+				437A91F4114FF5D1000046FD /* topten.c */,
+				437A91F5114FF5D1000046FD /* track.c */,
+				437A91F6114FF5D1000046FD /* trap.c */,
+				437A91F7114FF5D1000046FD /* u_init.c */,
+				437A91F8114FF5D1000046FD /* uhitm.c */,
+				437A91F9114FF5D1000046FD /* vault.c */,
+				437A91FA114FF5D1000046FD /* version.c */,
+				437A91FB114FF5D1000046FD /* vision.c */,
+				437A91FC114FF5D1000046FD /* weapon.c */,
+				437A91FD114FF5D1000046FD /* were.c */,
+				437A91FE114FF5D1000046FD /* wield.c */,
+				437A91FF114FF5D1000046FD /* windows.c */,
+				437A9200114FF5D1000046FD /* wizard.c */,
+				437A9201114FF5D1000046FD /* worm.c */,
+				437A9202114FF5D1000046FD /* worn.c */,
+				437A9203114FF5D1000046FD /* write.c */,
+				437A9204114FF5D1000046FD /* zap.c */,
+			);
+			name = src;
+			path = ../../src;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -154,6 +920,154 @@
 			files = (
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				1D3623260D0F684500981E51 /* SlashEMAppDelegate.m in Sources */,
+				437A90E7114FF57A000046FD /* Action.m in Sources */,
+				437A90E8114FF57A000046FD /* NhCharInfo.m in Sources */,
+				437A90E9114FF57A000046FD /* NhCommand.m in Sources */,
+				437A90EA114FF57A000046FD /* NhEvent.m in Sources */,
+				437A90EB114FF57A000046FD /* NhEventQueue.m in Sources */,
+				437A90EC114FF57A000046FD /* NhGoldObject.m in Sources */,
+				437A90ED114FF57A000046FD /* NhInventory.m in Sources */,
+				437A90EE114FF57A000046FD /* NhItem.m in Sources */,
+				437A90EF114FF57A000046FD /* NhItemGroup.m in Sources */,
+				437A90F0114FF57A000046FD /* NhMapWindow.m in Sources */,
+				437A90F1114FF57A000046FD /* NhMenuWindow.m in Sources */,
+				437A90F2114FF57A000046FD /* NhObject.m in Sources */,
+				437A90F3114FF57A000046FD /* NhOption.m in Sources */,
+				437A90F4114FF57A000046FD /* NhStatusWindow.m in Sources */,
+				437A90F5114FF57A000046FD /* NhTextInputEvent.m in Sources */,
+				437A90F6114FF57A000046FD /* NhWindow.m in Sources */,
+				437A90F7114FF57A000046FD /* NhYnQuestion.m in Sources */,
+				437A90F8114FF57A000046FD /* NSString+NetHack.m in Sources */,
+				437A90F9114FF57A000046FD /* NSString+Z.m in Sources */,
+				437A90FA114FF57A000046FD /* TileSet.m in Sources */,
+				437A90FB114FF57A000046FD /* ZDirection.m in Sources */,
+				437A90FC114FF57A000046FD /* ZObjectCache.m in Sources */,
+				437A90FD114FF57A000046FD /* ZTouchInfo.m in Sources */,
+				437A90FE114FF57A000046FD /* ZTouchInfoStore.m in Sources */,
+				437A911E114FF58E000046FD /* ActionViewController.m in Sources */,
+				437A911F114FF58E000046FD /* DebugPopoverController.m in Sources */,
+				437A9120114FF58E000046FD /* DirectionPad.m in Sources */,
+				437A9121114FF58E000046FD /* ExtendedCommandsController.m in Sources */,
+				437A9122114FF58E000046FD /* InventoryViewController.m in Sources */,
+				437A9123114FF58E000046FD /* ItemViewController.m in Sources */,
+				437A9124114FF58E000046FD /* MainViewController.m in Sources */,
+				437A9125114FF58E000046FD /* MapView.m in Sources */,
+				437A9126114FF58E000046FD /* MenuViewController.m in Sources */,
+				437A9127114FF58E000046FD /* MessageView.m in Sources */,
+				437A9128114FF58E000046FD /* OptionsViewController.m in Sources */,
+				437A9129114FF58E000046FD /* TextInputController.m in Sources */,
+				437A912A114FF58E000046FD /* TextViewController.m in Sources */,
+				437A912B114FF58E000046FD /* TileSetViewController.m in Sources */,
+				437A912C114FF58E000046FD /* ToolsViewController.m in Sources */,
+				437A9205114FF5D1000046FD /* allmain.c in Sources */,
+				437A9206114FF5D1000046FD /* alloc.c in Sources */,
+				437A9207114FF5D1000046FD /* apply.c in Sources */,
+				437A9208114FF5D1000046FD /* artifact.c in Sources */,
+				437A9209114FF5D1000046FD /* attrib.c in Sources */,
+				437A920A114FF5D1000046FD /* ball.c in Sources */,
+				437A920B114FF5D1000046FD /* bones.c in Sources */,
+				437A920C114FF5D1000046FD /* borg.c in Sources */,
+				437A920D114FF5D1000046FD /* botl.c in Sources */,
+				437A920E114FF5D1000046FD /* cmd.c in Sources */,
+				437A920F114FF5D1000046FD /* dbridge.c in Sources */,
+				437A9210114FF5D1000046FD /* decl.c in Sources */,
+				437A9211114FF5D1000046FD /* detect.c in Sources */,
+				437A9212114FF5D1000046FD /* dig.c in Sources */,
+				437A9213114FF5D1000046FD /* display.c in Sources */,
+				437A9214114FF5D1000046FD /* dlb.c in Sources */,
+				437A9215114FF5D1000046FD /* do.c in Sources */,
+				437A9216114FF5D1000046FD /* do_name.c in Sources */,
+				437A9217114FF5D1000046FD /* do_wear.c in Sources */,
+				437A9218114FF5D1000046FD /* dog.c in Sources */,
+				437A9219114FF5D1000046FD /* dogmove.c in Sources */,
+				437A921A114FF5D1000046FD /* dokick.c in Sources */,
+				437A921B114FF5D1000046FD /* dothrow.c in Sources */,
+				437A921C114FF5D1000046FD /* drawing.c in Sources */,
+				437A921D114FF5D1000046FD /* dungeon.c in Sources */,
+				437A921E114FF5D1000046FD /* eat.c in Sources */,
+				437A921F114FF5D1000046FD /* end.c in Sources */,
+				437A9220114FF5D1000046FD /* engrave.c in Sources */,
+				437A9221114FF5D1000046FD /* exper.c in Sources */,
+				437A9222114FF5D1000046FD /* explode.c in Sources */,
+				437A9223114FF5D1000046FD /* extralev.c in Sources */,
+				437A9224114FF5D1000046FD /* files.c in Sources */,
+				437A9225114FF5D1000046FD /* fountain.c in Sources */,
+				437A9226114FF5D1000046FD /* gypsy.c in Sources */,
+				437A9227114FF5D1000046FD /* hack.c in Sources */,
+				437A9228114FF5D1000046FD /* hacklib.c in Sources */,
+				437A9229114FF5D1000046FD /* invent.c in Sources */,
+				437A922A114FF5D1000046FD /* light.c in Sources */,
+				437A922B114FF5D1000046FD /* lock.c in Sources */,
+				437A922C114FF5D1000046FD /* mail.c in Sources */,
+				437A922D114FF5D1000046FD /* makemon.c in Sources */,
+				437A922E114FF5D1000046FD /* mapglyph.c in Sources */,
+				437A922F114FF5D1000046FD /* mcastu.c in Sources */,
+				437A9230114FF5D1000046FD /* mhitm.c in Sources */,
+				437A9231114FF5D1000046FD /* mhitu.c in Sources */,
+				437A9232114FF5D1000046FD /* minion.c in Sources */,
+				437A9233114FF5D1000046FD /* mklev.c in Sources */,
+				437A9234114FF5D1000046FD /* mkmap.c in Sources */,
+				437A9235114FF5D1000046FD /* mkmaze.c in Sources */,
+				437A9236114FF5D1000046FD /* mkobj.c in Sources */,
+				437A9237114FF5D1000046FD /* mkroom.c in Sources */,
+				437A9238114FF5D1000046FD /* mon.c in Sources */,
+				437A9239114FF5D1000046FD /* mondata.c in Sources */,
+				437A923A114FF5D1000046FD /* monmove.c in Sources */,
+				437A923B114FF5D1000046FD /* monst.c in Sources */,
+				437A923C114FF5D1000046FD /* mplayer.c in Sources */,
+				437A923D114FF5D1000046FD /* mthrowu.c in Sources */,
+				437A923E114FF5D1000046FD /* muse.c in Sources */,
+				437A923F114FF5D1000046FD /* music.c in Sources */,
+				437A9240114FF5D1000046FD /* o_init.c in Sources */,
+				437A9241114FF5D1000046FD /* objects.c in Sources */,
+				437A9242114FF5D1000046FD /* objnam.c in Sources */,
+				437A9243114FF5D1000046FD /* options.c in Sources */,
+				437A9244114FF5D1000046FD /* pager.c in Sources */,
+				437A9245114FF5D1000046FD /* pickup.c in Sources */,
+				437A9246114FF5D1000046FD /* pline.c in Sources */,
+				437A9247114FF5D1000046FD /* polyself.c in Sources */,
+				437A9248114FF5D1000046FD /* potion.c in Sources */,
+				437A9249114FF5D1000046FD /* pray.c in Sources */,
+				437A924A114FF5D1000046FD /* priest.c in Sources */,
+				437A924B114FF5D1000046FD /* quest.c in Sources */,
+				437A924C114FF5D1000046FD /* questpgr.c in Sources */,
+				437A924D114FF5D1000046FD /* read.c in Sources */,
+				437A924E114FF5D1000046FD /* rect.c in Sources */,
+				437A924F114FF5D1000046FD /* region.c in Sources */,
+				437A9250114FF5D1000046FD /* restore.c in Sources */,
+				437A9251114FF5D1000046FD /* rip.c in Sources */,
+				437A9252114FF5D1000046FD /* rnd.c in Sources */,
+				437A9253114FF5D1000046FD /* role.c in Sources */,
+				437A9254114FF5D1000046FD /* rumors.c in Sources */,
+				437A9255114FF5D1000046FD /* save.c in Sources */,
+				437A9256114FF5D1000046FD /* shk.c in Sources */,
+				437A9257114FF5D1000046FD /* shknam.c in Sources */,
+				437A9258114FF5D1000046FD /* sit.c in Sources */,
+				437A9259114FF5D1000046FD /* sounds.c in Sources */,
+				437A925A114FF5D1000046FD /* sp_lev.c in Sources */,
+				437A925B114FF5D1000046FD /* spell.c in Sources */,
+				437A925C114FF5D1000046FD /* steal.c in Sources */,
+				437A925D114FF5D1000046FD /* steed.c in Sources */,
+				437A925E114FF5D1000046FD /* tech.c in Sources */,
+				437A925F114FF5D1000046FD /* teleport.c in Sources */,
+				437A9260114FF5D1000046FD /* timeout.c in Sources */,
+				437A9261114FF5D1000046FD /* topten.c in Sources */,
+				437A9262114FF5D1000046FD /* track.c in Sources */,
+				437A9263114FF5D1000046FD /* trap.c in Sources */,
+				437A9264114FF5D1000046FD /* u_init.c in Sources */,
+				437A9265114FF5D1000046FD /* uhitm.c in Sources */,
+				437A9266114FF5D1000046FD /* vault.c in Sources */,
+				437A9267114FF5D1000046FD /* version.c in Sources */,
+				437A9268114FF5D1000046FD /* vision.c in Sources */,
+				437A9269114FF5D1000046FD /* weapon.c in Sources */,
+				437A926A114FF5D1000046FD /* were.c in Sources */,
+				437A926B114FF5D1000046FD /* wield.c in Sources */,
+				437A926C114FF5D1000046FD /* windows.c in Sources */,
+				437A926D114FF5D1000046FD /* wizard.c in Sources */,
+				437A926E114FF5D1000046FD /* worm.c in Sources */,
+				437A926F114FF5D1000046FD /* worn.c in Sources */,
+				437A9270114FF5D1000046FD /* write.c in Sources */,
+				437A9271114FF5D1000046FD /* zap.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
