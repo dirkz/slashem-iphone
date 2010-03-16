@@ -161,6 +161,8 @@
 		437A926F114FF5D1000046FD /* worn.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A9202114FF5D1000046FD /* worn.c */; };
 		437A9270114FF5D1000046FD /* write.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A9203114FF5D1000046FD /* write.c */; };
 		437A9271114FF5D1000046FD /* zap.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A9204114FF5D1000046FD /* zap.c */; };
+		437A9291114FF8B4000046FD /* monstr.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A928F114FF8B4000046FD /* monstr.c */; };
+		437A9292114FF8B4000046FD /* vis_tab.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A9290114FF8B4000046FD /* vis_tab.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -465,6 +467,14 @@
 		437A9202114FF5D1000046FD /* worn.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = worn.c; sourceTree = "<group>"; };
 		437A9203114FF5D1000046FD /* write.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = write.c; sourceTree = "<group>"; };
 		437A9204114FF5D1000046FD /* zap.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = zap.c; sourceTree = "<group>"; };
+		437A9289114FF874000046FD /* date.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = date.h; sourceTree = "<group>"; };
+		437A928A114FF874000046FD /* filename.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = filename.h; sourceTree = "<group>"; };
+		437A928B114FF874000046FD /* onames.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = onames.h; sourceTree = "<group>"; };
+		437A928C114FF874000046FD /* pm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pm.h; sourceTree = "<group>"; };
+		437A928D114FF874000046FD /* tile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tile.h; sourceTree = "<group>"; };
+		437A928E114FF874000046FD /* vis_tab.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vis_tab.h; sourceTree = "<group>"; };
+		437A928F114FF8B4000046FD /* monstr.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = monstr.c; sourceTree = "<group>"; };
+		437A9290114FF8B4000046FD /* vis_tab.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = vis_tab.c; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* SlashEM-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "SlashEM-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -638,6 +648,12 @@
 		437A912D114FF5D1000046FD /* include */ = {
 			isa = PBXGroup;
 			children = (
+				437A9289114FF874000046FD /* date.h */,
+				437A928A114FF874000046FD /* filename.h */,
+				437A928B114FF874000046FD /* onames.h */,
+				437A928C114FF874000046FD /* pm.h */,
+				437A928D114FF874000046FD /* tile.h */,
+				437A928E114FF874000046FD /* vis_tab.h */,
 				437A912E114FF5D1000046FD /* align.h */,
 				437A912F114FF5D1000046FD /* amiconf.h */,
 				437A9130114FF5D1000046FD /* artifact.h */,
@@ -751,6 +767,8 @@
 		437A9197114FF5D1000046FD /* src */ = {
 			isa = PBXGroup;
 			children = (
+				437A928F114FF8B4000046FD /* monstr.c */,
+				437A9290114FF8B4000046FD /* vis_tab.c */,
 				437A9198114FF5D1000046FD /* allmain.c */,
 				437A9199114FF5D1000046FD /* alloc.c */,
 				437A919A114FF5D1000046FD /* apply.c */,
@@ -1068,6 +1086,8 @@
 				437A926F114FF5D1000046FD /* worn.c in Sources */,
 				437A9270114FF5D1000046FD /* write.c in Sources */,
 				437A9271114FF5D1000046FD /* zap.c in Sources */,
+				437A9291114FF8B4000046FD /* monstr.c in Sources */,
+				437A9292114FF8B4000046FD /* vis_tab.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
