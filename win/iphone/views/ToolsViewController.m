@@ -32,6 +32,8 @@
 
 @implementation ToolsViewController
 
+@synthesize tableView = tv;
+
 #pragma mark -
 #pragma mark Initialization
 
@@ -43,12 +45,16 @@
 	}
 }
 
-- (id)initWithStyle:(UITableViewStyle)style {
-    if ((self = [super initWithStyle:style])) {
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+    if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
 		items = [[NSMutableArray alloc] init];
 		[self updateInventory];
     }
     return self;
+}
+
+- (IBAction)cancelAction:(id)sender {
+	[self dismissModalViewControllerAnimated:NO];
 }
 
 #pragma mark -
@@ -172,6 +178,7 @@
 	char cmd[3];
 	sprintf(cmd, "a%c", item.inventoryLetter);
 	[[NhEventQueue instance] addKeys:cmd];
+	[self dismissModalViewControllerAnimated:NO];
 }
 
 #pragma mark -

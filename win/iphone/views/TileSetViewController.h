@@ -24,10 +24,15 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TileSetViewController : UITableViewController {
+@interface TileSetViewController : UIViewController {
 
 	NSArray *tilesets;
+	IBOutlet UITableView *tv;
 	
 }
+
+@property (nonatomic, readonly) UITableView *tableView;
+
+- (IBAction)cancelAction:(id)sender;
 
 @end

@@ -29,19 +29,23 @@
 #import "NhMapWindow.h"
 #import "winiphone.h"
 
-static const float popoverItemHeight = 44.0f;
-
 @implementation TileSetViewController
+
+@synthesize tableView = tv;
 
 #pragma mark -
 #pragma mark Initialization
 
-- (id)initWithStyle:(UITableViewStyle)style {
-    if ((self = [super initWithStyle:style])) {
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+    if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
 		NSString *filename = [[NSBundle mainBundle] pathForResource:@"tilesets" ofType:@"plist"];
 		tilesets = [[NSArray alloc] initWithContentsOfFile:filename];
     }
     return self;
+}
+
+- (IBAction)cancelAction:(id)sender {
+	[self dismissModalViewControllerAnimated:NO];
 }
 
 #pragma mark -
@@ -49,10 +53,6 @@ static const float popoverItemHeight = 44.0f;
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     return YES;
-}
-
-- (CGSize)contentSizeForViewInPopoverView {
-	return CGSizeMake(320.0f, tilesets.count*popoverItemHeight);
 }
 
 #pragma mark -
@@ -102,7 +102,7 @@ static const float popoverItemHeight = 44.0f;
 	[[MainViewController instance] displayWindow:[NhWindow mapWindow]];
 	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 	[defaults setObject:filename forKey:kNetHackTileSet];
-	[tableView reloadData];
+	[self dismissModalViewControllerAnimated:NO];
 }
 
 #pragma mark -

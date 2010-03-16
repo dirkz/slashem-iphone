@@ -24,10 +24,15 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ToolsViewController : UITableViewController {
+@interface ToolsViewController : UIViewController {
 	
 	NSMutableArray *items;
+	IBOutlet UITableView *tv;
 
 }
+
+@property (nonatomic, readonly) UITableView *tableView;
+
+- (IBAction)cancelAction:(id)sender;
 
 @end

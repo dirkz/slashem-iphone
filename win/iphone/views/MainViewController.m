@@ -116,13 +116,13 @@ static MainViewController* instance;
 
 - (void)tilesetMenuAction:(id)sender {
 	TileSetViewController *tilesetViewController = [[TileSetViewController alloc]
-													initWithStyle:UITableViewStylePlain];
+													initWithNibName:@"TileSetViewController" bundle:nil];
 	[self presentModalViewController:tilesetViewController animated:YES];
 }
 
 - (void)toolsMenuAction:(id)sender {
 	ToolsViewController *toolsViewController = [[ToolsViewController alloc]
-												initWithStyle:UITableViewStylePlain];
+												initWithNibName:@"ToolsViewController" bundle:nil];
 	[self presentModalViewController:toolsViewController animated:YES];
 }
 
