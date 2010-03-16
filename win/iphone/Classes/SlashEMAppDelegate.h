@@ -24,11 +24,16 @@
 
 #import <UIKit/UIKit.h>
 
+@class MainViewController;
+
 @interface SlashEMAppDelegate : NSObject <UIApplicationDelegate> {
     UIWindow *window;
+	NSThread *netHackThread;
+	MainViewController *mainViewController;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
+@property (nonatomic, retain) IBOutlet MainViewController *mainViewController;
 
 @end
 
