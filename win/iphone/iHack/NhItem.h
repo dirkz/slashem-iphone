@@ -38,7 +38,6 @@
 @property (nonatomic, readonly) ANY_P identifier;
 @property (nonatomic, assign) BOOL selected;
 @property (nonatomic, readonly) int maxAmount;
-@property (nonatomic, assign) int amount;
 
 - (id)initWithTitle:(NSString *)t identifier:(ANY_P)ident inventoryLetter:(char)invLet glyph:(int)g selected:(BOOL)s;
 

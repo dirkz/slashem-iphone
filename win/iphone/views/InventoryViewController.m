@@ -56,11 +56,6 @@
 	[self updateInventory];
 }
 
-- (CGSize)contentSizeForViewInPopoverView {
-	CGRect bounds = [[MainViewController instance] mapViewBounds];
-	return CGSizeMake(480.0f, bounds.size.height-44.0f);
-}
-
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     return YES;
 }

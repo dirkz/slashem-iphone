@@ -41,7 +41,7 @@
 @property (nonatomic, readonly) NSString *detail;
 @property (nonatomic, readonly) char inventoryLetter;
 @property (nonatomic, readonly) int glyph;
-@property (nonatomic, readonly) int amount;
+@property (nonatomic, assign) int amount;
 
 + (id)objectWithTitle:(NSString *)t inventoryLetter:(char)invLet;
 + (id)objectWithObject:(struct obj *)obj;

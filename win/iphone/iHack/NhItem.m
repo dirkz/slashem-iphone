@@ -28,7 +28,6 @@
 @implementation NhItem
 
 @synthesize identifier;
-@synthesize amount;
 @synthesize selected;
 @synthesize maxAmount;
 
