@@ -51,7 +51,6 @@
 	petMark = CGImageRetain([UIImage imageWithContentsOfFile:[bundlePath
 															  stringByAppendingPathComponent:@"petmark.png"]].CGImage);
 	
-	self.frame = CGRectMake(0.0f, 0.0f, tileSize.width*COLNO, tileSize.height*ROWNO);
 	touchInfoStore = [[ZTouchInfoStore alloc] init];
 }
 
@@ -86,7 +85,8 @@
 		
 		// since this coordinate system is right-handed, each tile starts above left
 		// and draws the area below to the right, so we have to be one tile height off
-		CGPoint start = CGPointMake(0.0f, self.bounds.size.height-tileSize.height);
+		CGPoint start = CGPointMake(clipOffset.x+panOffset.x,
+									self.bounds.size.height-tileSize.height-clipOffset.y-panOffset.y);
 		
 		// erase background
 		float backgroundColor[] = { 0.0f, 0.0f, 0.0f, 1.0f };
@@ -135,8 +135,13 @@
 	}
 }
 
-- (CGRect)rectForCoord:(coord)tp {
-	return CGRectMake(tp.x * tileSize.width, tp.y * tileSize.height, tileSize.width, tileSize.height);
+- (void)clipAroundX:(int)x y:(int)y {
+	CGPoint center = CGPointMake(self.bounds.size.width/2, self.bounds.size.height/2);
+	CGPoint playerPos = CGPointMake(x*tileSize.width, y*tileSize.height);
+	
+	// offset is the translation to get player to the center
+	// note how this gets corrected about tileSize/2 to center player tile
+	clipOffset = CGPointMake(center.x-playerPos.x-tileSize.width/2, center.y-playerPos.y-tileSize.height/2);
 }
 
 #pragma mark touch handling
@@ -157,24 +162,26 @@
 	}
 }
 
+- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
+}
+
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
 	if (touches.count == 1) {
 		UITouch *touch = [touches anyObject];
 		CGPoint p = [touch locationInView:self];
-		int tileX = p.x/tileSize.width;
-		int tileY = p.y/tileSize.height;
-		[[MainViewController instance] handleMapTapTileX:tileX y:tileY forLocation:p inView:self];
-
-		// direction based movement
-//		CGPoint center = CGPointMake(self.bounds.size.width/2, self.bounds.size.height/2);
-//		CGPoint delta = CGPointMake(p.x-center.x, center.y-p.y);
-//		e_direction direction = [ZDirection directionFromEuclideanPointDelta:&delta];
-//		ZTouchInfo *ti = [touchInfoStore touchInfoForTouch:touch];
-//		if (ti.doubleTap) {
-//			[[MainViewController instance] handleDirectionDoubleTap:direction];
-//		} else {
-//			[[MainViewController instance] handleDirectionTap:direction];
-//		}
+		CGPoint center = CGPointMake(self.bounds.size.width/2, self.bounds.size.height/2);
+		CGPoint delta = CGPointMake(p.x-center.x, center.y-p.y);
+		if (fabs(delta.x) < tileSize.width && fabs(delta.y) < tileSize.height) {
+			[[MainViewController instance] handleMapTapTileX:u.ux y:u.uy forLocation:p inView:self];
+		} else {
+			e_direction direction = [ZDirection directionFromEuclideanPointDelta:&delta];
+			ZTouchInfo *ti = [touchInfoStore touchInfoForTouch:touch];
+			if (ti.doubleTap) {
+				[[MainViewController instance] handleDirectionDoubleTap:direction];
+			} else {
+				[[MainViewController instance] handleDirectionTap:direction];
+			}
+		}
 	}
 	[touchInfoStore removeTouches:touches];
 }

@@ -40,7 +40,6 @@
 	IBOutlet MessageView *messageView;
 	IBOutlet UILabel *statusView1;
 	IBOutlet UILabel *statusView2;
-	IBOutlet UIScrollView *mapScrollView;
 	IBOutlet MapView *mapView;
 	IBOutlet ActionBar *actionBar;
 	
@@ -77,7 +76,7 @@
 - (void)displayText:(NSString *)text blocking:(BOOL)blocking;
 - (void)displayWindow:(NhWindow *)w;
 - (void)showMenuWindow:(NhMenuWindow *)w;
-- (void)clipAroundAnimated:(BOOL)animated;
+- (void)clipAround;
 - (void)clipAroundX:(int)x y:(int)y;
 - (void)updateInventory;
 - (void)getLine;
@@ -89,8 +88,5 @@
 - (void)handleDirectionDoubleTap:(e_direction)direction;
 
 // utility
-
-// called by popover controller for size measurements, actually the bounds of the containing scroll view
-- (CGRect)mapViewBounds;
 
 @end

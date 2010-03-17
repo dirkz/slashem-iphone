@@ -38,11 +38,17 @@
 	CGImageRef petMark;
 	
 	ZTouchInfoStore *touchInfoStore;
+	
+	// the translation needed to center player, based on clip
+	CGPoint clipOffset;
 
+	// created by panning around
+	CGPoint panOffset;
+	
 }
 
 @property (nonatomic, readonly) CGSize tileSize;
 
-- (CGRect)rectForCoord:(coord)tp;
+- (void)clipAroundX:(int)x y:(int)y;
 
 @end

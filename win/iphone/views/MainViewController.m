@@ -66,16 +66,7 @@ static MainViewController* instance;
 }
 
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
-	// no animation the first time
-	static BOOL animated = NO;
-	[self clipAroundAnimated:animated];
-	if (!animated) {
-		animated = YES;
-	}
-}
-
-- (void)viewDidLoad {
-	[mapScrollView setContentSize:mapView.bounds.size];
+	[self clipAround];
 }
 
 - (void)releaseIfDefined:(id *)thing {
@@ -404,16 +395,8 @@ static MainViewController* instance;
 	}
 }
 
-- (void)clipAroundAnimated:(BOOL)animated {
-	CGSize tileSize = mapView.tileSize;
-	CGSize scrollSize = mapScrollView.bounds.size;
-	CGPoint playerOffset = CGPointMake(clipX*tileSize.width-scrollSize.width/2,
-									   clipY*tileSize.height-scrollSize.height/2);
-	[mapScrollView setContentOffset:playerOffset animated:animated];
-}
-
 - (void)clipAround {
-	[self clipAroundAnimated:NO];
+	[mapView clipAroundX:clipX y:clipY];
 }
 
 - (void)clipAroundX:(int)x y:(int)y {
@@ -422,7 +405,7 @@ static MainViewController* instance;
 	if (![NSThread isMainThread]) {
 		[self performSelectorOnMainThread:@selector(clipAround) withObject:nil waitUntilDone:NO];
 	} else {
-		[self clipAroundAnimated:NO];
+		[self clipAround];
 	}
 }
 
@@ -499,12 +482,6 @@ static MainViewController* instance;
 			return kDirectionUpLeft;
 	}
 	return kDirectionMax;
-}
-
-- (CGRect)rectForCoord:(coord)c {
-	CGRect r = [mapView rectForCoord:c];
-	r = [self.view convertRect:r fromView:mapView];
-	return r;
 }
 
 - (void)endDirectionQuestion {
@@ -632,10 +609,6 @@ static MainViewController* instance;
 }
 
 #pragma mark utility
-
-- (CGRect)mapViewBounds {
-	return mapScrollView.bounds;
-}
 
 #pragma mark UIAlertViewDelegate
 
