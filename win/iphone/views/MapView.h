@@ -39,16 +39,30 @@
 	
 	ZTouchInfoStore *touchInfoStore;
 	
+	int clipX;
+	int clipY;
+
 	// the translation needed to center player, based on clip
 	CGPoint clipOffset;
 
 	// created by panning around
 	CGPoint panOffset;
 	
+	// for zooming
+	CGFloat initialDistance;
+	
+	// the hit box to hit for detecting tap on self
+	CGSize selfTapRectSize;
 }
 
 @property (nonatomic, readonly) CGSize tileSize;
+@property (nonatomic, readonly) BOOL panned;
 
 - (void)clipAroundX:(int)x y:(int)y;
+
+- (void)moveAlongVector:(CGPoint)d;
+- (void)resetPanOffset;
+- (void)zoom:(CGFloat)d;
+- (void)tilePositionX:(int *)px y:(int *)py fromPoint:(CGPoint)p;
 
 @end

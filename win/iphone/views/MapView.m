@@ -30,6 +30,9 @@
 #import "ZTouchInfo.h"
 #import "ZTouchInfoStore.h"
 
+#define kMinimumPinchDelta (10.0f)
+#define kMinimumPanDelta (10.0f)
+
 @implementation MapView
 
 @synthesize tileSize;
@@ -39,6 +42,7 @@
 	tileSize = CGSizeMake(32.0f, 32.0f);
 	maxTileSize = CGSizeMake(32.0f, 32.0f);
 	minTileSize = CGSizeMake(8.0f, 8.0f);
+	selfTapRectSize = CGSizeMake(32.0f, 32.0f);
 	
 	// load gfx
 	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -136,6 +140,8 @@
 }
 
 - (void)clipAroundX:(int)x y:(int)y {
+	clipX = x;
+	clipY = y;
 	CGPoint center = CGPointMake(self.bounds.size.width/2, self.bounds.size.height/2);
 	CGPoint playerPos = CGPointMake(x*tileSize.width, y*tileSize.height);
 	
@@ -159,27 +165,92 @@
 		} else {
 			touchInfoStore.singleTapTimestamp = touch.timestamp;
 		}
+	} else if (touches.count == 2) {
+		NSArray *allTouches = [touches allObjects];
+		UITouch *t1 = [allTouches objectAtIndex:0];
+		UITouch *t2 = [allTouches objectAtIndex:1];
+		CGPoint p1 = [t1 locationInView:self];
+		CGPoint p2 = [t2 locationInView:self];
+		CGPoint d = CGPointMake(p2.x-p1.x, p2.y-p1.y);
+		initialDistance = sqrt(d.x*d.x + d.y*d.y);
 	}
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
+	if (touches.count == 1) {
+		UITouch *touch = [touches anyObject];
+		ZTouchInfo *ti = [touchInfoStore touchInfoForTouch:[touches anyObject]];
+		if (!ti.pinched) {
+			CGPoint p = [touch locationInView:self];
+			CGPoint delta = CGPointMake(p.x-ti.currentLocation.x, p.y-ti.currentLocation.y);
+			BOOL move = NO;
+			if (!ti.moved && (abs(delta.x)+abs(delta.y) > kMinimumPanDelta)) {
+				ti.moved = YES;
+				move = YES;
+			} else if (ti.moved) {
+				move = YES;
+			}
+			if (move) {
+				[self moveAlongVector:delta];
+				ti.currentLocation = p;
+				[self setNeedsDisplay];
+			}
+		}
+	} else if (touches.count == 2) {
+		for (UITouch *t in touches) {
+			ZTouchInfo *ti = [touchInfoStore touchInfoForTouch:t];
+			ti.pinched = YES;
+		}
+		NSArray *allTouches = [touches allObjects];
+		UITouch *t1 = [allTouches objectAtIndex:0];
+		UITouch *t2 = [allTouches objectAtIndex:1];
+		CGPoint p1 = [t1 locationInView:self];
+		CGPoint p2 = [t2 locationInView:self];
+		CGPoint d = CGPointMake(p2.x-p1.x, p2.y-p1.y);
+		CGFloat currentDistance = sqrt(d.x*d.x + d.y*d.y);
+		if (initialDistance == 0) {
+			initialDistance = currentDistance;
+		} else if (currentDistance-initialDistance > kMinimumPinchDelta) {
+			// zoom (in)
+			CGFloat zoom = currentDistance-initialDistance;
+			[self zoom:zoom];
+			initialDistance = currentDistance;
+			[self setNeedsDisplay];
+		} else if (initialDistance-currentDistance > kMinimumPinchDelta) {
+			// zoom (out)
+			CGFloat zoom = currentDistance-initialDistance;
+			[self zoom:zoom];
+			initialDistance = currentDistance;
+			[self setNeedsDisplay];
+		}
+	}
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
 	if (touches.count == 1) {
 		UITouch *touch = [touches anyObject];
+		ZTouchInfo *ti = [touchInfoStore touchInfoForTouch:touch];
 		CGPoint p = [touch locationInView:self];
-		CGPoint center = CGPointMake(self.bounds.size.width/2, self.bounds.size.height/2);
-		CGPoint delta = CGPointMake(p.x-center.x, center.y-p.y);
-		if (fabs(delta.x) < tileSize.width && fabs(delta.y) < tileSize.height) {
-			[[MainViewController instance] handleMapTapTileX:u.ux y:u.uy forLocation:p inView:self];
-		} else {
-			e_direction direction = [ZDirection directionFromEuclideanPointDelta:&delta];
-			ZTouchInfo *ti = [touchInfoStore touchInfoForTouch:touch];
-			if (ti.doubleTap) {
-				[[MainViewController instance] handleDirectionDoubleTap:direction];
+		if (!self.panned) {
+			CGPoint center = CGPointMake(self.bounds.size.width/2, self.bounds.size.height/2);
+			CGPoint delta = CGPointMake(p.x-center.x, center.y-p.y);
+			if (fabs(delta.x) < selfTapRectSize.width/2 && fabs(delta.y) < selfTapRectSize.height/2) {
+				[[MainViewController instance] handleMapTapTileX:u.ux y:u.uy forLocation:p inView:self];
 			} else {
-				[[MainViewController instance] handleDirectionTap:direction];
+				e_direction direction = [ZDirection directionFromEuclideanPointDelta:&delta];
+				if (ti.doubleTap) {
+					[[MainViewController instance] handleDirectionDoubleTap:direction];
+				} else {
+					[[MainViewController instance] handleDirectionTap:direction];
+				}
+			}
+		} else {
+			if (!ti.moved) {
+				// travel to
+				int tx, ty; // for travel to and getpos
+				[self tilePositionX:&tx y:&ty fromPoint:p];
+				[[MainViewController instance] handleMapTapTileX:tx y:ty forLocation:p inView:self];
+				[self resetPanOffset];
 			}
 		}
 	}
@@ -188,6 +259,48 @@
 
 - (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
 	[touchInfoStore removeTouches:touches];
+}
+
+- (void) moveAlongVector:(CGPoint)d {
+	panOffset.x += d.x;
+	panOffset.y += d.y;
+}
+
+- (void) resetPanOffset {
+	panOffset = CGPointMake(0.0f, 0.0f);
+}
+
+- (void) zoom:(CGFloat)d {
+	d /= 5;
+	CGSize originalSize = tileSize;
+	tileSize.width += d;
+	tileSize.width = round(tileSize.width);
+	tileSize.height = tileSize.width;
+	if (tileSize.width > maxTileSize.width) {
+		tileSize = maxTileSize;
+	} else if (tileSize.width < minTileSize.width) {
+		tileSize = minTileSize;
+	}
+	CGFloat aspect = tileSize.width / originalSize.width;
+	panOffset.x *= aspect;
+	panOffset.y *= aspect;
+	[self clipAroundX:clipX y:clipY];
+	[self setNeedsDisplay];
+}
+
+- (BOOL)panned {
+	return panOffset.x != 0 || panOffset.y != 0;
+}
+
+- (void)tilePositionX:(int *)px y:(int *)py fromPoint:(CGPoint)p {
+	p.x -= panOffset.x;
+	p.y -= panOffset.y;
+	p.x -= clipOffset.x;
+	p.y -= clipOffset.y;
+	p.x -= tileSize.width/2;
+	p.y -= tileSize.height/2;
+	*px = roundf(p.x / tileSize.width);
+	*py = roundf(p.y / tileSize.height);
 }
 
 #pragma mark misc
