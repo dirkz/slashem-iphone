@@ -384,6 +384,7 @@
 		437A978D115022E0000046FD /* InventoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 437A978C115022E0000046FD /* InventoryViewController.xib */; };
 		437A979B11502433000046FD /* ItemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 437A979A11502433000046FD /* ItemViewController.xib */; };
 		437A97D81150289F000046FD /* TextInputController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 437A97D71150289F000046FD /* TextInputController.xib */; };
+		43E8F5181150D7E700BD7CAA /* absurd32.png in Resources */ = {isa = PBXBuildFile; fileRef = 43E8F5171150D7E700BD7CAA /* absurd32.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -916,6 +917,7 @@
 		437A978C115022E0000046FD /* InventoryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InventoryViewController.xib; sourceTree = "<group>"; };
 		437A979A11502433000046FD /* ItemViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemViewController.xib; sourceTree = "<group>"; };
 		437A97D71150289F000046FD /* TextInputController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextInputController.xib; sourceTree = "<group>"; };
+		43E8F5171150D7E700BD7CAA /* absurd32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = absurd32.png; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* SlashEM-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "SlashEM-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -1573,6 +1575,7 @@
 		437A957A11500A16000046FD /* tilesets */ = {
 			isa = PBXGroup;
 			children = (
+				43E8F5171150D7E700BD7CAA /* absurd32.png */,
 				437A957B11500A16000046FD /* gltile32.png */,
 			);
 			path = tilesets;
@@ -1840,6 +1843,7 @@
 				437A978D115022E0000046FD /* InventoryViewController.xib in Resources */,
 				437A979B11502433000046FD /* ItemViewController.xib in Resources */,
 				437A97D81150289F000046FD /* TextInputController.xib in Resources */,
+				43E8F5181150D7E700BD7CAA /* absurd32.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
