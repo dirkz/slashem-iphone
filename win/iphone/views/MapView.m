@@ -148,6 +148,7 @@
 	// offset is the translation to get player to the center
 	// note how this gets corrected about tileSize/2 to center player tile
 	clipOffset = CGPointMake(center.x-playerPos.x-tileSize.width/2, center.y-playerPos.y-tileSize.height/2);
+	[self setNeedsDisplay];
 }
 
 #pragma mark touch handling
@@ -230,22 +231,22 @@
 	if (touches.count == 1) {
 		UITouch *touch = [touches anyObject];
 		ZTouchInfo *ti = [touchInfoStore touchInfoForTouch:touch];
-		CGPoint p = [touch locationInView:self];
-		if (!self.panned) {
-			CGPoint center = CGPointMake(self.bounds.size.width/2, self.bounds.size.height/2);
-			CGPoint delta = CGPointMake(p.x-center.x, center.y-p.y);
-			if (fabs(delta.x) < selfTapRectSize.width/2 && fabs(delta.y) < selfTapRectSize.height/2) {
-				[[MainViewController instance] handleMapTapTileX:u.ux y:u.uy forLocation:p inView:self];
-			} else {
-				e_direction direction = [ZDirection directionFromEuclideanPointDelta:&delta];
-				if (ti.doubleTap) {
-					[[MainViewController instance] handleDirectionDoubleTap:direction];
+		if (!ti.moved && !ti.pinched) {
+			CGPoint p = [touch locationInView:self];
+			if (!self.panned && !iphone_getpos) {
+				CGPoint center = CGPointMake(self.bounds.size.width/2, self.bounds.size.height/2);
+				CGPoint delta = CGPointMake(p.x-center.x, center.y-p.y);
+				if (fabs(delta.x) < selfTapRectSize.width/2 && fabs(delta.y) < selfTapRectSize.height/2) {
+					[[MainViewController instance] handleMapTapTileX:u.ux y:u.uy forLocation:p inView:self];
 				} else {
-					[[MainViewController instance] handleDirectionTap:direction];
+					e_direction direction = [ZDirection directionFromEuclideanPointDelta:&delta];
+					if (ti.doubleTap) {
+						[[MainViewController instance] handleDirectionDoubleTap:direction];
+					} else {
+						[[MainViewController instance] handleDirectionTap:direction];
+					}
 				}
-			}
-		} else {
-			if (!ti.moved) {
+			} else {
 				// travel to
 				int tx, ty; // for travel to and getpos
 				[self tilePositionX:&tx y:&ty fromPoint:p];
@@ -254,6 +255,7 @@
 			}
 		}
 	}
+	initialDistance = 0;
 	[touchInfoStore removeTouches:touches];
 }
 

@@ -36,6 +36,8 @@ extern int unixmain(int argc, char **argv);
 @synthesize mainViewController;
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {    
+	[application setStatusBarHidden:YES animated:YES];
+
 	[window addSubview:mainViewController.view];
     [window makeKeyAndVisible];
 	

@@ -136,7 +136,7 @@ enum InvFlags {
 					}
 				}
 			} else if (is_edible(object)) {
-				[self addCommand:[NhCommand commandWithTitle:"Eat" key:'e'] toCommands:commands];
+				[self addCommand:[NhCommand commandWithTitle:"Eat what's here" keys:"e,"] toCommands:commands];
 			}
 			struct obj *otmp = shop_object(u.ux, u.uy);
 			if (otmp) {
@@ -219,7 +219,7 @@ enum InvFlags {
 		[self addCommand:[NhCommand commandWithTitle:"Read" key:'r'] toCommands:commands];
 	}
 	if (inv & fEngraved) {
-		[self addCommand:[NhCommand commandWithTitle:"Read here" keys:"r."] toCommands:commands];
+		[self addCommand:[NhCommand commandWithTitle:"Read what's here" keys:"r."] toCommands:commands];
 	}
 	
 	[self addCommand:[NhCommand commandWithTitle:"Kick" key:C('d')] toCommands:commands];
@@ -283,7 +283,7 @@ enum InvFlags {
 			[NhCommand commandWithTitle:"Down >" key:'>'],
 			[NhCommand commandWithTitle:"Up <" key:'<'],
 			[NhCommand commandWithTitle:"Self ." key:'.'],
-			[NhCommand commandWithTitle:"Cancel" key:'\033'],
+			[NhCommand commandWithTitle:"Cancel Command" key:'\033'],
 			nil];
 }
 
