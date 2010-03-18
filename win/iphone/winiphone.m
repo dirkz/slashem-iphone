@@ -271,7 +271,7 @@ void iphone_display_file(const char *filename, BOOLEAN_P must_exist) {
 		sprintf(msg, "Could not display file %s", filename);
 		iphone_raw_print(msg);
 	} else if (!error) {
-		[[MainViewController instance] displayText:contents blocking:YES];
+		[[MainViewController instance] displayText:contents];
 	}
 }
 

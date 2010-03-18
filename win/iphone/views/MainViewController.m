@@ -194,8 +194,8 @@ static MainViewController* instance;
 			[toolbarItems addObject:[NhCommand commandWithTitle:"Cast" key:'Z']];
 			[toolbarItems addObject:[NhCommand commandWithTitle:"Ext" key:'#']];
 			[toolbarItems addObject:[Action actionWithTitle:@"Info" target:self action:@selector(infoMenuAction:) arg:nil]];
-			[toolbarItems addObject:[Action actionWithTitle:@"Tilesets" target:self action:@selector(tilesetMenuAction:) arg:nil]];
 			[toolbarItems addObject:[Action actionWithTitle:@"Tools" target:self action:@selector(toolsMenuAction:) arg:nil]];
+			[toolbarItems addObject:[Action actionWithTitle:@"Tilesets" target:self action:@selector(tilesetMenuAction:) arg:nil]];
 			
 #if 0 // online shop
 			[toolbarItems addObject:[self buttonWithTitle:@"Shop" target:self action:@selector(shopMenuAction:)]];
@@ -353,14 +353,14 @@ static MainViewController* instance;
 	}
 }
 
-- (void)displayText:(NSString *)text blocking:(BOOL)blocking {
+- (void)displayText:(NSString *)text {
 	if (![NSThread isMainThread]) {
 		[self performSelectorOnMainThread:@selector(displayText:) withObject:text waitUntilDone:NO];
 	} else {
 		TextViewController *textViewController = [[[TextViewController alloc]
 												   initWithNibName:@"TextViewController" bundle:nil] autorelease];
 		textViewController.text = text;
-		textViewController.blocking = blocking;
+		textViewController.blocking = YES;
 		[self presentModalViewController:textViewController animated:YES];
 	}
 }
@@ -383,7 +383,7 @@ static MainViewController* instance;
 			[self.view setNeedsDisplay];
 		} else if (w.type == NHW_MESSAGE || w.type == NHW_MENU || w.type == NHW_TEXT) {
 			// display text
-			[self displayText:w.text blocking:w.blocking];
+			[self displayText:w.text];
 		}
 	}
 }

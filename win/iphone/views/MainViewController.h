@@ -73,7 +73,10 @@
 - (void)nhPoskey;
 
 - (void)refreshAllViews;
-- (void)displayText:(NSString *)text blocking:(BOOL)blocking;
+
+// displays text, always blocking
+- (void)displayText:(NSString *)text;
+
 - (void)displayWindow:(NhWindow *)w;
 - (void)showMenuWindow:(NhMenuWindow *)w;
 - (void)clipAround;
