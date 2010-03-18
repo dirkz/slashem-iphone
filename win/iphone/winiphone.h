@@ -29,8 +29,6 @@
 #define kNetHackOptions (@"kNetHackOptions")
 #define kNetHackTileSet (@"kNetHackTileSet")
 
-extern FILE *iphone_fopen(const char *filename, const char *mode);
-
 void iphone_init_nhwindows(int* argc, char** argv);
 void iphone_player_selection();
 void iphone_askname();
