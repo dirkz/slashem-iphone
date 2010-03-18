@@ -74,12 +74,16 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
     }
     
     NSDictionary *dict = [tilesets objectAtIndex:indexPath.row];
 	NSString *title = [dict objectForKey:@"filename"];
+	NSString *author = [dict objectForKey:@"author"];
 	cell.textLabel.text = title;
+	if (author) {
+		cell.detailTextLabel.text = author;
+	}
 	
 	if ([title isEqual:[[TileSet instance] title]]) {
 		cell.accessoryType = UITableViewCellAccessoryCheckmark;

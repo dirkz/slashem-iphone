@@ -385,6 +385,7 @@
 		437A978D115022E0000046FD /* InventoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 437A978C115022E0000046FD /* InventoryViewController.xib */; };
 		437A979B11502433000046FD /* ItemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 437A979A11502433000046FD /* ItemViewController.xib */; };
 		437A97D81150289F000046FD /* TextInputController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 437A97D71150289F000046FD /* TextInputController.xib */; };
+		4397EC391152B139006CF6A3 /* petmark.png in Resources */ = {isa = PBXBuildFile; fileRef = 4397EC381152B139006CF6A3 /* petmark.png */; };
 		43E8F5181150D7E700BD7CAA /* absurd32.png in Resources */ = {isa = PBXBuildFile; fileRef = 43E8F5171150D7E700BD7CAA /* absurd32.png */; };
 /* End PBXBuildFile section */
 
@@ -919,6 +920,7 @@
 		437A978C115022E0000046FD /* InventoryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InventoryViewController.xib; sourceTree = "<group>"; };
 		437A979A11502433000046FD /* ItemViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemViewController.xib; sourceTree = "<group>"; };
 		437A97D71150289F000046FD /* TextInputController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextInputController.xib; sourceTree = "<group>"; };
+		4397EC381152B139006CF6A3 /* petmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = petmark.png; sourceTree = "<group>"; };
 		43E8F5171150D7E700BD7CAA /* absurd32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = absurd32.png; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* SlashEM-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "SlashEM-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -987,6 +989,7 @@
 				8D1107310486CEB800E47090 /* SlashEM-Info.plist */,
 				437A97411150207A000046FD /* Entitlements.plist */,
 				437A957911500A16000046FD /* Icon.png */,
+				4397EC381152B139006CF6A3 /* petmark.png */,
 				437A970B11501EB1000046FD /* tilesets.plist */,
 				437A957A11500A16000046FD /* tilesets */,
 				437A9299114FFBF4000046FD /* dat */,
@@ -1848,6 +1851,7 @@
 				437A97D81150289F000046FD /* TextInputController.xib in Resources */,
 				43E8F5181150D7E700BD7CAA /* absurd32.png in Resources */,
 				4365D6FC115154E600B15085 /* ExtendedCommandsController.xib in Resources */,
+				4397EC391152B139006CF6A3 /* petmark.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

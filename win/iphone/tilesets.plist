@@ -3,12 +3,16 @@
 <plist version="1.0">
 <array>
 	<dict>
-		<key>filename</key>
-		<string>gltile32.png</string>
-	</dict>
-	<dict>
+		<key>author</key>
+		<string>John Shaw</string>
 		<key>filename</key>
 		<string>absurd32.png</string>
+	</dict>
+	<dict>
+		<key>author</key>
+		<string>Warwick Allison</string>
+		<key>filename</key>
+		<string>gltile32.png</string>
 	</dict>
 </array>
 </plist>
