@@ -137,6 +137,7 @@
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle
 									   reuseIdentifier:CellIdentifier] autorelease];
+		cell.textLabel.font = [cell.textLabel.font fontWithSize:14.0f];
     }
     
 	NhObject *item = [inventory objectAtIndexPath:indexPath];

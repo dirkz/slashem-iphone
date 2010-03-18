@@ -235,8 +235,9 @@
 			frame.origin.x = imageViewWidth;
 			frame.size.width -= imageViewWidth + paddingRight;
 			UILabel *textLabel = [[UILabel alloc] initWithFrame:frame];
+			textLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth;
 			textLabel.tag = 1;
-			textLabel.font = [textLabel.font fontWithSize:14.0f];
+			textLabel.font = [cell.textLabel.font fontWithSize:14.0f];
 			[cell.contentView addSubview:textLabel];
 			[textLabel release];
 			
@@ -249,7 +250,10 @@
 			slider.tag = 2;
 			[cell.contentView addSubview:slider];
 			[slider release];
+		} else {
+			cell.textLabel.font = [cell.textLabel.font fontWithSize:14.0f];
 		}
+
 	}
     
 	[self updateCell:cell withItem:item atIndexPath:indexPath];
