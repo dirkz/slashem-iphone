@@ -42,7 +42,7 @@
 	tileSize = CGSizeMake(32.0f, 32.0f);
 	maxTileSize = CGSizeMake(32.0f, 32.0f);
 	minTileSize = CGSizeMake(8.0f, 8.0f);
-	selfTapRectSize = CGSizeMake(32.0f, 32.0f);
+	selfTapRectSize = CGSizeMake(40.0f, 40.0f);
 	
 	// load gfx
 	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -148,7 +148,6 @@
 	// offset is the translation to get player to the center
 	// note how this gets corrected about tileSize/2 to center player tile
 	clipOffset = CGPointMake(center.x-playerPos.x-tileSize.width/2, center.y-playerPos.y-tileSize.height/2);
-	[self setNeedsDisplay];
 }
 
 #pragma mark touch handling

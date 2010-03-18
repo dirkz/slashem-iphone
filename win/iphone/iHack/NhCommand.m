@@ -107,6 +107,13 @@ enum InvFlags {
 		}
 	}
 	
+	// objects lying on the floor
+	struct obj *object = level.objects[u.ux][u.uy];
+	if (object) {
+		[self addCommand:[NhCommand commandWithTitle:"Pickup" key:','] toCommands:commands];
+	}
+	
+	[self addCommand:[NhCommand commandWithTitle:"Pickup" key:','] toCommands:commands];
 	if ((u.ux == xupstair && u.uy == yupstair)
 		|| (u.ux == sstairs.sx && u.uy == sstairs.sy && sstairs.up)
 		|| (u.ux == xupladder && u.uy == yupladder)) {
@@ -117,11 +124,8 @@ enum InvFlags {
 		[self addCommand:[NhCommand commandWithTitle:"Down" key:'>'] toCommands:commands];
 	}
 	
-	// objects lying on the floor
-	struct obj *object = level.objects[u.ux][u.uy];
+	// objects lying on the floor again (after pickup has been put up already)
 	if (object) {
-		[self addCommand:[NhCommand commandWithTitle:"Pickup" key:','] toCommands:commands];
-		
 		while (object) {
 			if (Is_container(object)) {
 				struct obj *cobj = object;

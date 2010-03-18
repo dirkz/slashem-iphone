@@ -30,7 +30,7 @@
 @synthesize messageWindow;
 
 - (void)setup {
-	self.font = [self.font fontWithSize:15.0f];
+	self.font = [self.font fontWithSize:14.0f];
 }
 
 - (id)initWithCoder:(NSCoder *)aDecoder {
@@ -64,18 +64,18 @@
 
 - (BOOL)becomeFirstResponder {
 	if (messageWindow) {
-		CGRect frame = self.frame;
 		if (!historyDisplayed) {
-			frame.size.height *= 3;
+			CGRect frame = originalFrame = self.frame;
+			CGRect superBounds = self.superview.bounds;
+			frame.size.height = superBounds.size.height/3;
 			[UIView beginAnimations:@"enlarge" context:NULL];
 			self.frame = frame;
 			[self setText:messageWindow.historyText];
 			[UIView commitAnimations];
 			historyDisplayed = YES;
 		} else {
-			frame.size.height /= 3;
 			[UIView beginAnimations:@"downsize" context:NULL];
-			self.frame = frame;
+			self.frame = originalFrame;
 			[UIView commitAnimations];
 			historyDisplayed = NO;
 		}

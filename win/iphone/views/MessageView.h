@@ -30,11 +30,13 @@
 	
 	NhWindow *messageWindow;
 	BOOL historyDisplayed;
+	CGRect originalFrame;
 
 }
 
 @property (nonatomic, retain) NhWindow *messageWindow;
 
+- (void)scrollToBottom;
 - (void)setText:(NSString *)s;
 
 @end

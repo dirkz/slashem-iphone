@@ -67,6 +67,8 @@ static MainViewController* instance;
 
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
 	[self clipAround];
+	[mapView setNeedsDisplay];
+	[messageView scrollToBottom];
 }
 
 - (void)releaseIfDefined:(id *)thing {

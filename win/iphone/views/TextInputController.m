@@ -29,6 +29,17 @@
 
 @implementation TextInputController
 
+- (void)setup {
+	messageTextView.font = [messageTextView.font fontWithSize:14.0f];
+}
+
+- (id)initWithCoder:(NSCoder *)aDecoder {
+	if (self = [super initWithCoder:aDecoder]) {
+		[self setup];
+	}
+	return self;
+}
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     return YES;
 }
