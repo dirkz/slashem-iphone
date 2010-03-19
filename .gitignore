@@ -5,6 +5,8 @@
 build
 *.o
 *.lev
+*.rej
+*.orig
 Makefile
 dat/Makefile
 dat/data
