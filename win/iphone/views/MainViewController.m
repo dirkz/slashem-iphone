@@ -100,6 +100,8 @@ static MainViewController* instance;
 						 [NhCommand commandWithTitle:"What's here" key:':'],
 						 [NhCommand commandWithTitle:"What is" key:';'],
 						 [NhCommand commandWithTitle:"Discoveries" key:'\\'],
+						 [NhCommand commandWithTitle:"Character Info" key:C('X')],
+						 [NhCommand commandWithTitle:"Equipment" key:'*'],
 						 [NhCommand commandWithTitle:"Help" key:'?'],
 						 [NhCommand commandWithTitle:"Options" key:'O'],
 						 [NhCommand commandWithTitle:"Toggle Autopickup" key:'@'],
