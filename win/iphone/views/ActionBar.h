@@ -25,7 +25,7 @@
 #import <UIKit/UIKit.h>
 #import "ZObjectCache.h"
 
-@interface ActionBar : UIScrollView {
+@interface ActionBar : UIView {
 	
 	NSArray *actions;
 

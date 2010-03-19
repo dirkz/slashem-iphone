@@ -212,6 +212,7 @@ static MainViewController* instance;
 #endif
 			
 			[actionBar setActions:toolbarItems];
+			[actionScrollView setContentSize:actionBar.frame.size];
 		}
 
 		[self refreshAllViews];

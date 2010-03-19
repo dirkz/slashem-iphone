@@ -42,6 +42,7 @@
 	IBOutlet UILabel *statusView2;
 	IBOutlet MapView *mapView;
 	IBOutlet ActionBar *actionBar;
+	IBOutlet UIScrollView *actionScrollView;
 	
 	NhYnQuestion *currentYnQuestion;
 	ActionViewController *actionViewController;

@@ -47,15 +47,6 @@
     return self;
 }
 
-- (void)layoutSubviews {
-	[super layoutSubviews];
-	float width = self.contentSize.width;
-	float parentWidth = self.bounds.size.width;
-	if (width < parentWidth) {
-		[self setContentOffset:CGPointMake(-(parentWidth-width)/2, 0.0f) animated:NO];
-	}
-}
-
 - (UIControl *)buttonForAction:(Action *)action {
 	UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
 	[button setTitle:action.title forState:UIControlStateNormal];
@@ -72,23 +63,21 @@
 }
 
 - (void)update {
+	CGRect scrollFrame = CGRectZero;
+	scrollFrame.size.width = 0;
 	if (actions && actions.count > 0) {
-		CGRect frame = CGRectZero;
+		CGRect controlFrame = CGRectZero;
 		for (Action *a in actions) {
 			UIView *button = [self buttonForAction:a];
 			CGSize buttonSize = [button sizeThatFits:self.bounds.size];
-			frame.size = buttonSize;
-			button.frame = frame;
-			frame.origin.x += buttonSize.width;
+			controlFrame.size = buttonSize;
+			button.frame = controlFrame;
+			controlFrame.origin.x += buttonSize.width;
 			[self addSubview:button];
+			scrollFrame.size.height = buttonSize.height;
+			scrollFrame.size.width += buttonSize.width;
 		}
-		frame.size.width = frame.origin.x;
-		self.contentSize = frame.size;
-		float width = frame.size.width;
-		float parentWidth = self.bounds.size.width;
-		if (width < parentWidth) {
-			[self setContentOffset:CGPointMake(-(parentWidth-width)/2, 0.0f) animated:YES];
-		}
+		self.frame = scrollFrame;
 	}
 }
 
