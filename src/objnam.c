@@ -2397,6 +2397,9 @@ boolean from_user;
        strncmpi(bp, "one ring", 8) &&
 	   strncmpi(bp, "food ration", 11) &&
 	   strncmpi(bp, "meat ring", 9)
+#ifdef ENFORCER
+	   && strncmpi(bp, "plasteel armor", 14)
+#endif
 	)
 	for (i = 0; i < (int)(sizeof wrpsym); i++) {
 		register int j = strlen(wrp[i]);

@@ -245,6 +245,9 @@ register struct monst *mtmp;
 #ifdef YEOMAN
 				|| mm == PM_CHIEF_YEOMAN_WARDER || mm == PM_YEOMAN_WARDER
 #endif
+#ifdef ENFORCER
+				|| mm == PM_ENFORCER || mm == PM_NEOPHYTE || mm == PM_TROOPER
+#endif
 		) {
 		    int w1 = 0, w2 = 0;
 		    switch (mm) {
@@ -347,6 +350,37 @@ register struct monst *mtmp;
 #endif
 			  w1 = rn2(2) ? BROADSWORD : LONG_SWORD;
 			  break;
+#ifdef ENFORCER
+			case PM_NEOPHYTE:
+			case PM_ENFORCER:
+			  switch(rnd(3)){
+			    case 1: mongets(mtmp, RED_LIGHTSABER); break;
+			    case 2: mongets(mtmp, BLUE_LIGHTSABER); break;
+			    case 3: mongets(mtmp, GREEN_LIGHTSABER); break;
+			    default: break;
+			  }
+			  break;
+			case PM_THE_MASTER_ENFORCER:
+			  mongets(mtmp, BLUE_LIGHTSABER);
+			  mongets(mtmp, SPEED_BOOTS);
+			  mongets(mtmp, AMULET_OF_REFLECTION);
+			  break;
+			case PM_TROOPER:
+#ifdef FIREARMS
+			  if (rn2(2)) {
+			  	w1 = HEAVY_MACHINE_GUN;
+			  	m_initthrow(mtmp, BULLET, 50);
+			  } else {
+			  	w1 = SUBMACHINE_GUN;
+			  	m_initthrow(mtmp, BULLET, 30);
+			  }
+			  mongets(mtmp, PLASTEEL_ARMOR);
+			  mongets(mtmp, PLASTEEL_GLOVES);
+			  mongets(mtmp, PLASTEEL_BOOTS);
+			  mongets(mtmp, PLASTEEL_HELM);
+			  break;
+#endif // FIREARMS
+#endif // ENFORCER
 			case PM_SHOPKEEPER:
 #ifdef FIREARMS
 			  (void) mongets(mtmp,SHOTGUN);

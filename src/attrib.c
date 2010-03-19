@@ -52,6 +52,14 @@ const struct innate {
 		     {  13, &(HFire_resistance), "cool", "warmer" },
 		     {   0, 0, 0, 0 } },
 
+#ifdef ENFORCER
+	enf_abil[] = { {   1, &(HStealth), "", ""},
+		       {   3, &(HTelepat), "disturbances in the force", "your grip on the force lessen" },
+		       {   5, &(HSee_invisible), "your vision sharpen", "your vision blurring" },
+		       {   7, &(HFast), "quick", "slow" },
+		       { 0, 0, 0, 0 } },
+#endif
+			
 	kni_abil[] = { {	 7, &(HFast), "quick", "slow" },
 		     {	 0, 0, 0, 0 } },
 
@@ -631,6 +639,9 @@ int oldlevel, newlevel;
 	case PM_FLAME_MAGE:	abil = fla_abil;	break;
 	case PM_HEALER:         abil = hea_abil;	break;
 	case PM_ICE_MAGE:	abil = ice_abil;	break;
+#ifdef ENFORCER
+	case PM_ENFORCER:	abil = enf_abil;	break;
+#endif
 	case PM_KNIGHT:         abil = kni_abil;	break;
 	case PM_MONK:           abil = mon_abil;	break;
 	case PM_NECROMANCER:	abil = nec_abil;	break;

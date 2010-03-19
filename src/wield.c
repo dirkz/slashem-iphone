@@ -904,6 +904,14 @@ boolean put_away;
 	You("extinguish %s before putting it away.", yname(obj));
 	end_burn(obj, TRUE);
     }
+#ifdef ENFORCER
+    else if (put_away && is_lightsaber(obj) && obj->lamplit &&
+	!artifact_light(obj)){
+	    char yourbuf[BUFSZ];
+	    You("deactivate %s %s before putting it away.", shk_your(yourbuf, obj), xname(obj));
+	    end_burn(obj, TRUE);
+    }
+#endif
 }
 
 /*wield.c*/

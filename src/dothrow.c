@@ -1059,6 +1059,19 @@ int thrown;
             else setuqwep(obj);*/
 		return;
 	    }
+#ifdef ENFORCER
+	    if (u.dz < 0 && Role_if(PM_ENFORCER) &&
+		    is_lightsaber(obj) && obj->lamplit && !impaired &&
+		    P_SKILL(weapon_type(obj)) >= P_SKILLED) {
+		pline("%s the %s and returns to your hand!",
+		      Tobjnam(obj, "hit"), ceiling(u.ux,u.uy));
+		obj = addinv(obj);
+		(void) encumber_msg();
+		setuwep(obj, TRUE);
+		u.twoweap = twoweap;
+		return;
+	    }
+#endif
 #ifdef FIREARMS
 	    /* [ALI]
 	     * Grenades are armed but are then processed by toss_up/hitfloor
@@ -1219,9 +1232,23 @@ int thrown;
 		if (obj != uball) (void) mpickobj(u.ustuck,obj);
 	} else {
 		/* the code following might become part of dropy() */
+#ifndef ENFORCER
 		if (obj->oartifact == ART_MJOLLNIR &&
 			Role_if(PM_VALKYRIE) && rn2(100)) {
 		    /* we must be wearing Gauntlets of Power to get here */
+#else
+		if ((obj->oartifact == ART_MJOLLNIR &&
+			Role_if(PM_VALKYRIE) && rn2(100)) ||
+		    (is_lightsaber(obj) && obj->lamplit && Role_if(PM_ENFORCER) &&
+		     P_SKILL(weapon_type(obj)) >= P_SKILLED)){
+		    /* we must be wearing Gauntlets of Power to get here */
+		    /* or an Enforcer with a lightsaber */
+		    if (Role_if(PM_ENFORCER) && u.uen < 5){
+			You("don't have enough force to call %s.", the(xname(obj)));
+		    } else {
+		      if (Role_if(PM_ENFORCER))
+			u.uen -= 5;
+#endif
 		    sho_obj_return_to_u(obj);	    /* display its flight */
 
 		    if (!impaired && rn2(100)) {
@@ -1259,6 +1286,9 @@ int thrown;
 		    }
 		    thrownobj = (struct obj*)0;
 		    return;
+#ifdef ENFORCER
+		    }
+#endif
 		}
 
 		if (!IS_SOFT(levl[bhitpos.x][bhitpos.y].typ) &&
