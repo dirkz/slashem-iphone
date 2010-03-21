@@ -68,10 +68,6 @@
 	detailLabel.text = item.detail;
 }
 
-- (NhCommand *)itemCommandWithTitle:(const char *)t key:(char)c {
-	return [NhCommand commandWithObject:item title:t key:c];
-}
-
 - (NhCommand *)dropOneCommand {
 	return [NhCommand commandWithObject:item title:"Drop 1" keys:"d1"];
 }
@@ -106,7 +102,7 @@
 			item.object->owornmask & W_QUIVER) {
 			[self addAction:[self dropOneCommand]];
 			[self addAction:[self dropExceptOneCommand]];
-			[actions addObject:[self itemCommandWithTitle:"Throw" key:'t']];
+			[actions addObject:[NhCommand commandWithObject:item title:"Throw" key:'t']];
 		} else {
 			NSLog(@"worn? %@", item.title);
 		}
@@ -115,84 +111,87 @@
 			case WEAPON_CLASS:
 				if (item.object->owornmask & W_WEP) {
 					[actions addObject:[NhCommand commandWithTitle:"Unwield" keys:"w-"]];
-					[actions addObject:[self itemCommandWithTitle:"Force" key:M('f')]];
+					[actions addObject:[NhCommand commandWithObject:item title:"Force" key:M('f')]];
 					[actions addObject:[NhCommand commandWithTitle:"Set as alternative Weapon" key:'x']];
 				} else {
-					[actions addObject:[self itemCommandWithTitle:"Wield" key:'w']];
-					[actions addObject:[self itemCommandWithTitle:"Quiver" key:'Q']];
+					[actions addObject:[NhCommand commandWithObject:item title:"Wield" key:'w']];
+					[actions addObject:[NhCommand commandWithObject:item title:"Quiver" key:'Q']];
 				}
 				if ([inventory containsObjectClass:POTION_CLASS] ||
 					IS_FOUNTAIN(levl[u.ux][u.uy].typ) || IS_SINK(levl[u.ux][u.uy].typ)) {
-					[actions addObject:[self itemCommandWithTitle:"Dip" key:M('d')]];
+					[actions addObject:[NhCommand commandWithObject:item title:"Dip" key:M('d')]];
 				}
-				[actions addObject:[self itemCommandWithTitle:"Engrave" key:'E']];
+				[actions addObject:[NhCommand commandWithObject:item title:"Engrave" key:'E']];
 				break;
 			case ARMOR_CLASS:
 				if (item.object->owornmask & (W_ARM | W_ARMC | W_ARMH | W_ARMS | W_ARMG | W_ARMF | W_ARMU)) {
-					[actions addObject:[self itemCommandWithTitle:"Take off" key:'T']];
+					[actions addObject:[NhCommand commandWithObject:item title:"Take off" key:'T']];
 				} else {
 					//todo this might clash if not possible to wear (e.g., cloak)
-					[actions addObject:[self itemCommandWithTitle:"Wear" key:'W']];
+					[actions addObject:[NhCommand commandWithObject:item title:"Wear" key:'W']];
 				}
 				break;
 			case WAND_CLASS:
-				[actions addObject:[self itemCommandWithTitle:"Apply" key:'a']];
-				[actions addObject:[self itemCommandWithTitle:"Zap" key:'z']];
-				[actions addObject:[self itemCommandWithTitle:"Engrave" key:'E']];
+				[actions addObject:[NhCommand commandWithObject:item title:"Apply" key:'a']];
+				[actions addObject:[NhCommand commandWithObject:item title:"Zap" key:'z']];
+				[actions addObject:[NhCommand commandWithObject:item title:"Engrave" key:'E']];
 				break;
 			case TOOL_CLASS:
-				[actions addObject:[self itemCommandWithTitle:"Apply" key:'a']];
+				[actions addObject:[NhCommand commandWithObject:item title:"Apply" key:'a']];
 				if ([inventory containsObjectClass:POTION_CLASS]) {
-					[actions addObject:[self itemCommandWithTitle:"Dip" key:M('d')]];
+					[actions addObject:[NhCommand commandWithObject:item title:"Dip" key:M('d')]];
 				}
 				switch (item.object->otyp) {
 					case BRASS_LANTERN:
 					case OIL_LAMP:
 					case MAGIC_LAMP:
-						[actions addObject:[self itemCommandWithTitle:"Rub" key:M('r')]];
+						[actions addObject:[NhCommand commandWithObject:item title:"Rub" key:M('r')]];
 						break;
 				}
 				break;
 			case FOOD_CLASS:
-				[actions addObject:[self itemCommandWithTitle:"Eat" key:'e']];
+				[actions addObject:[NhCommand commandWithObject:item title:"Eat" key:'e']];
 				if (item.object->otyp == CORPSE) {
 					if (item.object->owornmask & W_WEP) {
 						[actions addObject:[NhCommand commandWithTitle:"Unwield" keys:"w-"]];
 					} else {
-						[actions addObject:[self itemCommandWithTitle:"Wield" key:'w']];
+						[actions addObject:[NhCommand commandWithObject:item title:"Wield" key:'w']];
 					}
 				}
 				break;
 			case RING_CLASS:
 			case AMULET_CLASS:
-				//todo if only one ring is worn this causes trouble
 				if (item.object->owornmask & W_RING || item.object->owornmask & W_AMUL) {
-					[actions addObject:[self itemCommandWithTitle:"Remove" key:'R']];
+					if (inventory.numberOfWornJewelry > 1) {
+						[actions addObject:[NhCommand commandWithObject:item title:"Remove" key:'R']];
+					} else {
+						[actions addObject:[NhCommand commandWithTitle:"Remove" key:'R']];
+					}
 				} else {
-					[actions addObject:[self itemCommandWithTitle:"Put on" key:'P']];
+					[actions addObject:[NhCommand commandWithObject:item title:"Put on" key:'P']];
 				}
-				[actions addObject:[self itemCommandWithTitle:"Engrave" key:'E']];
+				[actions addObject:[NhCommand commandWithObject:item title:"Engrave" key:'E']];
 				break;
 			case SPBOOK_CLASS:
 			case SCROLL_CLASS:
-				[actions addObject:[self itemCommandWithTitle:"Read" key:'r']];
+				[actions addObject:[NhCommand commandWithObject:item title:"Read" key:'r']];
 				if ([inventory containsObjectClass:POTION_CLASS] ||
 					IS_FOUNTAIN(levl[u.ux][u.uy].typ) || IS_SINK(levl[u.ux][u.uy].typ)) {
-					[actions addObject:[self itemCommandWithTitle:"Dip" key:M('d')]];
+					[actions addObject:[NhCommand commandWithObject:item title:"Dip" key:M('d')]];
 				}
 				break;
 			case POTION_CLASS:
-				[actions addObject:[self itemCommandWithTitle:"Quaff" key:'q']];
+				[actions addObject:[NhCommand commandWithObject:item title:"Quaff" key:'q']];
 				if ([inventory containsObjectClass:TOOL_CLASS] || [inventory containsObjectClass:WAND_CLASS]) {
-					[actions addObject:[self itemCommandWithTitle:"Apply" key:'a']];
+					[actions addObject:[NhCommand commandWithObject:item title:"Apply" key:'a']];
 				}
 				if (IS_FOUNTAIN(levl[u.ux][u.uy].typ) || IS_SINK(levl[u.ux][u.uy].typ)) {
-					[actions addObject:[self itemCommandWithTitle:"Dip" key:M('d')]];
+					[actions addObject:[NhCommand commandWithObject:item title:"Dip" key:M('d')]];
 				}
 				break;
 			case GEM_CLASS:
-				[actions addObject:[self itemCommandWithTitle:"Engrave" key:'E']];
-				[actions addObject:[self itemCommandWithTitle:"Quiver" key:'Q']];
+				[actions addObject:[NhCommand commandWithObject:item title:"Engrave" key:'E']];
+				[actions addObject:[NhCommand commandWithObject:item title:"Quiver" key:'Q']];
 				break;
 		}
 		char cmd[BUFSZ];
@@ -209,8 +208,8 @@
 				[actions addObject:[NhCommand commandWithTitle:"Pay" key:'p']];
 				break;
 			case '-':
-				[actions addObject:[self itemCommandWithTitle:"Engrave" key:'E']];
-				[actions addObject:[self itemCommandWithTitle:"Wield" key:'w']];
+				[actions addObject:[NhCommand commandWithObject:item title:"Engrave" key:'E']];
+				[actions addObject:[NhCommand commandWithObject:item title:"Wield" key:'w']];
 				break;
 			default:
 				break;

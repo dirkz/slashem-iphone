@@ -31,10 +31,14 @@
 	
 	NSMutableArray *objectClasses;
 	NSMutableArray *classArray[MAXOCLASSES];
+	int numberOfWornJewelry;
 	
 }
 
 @property (nonatomic, readonly) NSArray *objectClasses;
+@property (nonatomic, readonly) int numberOfWornJewelry;
+
++ (id)inventory;
 
 - (void)update;
 - (NhObject *)objectAtIndexPath:(NSIndexPath *)indexPath;

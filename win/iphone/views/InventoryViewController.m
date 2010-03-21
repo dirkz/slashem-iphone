@@ -165,7 +165,11 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
 	if (item.object) {
 		if (item.object->owornmask) {
 			if (item.object->owornmask & W_RING || item.object->owornmask & W_AMUL) {
-				cmd = [NhCommand commandWithObject:item title:"Remove" key:'R'];
+				if (inventory.numberOfWornJewelry > 1) {
+					cmd = [NhCommand commandWithObject:item title:"Remove" key:'R'];
+				} else {
+					cmd = [NhCommand commandWithTitle:"Remove" key:'R'];
+				}
 			} else if (item.object->owornmask & W_ARMOR) {
 				cmd = [NhCommand commandWithObject:item title:"Take off" key:'T'];
 			}

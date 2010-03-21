@@ -29,6 +29,11 @@
 @implementation NhInventory
 
 @synthesize objectClasses;
+@synthesize numberOfWornJewelry;
+
++ (id)inventory {
+	return [[[self alloc] init] autorelease];
+}
 
 - (id)init {
 	if (self = [super init]) {
@@ -50,6 +55,10 @@
 	for (struct obj *otmp = invent; otmp; otmp = otmp->nobj) {
 		NSMutableArray *array = [self arrayForClass:otmp->oclass];
 		[array addObject:[NhObject objectWithObject:otmp]];
+		if ((otmp->oclass == RING_CLASS || otmp->oclass == AMULET_CLASS) &&
+			(otmp->owornmask & W_RING || otmp->owornmask & W_AMUL)) {
+			numberOfWornJewelry++;
+		}
 	}
 	char *invlet = flags.inv_order;
 	while (*invlet) {
