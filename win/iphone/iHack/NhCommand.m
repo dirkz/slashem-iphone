@@ -113,7 +113,6 @@ enum InvFlags {
 		[self addCommand:[NhCommand commandWithTitle:"Pickup" key:','] toCommands:commands];
 	}
 	
-	[self addCommand:[NhCommand commandWithTitle:"Pickup" key:','] toCommands:commands];
 	if ((u.ux == xupstair && u.uy == yupstair)
 		|| (u.ux == sstairs.sx && u.uy == sstairs.sy && sstairs.up)
 		|| (u.ux == xupladder && u.uy == yupladder)) {
@@ -132,8 +131,11 @@ enum InvFlags {
 				if (!cobj->olocked) {
 					[self addCommand:[NhCommand commandWithTitle:"Loot" key:M('l')] toCommands:commands];
 				} else {
+					char cmdUntrapDown[] = {M('u'), '>', 0};
+					char forceDown[] = {M('f'), '>', 0};
+					[self addCommand:[NhCommand commandWithTitle:"Untrap Container" keys:cmdUntrapDown] toCommands:commands];
 					if (inv & fWieldedWeapon) {
-						[self addCommand:[NhCommand commandWithTitle:"Force" key:M('f')] toCommands:commands];
+						[self addCommand:[NhCommand commandWithTitle:"Force Container" keys:forceDown] toCommands:commands];
 					}
 					if (inv & fAppliable) {
 						[self addCommand:[NhCommand commandWithTitle:"Apply" key:'a'] toCommands:commands];
