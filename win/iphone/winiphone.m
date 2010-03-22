@@ -292,12 +292,9 @@ void iphone_add_menu(winid wid, int glyph, const ANY_P *identifier,
 		[w.currentItemGroup addItem:i];
 		[i release];
 	} else {
-		if (w.currentItemGroup.items.count > 0) {
-			// don't allow NhItemGroups after each other to sort out inactive ones
-			NhItemGroup *g = [[NhItemGroup alloc] initWithTitle:title];
-			[w addItemGroup:g];
-			[g release];
-		}
+		NhItemGroup *g = [[NhItemGroup alloc] initWithTitle:title];
+		[w addItemGroup:g];
+		[g release];
 	}
 }
 

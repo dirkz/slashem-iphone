@@ -51,6 +51,7 @@
 
 - (void)update {
 	[objectClasses removeAllObjects];
+	numberOfWornJewelry = 0;
 	memset(classArray, (int) nil, sizeof(classArray));
 	for (struct obj *otmp = invent; otmp; otmp = otmp->nobj) {
 		NSMutableArray *array = [self arrayForClass:otmp->oclass];

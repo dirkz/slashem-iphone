@@ -156,10 +156,14 @@
     return self.menuWindow.itemGroups.count;
 }
 
-// Customize the number of rows in the table view.
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 	NhItemGroup *g = [self.menuWindow.itemGroups objectAtIndex:section];
     return g.items.count;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+	NhItemGroup *g = [self.menuWindow.itemGroups objectAtIndex:section];
+	return g.title;
 }
 
 - (void)updateCell:(UITableViewCell *)cell withItem:(NhItem *)item atIndexPath:(NSIndexPath *)indexPath {
