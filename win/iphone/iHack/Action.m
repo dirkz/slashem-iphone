@@ -34,6 +34,10 @@
 	return a;
 }
 
++ (id)actionWithTitle:(NSString *)t target:(id)target action:(SEL)action {
+	return [self actionWithTitle:t target:target action:action arg:nil];
+}
+
 - (id)initWithTitle:(NSString *)t {
 	if (self = [super init]) {
 		title = [t copy];

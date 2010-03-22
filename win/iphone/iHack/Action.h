@@ -34,6 +34,7 @@
 @property (nonatomic, readonly) NSString *title;
 
 + (id)actionWithTitle:(NSString *)t target:(id)target action:(SEL)action arg:(id)arg;
++ (id)actionWithTitle:(NSString *)t target:(id)target action:(SEL)action;
 
 - (id)initWithTitle:(NSString *)t;
 

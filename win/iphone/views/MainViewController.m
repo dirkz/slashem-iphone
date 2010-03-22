@@ -126,6 +126,12 @@ static MainViewController* instance;
 	NSArray *commands = [NSArray arrayWithObjects:
 						 [NhCommand commandWithTitle:"Magic Mapping" key:C('f')],
 						 [NhCommand commandWithTitle:"Wish" key:C('w')],
+						 [NhCommand commandWithTitle:"Identify" key:C('i')],
+						 [NhCommand commandWithTitle:"Special Levels" key:C('o')],
+						 [NhCommand commandWithTitle:"Teleport" key:C('t')],
+						 [NhCommand commandWithTitle:"Level Teleport" key:C('v')],
+						 [NhCommand commandWithTitle:"Create Monster" key:C('g')],
+						 [NhCommand commandWithTitle:"Show Attributes" key:C('x')],
 						 nil];
 	self.actionViewController.actions = commands;
 	[self presentModalViewController:actionViewController animated:YES];
@@ -200,11 +206,11 @@ static MainViewController* instance;
 			[toolbarItems addObject:[Action actionWithTitle:@"Tilesets" target:self action:@selector(tilesetMenuAction:) arg:nil]];
 			
 #if 0 // online shop
-			[toolbarItems addObject:[self buttonWithTitle:@"Shop" target:self action:@selector(shopMenuAction:)]];
+			[toolbarItems addObject:[Action actionWithTitle:@"Shop" target:self action:@selector(shopMenuAction:)]];
 #endif
 			
 			if (wizard) { // wizard mode
-				[toolbarItems addObject:[self buttonWithTitle:@"Wiz" target:self action:@selector(wizardMenuAction:)]];
+				[toolbarItems addObject:[Action actionWithTitle:@"Wizard" target:self action:@selector(wizardMenuAction:)]];
 			}
 
 #if 0 // test
