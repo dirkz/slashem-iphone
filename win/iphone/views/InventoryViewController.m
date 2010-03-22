@@ -171,7 +171,11 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
 					cmd = [NhCommand commandWithTitle:"Remove" key:'R'];
 				}
 			} else if (item.object->owornmask & W_ARMOR) {
-				cmd = [NhCommand commandWithObject:item title:"Take off" key:'T'];
+					if (inventory.numberOfWornArmor > 1) {
+						cmd = [NhCommand commandWithObject:item title:"Take off" key:'T'];
+					} else {
+						cmd = [NhCommand commandWithTitle:"Take off" key:'T'];
+					}
 			}
 		}
 	}

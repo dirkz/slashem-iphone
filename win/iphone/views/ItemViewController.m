@@ -124,8 +124,12 @@
 				[actions addObject:[NhCommand commandWithObject:item title:"Engrave" key:'E']];
 				break;
 			case ARMOR_CLASS:
-				if (item.object->owornmask & (W_ARM | W_ARMC | W_ARMH | W_ARMS | W_ARMG | W_ARMF | W_ARMU)) {
-					[actions addObject:[NhCommand commandWithObject:item title:"Take off" key:'T']];
+				if (item.object->owornmask & W_ARMOR) {
+					if (inventory.numberOfWornArmor > 1) {
+						[actions addObject:[NhCommand commandWithObject:item title:"Take off" key:'T']];
+					} else {
+						[actions addObject:[NhCommand commandWithTitle:"Take off" key:'T']];
+					}
 				} else {
 					//todo this might clash if not possible to wear (e.g., cloak)
 					[actions addObject:[NhCommand commandWithObject:item title:"Wear" key:'W']];
