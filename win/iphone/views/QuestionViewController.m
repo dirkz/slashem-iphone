@@ -32,9 +32,21 @@
 @synthesize tableView = tv;
 @synthesize question;
 
+- (void)scrollToBottom {
+	CGSize content = textView.contentSize;
+	CGSize bounds = textView.bounds.size;
+	//NSLog(@"%3.2f (%3.2f / %3.2f)", self.contentOffset.y, content.height, bounds.height);
+	if (content.height > bounds.height) {
+		[textView setContentOffset:CGPointMake(0.0f, -(bounds.height-content.height)) animated:YES];
+	} else {
+		[textView setContentOffset:CGPointMake(0.0f, 0.0f) animated:YES];
+	}
+}
+
 - (void)viewWillAppear:(BOOL)animated {
 	[super viewWillAppear:animated];
 	textView.text = [[NhWindow messageWindow] text];
+	[self scrollToBottom];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
