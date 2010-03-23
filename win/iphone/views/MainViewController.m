@@ -43,6 +43,7 @@
 #import "ToolsViewController.h"
 #import "CommandButtonItem.h"
 #import "ActionBar.h"
+#import "QuestionViewController.h"
 
 #import "winiphone.h" // ipad_getpos etc.
 
@@ -330,16 +331,25 @@ static MainViewController* instance;
 			// simple YN question
 			NSString *text = q.question;
 			if (text && text.length > 0) {
-				currentYnQuestion = q;
-				UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:@"Question" message:q.question
-															   delegate:self cancelButtonTitle:nil otherButtonTitles:nil]
-									  autorelease];
-				const char *pStr = q.choices;
-				while (*pStr) {
-					[alert addButtonWithTitle:[NSString stringWithFormat:@"%c", *pStr]];
-					pStr++;
+				if (strlen(q.choices) > 2 || [text isEqual:@"Eat it?"] ||
+					[text isEqual:@"Do you want your possessions identified?"]) {
+					QuestionViewController *questionViewController = [[QuestionViewController alloc]
+																	  initWithNibName:@"QuestionViewController" bundle:nil];
+					questionViewController.question = q;
+					[questionViewController autorelease];
+					[self presentModalViewController:questionViewController animated:YES];
+				} else {
+					currentYnQuestion = q;
+					UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:@"Question" message:q.question
+																	delegate:self cancelButtonTitle:nil otherButtonTitles:nil]
+										  autorelease];
+					const char *pStr = q.choices;
+					while (*pStr) {
+						[alert addButtonWithTitle:[NSString stringWithFormat:@"%c", *pStr]];
+						pStr++;
+					}
+					[alert show];
 				}
-				[alert show];
 			}
 		} else {
 			// very general question, could be everything

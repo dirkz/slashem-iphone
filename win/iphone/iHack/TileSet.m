@@ -61,13 +61,6 @@ static TileSet *s_instance = nil;
 
 - (CGImageRef)imageForTile:(int)tile {
 	if (!cachedImages[tile]) {
-		switch (tile) {
-			case PM_BULL:
-				NSLog(@"PM_BULL %d", tile);
-				break;
-			default:
-				break;
-		}
 		int row = tile/columns;
 		int col = row ? tile % columns : tile;
 		CGRect r = { col * tileSize.width, row * tileSize.height };

@@ -385,6 +385,8 @@
 		437A978D115022E0000046FD /* InventoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 437A978C115022E0000046FD /* InventoryViewController.xib */; };
 		437A979B11502433000046FD /* ItemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 437A979A11502433000046FD /* ItemViewController.xib */; };
 		437A97D81150289F000046FD /* TextInputController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 437A97D71150289F000046FD /* TextInputController.xib */; };
+		438622C611590FC700295E23 /* QuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 438622C511590FC700295E23 /* QuestionViewController.m */; };
+		438622D21159104100295E23 /* QuestionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 438622D11159104100295E23 /* QuestionViewController.xib */; };
 		4397EC391152B139006CF6A3 /* petmark.png in Resources */ = {isa = PBXBuildFile; fileRef = 4397EC381152B139006CF6A3 /* petmark.png */; };
 		43C52F4511535404001FAA6D /* AsciiTileSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 43C52F4411535404001FAA6D /* AsciiTileSet.m */; };
 		43E8F5181150D7E700BD7CAA /* absurd32.png in Resources */ = {isa = PBXBuildFile; fileRef = 43E8F5171150D7E700BD7CAA /* absurd32.png */; };
@@ -914,13 +916,16 @@
 		437A960911501275000046FD /* ActionBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionBar.h; sourceTree = "<group>"; };
 		437A960A11501275000046FD /* ActionBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionBar.m; sourceTree = "<group>"; };
 		437A96CF11501B1F000046FD /* ActionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActionViewController.xib; sourceTree = "<group>"; };
-		437A970B11501EB1000046FD /* tilesets.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = tilesets.plist; sourceTree = "<group>"; };
+		437A970B11501EB1000046FD /* tilesets.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = tilesets.plist; sourceTree = SOURCE_ROOT; };
 		437A971311501F74000046FD /* TileSetViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TileSetViewController.xib; sourceTree = "<group>"; };
 		437A97411150207A000046FD /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 		437A977011502196000046FD /* ToolsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ToolsViewController.xib; sourceTree = "<group>"; };
 		437A978C115022E0000046FD /* InventoryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InventoryViewController.xib; sourceTree = "<group>"; };
 		437A979A11502433000046FD /* ItemViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemViewController.xib; sourceTree = "<group>"; };
 		437A97D71150289F000046FD /* TextInputController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextInputController.xib; sourceTree = "<group>"; };
+		438622C411590FC700295E23 /* QuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionViewController.h; sourceTree = "<group>"; };
+		438622C511590FC700295E23 /* QuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionViewController.m; sourceTree = "<group>"; };
+		438622D11159104100295E23 /* QuestionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuestionViewController.xib; sourceTree = "<group>"; };
 		4397EC381152B139006CF6A3 /* petmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = petmark.png; sourceTree = "<group>"; };
 		43C52F4311535404001FAA6D /* AsciiTileSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsciiTileSet.h; sourceTree = "<group>"; };
 		43C52F4411535404001FAA6D /* AsciiTileSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsciiTileSet.m; sourceTree = "<group>"; };
@@ -993,7 +998,6 @@
 				437A97411150207A000046FD /* Entitlements.plist */,
 				437A957911500A16000046FD /* Icon.png */,
 				4397EC381152B139006CF6A3 /* petmark.png */,
-				437A970B11501EB1000046FD /* tilesets.plist */,
 				437A957A11500A16000046FD /* tilesets */,
 				437A9299114FFBF4000046FD /* dat */,
 				28AD733E0D9D9553002E5188 /* MainWindow.xib */,
@@ -1007,6 +1011,7 @@
 				437A979A11502433000046FD /* ItemViewController.xib */,
 				437A97D71150289F000046FD /* TextInputController.xib */,
 				4365D6FB115154E600B15085 /* ExtendedCommandsController.xib */,
+				438622D11159104100295E23 /* QuestionViewController.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -1107,6 +1112,8 @@
 				437A911D114FF58E000046FD /* ToolsViewController.m */,
 				437A94D81150019A000046FD /* CommandButtonItem.h */,
 				437A94D91150019A000046FD /* CommandButtonItem.m */,
+				438622C411590FC700295E23 /* QuestionViewController.h */,
+				438622C511590FC700295E23 /* QuestionViewController.m */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -1586,6 +1593,7 @@
 		437A957A11500A16000046FD /* tilesets */ = {
 			isa = PBXGroup;
 			children = (
+				437A970B11501EB1000046FD /* tilesets.plist */,
 				43E8F5171150D7E700BD7CAA /* absurd32.png */,
 				437A957B11500A16000046FD /* gltile32.png */,
 			);
@@ -1857,6 +1865,7 @@
 				43E8F5181150D7E700BD7CAA /* absurd32.png in Resources */,
 				4365D6FC115154E600B15085 /* ExtendedCommandsController.xib in Resources */,
 				4397EC391152B139006CF6A3 /* petmark.png in Resources */,
+				438622D21159104100295E23 /* QuestionViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2022,6 +2031,7 @@
 				437A954911500675000046FD /* tile.c in Sources */,
 				437A960B11501275000046FD /* ActionBar.m in Sources */,
 				43C52F4511535404001FAA6D /* AsciiTileSet.m in Sources */,
+				438622C611590FC700295E23 /* QuestionViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
