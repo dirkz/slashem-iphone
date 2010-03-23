@@ -126,7 +126,7 @@ coord CoordMake(xchar i, xchar j) {
 	[defaults registerDefaults:[NSDictionary dictionaryWithObjectsAndKeys:
 								@"time,autopickup,autodig,showexp,pickup_types:$!?\"=/,norest_on_space,runmode:walk",
 								kNetHackOptions,
-								@"absurd32.png",
+								@"gltile32.png",
 								kNetHackTileSet,
 								nil]];
 
