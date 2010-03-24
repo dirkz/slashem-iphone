@@ -48,7 +48,9 @@
 }
 
 - (UIControl *)buttonForAction:(Action *)action {
-	UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+	UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+	button.titleLabel.font = [button.titleLabel.font fontWithSize:12.0f];
+	[button setBackgroundImage:[UIImage imageNamed:@"actionButton.png"] forState:UIControlStateNormal];
 	[button setTitle:action.title forState:UIControlStateNormal];
 	[button addTarget:action action:@selector(invoke:) forControlEvents:UIControlEventTouchUpInside];
 	return button;
@@ -72,8 +74,8 @@
 			CGSize buttonSize = [button sizeThatFits:self.bounds.size];
 			controlFrame.size = buttonSize;
 			button.frame = controlFrame;
-			controlFrame.origin.x += buttonSize.width;
 			[self addSubview:button];
+			controlFrame.origin.x += buttonSize.width;
 			scrollFrame.size.height = buttonSize.height;
 			scrollFrame.size.width += buttonSize.width;
 		}

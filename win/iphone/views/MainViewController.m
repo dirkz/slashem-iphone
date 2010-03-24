@@ -138,21 +138,6 @@ static MainViewController* instance;
 	[self presentModalViewController:actionViewController animated:YES];
 }
 
-- (void)optionsViewAction:(id)sender {
-}
-
-- (void)buyIdAction:(id)sender {
-	NSLog(@"buying id");
-}
-
-- (void)shopMenuAction:(id)sender {
-	NSArray *commands = [NSArray arrayWithObjects:
-						 [Action actionWithTitle:@"Blessed scroll of ID" target:self action:@selector(buyIdAction:) arg:nil],
-						 nil];
-	self.actionViewController.actions = commands;
-	[self presentModalViewController:actionViewController animated:YES];
-}
-
 - (UIBarButtonItem *)buttonWithTitle:(NSString *)title target:(id)target action:(SEL)action {
 	return [[[UIBarButtonItem alloc] initWithTitle:title
 											 style:UIBarButtonItemStyleBordered target:target action:action] autorelease];
@@ -205,10 +190,6 @@ static MainViewController* instance;
 			[toolbarItems addObject:[Action actionWithTitle:@"Info" target:self action:@selector(infoMenuAction:) arg:nil]];
 			[toolbarItems addObject:[Action actionWithTitle:@"Tools" target:self action:@selector(toolsMenuAction:) arg:nil]];
 			[toolbarItems addObject:[Action actionWithTitle:@"Tilesets" target:self action:@selector(tilesetMenuAction:) arg:nil]];
-			
-#if 0 // online shop
-			[toolbarItems addObject:[Action actionWithTitle:@"Shop" target:self action:@selector(shopMenuAction:)]];
-#endif
 			
 			if (wizard) { // wizard mode
 				[toolbarItems addObject:[Action actionWithTitle:@"Wizard" target:self action:@selector(wizardMenuAction:)]];

@@ -12,7 +12,7 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="19"/>
+			<integer value="1"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -43,7 +43,7 @@
 					<object class="IBUIView" id="147675101">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">274</int>
-						<string key="NSFrame">{{0, 27}, {320, 366}}</string>
+						<string key="NSFrame">{{0, 27}, {320, 369}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">3</int>
@@ -81,7 +81,7 @@
 					<object class="IBUILabel" id="677792691">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">266</int>
-						<string key="NSFrame">{{0, 409}, {320, 16}}</string>
+						<string key="NSFrame">{{0, 412}, {320, 16}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="IBUIBackgroundColor" ref="115112053"/>
 						<bool key="IBUIOpaque">NO</bool>
@@ -101,7 +101,7 @@
 					<object class="IBUILabel" id="10764319">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">266</int>
-						<string key="NSFrame">{{0, 393}, {320, 16}}</string>
+						<string key="NSFrame">{{0, 396}, {320, 16}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="IBUIBackgroundColor" ref="115112053"/>
 						<bool key="IBUIOpaque">NO</bool>
@@ -122,13 +122,13 @@
 							<object class="IBUIView" id="47509657">
 								<reference key="NSNextResponder" ref="46149120"/>
 								<int key="NSvFlags">274</int>
-								<string key="NSFrameSize">{320, 36}</string>
+								<string key="NSFrameSize">{320, 32}</string>
 								<reference key="NSSuperview" ref="46149120"/>
 								<reference key="IBUIBackgroundColor" ref="115112053"/>
 								<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
 							</object>
 						</object>
-						<string key="NSFrame">{{0, 424}, {320, 36}}</string>
+						<string key="NSFrame">{{0, 428}, {320, 32}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="IBUIBackgroundColor" ref="115112053"/>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -217,8 +217,8 @@
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="50193299"/>
-							<reference ref="46149120"/>
 							<reference ref="147675101"/>
+							<reference ref="46149120"/>
 							<reference ref="677792691"/>
 							<reference ref="10764319"/>
 						</object>
@@ -262,6 +262,9 @@
 					<object class="IBObjectRecord">
 						<int key="objectID">5</int>
 						<reference key="object" ref="147675101"/>
+						<object class="NSMutableArray" key="children">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+						</object>
 						<reference key="parent" ref="191373211"/>
 					</object>
 					<object class="IBObjectRecord">
