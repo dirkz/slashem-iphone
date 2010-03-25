@@ -180,6 +180,10 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
 		}
 	}
 	[cmd invoke:nil];
+	
+	// we have to dismiss inventory, b/c there are cases where a question occurs
+	// (e.g. when dropping stuff for sale in a shop)
+	[self dismissModalViewControllerAnimated:NO];
 }
 
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath

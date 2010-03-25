@@ -255,7 +255,6 @@
 	Action *action = [actions objectAtIndex:[indexPath row]];
 	[action invoke:nil];
 	[self dismissModalViewControllerAnimated:NO];
-	//[self.navigationController popViewControllerAnimated:NO];
 }
 
 @end

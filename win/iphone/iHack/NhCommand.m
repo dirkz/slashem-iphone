@@ -239,7 +239,8 @@ enum InvFlags {
 	}
 	
 	[self addCommand:[NhCommand commandWithTitle:"Pray" key:M('p')] toCommands:commands];
-	[self addCommand:[NhCommand commandWithTitle:"Rest" keys:"9."] toCommands:commands];
+	[self addCommand:[NhCommand commandWithTitle:"Rest 19 turns" keys:"19."] toCommands:commands];
+	[self addCommand:[NhCommand commandWithTitle:"Rest 99 turns" keys:"99."] toCommands:commands];
 
 	return commands;
 }

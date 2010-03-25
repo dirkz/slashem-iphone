@@ -135,9 +135,9 @@
 						<bool key="IBUIMultipleTouchEnabled">YES</bool>
 						<bool key="IBUIBouncesZoom">NO</bool>
 					</object>
-					<object class="IBUIButton" id="681471714">
+					<object class="IBUIButton" id="1065352755">
 						<reference key="NSNextResponder" ref="191373211"/>
-						<int key="NSvFlags">292</int>
+						<int key="NSvFlags">289</int>
 						<string key="NSFrame">{{294, -2}, {29, 31}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<bool key="IBUIOpaque">NO</bool>
@@ -232,7 +232,7 @@
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
 						<string key="label">toggleMessageView:</string>
-						<reference key="source" ref="681471714"/>
+						<reference key="source" ref="1065352755"/>
 						<reference key="destination" ref="372490531"/>
 						<int key="IBEventType">7</int>
 					</object>
@@ -258,7 +258,7 @@
 							<reference ref="677792691"/>
 							<reference ref="10764319"/>
 							<reference ref="147675101"/>
-							<reference ref="681471714"/>
+							<reference ref="1065352755"/>
 						</object>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -312,7 +312,7 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">24</int>
-						<reference key="object" ref="681471714"/>
+						<reference key="object" ref="1065352755"/>
 						<reference key="parent" ref="191373211"/>
 					</object>
 				</object>

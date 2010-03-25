@@ -12,7 +12,7 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="1"/>
+			<integer value="8"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -67,7 +67,7 @@
 						<object class="NSMutableArray" key="IBUIItems">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<object class="IBUIBarButtonItem" id="123731588">
-								<string key="IBUITitle">Cncl</string>
+								<string key="IBUITitle">Cancel</string>
 								<int key="IBUIStyle">1</int>
 								<reference key="IBUIToolbar" ref="596662683"/>
 							</object>
@@ -76,7 +76,7 @@
 								<int key="IBUISystemItemIdentifier">5</int>
 							</object>
 							<object class="IBUIBarButtonItem" id="70600421">
-								<string key="IBUITitle">Edt</string>
+								<string key="IBUITitle">Edit</string>
 								<int key="IBUIStyle">1</int>
 								<reference key="IBUIToolbar" ref="596662683"/>
 							</object>
@@ -95,15 +95,6 @@
 							</object>
 							<object class="IBUIBarButtonItem" id="706111599">
 								<string key="IBUITitle">Drop</string>
-								<int key="IBUIStyle">1</int>
-								<reference key="IBUIToolbar" ref="596662683"/>
-							</object>
-							<object class="IBUIBarButtonItem" id="722368922">
-								<reference key="IBUIToolbar" ref="596662683"/>
-								<int key="IBUISystemItemIdentifier">5</int>
-							</object>
-							<object class="IBUIBarButtonItem" id="952854500">
-								<string key="IBUITitle">PIckup</string>
 								<int key="IBUIStyle">1</int>
 								<reference key="IBUIToolbar" ref="596662683"/>
 							</object>
@@ -189,14 +180,6 @@
 					</object>
 					<int key="connectionID">16</int>
 				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchEventConnection" key="connection">
-						<string key="label">pickupAction:</string>
-						<reference key="source" ref="952854500"/>
-						<reference key="destination" ref="372490531"/>
-					</object>
-					<int key="connectionID">18</int>
-				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -242,9 +225,7 @@
 							<reference ref="828197319"/>
 							<reference ref="706111599"/>
 							<reference ref="70600421"/>
-							<reference ref="952854500"/>
 							<reference ref="299657590"/>
-							<reference ref="722368922"/>
 							<reference ref="222103885"/>
 							<reference ref="363761865"/>
 						</object>
@@ -271,18 +252,8 @@
 						<reference key="parent" ref="596662683"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">17</int>
-						<reference key="object" ref="952854500"/>
-						<reference key="parent" ref="596662683"/>
-					</object>
-					<object class="IBObjectRecord">
 						<int key="objectID">19</int>
 						<reference key="object" ref="299657590"/>
-						<reference key="parent" ref="596662683"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">20</int>
-						<reference key="object" ref="722368922"/>
 						<reference key="parent" ref="596662683"/>
 					</object>
 					<object class="IBObjectRecord">
@@ -308,9 +279,7 @@
 					<string>11.IBPluginDependency</string>
 					<string>13.IBPluginDependency</string>
 					<string>15.IBPluginDependency</string>
-					<string>17.IBPluginDependency</string>
 					<string>19.IBPluginDependency</string>
-					<string>20.IBPluginDependency</string>
 					<string>21.IBPluginDependency</string>
 					<string>22.IBPluginDependency</string>
 					<string>3.IBPluginDependency</string>
@@ -322,8 +291,6 @@
 					<string>InventoryViewController</string>
 					<string>UIResponder</string>
 					<string>{{427, 155}, {320, 480}}</string>
-					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
