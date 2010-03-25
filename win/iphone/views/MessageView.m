@@ -56,16 +56,6 @@
 	[self scrollToBottom];
 }
 
-#pragma mark UIResponder
-
-- (BOOL)canBecomeFirstResponder {
-	return YES;
-}
-
-- (BOOL)becomeFirstResponder {
-	return NO;
-}
-
 - (IBAction)toggleView:(id)sender {
 	if (messageWindow) {
 		if (!historyDisplayed) {
@@ -85,6 +75,16 @@
 		}
 	}
 	[self scrollToBottom];
+}
+
+#pragma mark UIResponder
+
+- (BOOL)canBecomeFirstResponder {
+	return YES;
+}
+
+- (BOOL)becomeFirstResponder {
+	return NO;
 }
 
 @end
