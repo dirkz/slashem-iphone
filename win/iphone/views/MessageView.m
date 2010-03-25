@@ -63,6 +63,10 @@
 }
 
 - (BOOL)becomeFirstResponder {
+	return NO;
+}
+
+- (IBAction)toggleView:(id)sender {
 	if (messageWindow) {
 		if (!historyDisplayed) {
 			CGRect frame = originalFrame = self.frame;
@@ -81,7 +85,6 @@
 		}
 	}
 	[self scrollToBottom];
-	return NO;
 }
 
 @end

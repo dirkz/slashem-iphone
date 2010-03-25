@@ -38,5 +38,6 @@
 
 - (void)scrollToBottom;
 - (void)setText:(NSString *)s;
+- (IBAction)toggleView:(id)sender;
 
 @end

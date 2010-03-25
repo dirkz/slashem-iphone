@@ -143,6 +143,10 @@ static MainViewController* instance;
 											 style:UIBarButtonItemStyleBordered target:target action:action] autorelease];
 }
 
+- (IBAction)toggleMessageView:(id)sender {
+	[messageView toggleView:sender];
+}
+
 #pragma mark view controllers
 
 - (ActionViewController *)actionViewController {

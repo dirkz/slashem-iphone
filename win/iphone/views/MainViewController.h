@@ -63,6 +63,10 @@
 
 + (MainViewController *) instance;
 
+// actions
+
+- (IBAction)toggleMessageView:(id)sender;
+
 // window API
 
 - (void)handleDirectionQuestion:(NhYnQuestion *)q;
