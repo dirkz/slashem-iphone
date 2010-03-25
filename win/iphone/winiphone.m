@@ -180,6 +180,8 @@ void iphone_init_nhwindows(int* argc, char** argv) {
 	//NSLog(@"init_nhwindows");
 	iflags.runmode = RUN_STEP;
 	iflags.window_inited = TRUE;
+	iflags.use_color = TRUE;
+	switch_graphics(IBM_GRAPHICS);
 }
 
 void iphone_askname() {

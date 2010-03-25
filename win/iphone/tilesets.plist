@@ -14,5 +14,9 @@
 		<key>filename</key>
 		<string>gltile32.png</string>
 	</dict>
+	<dict>
+		<key>title</key>
+		<string>ascii</string>
+	</dict>
 </array>
 </plist>

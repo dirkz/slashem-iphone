@@ -23,9 +23,13 @@
  */
 
 #import "TileSet.h"
+#import "AsciiTileSet.h"
+#import "NSString+Z.h"
+
 #include "hack.h"
 
 static TileSet *s_instance = nil;
+static CGSize defaultTileSize = {32.0f, 32.0f};
 
 @implementation TileSet
 
@@ -38,6 +42,38 @@ static TileSet *s_instance = nil;
 + (void)setInstance:(TileSet *)ts {
 	[s_instance release];
 	s_instance = ts;
+}
+
++ (NSString *)titleForTilesetDictionary:(NSDictionary *)dict {
+	NSString *title = [dict objectForKey:@"title"];
+	if (!title) {
+		title = [dict objectForKey:@"filename"];
+	}
+	return title;
+}
+
++ (TileSet *)tileSetFromDictionary:(NSDictionary *)dict {
+	NSString *filename = [dict objectForKey:@"filename"];
+	NSString *title = [dict objectForKey:@"title"];
+	TileSet *tileSet = nil;
+	if (filename) {
+		UIImage *tilesetImage = [UIImage imageNamed:filename];
+		tileSet = [[TileSet alloc] initWithImage:tilesetImage tileSize:defaultTileSize title:filename];
+	} else {
+		tileSet = [[AsciiTileSet alloc] initWithTileSize:defaultTileSize title:title];
+	}
+	return tileSet;
+}
+
++ (TileSet *)tileSetFromTitleOrFilename:(NSString *)title {
+	TileSet *tileSet = nil;
+	if ([title endsWithString:@".png"]) {
+		UIImage *tilesetImage = [UIImage imageNamed:title];
+		tileSet = [[TileSet alloc] initWithImage:tilesetImage tileSize:defaultTileSize title:title];
+	} else {
+		tileSet = [[AsciiTileSet alloc] initWithTileSize:defaultTileSize title:title];
+	}
+	return tileSet;
 }
 
 - (id)initWithImage:(UIImage *)img tileSize:(CGSize)ts title:(NSString *)t {
@@ -54,12 +90,16 @@ static TileSet *s_instance = nil;
 	return self;
 }
 
-- (CGImageRef)imageForGlyph:(int)glyph {
-	int tile = glyph2tile[glyph];
-	return [self imageForTile:tile];
+- (id)initWithImage:(UIImage *)img title:(NSString *)t {
+	return [self initWithImage:img tileSize:defaultTileSize title:t];
 }
 
-- (CGImageRef)imageForTile:(int)tile {
+- (CGImageRef)imageForGlyph:(int)glyph atX:(int)x y:(int)y {
+	int tile = glyph2tile[glyph];
+	return [self imageForTile:tile atX:x y:y];
+}
+
+- (CGImageRef)imageForTile:(int)tile atX:(int)x y:(int)y {
 	if (!cachedImages[tile]) {
 		int row = tile/columns;
 		int col = row ? tile % columns : tile;
@@ -68,6 +108,14 @@ static TileSet *s_instance = nil;
 		cachedImages[tile] = CGImageCreateWithImageInRect(image.CGImage, r);
 	}
 	return cachedImages[tile];
+}
+
+- (CGImageRef)imageForGlyph:(int)glyph {
+	return [self imageForGlyph:glyph atX:0 y:0];
+}
+
+- (CGImageRef)imageForTile:(int)tile {
+	return [self imageForTile:tile atX:0 y:0];
 }
 
 - (void)dealloc {

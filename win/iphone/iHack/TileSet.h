@@ -42,8 +42,14 @@ extern short glyph2tile[];
 
 + (TileSet *)instance;
 + (void)setInstance:(TileSet *)ts;
++ (NSString *)titleForTilesetDictionary:(NSDictionary *)dict;
++ (TileSet *)tileSetFromDictionary:(NSDictionary *)dict;
++ (TileSet *)tileSetFromTitleOrFilename:(NSString *)title;
 
 - (id)initWithImage:(UIImage *)img tileSize:(CGSize)ts title:(NSString *)t;
+- (id)initWithImage:(UIImage *)img title:(NSString *)t;
+- (CGImageRef)imageForGlyph:(int)glyph atX:(int)x y:(int)y;
+- (CGImageRef)imageForTile:(int)tile atX:(int)x y:(int)y;
 - (CGImageRef)imageForGlyph:(int)glyph;
 - (CGImageRef)imageForTile:(int)tile;
 

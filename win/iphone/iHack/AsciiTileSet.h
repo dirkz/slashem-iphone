@@ -27,8 +27,12 @@
 
 @interface AsciiTileSet : TileSet {
 
+	NSArray *colorTable;
+	NSStringEncoding encoding;
+
 }
 
 - (id)initWithTileSize:(CGSize)ts title:(NSString *)t;
+- (UIColor *) mapNetHackColor:(int)ocolor;
 
 @end
