@@ -133,8 +133,7 @@ coord CoordMake(xchar i, xchar j) {
 	char nethackBaseOptions[512] = "time,autopickup,autodig,showexp,pickup_types:$!?\"=/,norest_on_space,runmode:walk";
 	NSString *netHackOptions = [defaults stringForKey:kNetHackOptions];
 	if (netHackOptions && netHackOptions.length > 0) {
-		strcat(nethackBaseOptions, ",");
-		strcat(nethackBaseOptions, [netHackOptions cStringUsingEncoding:NSASCIIStringEncoding]);
+		strcpy(nethackBaseOptions, [netHackOptions cStringUsingEncoding:NSASCIIStringEncoding]);
 	}
 	
 	NSString *characterName = [defaults stringForKey:kCharacterName];
