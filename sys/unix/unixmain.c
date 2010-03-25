@@ -166,12 +166,6 @@ char *argv[];
 
 	process_options(argc, argv);	/* command line options */
 	
-#if TARGET_OS_IPHONE
-#if TARGET_IPHONE_SIMULATOR
-	wizard = TRUE; /* debugging */
-#endif
-#endif
-
 #ifdef DEF_PAGER
 	if(!(catmore = nh_getenv("HACKPAGER")) && !(catmore = nh_getenv("PAGER")))
 		catmore = DEF_PAGER;

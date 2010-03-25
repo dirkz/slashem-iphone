@@ -27,6 +27,8 @@
 #include "hack.h"
 
 #define kNetHackOptions (@"kNetHackOptions")
+#define kWizard (@"kWizard")
+#define kCharacterName (@"kCharacterName")
 #define kNetHackTileSet (@"kNetHackTileSet")
 
 void iphone_init_nhwindows(int* argc, char** argv);

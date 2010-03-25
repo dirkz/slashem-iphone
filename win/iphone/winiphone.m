@@ -124,14 +124,26 @@ coord CoordMake(xchar i, xchar j) {
 
 	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 	[defaults registerDefaults:[NSDictionary dictionaryWithObjectsAndKeys:
-								@"time,autopickup,autodig,showexp,pickup_types:$!?\"=/,norest_on_space,runmode:walk",
-								kNetHackOptions,
+								@"NO",
+								kWizard,
 								@"gltile32.png",
 								kNetHackTileSet,
 								nil]];
 
+	char nethackBaseOptions[512] = "time,autopickup,autodig,showexp,pickup_types:$!?\"=/,norest_on_space,runmode:walk";
 	NSString *netHackOptions = [defaults stringForKey:kNetHackOptions];
-	setenv("NETHACKOPTIONS", [netHackOptions cStringUsingEncoding:NSASCIIStringEncoding], 1);
+	if (netHackOptions && netHackOptions.length > 0) {
+		strcat(nethackBaseOptions, ",");
+		strcat(nethackBaseOptions, [netHackOptions cStringUsingEncoding:NSASCIIStringEncoding]);
+	}
+	
+	NSString *characterName = [defaults stringForKey:kCharacterName];
+	if (characterName && characterName.length > 0) {
+		strcat(nethackBaseOptions, ",name:");
+		strcat(nethackBaseOptions, [characterName cStringUsingEncoding:NSASCIIStringEncoding]);
+	}
+	
+	setenv("NETHACKOPTIONS", nethackBaseOptions, 1);
 	
 	[pool release];
 }
@@ -182,6 +194,17 @@ void iphone_init_nhwindows(int* argc, char** argv) {
 	iflags.window_inited = TRUE;
 	iflags.use_color = TRUE;
 	switch_graphics(IBM_GRAPHICS);
+
+	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+	BOOL wizardMode = [defaults boolForKey:kWizard];
+	if (wizardMode) {
+		wizard = TRUE;
+	}
+
+#if TARGET_OS_IPHONE && TARGET_IPHONE_SIMULATOR
+	wizard = TRUE; /* debugging */
+#endif
+	
 }
 
 void iphone_askname() {

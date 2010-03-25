@@ -106,6 +106,7 @@ static MainViewController* instance;
 						 [NhCommand commandWithTitle:"Help" key:'?'],
 						 [NhCommand commandWithTitle:"Options" key:'O'],
 						 [NhCommand commandWithTitle:"Toggle Autopickup" key:'@'],
+						 [NhCommand commandWithTitle:"Explore mode" key:'X'],
 						 nil];
 	self.actionViewController.actions = commands;
 	[self presentModalViewController:actionViewController animated:YES];
