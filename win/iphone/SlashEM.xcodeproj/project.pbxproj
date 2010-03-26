@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0998FAAC11535FA000AF672A /* gltile32.png in Resources */ = {isa = PBXBuildFile; fileRef = 0998FAAB11535FA000AF672A /* gltile32.png */; };
 		1D3623260D0F684500981E51 /* SlashEMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* SlashEMAppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
@@ -377,7 +376,7 @@
 		437A954911500675000046FD /* tile.c in Sources */ = {isa = PBXBuildFile; fileRef = 437A954811500675000046FD /* tile.c */; };
 		437A9561115007ED000046FD /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 437A9560115007ED000046FD /* MainViewController.xib */; };
 		437A957C11500A16000046FD /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 437A957911500A16000046FD /* Icon.png */; };
-		437A957D11500A16000046FD /* gltile32.png.old in Resources */ = {isa = PBXBuildFile; fileRef = 437A957B11500A16000046FD /* gltile32.png.old */; };
+		437A957D11500A16000046FD /* gltile32.png in Resources */ = {isa = PBXBuildFile; fileRef = 437A957B11500A16000046FD /* gltile32.png */; };
 		437A957F11500A2D000046FD /* MenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 437A957E11500A2D000046FD /* MenuViewController.xib */; };
 		437A95CE11500E47000046FD /* TextViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 437A95CD11500E47000046FD /* TextViewController.xib */; };
 		437A960B11501275000046FD /* ActionBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 437A960A11501275000046FD /* ActionBar.m */; };
@@ -396,7 +395,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0998FAAB11535FA000AF672A /* gltile32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gltile32.png; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D3623240D0F684500981E51 /* SlashEMAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlashEMAppDelegate.h; sourceTree = "<group>"; };
 		1D3623250D0F684500981E51 /* SlashEMAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlashEMAppDelegate.m; sourceTree = "<group>"; };
@@ -735,7 +733,7 @@
 		437A92C1114FFBF4000046FD /* demogorg.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = demogorg.lev; sourceTree = "<group>"; };
 		437A92C2114FFBF4000046FD /* dispater.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = dispater.lev; sourceTree = "<group>"; };
 		437A92C4114FFBF4000046FD /* dragons.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = dragons.lev; sourceTree = "<group>"; };
-		437A92C5114FFBF4000046FD /* dungeon */ = {isa = PBXFileReference; lastKnownFileType = text; path = dungeon; sourceTree = "<group>"; };
+		437A92C5114FFBF4000046FD /* dungeon */ = {isa = PBXFileReference; lastKnownFileType = file; path = dungeon; sourceTree = "<group>"; };
 		437A92C7114FFBF4000046FD /* dungeon.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = dungeon.pdf; sourceTree = "<group>"; };
 		437A92C8114FFBF4000046FD /* earth.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = earth.lev; sourceTree = "<group>"; };
 		437A92CA114FFBF4000046FD /* fakewiz1.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = fakewiz1.lev; sourceTree = "<group>"; };
@@ -917,7 +915,7 @@
 		437A954811500675000046FD /* tile.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = tile.c; sourceTree = "<group>"; };
 		437A9560115007ED000046FD /* MainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
 		437A957911500A16000046FD /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
-		437A957B11500A16000046FD /* gltile32.png.old */ = {isa = PBXFileReference; lastKnownFileType = file; path = gltile32.png.old; sourceTree = "<group>"; };
+		437A957B11500A16000046FD /* gltile32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gltile32.png; sourceTree = "<group>"; };
 		437A957E11500A2D000046FD /* MenuViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuViewController.xib; sourceTree = "<group>"; };
 		437A95CD11500E47000046FD /* TextViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextViewController.xib; sourceTree = "<group>"; };
 		437A960911501275000046FD /* ActionBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionBar.h; sourceTree = "<group>"; };
@@ -1609,13 +1607,9 @@
 		437A957A11500A16000046FD /* tilesets */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< HEAD
-				0998FAAB11535FA000AF672A /* gltile32.png */,
-=======
 				437A970B11501EB1000046FD /* tilesets.plist */,
->>>>>>> upstream/master
 				43E8F5171150D7E700BD7CAA /* absurd32.png */,
-				437A957B11500A16000046FD /* gltile32.png.old */,
+				437A957B11500A16000046FD /* gltile32.png */,
 			);
 			path = tilesets;
 			sourceTree = "<group>";
@@ -1871,7 +1865,7 @@
 				437A94A8114FFBF4000046FD /* Yeo-strt.lev in Resources */,
 				437A9561115007ED000046FD /* MainViewController.xib in Resources */,
 				437A957C11500A16000046FD /* Icon.png in Resources */,
-				437A957D11500A16000046FD /* gltile32.png.old in Resources */,
+				437A957D11500A16000046FD /* gltile32.png in Resources */,
 				437A957F11500A2D000046FD /* MenuViewController.xib in Resources */,
 				437A95CE11500E47000046FD /* TextViewController.xib in Resources */,
 				437A96D011501B1F000046FD /* ActionViewController.xib in Resources */,
@@ -1884,14 +1878,10 @@
 				437A97D81150289F000046FD /* TextInputController.xib in Resources */,
 				43E8F5181150D7E700BD7CAA /* absurd32.png in Resources */,
 				4365D6FC115154E600B15085 /* ExtendedCommandsController.xib in Resources */,
-<<<<<<< HEAD
-				0998FAAC11535FA000AF672A /* gltile32.png in Resources */,
-=======
 				438622D21159104100295E23 /* QuestionViewController.xib in Resources */,
 				4339A7F0115A7E8800741CE5 /* petmark.png in Resources */,
 				4339A7FC115A7F3100741CE5 /* actionButton.png in Resources */,
 				434C9D47115BE57F00A6EBD6 /* Settings.bundle in Resources */,
->>>>>>> upstream/master
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
