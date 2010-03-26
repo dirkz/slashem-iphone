@@ -47,17 +47,10 @@
     return self;
 }
 
-- (void)layoutSubviews {
-	[super layoutSubviews];
-	float width = self.contentSize.width;
-	float parentWidth = self.bounds.size.width;
-	if (width < parentWidth) {
-		[self setContentOffset:CGPointMake(-(parentWidth-width)/2, 0.0f) animated:NO];
-	}
-}
-
 - (UIControl *)buttonForAction:(Action *)action {
-	UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+	UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+	button.titleLabel.font = [button.titleLabel.font fontWithSize:12.0f];
+	[button setBackgroundImage:[UIImage imageNamed:@"actionButton.png"] forState:UIControlStateNormal];
 	[button setTitle:action.title forState:UIControlStateNormal];
 	[button addTarget:action action:@selector(invoke:) forControlEvents:UIControlEventTouchUpInside];
 	return button;
@@ -72,23 +65,21 @@
 }
 
 - (void)update {
+	CGRect scrollFrame = CGRectZero;
+	scrollFrame.size.width = 0;
 	if (actions && actions.count > 0) {
-		CGRect frame = CGRectZero;
+		CGRect controlFrame = CGRectZero;
 		for (Action *a in actions) {
 			UIView *button = [self buttonForAction:a];
 			CGSize buttonSize = [button sizeThatFits:self.bounds.size];
-			frame.size = buttonSize;
-			button.frame = frame;
-			frame.origin.x += buttonSize.width;
+			controlFrame.size = buttonSize;
+			button.frame = controlFrame;
 			[self addSubview:button];
+			controlFrame.origin.x += buttonSize.width;
+			scrollFrame.size.height = buttonSize.height;
+			scrollFrame.size.width += buttonSize.width;
 		}
-		frame.size.width = frame.origin.x;
-		self.contentSize = frame.size;
-		float width = frame.size.width;
-		float parentWidth = self.bounds.size.width;
-		if (width < parentWidth) {
-			[self setContentOffset:CGPointMake(-(parentWidth-width)/2, 0.0f) animated:YES];
-		}
+		self.frame = scrollFrame;
 	}
 }
 

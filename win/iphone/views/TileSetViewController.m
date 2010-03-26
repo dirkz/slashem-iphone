@@ -24,6 +24,7 @@
 
 #import "TileSetViewController.h"
 #import "TileSet.h"
+#import "AsciiTileSet.h"
 #import "MainViewController.h"
 #import "NhWindow.h"
 #import "NhMapWindow.h"
@@ -74,12 +75,16 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
     }
     
     NSDictionary *dict = [tilesets objectAtIndex:indexPath.row];
-	NSString *title = [dict objectForKey:@"filename"];
+	NSString *title = [TileSet titleForTilesetDictionary:dict];
+	NSString *author = [dict objectForKey:@"author"];
 	cell.textLabel.text = title;
+	if (author) {
+		cell.detailTextLabel.text = author;
+	}
 	
 	if ([title isEqual:[[TileSet instance] title]]) {
 		cell.accessoryType = UITableViewCellAccessoryCheckmark;
@@ -95,13 +100,11 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSDictionary *dict = [tilesets objectAtIndex:indexPath.row];
-	NSString *filename = [dict objectForKey:@"filename"];
-	UIImage *tilesetImage = [UIImage imageNamed:filename];
-	TileSet *tileSet = [[TileSet alloc] initWithImage:tilesetImage tileSize:CGSizeMake(32.0f, 32.0f) title:filename];
+	TileSet *tileSet = [TileSet tileSetFromDictionary:dict];
 	[TileSet setInstance:tileSet];
 	[[MainViewController instance] displayWindow:[NhWindow mapWindow]];
 	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-	[defaults setObject:filename forKey:kNetHackTileSet];
+	[defaults setObject:[TileSet titleForTilesetDictionary:dict] forKey:kNetHackTileSet];
 	[self dismissModalViewControllerAnimated:NO];
 }
 

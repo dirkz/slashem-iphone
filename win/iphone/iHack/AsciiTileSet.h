@@ -1,8 +1,8 @@
 //
-//  Action.h
-//  NetHack
+//  AsciiTileSet.h
+//  SlashEM
 //
-//  Created by dirk on 2/4/10.
+//  Created by Dirk Zimmermann on 3/19/10.
 //  Copyright 2010 Dirk Zimmermann. All rights reserved.
 //
 
@@ -23,23 +23,16 @@
  */
 
 #import <Foundation/Foundation.h>
+#import "TileSet.h"
 
-@interface Action : NSObject {
-	
-	NSString *title;
-	NSMutableArray *invocations;
+@interface AsciiTileSet : TileSet {
+
+	NSArray *colorTable;
+	NSStringEncoding encoding;
 
 }
 
-@property (nonatomic, readonly) NSString *title;
-
-+ (id)actionWithTitle:(NSString *)t target:(id)target action:(SEL)action arg:(id)arg;
-+ (id)actionWithTitle:(NSString *)t target:(id)target action:(SEL)action;
-
-- (id)initWithTitle:(NSString *)t;
-
-- (void)invoke:(id)sender;
-- (void)addTarget:(id)target action:(SEL)action arg:(id)arg;
-- (void)addInvocation:(NSInvocation *)inv;
+- (id)initWithTileSize:(CGSize)ts title:(NSString *)t;
+- (UIColor *) mapNetHackColor:(int)ocolor;
 
 @end

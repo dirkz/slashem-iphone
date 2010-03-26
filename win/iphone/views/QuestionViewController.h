@@ -1,8 +1,8 @@
 //
-//  Action.h
-//  NetHack
+//  QuestionViewController.h
+//  SlashEM
 //
-//  Created by dirk on 2/4/10.
+//  Created by Dirk Zimmermann on 3/23/10.
 //  Copyright 2010 Dirk Zimmermann. All rights reserved.
 //
 
@@ -22,24 +22,19 @@
  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
-@interface Action : NSObject {
-	
-	NSString *title;
-	NSMutableArray *invocations;
+@class NhYnQuestion;
+
+@interface QuestionViewController : UIViewController <UITableViewDelegate,UITableViewDataSource> {
+
+	IBOutlet UITableView *tv;
+	IBOutlet UITextView *textView;
+	NhYnQuestion *question;
 
 }
 
-@property (nonatomic, readonly) NSString *title;
-
-+ (id)actionWithTitle:(NSString *)t target:(id)target action:(SEL)action arg:(id)arg;
-+ (id)actionWithTitle:(NSString *)t target:(id)target action:(SEL)action;
-
-- (id)initWithTitle:(NSString *)t;
-
-- (void)invoke:(id)sender;
-- (void)addTarget:(id)target action:(SEL)action arg:(id)arg;
-- (void)addInvocation:(NSInvocation *)inv;
+@property (nonatomic, readonly) UITableView *tableView;
+@property (nonatomic, retain) NhYnQuestion *question;
 
 @end

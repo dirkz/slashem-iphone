@@ -56,13 +56,7 @@
 	[self scrollToBottom];
 }
 
-#pragma mark UIResponder
-
-- (BOOL)canBecomeFirstResponder {
-	return YES;
-}
-
-- (BOOL)becomeFirstResponder {
+- (IBAction)toggleView:(id)sender {
 	if (messageWindow) {
 		if (!historyDisplayed) {
 			CGRect frame = originalFrame = self.frame;
@@ -81,6 +75,15 @@
 		}
 	}
 	[self scrollToBottom];
+}
+
+#pragma mark UIResponder
+
+- (BOOL)canBecomeFirstResponder {
+	return YES;
+}
+
+- (BOOL)becomeFirstResponder {
 	return NO;
 }
 

@@ -43,6 +43,7 @@
 #import "ToolsViewController.h"
 #import "CommandButtonItem.h"
 #import "ActionBar.h"
+#import "QuestionViewController.h"
 
 #import "winiphone.h" // ipad_getpos etc.
 
@@ -100,9 +101,12 @@ static MainViewController* instance;
 						 [NhCommand commandWithTitle:"What's here" key:':'],
 						 [NhCommand commandWithTitle:"What is" key:';'],
 						 [NhCommand commandWithTitle:"Discoveries" key:'\\'],
+						 [NhCommand commandWithTitle:"Character Info" key:C('X')],
+						 [NhCommand commandWithTitle:"Equipment" key:'*'],
 						 [NhCommand commandWithTitle:"Help" key:'?'],
 						 [NhCommand commandWithTitle:"Options" key:'O'],
 						 [NhCommand commandWithTitle:"Toggle Autopickup" key:'@'],
+						 [NhCommand commandWithTitle:"Explore mode" key:'X'],
 						 nil];
 	self.actionViewController.actions = commands;
 	[self presentModalViewController:actionViewController animated:YES];
@@ -124,21 +128,12 @@ static MainViewController* instance;
 	NSArray *commands = [NSArray arrayWithObjects:
 						 [NhCommand commandWithTitle:"Magic Mapping" key:C('f')],
 						 [NhCommand commandWithTitle:"Wish" key:C('w')],
-						 nil];
-	self.actionViewController.actions = commands;
-	[self presentModalViewController:actionViewController animated:YES];
-}
-
-- (void)optionsViewAction:(id)sender {
-}
-
-- (void)buyIdAction:(id)sender {
-	NSLog(@"buying id");
-}
-
-- (void)shopMenuAction:(id)sender {
-	NSArray *commands = [NSArray arrayWithObjects:
-						 [Action actionWithTitle:@"Blessed scroll of ID" target:self action:@selector(buyIdAction:) arg:nil],
+						 [NhCommand commandWithTitle:"Identify" key:C('i')],
+						 [NhCommand commandWithTitle:"Special Levels" key:C('o')],
+						 [NhCommand commandWithTitle:"Teleport" key:C('t')],
+						 [NhCommand commandWithTitle:"Level Teleport" key:C('v')],
+						 [NhCommand commandWithTitle:"Create Monster" key:C('g')],
+						 [NhCommand commandWithTitle:"Show Attributes" key:C('x')],
 						 nil];
 	self.actionViewController.actions = commands;
 	[self presentModalViewController:actionViewController animated:YES];
@@ -147,6 +142,10 @@ static MainViewController* instance;
 - (UIBarButtonItem *)buttonWithTitle:(NSString *)title target:(id)target action:(SEL)action {
 	return [[[UIBarButtonItem alloc] initWithTitle:title
 											 style:UIBarButtonItemStyleBordered target:target action:action] autorelease];
+}
+
+- (IBAction)toggleMessageView:(id)sender {
+	[messageView toggleView:sender];
 }
 
 #pragma mark view controllers
@@ -194,15 +193,11 @@ static MainViewController* instance;
 			[toolbarItems addObject:[NhCommand commandWithTitle:"Cast" key:'Z']];
 			[toolbarItems addObject:[NhCommand commandWithTitle:"Ext" key:'#']];
 			[toolbarItems addObject:[Action actionWithTitle:@"Info" target:self action:@selector(infoMenuAction:) arg:nil]];
-			[toolbarItems addObject:[Action actionWithTitle:@"Tilesets" target:self action:@selector(tilesetMenuAction:) arg:nil]];
 			[toolbarItems addObject:[Action actionWithTitle:@"Tools" target:self action:@selector(toolsMenuAction:) arg:nil]];
-			
-#if 0 // online shop
-			[toolbarItems addObject:[self buttonWithTitle:@"Shop" target:self action:@selector(shopMenuAction:)]];
-#endif
+			[toolbarItems addObject:[Action actionWithTitle:@"Tilesets" target:self action:@selector(tilesetMenuAction:) arg:nil]];
 			
 			if (wizard) { // wizard mode
-				[toolbarItems addObject:[self buttonWithTitle:@"Wiz" target:self action:@selector(wizardMenuAction:)]];
+				[toolbarItems addObject:[Action actionWithTitle:@"Wizard" target:self action:@selector(wizardMenuAction:)]];
 			}
 
 #if 0 // test
@@ -210,6 +205,7 @@ static MainViewController* instance;
 #endif
 			
 			[actionBar setActions:toolbarItems];
+			[actionScrollView setContentSize:actionBar.frame.size];
 		}
 
 		[self refreshAllViews];
@@ -321,16 +317,25 @@ static MainViewController* instance;
 			// simple YN question
 			NSString *text = q.question;
 			if (text && text.length > 0) {
-				currentYnQuestion = q;
-				UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:@"Question" message:q.question
-															   delegate:self cancelButtonTitle:nil otherButtonTitles:nil]
-									  autorelease];
-				const char *pStr = q.choices;
-				while (*pStr) {
-					[alert addButtonWithTitle:[NSString stringWithFormat:@"%c", *pStr]];
-					pStr++;
+				if (strlen(q.choices) > 2 || [text isEqual:@"Eat it?"] ||
+					[text isEqual:@"Do you want your possessions identified?"]) {
+					QuestionViewController *questionViewController = [[QuestionViewController alloc]
+																	  initWithNibName:@"QuestionViewController" bundle:nil];
+					questionViewController.question = q;
+					[questionViewController autorelease];
+					[self presentModalViewController:questionViewController animated:YES];
+				} else {
+					currentYnQuestion = q;
+					UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:@"Question" message:q.question
+																	delegate:self cancelButtonTitle:nil otherButtonTitles:nil]
+										  autorelease];
+					const char *pStr = q.choices;
+					while (*pStr) {
+						[alert addButtonWithTitle:[NSString stringWithFormat:@"%c", *pStr]];
+						pStr++;
+					}
+					[alert show];
 				}
-				[alert show];
 			}
 		} else {
 			// very general question, could be everything
@@ -353,14 +358,14 @@ static MainViewController* instance;
 	}
 }
 
-- (void)displayText:(NSString *)text blocking:(BOOL)blocking {
+- (void)displayText:(NSString *)text {
 	if (![NSThread isMainThread]) {
 		[self performSelectorOnMainThread:@selector(displayText:) withObject:text waitUntilDone:NO];
 	} else {
 		TextViewController *textViewController = [[[TextViewController alloc]
 												   initWithNibName:@"TextViewController" bundle:nil] autorelease];
 		textViewController.text = text;
-		textViewController.blocking = blocking;
+		textViewController.blocking = YES;
 		[self presentModalViewController:textViewController animated:YES];
 	}
 }
@@ -383,7 +388,7 @@ static MainViewController* instance;
 			[self.view setNeedsDisplay];
 		} else if (w.type == NHW_MESSAGE || w.type == NHW_MENU || w.type == NHW_TEXT) {
 			// display text
-			[self displayText:w.text blocking:w.blocking];
+			[self displayText:w.text];
 		}
 	}
 }

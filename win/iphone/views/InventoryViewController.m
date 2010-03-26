@@ -165,13 +165,25 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
 	if (item.object) {
 		if (item.object->owornmask) {
 			if (item.object->owornmask & W_RING || item.object->owornmask & W_AMUL) {
-				cmd = [NhCommand commandWithObject:item title:"Remove" key:'R'];
+				if (inventory.numberOfWornJewelry > 1) {
+					cmd = [NhCommand commandWithObject:item title:"Remove" key:'R'];
+				} else {
+					cmd = [NhCommand commandWithTitle:"Remove" key:'R'];
+				}
 			} else if (item.object->owornmask & W_ARMOR) {
-				cmd = [NhCommand commandWithObject:item title:"Take off" key:'T'];
+					if (inventory.numberOfWornArmor > 1) {
+						cmd = [NhCommand commandWithObject:item title:"Take off" key:'T'];
+					} else {
+						cmd = [NhCommand commandWithTitle:"Take off" key:'T'];
+					}
 			}
 		}
 	}
 	[cmd invoke:nil];
+	
+	// we have to dismiss inventory, b/c there are cases where a question occurs
+	// (e.g. when dropping stuff for sale in a shop)
+	[self dismissModalViewControllerAnimated:NO];
 }
 
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath

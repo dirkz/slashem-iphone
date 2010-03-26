@@ -42,6 +42,7 @@
 	IBOutlet UILabel *statusView2;
 	IBOutlet MapView *mapView;
 	IBOutlet ActionBar *actionBar;
+	IBOutlet UIScrollView *actionScrollView;
 	
 	NhYnQuestion *currentYnQuestion;
 	ActionViewController *actionViewController;
@@ -62,6 +63,10 @@
 
 + (MainViewController *) instance;
 
+// actions
+
+- (IBAction)toggleMessageView:(id)sender;
+
 // window API
 
 - (void)handleDirectionQuestion:(NhYnQuestion *)q;
@@ -73,7 +78,10 @@
 - (void)nhPoskey;
 
 - (void)refreshAllViews;
-- (void)displayText:(NSString *)text blocking:(BOOL)blocking;
+
+// displays text, always blocking
+- (void)displayText:(NSString *)text;
+
 - (void)displayWindow:(NhWindow *)w;
 - (void)showMenuWindow:(NhMenuWindow *)w;
 - (void)clipAround;

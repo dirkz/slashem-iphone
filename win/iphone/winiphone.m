@@ -124,14 +124,25 @@ coord CoordMake(xchar i, xchar j) {
 
 	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 	[defaults registerDefaults:[NSDictionary dictionaryWithObjectsAndKeys:
-								@"time,autopickup,autodig,showexp,pickup_types:$!?\"=/,norest_on_space,runmode:walk",
-								kNetHackOptions,
+								@"NO",
+								kWizard,
 								@"gltile32.png",
 								kNetHackTileSet,
 								nil]];
 
+	char nethackBaseOptions[512] = "time,autopickup,autodig,showexp,pickup_types:$!?\"=/,norest_on_space,runmode:walk";
 	NSString *netHackOptions = [defaults stringForKey:kNetHackOptions];
-	setenv("NETHACKOPTIONS", [netHackOptions cStringUsingEncoding:NSASCIIStringEncoding], 1);
+	if (netHackOptions && netHackOptions.length > 0) {
+		strcpy(nethackBaseOptions, [netHackOptions cStringUsingEncoding:NSASCIIStringEncoding]);
+	}
+	
+	NSString *characterName = [defaults stringForKey:kCharacterName];
+	if (characterName && characterName.length > 0) {
+		strcat(nethackBaseOptions, ",name:");
+		strcat(nethackBaseOptions, [characterName cStringUsingEncoding:NSASCIIStringEncoding]);
+	}
+	
+	setenv("NETHACKOPTIONS", nethackBaseOptions, 1);
 	
 	[pool release];
 }
@@ -180,6 +191,19 @@ void iphone_init_nhwindows(int* argc, char** argv) {
 	//NSLog(@"init_nhwindows");
 	iflags.runmode = RUN_STEP;
 	iflags.window_inited = TRUE;
+	iflags.use_color = TRUE;
+	switch_graphics(IBM_GRAPHICS);
+
+	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+	BOOL wizardMode = [defaults boolForKey:kWizard];
+	if (wizardMode) {
+		wizard = TRUE;
+	}
+
+#if TARGET_OS_IPHONE && TARGET_IPHONE_SIMULATOR
+	wizard = TRUE; /* debugging */
+#endif
+	
 }
 
 void iphone_askname() {
@@ -271,7 +295,7 @@ void iphone_display_file(const char *filename, BOOLEAN_P must_exist) {
 		sprintf(msg, "Could not display file %s", filename);
 		iphone_raw_print(msg);
 	} else if (!error) {
-		[[MainViewController instance] displayText:contents blocking:YES];
+		[[MainViewController instance] displayText:contents];
 	}
 }
 
@@ -292,12 +316,9 @@ void iphone_add_menu(winid wid, int glyph, const ANY_P *identifier,
 		[w.currentItemGroup addItem:i];
 		[i release];
 	} else {
-		if (w.currentItemGroup.items.count > 0) {
-			// don't allow NhItemGroups after each other to sort out inactive ones
-			NhItemGroup *g = [[NhItemGroup alloc] initWithTitle:title];
-			[w addItemGroup:g];
-			[g release];
-		}
+		NhItemGroup *g = [[NhItemGroup alloc] initWithTitle:title];
+		[w addItemGroup:g];
+		[g release];
 	}
 }
 

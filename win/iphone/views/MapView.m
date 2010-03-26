@@ -48,8 +48,7 @@
 	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 	NSString *filename = [defaults objectForKey:kNetHackTileSet];
 
-	UIImage *tilesetImage = [UIImage imageNamed:filename];
-	TileSet *tileSet = [[TileSet alloc] initWithImage:tilesetImage tileSize:CGSizeMake(32.0f, 32.0f) title:filename];
+	TileSet *tileSet = [TileSet tileSetFromTitleOrFilename:filename];
 	[TileSet setInstance:tileSet];
 	NSString *bundlePath = [[NSBundle mainBundle] resourcePath];
 	petMark = CGImageRetain([UIImage imageWithContentsOfFile:[bundlePath
@@ -103,12 +102,9 @@
 										start.y-j*tileSize.height);
 				CGRect r = CGRectMake(p.x, p.y, tileSize.width, tileSize.height);
 				if (CGRectIntersectsRect(r, rect)) {
-					int ochar, ocolor;
-					unsigned int special;
 					int glyph = [map glyphAtX:i y:j];
 					if (glyph != kNoGlyph) {
-						mapglyph(glyph, &ochar, &ocolor, &special, i, j);
-						CGImageRef tileImg = [[TileSet instance] imageForGlyph:glyph];
+						CGImageRef tileImg = [[TileSet instance] imageForGlyph:glyph atX:i y:j];
 						CGContextDrawImage(ctx, r, tileImg);
 						if (u.ux == i && u.uy == j) {
 							// hp100 calculation from qt_win.cpp
