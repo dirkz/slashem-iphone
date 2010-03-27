@@ -130,7 +130,7 @@ coord CoordMake(xchar i, xchar j) {
 								kNetHackTileSet,
 								nil]];
 
-	char nethackBaseOptions[512] = "time,autopickup,autodig,showexp,pickup_types:$!?\"=/,norest_on_space,runmode:walk";
+	char nethackBaseOptions[512] = "boulder:0,time,autopickup,autodig,showexp,pickup_types:$!?\"=/,norest_on_space,runmode:walk";
 	NSString *netHackOptions = [defaults stringForKey:kNetHackOptions];
 	if (netHackOptions && netHackOptions.length > 0) {
 		strcpy(nethackBaseOptions, [netHackOptions cStringUsingEncoding:NSASCIIStringEncoding]);
