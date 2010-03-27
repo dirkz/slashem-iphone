@@ -50,5 +50,6 @@
 - (id)initWithType:(int)t;
 - (void)print:(const char *)str;
 - (void)clear;
+- (NSString *)textWithDelimiter:(NSString *)del;
 
 @end
