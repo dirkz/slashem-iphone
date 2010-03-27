@@ -26,6 +26,8 @@
 
 #include "hack.h"
 
+#define kDoubleTapsEnabled (@"kDoubleTapsEnabled")
+
 @class ZTouchInfoStore;
 
 @interface MapView : UIView {

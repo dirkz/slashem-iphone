@@ -25,15 +25,9 @@
 #import "ZTouchInfoStore.h"
 #import "ZTouchInfo.h"
 
-static const NSTimeInterval s_doubleTapDuration = 0.3f;
-
 @implementation ZTouchInfoStore
 
 @synthesize singleTapTimestamp;
-
-+ (NSTimeInterval)doubleTapDuration {
-	return s_doubleTapDuration;
-}
 
 - (id)init {
 	if (self = [super init]) {
@@ -44,10 +38,6 @@ static const NSTimeInterval s_doubleTapDuration = 0.3f;
 
 - (int) count {
 	return currentTouchInfos.count;
-}
-
-- (NSTimeInterval)doubleTapDuration {
-	return s_doubleTapDuration;
 }
 
 - (void)storeTouches:(NSSet *)touches {

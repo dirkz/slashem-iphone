@@ -33,9 +33,19 @@
 #define kMinimumPinchDelta (10.0f)
 #define kMinimumPanDelta (10.0f)
 
+static BOOL s_doubleTapsEnabled = NO;
+
 @implementation MapView
 
 @synthesize tileSize;
+
++ (void)load {
+	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+	[defaults registerDefaults:[NSDictionary dictionaryWithObjectsAndKeys:
+								@"YES", kDoubleTapsEnabled,
+								nil]];
+	s_doubleTapsEnabled = [defaults boolForKey:kDoubleTapsEnabled];
+}
 
 - (void)setup {
 	self.multipleTouchEnabled = YES;
@@ -152,14 +162,9 @@
 	[touchInfoStore storeTouches:touches];
 	if (touches.count == 1) {
 		UITouch *touch = [touches anyObject];
-		if (touch.tapCount == 2) {
+		if (touch.tapCount == 2 && s_doubleTapsEnabled) {
 			ZTouchInfo *ti = [touchInfoStore touchInfoForTouch:touch];
-			NSTimeInterval touchDuration = touch.timestamp - touchInfoStore.singleTapTimestamp;
-			if (touchDuration < [ZTouchInfoStore doubleTapDuration]) {
-				ti.doubleTap = YES;
-			}
-		} else {
-			touchInfoStore.singleTapTimestamp = touch.timestamp;
+			ti.doubleTap = YES;
 		}
 	} else if (touches.count == 2) {
 		NSArray *allTouches = [touches allObjects];

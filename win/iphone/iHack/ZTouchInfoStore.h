@@ -35,9 +35,6 @@
 
 @property (nonatomic, readonly) int count;
 @property (nonatomic, assign) NSTimeInterval singleTapTimestamp;
-@property (nonatomic, readonly) NSTimeInterval doubleTapDuration;
-
-+ (NSTimeInterval)doubleTapDuration;
 
 - (void)storeTouches:(NSSet *)touches;
 - (ZTouchInfo *)touchInfoForTouch:(UITouch *)t;
