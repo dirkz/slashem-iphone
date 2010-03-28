@@ -43,7 +43,6 @@ util/lev_lex.c
 util/lev_yacc.c
 util/makedefs
 util/tilemap
-<<<<<<< HEAD
 slashem_enforcer_0.6.patch
 src/apply.c.orig
 src/dig.c.orig
@@ -60,5 +59,3 @@ src/objnam.c.orig
 src/tech.c.orig
 src/trap.c.orig
 src/wield.c.orig
-=======
->>>>>>> upstream/master
