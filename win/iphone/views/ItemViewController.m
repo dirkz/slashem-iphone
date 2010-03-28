@@ -98,13 +98,12 @@
 	
 	if (item.object) {
 		// worn items can't be dropped except for wielded or alternative weapons
+		// so drop is only allowed on items not worn, except for wielded/alternate/quivered ...
 		if (!item.object->owornmask || item.object->owornmask & W_WEP || item.object->owornmask & W_SWAPWEP ||
 			item.object->owornmask & W_QUIVER) {
 			[self addAction:[self dropOneCommand]];
 			[self addAction:[self dropExceptOneCommand]];
 			[actions addObject:[NhCommand commandWithObject:item title:"Throw" key:'t']];
-		} else {
-			NSLog(@"worn? %@", item.title);
 		}
 
 		switch (item.object->oclass) {
@@ -151,6 +150,17 @@
 					case MAGIC_LAMP:
 						[actions addObject:[NhCommand commandWithObject:item title:"Rub" key:M('r')]];
 						break;
+					case TOWEL:
+						if (item.object->owornmask & W_TOOL) {
+							if (inventory.numberOfPutOnItems > 1) {
+								[actions addObject:[NhCommand commandWithObject:item title:"Remove" key:'R']];
+							} else {
+								[actions addObject:[NhCommand commandWithTitle:"Remove" key:'R']];
+							}
+						} else {
+							[actions addObject:[NhCommand commandWithObject:item title:"Put on" key:'P']];
+						}
+						break;
 				}
 				break;
 			case FOOD_CLASS:
@@ -166,7 +176,7 @@
 			case RING_CLASS:
 			case AMULET_CLASS:
 				if (item.object->owornmask & W_RING || item.object->owornmask & W_AMUL) {
-					if (inventory.numberOfWornJewelry > 1) {
+					if (inventory.numberOfPutOnItems > 1) {
 						[actions addObject:[NhCommand commandWithObject:item title:"Remove" key:'R']];
 					} else {
 						[actions addObject:[NhCommand commandWithTitle:"Remove" key:'R']];

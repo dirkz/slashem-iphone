@@ -164,8 +164,8 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
 	NhCommand *cmd = [NhCommand commandWithObject:item title:"Drop" key:'d'];
 	if (item.object) {
 		if (item.object->owornmask) {
-			if (item.object->owornmask & W_RING || item.object->owornmask & W_AMUL) {
-				if (inventory.numberOfWornJewelry > 1) {
+			if (item.object->owornmask & W_RING || item.object->owornmask & W_AMUL || item.object->owornmask & W_TOOL) {
+				if (inventory.numberOfPutOnItems > 1) {
 					cmd = [NhCommand commandWithObject:item title:"Remove" key:'R'];
 				} else {
 					cmd = [NhCommand commandWithTitle:"Remove" key:'R'];

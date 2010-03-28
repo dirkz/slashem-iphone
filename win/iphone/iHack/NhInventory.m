@@ -29,7 +29,7 @@
 @implementation NhInventory
 
 @synthesize objectClasses;
-@synthesize numberOfWornJewelry;
+@synthesize numberOfPutOnItems;
 @synthesize numberOfWornArmor;
 
 + (id)inventory {
@@ -52,15 +52,15 @@
 
 - (void)update {
 	[objectClasses removeAllObjects];
-	numberOfWornJewelry = 0;
+	numberOfPutOnItems = 0;
 	numberOfWornArmor = 0;
 	memset(classArray, (int) nil, sizeof(classArray));
 	for (struct obj *otmp = invent; otmp; otmp = otmp->nobj) {
 		NSMutableArray *array = [self arrayForClass:otmp->oclass];
 		[array addObject:[NhObject objectWithObject:otmp]];
-		if ((otmp->oclass == RING_CLASS || otmp->oclass == AMULET_CLASS) &&
-			(otmp->owornmask & W_RING || otmp->owornmask & W_AMUL)) {
-			numberOfWornJewelry++;
+		if ((otmp->oclass == RING_CLASS || otmp->oclass == AMULET_CLASS || otmp->oclass == TOOL_CLASS) &&
+			(otmp->owornmask & W_RING || otmp->owornmask & W_AMUL || otmp->owornmask & W_TOOL)) {
+			numberOfPutOnItems++;
 		} else if (otmp->oclass == ARMOR_CLASS &&
 				   otmp->owornmask & (W_ARM | W_ARMC | W_ARMH | W_ARMS | W_ARMG | W_ARMF | W_ARMU)) {
 			numberOfWornArmor++;
