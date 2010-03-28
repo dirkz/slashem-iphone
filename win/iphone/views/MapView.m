@@ -40,11 +40,13 @@ static BOOL s_doubleTapsEnabled = NO;
 @synthesize tileSize;
 
 + (void)load {
+    NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
 	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 	[defaults registerDefaults:[NSDictionary dictionaryWithObjectsAndKeys:
 								@"YES", kDoubleTapsEnabled,
 								nil]];
 	s_doubleTapsEnabled = [defaults boolForKey:kDoubleTapsEnabled];
+	[pool drain];
 }
 
 - (void)setup {

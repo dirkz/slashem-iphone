@@ -72,7 +72,7 @@ extern int unixmain(int argc, char **argv);
 	unixmain(argc, argv);
 	
 	// clean up thread pool
-	[pool release];
+	[pool drain];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {

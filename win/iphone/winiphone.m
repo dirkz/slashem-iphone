@@ -142,7 +142,7 @@ coord CoordMake(xchar i, xchar j) {
 	
 	setenv("NETHACKOPTIONS", nethackBaseOptions, 1);
 	
-	[pool release];
+	[pool drain];
 }
 
 + (const char *)baseFilePath {
