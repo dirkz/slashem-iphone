@@ -1388,6 +1388,33 @@ struct monst *magr,	/* monster that is currently deciding where to move */
 	if(magr->data == &mons[PM_WOODCHUCK] && mdef->data == &mons[PM_ORACLE])
 		return ALLOW_M|ALLOW_TM;
 
+#ifdef ENFORCER
+	/* Troopers vs. Neophytes */
+	if(magr->data == &mons[PM_TROOPER] && mdef->data == &mons[PM_NEOPHYTE])
+		return ALLOW_M|ALLOW_TM;
+	/* and vice versa */
+	if(mdef->data == &mons[PM_TROOPER] && magr->data == &mons[PM_NEOPHYTE])
+		return ALLOW_M|ALLOW_TM;
+	/* Troopers vs. Enforcer */
+	if(magr->data == &mons[PM_TROOPER] && mdef->data == &mons[PM_ENFORCER])
+		return ALLOW_M|ALLOW_TM;
+	/* and vice versa */
+	if(mdef->data == &mons[PM_TROOPER] && magr->data == &mons[PM_ENFORCER])
+		return ALLOW_M|ALLOW_TM;
+	/* Troopers vs. The Master Enforcer */
+	//if(magr->data == &mons[PM_TROOPER] && mdef->data == &mons[PM_THE_MASTER_ENFORCER])
+		//return ALLOW_M|ALLOW_TM;
+	/* and vice versa */
+	//if(mdef->data == &mons[PM_TROOPER] && magr->data == &mons[PM_THE_MASTER_ENFORCER])
+		//return ALLOW_M|ALLOW_TM;
+	/* Enforcer vs. Lord Insidious */
+	if(magr->data == &mons[PM_LORD_INSIDIOUS] && mdef->data == &mons[PM_ENFORCER])
+		return ALLOW_M|ALLOW_TM;
+	/* and vice versa */
+	if(mdef->data == &mons[PM_LORD_INSIDIOUS] && magr->data == &mons[PM_ENFORCER])
+		return ALLOW_M|ALLOW_TM;
+#endif
+
 	return 0L;
 }
 

@@ -127,6 +127,12 @@ boolean restore;
 			    otmp->onamelth = 0;
 			    *ONAME(otmp) = '\0';
 			}
+#ifdef ENFORCER
+			else if (is_lightsaber(otmp)){
+				if (otmp->lamplit)
+					end_burn(otmp, FALSE);
+			}
+#endif
 		}
 	}
 }

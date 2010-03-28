@@ -136,13 +136,28 @@ struct obj *otmp;
 xchar x, y;
 {
 	boolean ispick = is_pick(otmp);
+#ifdef LIGHTSABERS
+	boolean issaber = is_lightsaber(otmp);
+#endif
 
-	return (ispick && sobj_at(STATUE, x, y) ? DIGTYP_STATUE :
-		ispick && sobj_at(BOULDER, x, y) ? DIGTYP_BOULDER :
+	return ((ispick
+#ifdef LIGHTSABERS
+		|| issaber
+#endif
+		) && sobj_at(STATUE, x, y) ? DIGTYP_STATUE :
+		(ispick
+#ifdef LIGHTSABERS
+		|| issaber
+#endif
+		) && sobj_at(BOULDER, x, y) ? DIGTYP_BOULDER :
 		closed_door(x, y) ? DIGTYP_DOOR :
 		IS_TREE(levl[x][y].typ) ?
 			(ispick ? DIGTYP_UNDIGGABLE : DIGTYP_TREE) :
-		ispick && IS_ROCK(levl[x][y].typ) &&
+		(ispick
+#ifdef LIGHTSABERS
+		 || issaber
+#endif
+		) && IS_ROCK(levl[x][y].typ) &&
 			(!level.flags.arboreal || IS_WALL(levl[x][y].typ)) ?
 			DIGTYP_ROCK : DIGTYP_UNDIGGABLE);
 }

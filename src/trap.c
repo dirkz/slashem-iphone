@@ -14,12 +14,14 @@ STATIC_DCL void FDECL(cnv_trap_obj, (int, int, struct trap *));
 STATIC_DCL void FDECL(move_into_trap, (struct trap *));
 STATIC_DCL int FDECL(try_disarm, (struct trap *,BOOLEAN_P));
 STATIC_DCL void FDECL(reward_untrap, (struct trap *, struct monst *));
+/*
 STATIC_DCL int FDECL(disarm_holdingtrap, (struct trap *));
 STATIC_DCL int FDECL(disarm_rust_trap, (struct trap *));
 STATIC_DCL int FDECL(disarm_fire_trap, (struct trap *));
 STATIC_DCL int FDECL(disarm_landmine, (struct trap *));
 STATIC_DCL int FDECL(disarm_squeaky_board, (struct trap *));
 STATIC_DCL int FDECL(disarm_shooting_trap, (struct trap *, int));
+*/
 STATIC_DCL int FDECL(try_lift, (struct monst *, struct trap *, int, BOOLEAN_P));
 STATIC_DCL int FDECL(help_monster_out, (struct monst *, struct trap *));
 STATIC_DCL boolean FDECL(thitm, (int,struct monst *,struct obj *,int,BOOLEAN_P));
@@ -3337,6 +3339,11 @@ boolean force_failure;
 	int ttype = ttmp->ttyp;
 	boolean under_u = (!u.dx && !u.dy);
 	boolean holdingtrap = (ttype == BEAR_TRAP || ttype == WEB);
+
+#ifdef ENFORCER
+	if (tech_inuse(T_TELEKINESIS) && !force_failure)
+		return 2;
+#endif
 	
 	/* Test for monster first, monsters are displayed instead of trap. */
 	if (mtmp && (!mtmp->mtrapped || !holdingtrap)) {
@@ -3437,7 +3444,7 @@ struct monst *mtmp;
 	}
 }
 
-STATIC_OVL int
+int
 disarm_holdingtrap(ttmp) /* Helge Hafting */
 struct trap *ttmp;
 {
@@ -3469,7 +3476,7 @@ struct trap *ttmp;
 	return 1;
 }
 
-STATIC_OVL int
+int
 disarm_landmine(ttmp) /* Helge Hafting */
 struct trap *ttmp;
 {
@@ -3481,7 +3488,7 @@ struct trap *ttmp;
 	return 1;
 }
 
-STATIC_OVL int
+int
 disarm_rust_trap(ttmp) /* Paul Sonier */
 struct trap *ttmp;
 {
@@ -3503,7 +3510,7 @@ static NEARDATA const char oil[] = { ALL_CLASSES, TOOL_CLASS, POTION_CLASS, 0 };
 static NEARDATA const char disarmpotion[] = { ALL_CLASSES, POTION_CLASS, 0 };
 
 /* water disarms, oil will explode */
-STATIC_OVL int
+int
 disarm_fire_trap(ttmp) /* Paul Sonier */
 struct trap *ttmp;
 {
@@ -3537,7 +3544,7 @@ struct trap *ttmp;
 }
 
 /* it may not make much sense to use grease on floor boards, but so what? */
-STATIC_OVL int
+int
 disarm_squeaky_board(ttmp)
 struct trap *ttmp;
 {
@@ -3570,7 +3577,7 @@ struct trap *ttmp;
 }
 
 /* removes traps that shoot arrows, darts, etc. */
-STATIC_OVL int
+int
 disarm_shooting_trap(ttmp, otyp)
 struct trap *ttmp;
 int otyp;

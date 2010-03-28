@@ -712,6 +712,12 @@ doforce()		/* try to force a chest with your weapon */
 			&& mtmp->m_ap_type != M_AP_OBJECT) {
 
 		if (mtmp->isshk || mtmp->data == &mons[PM_ORACLE])		
+#ifdef ENFORCER
+		  if (Role_if(PM_ENFORCER))
+		    verbalize("Your puny mind tricks won't work on me!"); /* Return of the Shmedi */
+		  else
+#endif
+
 		    verbalize("What do you think you are, a Jedi?"); /* Phantom Menace */
 		else
 		    pline("I don't think %s would appreciate that.", mon_nam(mtmp));

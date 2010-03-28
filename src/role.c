@@ -201,6 +201,38 @@ const struct Role roles[] = {
 	0, 1, 0, 
 	2, 10, A_INT, SPE_CONE_OF_COLD,    -4 /* From old role.c */
 },
+#ifdef ENFORCER
+{	{"Enforcer", 0}, {
+	{"Youngling",     0},
+	//{"Neophyte",       0},
+	{"Neophyte",       0},
+	//{"Light Enforcer", 0},
+	{"Light Enforcer", 0},
+	//{"Heavy Enforcer",    0},
+	{"Heavy Enforcer",    0},
+	{"Hero Enforcer",      0},
+	{"Master Enforcer",    0} },
+	"of the Light Side", "the Force", "the Dark Side",
+	"Enf", "the Enforcer's Temple", "the Outer Rim",
+	PM_ENFORCER, NON_PM, PM_LITTLE_DOG,
+	PM_THE_MASTER_ENFORCER, PM_NEOPHYTE, PM_LORD_INSIDIOUS,
+	PM_TROOPER, PM_TROOPER, S_HUMAN, S_HUMAN,
+#if 0
+	???
+#endif
+	ART_LIGHTSABER_PROTOTYPE,
+	MH_HUMAN|MH_ELF|MH_HOBBIT| 
+	ROLE_MALE|ROLE_FEMALE|ROLE_LAWFUL,
+	/* Str Int Wis Dex Con Cha */
+	{  10,  7, 14, 12, 10, 14 },
+	{  30, 15, 15, 10, 20, 10 },
+	/* Init   Lower  Higher */
+	{ 15, 4,  0, 8,  2, 4 },	/* Hit points */
+	{  1, 4,  0, 1,  0, 4 },10,	/* Energy */
+	0, 12 , -1, 
+	2, 10, A_INT, SPE_CHARM_MONSTER,    -4
+},
+#endif
 {	{"Knight", 0}, {
 	{"Gallant",     0},
 	{"Esquire",     0},

@@ -87,6 +87,9 @@ Boots_on()
 	u.uprops[objects[uarmf->otyp].oc_oprop].extrinsic & ~WORN_BOOTS;
 
     switch(uarmf->otyp) {
+#ifdef ENFORCER
+	case PLASTEEL_BOOTS:
+#endif
 	case LOW_BOOTS:
 	case IRON_SHOES:
 	case HIGH_BOOTS:
@@ -175,6 +178,9 @@ Boots_off()
 	case HIGH_BOOTS:
 	case JUMPING_BOOTS:
 	case KICKING_BOOTS:
+#ifdef ENFORCER
+	case PLASTEEL_BOOTS:
+#endif
 		break;
 	default: impossible(unknown_type, c_boots, otyp);
     }
@@ -310,6 +316,9 @@ Helmet_on()
 		set_moreluck();
 		flags.botl = 1;
 		break;
+#ifdef ENFORCER
+	case PLASTEEL_HELM:
+#endif
 	case HELMET:
 	case DENTED_POT:
 	case ELVEN_LEATHER_HELM:
@@ -375,6 +384,9 @@ Helmet_off()
 	    set_moreluck();
 	    flags.botl = 1;
 	    return 0;
+#ifdef ENFORCER
+	case PLASTEEL_HELM:
+#endif
 	case HELMET:
 	case DENTED_POT:
 	case ELVEN_LEATHER_HELM:
@@ -419,6 +431,9 @@ Gloves_on()
 	u.uprops[objects[uarmg->otyp].oc_oprop].extrinsic & ~WORN_GLOVES;
 
     switch(uarmg->otyp) {
+#ifdef ENFORCER
+	case PLASTEEL_GLOVES:
+#endif
 	case LEATHER_GLOVES:
 		break;
 	case GAUNTLETS_OF_SWIMMING:
@@ -452,6 +467,9 @@ Gloves_off()
     takeoff_mask &= ~W_ARMG;
 
     switch(uarmg->otyp) {
+#ifdef ENFORCER
+	case PLASTEEL_GLOVES:
+#endif
 	case LEATHER_GLOVES:
 	    break;
 	case GAUNTLETS_OF_SWIMMING:
@@ -1458,6 +1476,14 @@ boolean noisy;
 		pline_The("%s won't fit over your horn%s.",
 			  c_helmet, plur(num_horns(youmonst.data)));
 	    err++;
+#ifdef ENFORCER
+	} else if (Upolyd && (youmonst.data == &mons[PM_MIND_FLAYER] ||
+			      youmonst.data == &mons[PM_MASTER_MIND_FLAYER]) &&
+			otmp->otyp == PLASTEEL_HELM){
+		if (noisy)
+			pline_The("%s won't fit over your tentacles.", xname(otmp));
+		err++;
+#endif
 	} else
 	    *mask = W_ARMH;
     } else if (is_shield(otmp)) {
@@ -1747,6 +1773,12 @@ doputon()
 		}
 		if (otmp->oartifact && !touch_artifact(otmp, &youmonst))
 		    return 1;
+#ifdef ENFORCER
+		if (uarmh && uarmh->otyp == PLASTEEL_HELM){
+			pline("The %s covers your whole face. You need to remove it first.", xname(uarmh));
+			return 1;
+		}
+#endif
 		Blindf_on(otmp);
 		return(1);
 	}

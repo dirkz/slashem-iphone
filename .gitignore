@@ -43,3 +43,22 @@ util/lev_lex.c
 util/lev_yacc.c
 util/makedefs
 util/tilemap
+<<<<<<< HEAD
+slashem_enforcer_0.6.patch
+src/apply.c.orig
+src/dig.c.orig
+src/dig.c.rej
+src/do_wear.c.orig
+src/engrave.c.orig
+src/engrave.c.rej
+src/invent.c.orig
+src/invent.c.rej
+src/lock.c.orig
+src/mon.c.orig
+src/monst.c.orig
+src/objnam.c.orig
+src/tech.c.orig
+src/trap.c.orig
+src/wield.c.orig
+=======
+>>>>>>> upstream/master
