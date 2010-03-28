@@ -15,7 +15,7 @@ sh setup.sh
 
 cd ../..
 
-cd util && make
+cd util && make spotless all
 cd src
 ../util/makedefs -v # date.h
 ../util/makedefs -p # pm.h
@@ -24,7 +24,7 @@ cd src
 ../util/makedefs -f # filename.h
 
 cd ..
-cd dat && make
+cd dat && make spotless all
 
 cd ..
 cd src && make tile.c
