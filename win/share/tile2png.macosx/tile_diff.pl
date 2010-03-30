@@ -4,6 +4,9 @@
 #
 # (c) 2010 Dirk Zimmermann.
 #
+# TODO
+# Make it customizable through command line options.
+#
 
 use Data::Dumper;
 
@@ -14,14 +17,20 @@ my $BASE_DIR2 = "/Users/dirk/Documents/xcode/slashem-0.0.7E7F3";
 my %TILES1 = (
 			  monsters => "$BASE_DIR1/win/share/monsters.txt",
 			  objects => "$BASE_DIR1/win/share/objects.txt",
-			  other => "$BASE_DIR1/win/share/other.txt"
+			  other => "$BASE_DIR1/win/share/other.txt",
+			  extras => "$BASE_DIR1/win/share/extras.txt",
+			  zap => "$BASE_DIR1/win/share/zap.txt"
 			 );
 
 my %TILES2 = (
 			  monsters => "$BASE_DIR2/win/share/monsters.txt",
 			  objects => "$BASE_DIR2/win/share/objects.txt",
-			  other => "$BASE_DIR2/win/share/other.txt"
+			  other => "$BASE_DIR2/win/share/other.txt",
+			  extras => "$BASE_DIR2/win/share/extras.txt",
+			  zap => "$BASE_DIR2/win/share/zap.txt"
 			 );
+
+my @KEYS = qw(monsters objects other extras zap);
 
 sub gather_tiles {
   my ($filename) = @_;
@@ -44,7 +53,7 @@ sub gather_tiles {
 sub gather_all_tiles {
   my ($tiles) = @_;
   my %tiles_result;
-  foreach $key qw(monsters objects other) {
+  foreach $key (@KEYS) {
 	my $filename = $tiles->{$key};
 	$filename or die "empty filename for $key";
 	-e $filename or die "non-existing file for $filename";
