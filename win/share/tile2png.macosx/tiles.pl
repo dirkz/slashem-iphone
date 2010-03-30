@@ -1,10 +1,13 @@
 #!/usr/bin/perl -w
 #
-# Checks to see tiles
+# Diffs tilesets between 2 Slash'EM versions.
+#
+# (c) 2010 Dirk Zimmermann
 #
 
 use Data::Dumper;
 
+# change both base dirs
 my $BASE_DIR1 = "/Users/dirk/Documents/xcode/slashem-0.0.7E0";
 my $BASE_DIR2 = "/Users/dirk/Documents/xcode/slashem-0.0.7E7F3";
 
