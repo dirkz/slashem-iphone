@@ -465,6 +465,9 @@ int main(int argc, const char **argv)
     exit(1);
   }
 
+	// preemptively set transparency
+	has_trans = 1;
+	
   for (i = argn; i < argc; i++)
   {
     process_file(argv[i]);
