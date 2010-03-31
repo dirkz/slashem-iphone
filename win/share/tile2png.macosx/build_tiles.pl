@@ -3,11 +3,25 @@
 # Builds a tileset from monsters.txt, objects.txt and other.txt
 # using single tile images.
 #
-# (c) 2010 Dirk Zimmermann.
+# Copyright 2010 Dirk Zimmermann.
 #
 # TODO
 # Make it customizable through command line options.
 #
+
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation, version 2
+# of the License.
+ 
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+ 
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
 use Data::Dumper;
 
@@ -28,16 +42,32 @@ my @PNGs;
 my %EXCEPTIONS = (
 				  'wall' => [
 							 "cmap.wall.vertical.png", "cmap.wall.horizontal.png", "cmap.wall.top left corner.png",
-							 "cmap.wall.top right corner.png", "cmap.wall.bottom right corner.png", "cmap.wall.bottom left corner.png",
-							 "cmap.wall.tee down.png", "cmap.wall.tee left.png", "cmap.wall.tee right.png", "cmap.wall.tee up.png"
-							]
+							 "cmap.wall.top right corner.png", "cmap.wall.bottom left corner.png", "cmap.wall.bottom right corner.png",
+							 "cmap.wall.crosswall.png",
+							 "cmap.wall.tee up.png", "cmap.wall.tee down.png", "cmap.wall.tee left.png", "cmap.wall.tee right.png",
+							 "cmap.effect.vertical beam.png", "cmap.effect.horizontal beam.png", "cmap.effect.left slant beam.png",
+							 "cmap.effect.right slant beam.png"
+							],
+				  'open door' => ["cmap.door.vertical open door.png", "cmap.door.horizontal open door.png"],
+				  'closed door' => ["cmap.door.vertical closed door.png", "cmap.door.horizontal closed door.png"],
+				  'lowered drawbridge' => ["cmap.lowered drawbridge.vertical.png", "cmap.lowered drawbridge.horizontal.png"],
+				  'raised drawbridge' => ["cmap.raised drawbridge.vertical.png", "cmap.raised drawbridge.horizontal.png"],
+				  'explosion dark 0' => [""],
+				  'explosion dark 1' => [""],
+				  'explosion dark 2' => [""],
+				  'explosion dark 3' => [""],
+				  'explosion dark 4' => [""],
+				  'explosion dark 5' => [""],
+				  'explosion dark 6' => [""],
+				  'explosion dark 7' => [""],
+				  'explosion dark 8' => [""],
 				 );
 
 sub filename_for_tile {
-  my ($key, $name) = @_;
+  my ($key, $name, $index) = @_;
   $name = lc $name;
-  $name =~ s/.* \/ //;
-  $name =~ s/'//;
+  $name =~ s/.* \/ //; # only look at last part of components separated by slashes
+  $name =~ s/'//; # remove all '
 
   # check for exceptions
   foreach $exc (keys %EXCEPTIONS) {
@@ -46,12 +76,11 @@ sub filename_for_tile {
 	  if (scalar @files > 0) {
 		my $result = shift @files;
 		$EXCEPTIONS{$exc} = \@files;
-		print "exception $result for $name\n";
+		#print "$index exception $result for $name\n";
 		return $result;
 	  }
 	}
   }
-
   foreach $filename (@PNGs) {
 	my ($ident) = ($filename =~ /([^.]+)\.png$/);
 	#print "trying $ident for $name\n";
@@ -69,9 +98,9 @@ sub process_all_tiles {
   while ($line = <TILEFILE>) {
 	my ($num, $name) = ($line =~ /^# tile (\d+) \((.*)\).*/);
 	if (defined $num) {
-	  my $png_filename = filename_for_tile $key, $name;
+	  my $png_filename = filename_for_tile $key, $name, $index;
 	  if (!$png_filename) {
-		print "no file for $name\n";
+		print "no file for $index $name\n";
 	  }
 	  #print "$index $key $png_filename\n";
 	  $index++;
