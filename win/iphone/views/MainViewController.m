@@ -224,7 +224,7 @@ static MainViewController* instance;
 	if (![NSThread isMainThread]) {
 		[self performSelectorOnMainThread:@selector(refreshMessages) withObject:nil waitUntilDone:NO];
 	} else {
-		messageView.text = [[NhWindow messageWindow] textWithDelimiter:@" "];
+		messageView.text = [[NhWindow messageWindow] text];
 		messageView.messageWindow = [NhWindow messageWindow];
 		NSArray *messages = [[NhWindow statusWindow] messages];
 		if (messages && messages.count == 2) {
