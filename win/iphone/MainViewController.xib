@@ -43,7 +43,7 @@
 					<object class="IBUIView" id="147675101">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">274</int>
-						<string key="NSFrame">{{0, 27}, {320, 373}}</string>
+						<string key="NSFrame">{{0, 27}, {320, 369}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">3</int>
@@ -81,7 +81,7 @@
 					<object class="IBUILabel" id="677792691">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">266</int>
-						<string key="NSFrame">{{0, 416}, {320, 16}}</string>
+						<string key="NSFrame">{{0, 412}, {320, 16}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="IBUIBackgroundColor" ref="115112053"/>
 						<bool key="IBUIOpaque">NO</bool>
@@ -101,7 +101,7 @@
 					<object class="IBUILabel" id="10764319">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">266</int>
-						<string key="NSFrame">{{0, 400}, {320, 16}}</string>
+						<string key="NSFrame">{{0, 396}, {320, 16}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="IBUIBackgroundColor" ref="115112053"/>
 						<bool key="IBUIOpaque">NO</bool>
@@ -122,13 +122,13 @@
 							<object class="IBUIView" id="47509657">
 								<reference key="NSNextResponder" ref="46149120"/>
 								<int key="NSvFlags">274</int>
-								<string key="NSFrameSize">{320, 28}</string>
+								<string key="NSFrameSize">{320, 32}</string>
 								<reference key="NSSuperview" ref="46149120"/>
 								<reference key="IBUIBackgroundColor" ref="115112053"/>
 								<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
 							</object>
 						</object>
-						<string key="NSFrame">{{0, 432}, {320, 28}}</string>
+						<string key="NSFrame">{{0, 428}, {320, 32}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="IBUIBackgroundColor" ref="115112053"/>
 						<bool key="IBUIClipsSubviews">YES</bool>

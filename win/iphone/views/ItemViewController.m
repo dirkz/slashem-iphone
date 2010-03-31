@@ -162,6 +162,11 @@
 						}
 						break;
 				}
+				if (item.object->owornmask & W_WEP) {
+					[actions addObject:[NhCommand commandWithTitle:"Unwield" keys:"w-"]];
+				} else {
+					[actions addObject:[NhCommand commandWithObject:item title:"Wield" key:'w']];
+				}
 				break;
 			case FOOD_CLASS:
 				[actions addObject:[NhCommand commandWithObject:item title:"Eat" key:'e']];
