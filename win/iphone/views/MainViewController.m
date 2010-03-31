@@ -107,6 +107,7 @@ static MainViewController* instance;
 						 [NhCommand commandWithTitle:"Options" key:'O'],
 						 [NhCommand commandWithTitle:"Toggle Autopickup" key:'@'],
 						 [NhCommand commandWithTitle:"Explore mode" key:'X'],
+						 [NhCommand commandWithTitle:"Call Monster" key:'C'],
 						 nil];
 	self.actionViewController.actions = commands;
 	[self presentModalViewController:actionViewController animated:YES];
@@ -134,7 +135,6 @@ static MainViewController* instance;
 						 [NhCommand commandWithTitle:"Level Teleport" key:C('v')],
 						 [NhCommand commandWithTitle:"Create Monster" key:C('g')],
 						 [NhCommand commandWithTitle:"Show Attributes" key:C('x')],
-						 [NhCommand commandWithTitle:"Call Monster" key:'C'],
 						 nil];
 	self.actionViewController.actions = commands;
 	[self presentModalViewController:actionViewController animated:YES];
