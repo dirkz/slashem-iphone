@@ -52,15 +52,15 @@ my %EXCEPTIONS = (
 				  'closed door' => ["cmap.door.vertical closed door.png", "cmap.door.horizontal closed door.png"],
 				  'lowered drawbridge' => ["cmap.lowered drawbridge.vertical.png", "cmap.lowered drawbridge.horizontal.png"],
 				  'raised drawbridge' => ["cmap.raised drawbridge.vertical.png", "cmap.raised drawbridge.horizontal.png"],
-				  'explosion dark 0' => [""],
-				  'explosion dark 1' => [""],
-				  'explosion dark 2' => [""],
-				  'explosion dark 3' => [""],
-				  'explosion dark 4' => [""],
-				  'explosion dark 5' => [""],
-				  'explosion dark 6' => [""],
-				  'explosion dark 7' => [""],
-				  'explosion dark 8' => [""],
+				  'explosion dark 0' => ["explosion.dark.top left.png"],
+				  'explosion dark 1' => ["explosion.dark.top center.png"],
+				  'explosion dark 2' => ["explosion.dark.top right.png"],
+				  'explosion dark 3' => ["explosion.dark.middle left.png"],
+				  'explosion dark 4' => ["explosion.dark.middle center.png"],
+				  'explosion dark 5' => ["explosion.dark.middle right.png"],
+				  'explosion dark 6' => ["explosion.dark.bottom left.png"],
+				  'explosion dark 7' => ["explosion.dark.bottom center.png"],
+				  'explosion dark 8' => ["explosion.dark.bottom right.png"],
 				 );
 
 sub filename_for_tile {
@@ -99,7 +99,7 @@ sub process_all_tiles {
 	my ($num, $name) = ($line =~ /^# tile (\d+) \((.*)\).*/);
 	if (defined $num) {
 	  my $png_filename = filename_for_tile $key, $name, $index;
-	  if (!$png_filename) {
+	  if (!$png_filename || !-e "$CONFIG{tileset_path}/$png_filename") {
 		print "no file for $index $name\n";
 	  }
 	  #print "$index $key $png_filename\n";
