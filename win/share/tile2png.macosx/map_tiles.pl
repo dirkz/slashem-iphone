@@ -1,7 +1,9 @@
 #!/usr/bin/perl -w
 #
-# Builds a tileset from monsters.txt, objects.txt and other.txt
-# using single tile images.
+# Maps monsters.txt, objects.txt and other.txt from vanilla Slash'EM 0.0.7E7F3
+# to the absurd tileset single images (128x128) version.
+#
+# Dumps a list of filenames in tileset order to STDOUT.
 #
 # Copyright 2010 Dirk Zimmermann.
 #
@@ -25,6 +27,7 @@
 
 use Data::Dumper;
 
+# vanilla Slash'EM
 my $BASE_DIR = "/Users/dirk/Documents/xcode/slashem-0.0.7E7F3";
 
 my %CONFIG = (
@@ -35,7 +38,7 @@ my %CONFIG = (
 			  tile_size => {width => 128, height => 128},
 			 );
 
-my @KEYS = qw(monsters objects other extras zap);
+my @KEYS = qw(monsters objects other);
 
 my @PNGs;
 
@@ -52,16 +55,53 @@ my %EXCEPTIONS = (
 				  'closed door' => ["cmap.door.vertical closed door.png", "cmap.door.horizontal closed door.png"],
 				  'lowered drawbridge' => ["cmap.lowered drawbridge.vertical.png", "cmap.lowered drawbridge.horizontal.png"],
 				  'raised drawbridge' => ["cmap.raised drawbridge.vertical.png", "cmap.raised drawbridge.horizontal.png"],
-				  'explosion dark 0' => ["explosion.dark.top left.png"],
-				  'explosion dark 1' => ["explosion.dark.top center.png"],
-				  'explosion dark 2' => ["explosion.dark.top right.png"],
-				  'explosion dark 3' => ["explosion.dark.middle left.png"],
-				  'explosion dark 4' => ["explosion.dark.middle center.png"],
-				  'explosion dark 5' => ["explosion.dark.middle right.png"],
-				  'explosion dark 6' => ["explosion.dark.bottom left.png"],
-				  'explosion dark 7' => ["explosion.dark.bottom center.png"],
-				  'explosion dark 8' => ["explosion.dark.bottom right.png"],
+				  'thrown boomerang, open left' => ["cmap.effect.thrown boomerang.open left.png"],
+				  'thrown boomerang, open right' => ["cmap.effect.thrown boomerang.open right.png"],
 				 );
+
+my @DIRECTIONS = (
+				  "top left",
+				  "top center",
+				  "top right",
+				  "middle left",
+				  "middle center",
+				  "middle right",
+				  "bottom left",
+				  "bottom center",
+				  "bottom right",
+				 );
+
+my @ZAP_TYPES = (
+				 "magic missile",
+				 "fire",
+				 "cold",
+				 "sleep",
+				 "death",
+				 "lightning",
+				 "poison gas",
+				 "acid"
+				);
+
+my @ZAP_DIRECTIONS = (
+					  "vertical",
+					  "horizontal",
+					  "left slant",
+					  "right slant"
+					 );
+
+my @WALLS = (
+			 "vertical",
+			 "horizontal",
+			 "top left corner",
+			 "top right corner",
+			 "bottom left corner",
+			 "bottom right corner",
+			 "crosswall",
+			 "tee up",
+			 "tee down",
+			 "tee left",
+			 "tee right"
+			);
 
 sub filename_for_tile {
   my ($key, $name, $index) = @_;
@@ -69,16 +109,44 @@ sub filename_for_tile {
   $name =~ s/.* \/ //; # only look at last part of components separated by slashes
   $name =~ s/'//; # remove all '
 
-  # check for exceptions
-  foreach $exc (keys %EXCEPTIONS) {
-	if ($name eq $exc) {
-	  my @files = @{$EXCEPTIONS{$exc}};
-	  if (scalar @files > 0) {
-		my $result = shift @files;
-		$EXCEPTIONS{$exc} = \@files;
-		#print "$index exception $result for $name\n";
-		return $result;
-	  }
+  # zaps
+  my ($type, $direction) = ($name =~ /zap (\d) (\d)/);
+  if (defined($type) && defined($direction)) {
+	return "zap.$ZAP_TYPES[$type].$ZAP_DIRECTIONS[$direction].png";
+  }
+
+  # explosions
+  ($type, $direction) = ($name =~ /explosion ([a-z]+) (\d)/);
+  if (defined($type) && defined($direction)) {
+	return "explosion.$type.$DIRECTIONS[$direction].png";
+  }
+
+  # swallow
+  ($direction) = ($name =~ /swallow (.+)/);
+  if (defined($direction)) {
+	return "cmap.swallow.$direction.png";
+  }
+
+  # warnings
+  ($type) = ($name =~ /warning (\d)/);
+  if (defined($type)) {
+	return "warning.$type.png";
+  }
+
+  # walls
+  my ($dungeon, $wall) = ($name =~ /sub (mine|gehennom|knox|sokoban) walls (\d)/);
+  if (defined($dungeon) && defined($wall)) {
+	return "cmap.wall.$WALLS[$wall].$dungeon.png";
+  }
+
+  # check for other exceptions
+  if ($EXCEPTIONS{$name}) {
+	my @files = @{$EXCEPTIONS{$name}};
+	if (scalar @files > 0) {
+	  my $result = shift @files;
+	  $EXCEPTIONS{$name} = \@files;
+	  #print "$index exception $result for $name\n";
+	  return $result;
 	}
   }
   foreach $filename (@PNGs) {
@@ -100,9 +168,9 @@ sub process_all_tiles {
 	if (defined $num) {
 	  my $png_filename = filename_for_tile $key, $name, $index;
 	  if (!$png_filename || !-e "$CONFIG{tileset_path}/$png_filename") {
-		print "no file for $index $name\n";
+		print STDERR "no file for $index $name\n";
 	  }
-	  #print "$index $key $png_filename\n";
+	  print "$png_filename\n";
 	  $index++;
 	}
   }
@@ -122,5 +190,4 @@ my $tileset_path = $CONFIG{tileset_path};
 opendir(my $dh, $tileset_path) || die "can't opendir $tileset_path: $!";
 @PNGs = grep { /\.png$/ } readdir($dh);
 closedir $dh;
-print "$#PNGs png files\n";
 process_all_files
