@@ -134,6 +134,17 @@ static MainViewController* instance;
 						 [NhCommand commandWithTitle:"Level Teleport" key:C('v')],
 						 [NhCommand commandWithTitle:"Create Monster" key:C('g')],
 						 [NhCommand commandWithTitle:"Show Attributes" key:C('x')],
+						 [NhCommand commandWithTitle:"Call Monster" key:'C'],
+						 nil];
+	self.actionViewController.actions = commands;
+	[self presentModalViewController:actionViewController animated:YES];
+}
+
+- (void)moveMenuAction:(id)sender {
+	NSArray *commands = [NSArray arrayWithObjects:
+						 [NhCommand commandWithTitle:"Just move" key:'m'],
+						 [NhCommand commandWithTitle:"Force Attack" key:'F'],
+						 [NhCommand commandWithTitle:"Teleport" key:C('T')],
 						 nil];
 	self.actionViewController.actions = commands;
 	[self presentModalViewController:actionViewController animated:YES];
@@ -195,6 +206,7 @@ static MainViewController* instance;
 			[toolbarItems addObject:[Action actionWithTitle:@"Info" target:self action:@selector(infoMenuAction:) arg:nil]];
 			[toolbarItems addObject:[Action actionWithTitle:@"Tools" target:self action:@selector(toolsMenuAction:) arg:nil]];
 			[toolbarItems addObject:[Action actionWithTitle:@"Tilesets" target:self action:@selector(tilesetMenuAction:) arg:nil]];
+			[toolbarItems addObject:[Action actionWithTitle:@"Move" target:self action:@selector(moveMenuAction:) arg:nil]];
 			
 			if (wizard) { // wizard mode
 				[toolbarItems addObject:[Action actionWithTitle:@"Wizard" target:self action:@selector(wizardMenuAction:)]];
