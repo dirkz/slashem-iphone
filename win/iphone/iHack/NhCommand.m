@@ -204,6 +204,7 @@ enum InvFlags {
 			struct trap *t = t_at(tx, ty);
 			if (t) {
 				[self addCommand:[NhCommand commandWithTitle:"Untrap" key:M('u')] toCommands:commands];
+				[self addCommand:[NhCommand commandWithTitle:"Identify Trap" key:'^'] toCommands:commands];
 			}
 			struct monst *mtmp = m_at(tx, ty);
 			if (mtmp) {
@@ -275,7 +276,6 @@ enum InvFlags {
 		struct trap *t = t_at(tp.x, tp.y);
 		if (t) {
 			[self addCommand:[self directionCommandWithTitle:"Untrap" key:M('u') direction:direction] toCommands:commands];
-			[self addCommand:[NhCommand commandWithTitle:"Identify Traps" key:'^'] toCommands:commands];
 		}
 		struct monst *mtmp = m_at(tp.x, tp.y);
 		if (mtmp) {
