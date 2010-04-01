@@ -195,6 +195,8 @@ sub process_all_files {
 
 sub create_tileset_image {
   my ($pngs) = @_;
+
+  # init
   my @pngs = @$pngs;
   my $tile_count = @pngs;
   my ($tile_width, $tile_height) = ($CONFIG{tile_size}->{width}, $CONFIG{tile_size}->{height});
@@ -202,9 +204,17 @@ sub create_tileset_image {
   my $rows = ceil($tile_count / $columns);
   my $tileset_count = $columns * $rows;
   my ($width, $height) = ($columns * $tile_width, $rows * $tile_height);
+
+  # create empty image
   print "creating ${columns}x$rows ($tile_count of $tileset_count max) ${tile_width}x$tile_height tiles in ${width}x$height image\n";
   my $image = new GD::Image($width, $height, 1) or die "Could not create image tileset";
   my ($x, $y) = (0,0);
+
+  # transparency
+  my $transp = $image->colorAllocate(0,0,0);
+  $image->transparent($transp);
+
+  # generate
   foreach $filename (@pngs) {
 	my $img = GD::Image->newFromPng($filename, 1);
 	$image->copy($img, $x, $y, 0, 0, $tile_width, $tile_height);
@@ -214,6 +224,8 @@ sub create_tileset_image {
 	  $y += $tile_height;
 	}
   }
+
+  # write file
   my $png_blob = $image->png();
   my $image_filename = "tileset.png";
   print "writing $image_filename ...\n";
