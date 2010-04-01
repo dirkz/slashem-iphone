@@ -34,6 +34,7 @@
 @class MessageView;
 @class MapView;
 @class ActionBar;
+@class PieMenu;
 
 @interface MainViewController : UIViewController <UITextFieldDelegate> {
 
@@ -48,6 +49,7 @@
 	ActionViewController *actionViewController;
 	InventoryViewController *inventoryViewController;
 	MenuViewController *menuViewController;
+	PieMenu *pieMenu;
 	
 	BOOL directionQuestion;
 	
@@ -60,6 +62,7 @@
 @property (readonly) InventoryViewController *inventoryViewController;
 @property (readonly) UINavigationController *inventoryNavigationController;
 @property (readonly) MenuViewController *menuViewController;
+@property (nonatomic, retain) PieMenu *pieMenu;
 
 + (MainViewController *) instance;
 

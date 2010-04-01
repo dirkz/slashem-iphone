@@ -44,6 +44,8 @@
 #import "CommandButtonItem.h"
 #import "ActionBar.h"
 #import "QuestionViewController.h"
+#import "PieMenu.h"
+#import "OrganizedAction.h"
 
 #import "winiphone.h" // ipad_getpos etc.
 
@@ -51,7 +53,15 @@
 
 static MainViewController* instance;
 
+@interface MainViewController (PrivateMethods)
+
+- (void) itemSelected:(PieMenuItem *)item;
+
+@end
+
 @implementation MainViewController
+
+@synthesize pieMenu;
 
 + (MainViewController *)instance {
 	return instance;
@@ -59,6 +69,11 @@ static MainViewController* instance;
 
 - (void)awakeFromNib {
 	[super awakeFromNib]; // responsible for viewDidLoad
+	
+	pieMenu = [[PieMenu alloc] init];
+	pieMenu.fingerSize = [defaults integerForKey:@"fingerSize"];
+	pieMenu.leftHanded = [defaults boolForKey:@"leftHanded"];
+	
 	instance = self;
 }
 
@@ -628,6 +643,12 @@ static MainViewController* instance;
 }
 
 #pragma mark utility
+
+#pragma mark PieMenuFunctions
+- (void) itemSelected:(PieMenuItem *)item {
+	NSLog(@"Item '%s' selected", [item.title UTF8String]);
+	[item invoke:self];
+}
 
 #pragma mark UIAlertViewDelegate
 

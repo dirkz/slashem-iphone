@@ -53,7 +53,7 @@
 + (id)commandWithTitle:(const char *)t key:(char)c;
 
 // all commands possible at this stage
-+ (NSArray *)currentCommands;
++ (NSMutableDictionary *)currentCommands;
 
 // all commands possible for an adjacent position
 + (NSArray *)commandsForAdjacentTile:(coord)tp;

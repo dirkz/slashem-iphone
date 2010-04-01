@@ -25,6 +25,7 @@
 #import "NhCommand.h"
 #import "NhEventQueue.h"
 #import "NhObject.h"
+#import "CmdKeyEnum.h"
 
 #include "hack.h"
 
@@ -52,9 +53,12 @@
 }
 
 + (void)addCommand:(NhCommand *)cmd toCommands:(NSMutableArray *)commands {
+	[commands setObject:cmd forKey:key];
+	
+	/*
 	if (![commands containsObject:cmd]) {
 		[commands addObject:cmd];
-	}
+	}*/
 }
 
 enum InvFlags {
@@ -69,8 +73,8 @@ enum InvFlags {
 	fUnpaid = 256,
 };
 
-+ (NSArray *)currentCommands {
-	NSMutableArray *commands = [NSMutableArray array];
++ (NSMutableDictionary *)currentCommands {
+	NSMutableDictionary *cmdDictionary = [NSMutableDictionary array]; // with init??
 	int inv = 0;
 
 	for (struct obj *otmp = invent; otmp; otmp = otmp->nobj) {
@@ -110,17 +114,18 @@ enum InvFlags {
 	// objects lying on the floor
 	struct obj *object = level.objects[u.ux][u.uy];
 	if (object) {
-		[self addCommand:[NhCommand commandWithTitle:"Pickup" key:','] toCommands:commands];
+		[self addCommand:[NhCommand commandWithTitle:"Pickup" key:','] 
+			  toCommands:cmdDictionary withKey:[NSNumber numberWithInt: kPickUp]];
 	}
 	
 	if ((u.ux == xupstair && u.uy == yupstair)
 		|| (u.ux == sstairs.sx && u.uy == sstairs.sy && sstairs.up)
 		|| (u.ux == xupladder && u.uy == yupladder)) {
-		[self addCommand:[NhCommand commandWithTitle:"Up" key:'<'] toCommands:commands];
+		[self addCommand:[NhCommand commandWithTitle:"Up" key:'<'] toCommands:cmdDictionary withKey:[NSNumber numberWithInt: kUp]];
 	} else if ((u.ux == xdnstair && u.uy == ydnstair)
 			   || (u.ux == sstairs.sx && u.uy == sstairs.sy && !sstairs.up)
 			   || (u.ux == xdnladder && u.uy == ydnladder)) {
-		[self addCommand:[NhCommand commandWithTitle:"Down" key:'>'] toCommands:commands];
+		[self addCommand:[NhCommand commandWithTitle:"Down" key:'>'] toCommands:cmdDictionary withKey:[NSNumber numberWithInt: kDown]];
 	}
 	
 	// objects lying on the floor again (after pickup has been put up already)
@@ -129,38 +134,48 @@ enum InvFlags {
 			if (Is_container(object)) {
 				struct obj *cobj = object;
 				if (!cobj->olocked) {
-					[self addCommand:[NhCommand commandWithTitle:"Loot" key:M('l')] toCommands:commands];
+					[self addCommand:[NhCommand commandWithTitle:"Loot" key:M('l')] 
+						  toCommands:cmdDictionary withKey:[NSNumber numberWithInt: kLoot]];
 				} else {
 					char cmdUntrapDown[] = {M('u'), '>', 0};
 					char forceDown[] = {M('f'), '>', 0};
-					[self addCommand:[NhCommand commandWithTitle:"Untrap Container" keys:cmdUntrapDown] toCommands:commands];
-					if (inv & fWieldedWeapon) {
-						[self addCommand:[NhCommand commandWithTitle:"Force Container" keys:forceDown] toCommands:commands];
+					[self addCommand:[NhCommand commandWithTitle:"Untrap Container" keys:cmdUntrapDown]
+						  toCommands:cmdDictionary withKey:[NSNUmber numberWithInt: kObjUntrap]];
+					if (inv & fWieldedWeapon) { // Force Container
+						[self addCommand:[NhCommand commandWithTitle:"Force" key:M('f')] 
+							  toCommands:cmdDictionary withKey:[NSNumber numberWithInt: kObjForce]];
 					}
 					if (inv & fAppliable) {
-						[self addCommand:[NhCommand commandWithTitle:"Apply" key:'a'] toCommands:commands];
+						[self addCommand:[NhCommand commandWithTitle:"Apply" key:'a'] 
+							  toCommands:cmdDictionary withKey:[NSNumber numberWithInt: kObjApply]];
 					}
 				}
 			} else if (is_edible(object)) {
-				[self addCommand:[NhCommand commandWithTitle:"Eat what's here" keys:"e,"] toCommands:commands];
+				[self addCommand:[NhCommand commandWithTitle:"Eat" key:"e,"] 
+					  toCommands:cmdDictionary withKey:[NSNumber numberWithInt: kEat]]; // Eat Whats Here
 			}
 			struct obj *otmp = shop_object(u.ux, u.uy);
 			if (otmp) {
-				[self addCommand:[NhCommand commandWithTitle:"Chat" key:M('c')] toCommands:commands];
+				[self addCommand:[NhCommand commandWithTitle:"Chat" key:M('c')] 
+					  toCommands:cmdDictionary withKey:[NSNumber numberWithInt: kObjChat]];
 			}
 			object = object->nexthere;
 		}
 	}
 
 	if (IS_ALTAR(levl[u.ux][u.uy].typ) && (inv & fCorpse)) {
-		[self addCommand:[NhCommand commandWithTitle:"Offer" key:M('o')] toCommands:commands];
+		[self addCommand:[NhCommand commandWithTitle:"Offer" key:M('o')] 
+			  toCommands:cmdDictionary withKey:[NSNumber numberWithInt: kOffer]];
 	}
 	if (IS_FOUNTAIN(levl[u.ux][u.uy].typ) || IS_SINK(levl[u.ux][u.uy].typ) || IS_TOILET(levl[u.ux][u.uy].typ)) {
-		[self addCommand:[NhCommand commandWithTitle:"Quaff" key:'q'] toCommands:commands];
-		[self addCommand:[NhCommand commandWithTitle:"Dip" key:M('d')] toCommands:commands];
+		[self addCommand:[NhCommand commandWithTitle:"Quaff" key:'q'] 
+			  toCommands:cmdDictionary withKey:[NSNumber numberWithInt: kQuaff]];
+		[self addCommand:[NhCommand commandWithTitle:"Dip" key:M('d')] 
+			  toCommands:cmdDictionary withKey:[NSNumber numberWithInt: kDip];
 	}
 	if (IS_THRONE(levl[u.ux][u.uy].typ)) {
-		[self addCommand:[NhCommand commandWithTitle:"Sit" key:M('s')] toCommands:commands];
+		[self addCommand:[NhCommand commandWithTitle:"Sit" key:M('s')] 
+			  toCommands:cmdDictionary withKey:[numberWithInt: kSit];
 	}
 	
 	struct engr *ep = engr_at(u.ux, u.uy);
@@ -185,65 +200,89 @@ enum InvFlags {
 			if (IS_DOOR(levl[tx][ty].typ)) {
 				int mask = levl[tx][ty].doormask;
 				if (mask & D_ISOPEN) {
-					[self addCommand:[NhCommand commandWithTitle:"Close" key:'c'] toCommands:commands];
+					[self addCommand:[NhCommand commandWithTitle:"Close" key:'c'] 
+						  toCommands:cmdDictionary withKey:[NSNumber numberWithInt: kClose]];
 				} else {
 					if (mask & D_CLOSED) {
-						[self addCommand:[NhCommand commandWithTitle:"Open" key:'o'] toCommands:commands];
+						[self addCommand:[NhCommand commandWithTitle:"Open" key:'o'] 
+							  toCommands:cmdDictionary withKey:[NSNumber numberWithInt: kOpen]];
 					} else if (mask & D_LOCKED) {
 						if (inv & fWieldedWeapon) {
-							[self addCommand:[NhCommand commandWithTitle:"Force" key:M('f')] toCommands:commands];
+							[self addCommand:[NhCommand commandWithTitle:"Force" key:M('f')] 
+								  toCommands:cmdDictionary withKey:[NSNumber numberWithInt: kDoorForce]];
 						}
 						if (inv & fAppliable) {
-							[self addCommand:[NhCommand commandWithTitle:"Apply" key:'a'] toCommands:commands];
+							[self addCommand:[NhCommand commandWithTitle:"Apply" key:'a'] 
+								  toCommands:cmdDictionary withKey:[NSNumber numberWithInt: kDoorApply]];
 						}
 					}
 					// if polymorphed into something that can't open doors, kick should there for either door mask
-					[self addCommand:[NhCommand commandWithTitle:"Kick" key:C('d')] toCommands:commands];
+					[self addCommand:[NhCommand commandWithTitle:"Kick" key:C('d')] 
+						  toCommands:cmdDictionary withKey:[NSNumber numberWithInt: kKick]];
 				}
 			}
 			struct trap *t = t_at(tx, ty);
 			if (t) {
-				[self addCommand:[NhCommand commandWithTitle:"Untrap" key:M('u')] toCommands:commands];
-				[self addCommand:[NhCommand commandWithTitle:"Identify Trap" key:'^'] toCommands:commands];
+				[self addCommand:[NhCommand commandWithTitle:"Untrap" key:M('u')] 
+					  toCommands:cmdDictionary withKey:[NSNumber numberWithInt: kUntrap]];
+				[self addCommand:[NhCommand commandWithTitle:"Identify Trap" key:'^'] 
+					  toCommands:cmdDictionary withKey:[NSNumber numberWithInt: kIDTrap]];
 			}
 			struct monst *mtmp = m_at(tx, ty);
 			if (mtmp) {
-				[self addCommand:[NhCommand commandWithTitle:"Chat" key:M('c')] toCommands:commands];
+				[self addCommand:[NhCommand commandWithTitle:"Chat" key:M('c')] 
+					  toCommands:cmdDictionary withKey:[NSNumber numberWithInt: kMonsterChat]];
 			}
 		}
 	}
 	
 	if (inv & fAppliable) {
-		[self addCommand:[NhCommand commandWithTitle:"Apply" key:'a'] toCommands:commands];
+		[self addCommand:[NhCommand commandWithTitle:"Apply" key:'a'] 
+			  toCommands:cmdDictionary withKey:[NSNumber numberWithInt: kInvApply]];
 	}
 	if (spellid(0) != NO_SPELL) {
-		[self addCommand:[NhCommand commandWithTitle:"Cast" key:'Z'] toCommands:commands];
+		[self addCommand:[NhCommand commandWithTitle:"Cast" key:'Z'] 
+			  toCommands:cmdDictionary withKey:[NSNumber numberWithInt: kCast]];
 	}
 	if (!notake(youmonst.data) && !check_capacity((char *)0) && uquiver) {
-		[self addCommand:[NhCommand commandWithTitle:"Fire" key:'f'] toCommands:commands];
+		[self addCommand:[NhCommand commandWithTitle:"Fire" key:'f'] 
+			  toCommands:cmdDictionary withKey:[NSNumber numberWithInt: kFire]];
 	}
 	if (inv & fReadable) {
-		[self addCommand:[NhCommand commandWithTitle:"Read" key:'r'] toCommands:commands];
+		[self addCommand:[NhCommand commandWithTitle:"Read" key:'r'] 
+			  toCommands:cmdDictionary withKey:[NSNumber numberWithInt: kRead]];
 	}
 	if (inv & fEngraved) {
-		[self addCommand:[NhCommand commandWithTitle:"Read what's here" keys:"r."] toCommands:commands];
+		[self addCommand:[NhCommand commandWithTitle:"Read what's here" keys:"r."] 
+			  toCommands:cmdDictionary withKey:[NSNumber numberWithInt: kReadHere];
 	}
 	
-	[self addCommand:[NhCommand commandWithTitle:"Kick" key:C('d')] toCommands:commands];
+	[self addCommand:[NhCommand commandWithTitle:"Kick" key:C('d')] 
+		toCommands:cmdDictionary withKey:[NSNumber numberWithInt: kKick]];
+		 
 	if (inv & fEngraved) {
-		[self addCommand:[NhCommand commandWithTitle:"E-Word" keys:"E-nElbereth"] toCommands:commands];
+		[self addCommand:[NhCommand commandWithTitle:"E-Word" keys:"E-nElbereth"] 
+			  toCommands:cmdDictionary withKey:[NSNumber numberWithInt: kEWord]];
 	} else {
-		[self addCommand:[NhCommand commandWithTitle:"E-Word" keys:"E-Elbereth"] toCommands:commands];
+		[self addCommand:[NhCommand commandWithTitle:"E-Word" keys:"E-Elbereth"] 
+			  toCommands:cmdDictionary withKey:[NSNumber numberWithInt: kEWord]];
 	}
 	if (inside_shop(u.ux, u.uy)) {
-		[self addCommand:[NhCommand commandWithTitle:"Pay" key:'p'] toCommands:commands];
+		[self addCommand:[NhCommand commandWithTitle:"Pay" key:'p'] 
+			  toCommands:cmdDictionary withKey:[NSNumber numberWithInt: kPay]];
 	}
 	
-	[self addCommand:[NhCommand commandWithTitle:"Pray" key:M('p')] toCommands:commands];
-	[self addCommand:[NhCommand commandWithTitle:"Rest 19 turns" keys:"19."] toCommands:commands];
-	[self addCommand:[NhCommand commandWithTitle:"Rest 99 turns" keys:"99."] toCommands:commands];
-
-	return commands;
+	[self addCommand:[NhCommand commandWithTitle:"Pray" key:M('p')] 
+		  toCommands:cmdDictionary withKey:[NSNumber numberWithInt: kPray]];
+	
+	[self addCommand:[NhCommand commandWithTitle:"Rest 19 turns" keys:"19."] 
+		  toCommands:cmdDictionary withKey:[NSNumber numberWithInt: kRest19];
+	[self addCommand:[NhCommand commandWithTitle:"Rest 99 turns" keys:"99."] 
+		  toCommands:cmdDictionary withKey:[NSNumber numberWithInt: kRest99];
+	 
+	
+	 
+	return cmdDictionary;
 }
 
 + (NhCommand *)directionCommandWithTitle:(const char *)t key:(char)key direction:(char)d {
