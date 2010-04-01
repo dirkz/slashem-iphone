@@ -7,9 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		43EAE9521163D26D00705D31 /* tile2png.m in Sources */ = {isa = PBXBuildFile; fileRef = 43EAE9511163D26D00705D31 /* tile2png.m */; };
 		43EAE9621163D30100705D31 /* libpng.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 43EAE9611163D30100705D31 /* libpng.a */; };
-		43EAE96A1163D35400705D31 /* tiletext.c in Sources */ = {isa = PBXBuildFile; fileRef = 43EAE9691163D35400705D31 /* tiletext.c */; };
 		8DD76F790486A8DE00D96B5E /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09AB6884FE841BABC02AAC07 /* CoreFoundation.framework */; };
 /* End PBXBuildFile section */
 
@@ -27,13 +25,11 @@
 
 /* Begin PBXFileReference section */
 		09AB6884FE841BABC02AAC07 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = /System/Library/Frameworks/CoreFoundation.framework; sourceTree = "<absolute>"; };
-		43EAE9511163D26D00705D31 /* tile2png.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = tile2png.m; sourceTree = "<group>"; };
 		43EAE95D1163D2DC00705D31 /* config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = config.h; path = ../../../include/config.h; sourceTree = SOURCE_ROOT; };
 		43EAE95E1163D2DC00705D31 /* config1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = config1.h; path = ../../../include/config1.h; sourceTree = SOURCE_ROOT; };
 		43EAE95F1163D2DC00705D31 /* hack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = hack.h; path = ../../../include/hack.h; sourceTree = SOURCE_ROOT; };
 		43EAE9601163D2DC00705D31 /* tile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = tile.h; path = ../../../include/tile.h; sourceTree = SOURCE_ROOT; };
 		43EAE9611163D30100705D31 /* libpng.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpng.a; path = ../../../opt/local/lib/libpng.a; sourceTree = SDKROOT; };
-		43EAE9691163D35400705D31 /* tiletext.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = tiletext.c; sourceTree = "<group>"; };
 		8DD76F7E0486A8DE00D96B5E /* TileSetBuilder */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = TileSetBuilder; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -64,8 +60,6 @@
 		08FB7795FE84155DC02AAC07 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				43EAE9691163D35400705D31 /* tiletext.c */,
-				43EAE9511163D26D00705D31 /* tile2png.m */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -141,8 +135,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43EAE9521163D26D00705D31 /* tile2png.m in Sources */,
-				43EAE96A1163D35400705D31 /* tiletext.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

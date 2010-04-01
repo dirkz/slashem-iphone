@@ -1,9 +1,7 @@
 #!/usr/bin/perl -w
 #
 # Maps monsters.txt, objects.txt and other.txt from vanilla Slash'EM 0.0.7E7F3
-# to the absurd tileset single images (128x128) version.
-#
-# Dumps a list of filenames in tileset order to STDOUT.
+# to the absurd tileset single images (128x128) version and builds a tileset.png.
 #
 # Copyright 2010 Dirk Zimmermann.
 #
@@ -26,16 +24,19 @@
 # Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
 use Data::Dumper;
+use GD;
+use POSIX qw(ceil);
 
 # vanilla Slash'EM
 my $BASE_DIR = "/Users/dirk/Documents/xcode/slashem-0.0.7E7F3";
 
 my %CONFIG = (
-			  tileset_path => "/Users/dirk/Documents/roguelikes/absurd",
+			  tileset_path => "/Users/dirk/Documents/roguelikes/absurd single tiles",
 			  monsters => "$BASE_DIR/win/share/monsters.txt",
 			  objects => "$BASE_DIR/win/share/objects.txt",
 			  other => "$BASE_DIR/win/share/other.txt",
 			  tile_size => {width => 128, height => 128},
+			  columns => 38,
 			 );
 
 my @KEYS = qw(monsters objects other);
@@ -161,6 +162,7 @@ sub filename_for_tile {
 
 sub process_all_tiles {
   my ($key, $filename) = @_;
+  my @png_files;
   open TILEFILE, "<$filename" or die "could not read $filename";
   my $index = 0;
   while ($line = <TILEFILE>) {
@@ -170,24 +172,71 @@ sub process_all_tiles {
 	  if (!$png_filename || !-e "$CONFIG{tileset_path}/$png_filename") {
 		print STDERR "no file for $index $name\n";
 	  }
-	  print "$png_filename\n";
+	  #print "$png_filename\n";
+	  push @png_files, $png_filename;
 	  $index++;
 	}
   }
   close TILEFILE;
+  @png_files;
 }
 
 sub process_all_files {
+  my @png_files;
   foreach $key (@KEYS) {
 	my $filename = $CONFIG{$key};
 	$filename or die "empty filename for $key";
 	-e $filename or die "non-existing file for $filename";
-	process_all_tiles $key, $filename
+	my @pngs = process_all_tiles $key, $filename;
+	push @png_files, @pngs;
   }
+  @png_files;
+}
+
+sub create_tileset_image {
+  my ($pngs) = @_;
+  my @pngs = @$pngs;
+  my $tile_count = @pngs;
+  my ($tile_width, $tile_height) = ($CONFIG{tile_size}->{width}, $CONFIG{tile_size}->{height});
+  my $columns = $CONFIG{columns};
+  my $rows = ceil($tile_count / $columns);
+  my $tileset_count = $columns * $rows;
+  my ($width, $height) = ($columns * $tile_width, $rows * $tile_height);
+  print "creating ${columns}x$rows ($tile_count of $tileset_count max) ${tile_width}x$tile_height tiles in ${width}x$height image\n";
+  my $image = new GD::Image($width, $height, 1) or die "Could not create image tileset";
+  my ($x, $y) = (0,0);
+  foreach $filename (@pngs) {
+	my $img = GD::Image->newFromPng($filename, 1);
+	$image->copy($img, $x, $y, 0, 0, $tile_width, $tile_height);
+	$x += $tile_width;
+	if ($x >= $width) {
+	  $x = 0;
+	  $y += $tile_height;
+	}
+  }
+  my $png_blob = $image->png();
+  my $image_filename = "tileset.png";
+  print "writing $image_filename ...\n";
+  open PNGFILE, ">$image_filename" or die "could not save to $image_filename: $!";
+  binmode PNGFILE;
+  print PNGFILE $png_blob;
+  close PNGFILE;
+  undef $png_blob;
+  undef $image;
 }
 
 my $tileset_path = $CONFIG{tileset_path};
 opendir(my $dh, $tileset_path) || die "can't opendir $tileset_path: $!";
 @PNGs = grep { /\.png$/ } readdir($dh);
 closedir $dh;
-process_all_files
+my @pngs = process_all_files;
+
+my @png_files = map { "$CONFIG{tileset_path}/$_" } @pngs;
+
+create_tileset_image \@png_files;
+
+exit;
+
+foreach $png_file (@png_files) {
+  print "$png_file\n";
+}
