@@ -41,8 +41,6 @@ my %CONFIG = (
 
 my @KEYS = qw(monsters objects other);
 
-my @PNGs;
-
 my %EXCEPTIONS = (
 				  'wall' => [
 							 "cmap.wall.vertical.png", "cmap.wall.horizontal.png", "cmap.wall.top left corner.png",
@@ -210,9 +208,12 @@ sub create_tileset_image {
   my $image = new GD::Image($width, $height, 1) or die "Could not create image tileset";
   my ($x, $y) = (0,0);
 
-  # transparency
-  my $transp = $image->colorAllocate(0,0,0);
-  $image->transparent($transp);
+  # transparent background
+  my $transp = $image->colorAllocateAlpha(255,255,255, 0x7f);
+  $image->alphaBlending(0);
+  $image->filledRectangle(0, 0, $width, $height, $transp);
+  $image->alphaBlending(1);
+  $image->saveAlpha(1);
 
   # generate
   foreach $filename (@pngs) {
