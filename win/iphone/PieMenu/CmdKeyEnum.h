@@ -39,4 +39,5 @@ enum CmdKey {
 	kPray = 30,
 	kRest19 = 31,
 	kRest99 = 32,
+	kMove = 33,
 };

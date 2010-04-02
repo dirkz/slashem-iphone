@@ -51,6 +51,7 @@
 + (id)commandWithObject:(NhObject *)object title:(const char *)t keys:(const char *)cmds;
 + (id)commandWithTitle:(const char *)t keys:(const char *)c;
 + (id)commandWithTitle:(const char *)t key:(char)c;
++ (void)addCommand:(NhCommand *)cmd toCommands:(NSMutableDictionary *)commands withKey:(NSNumber *)key;
 
 // all commands possible at this stage
 + (NSMutableDictionary *)currentCommands;

@@ -98,6 +98,14 @@
 - (void)handleDirectionTap:(e_direction)direction;
 - (void)handleDirectionDoubleTap:(e_direction)direction;
 
+// pie handling
+- (void)pieMenuMoved:(NSSet *)touches withEvent:(UIEvent *)event;
+- (void)pieMenuEnded:(NSSet *)touches withEvent:(UIEvent *)event;
+- (BOOL)pieMenuHasItems;
+- (void)handleCenterTouchX:(int)x y:(int)y forLocation:(CGPoint)p inView:(UIView *)view;
+- (PieMenu *)pieMenu;
+
+
 // utility
 
 @end

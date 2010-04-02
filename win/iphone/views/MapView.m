@@ -164,9 +164,18 @@ static BOOL s_doubleTapsEnabled = NO;
 	[touchInfoStore storeTouches:touches];
 	if (touches.count == 1) {
 		UITouch *touch = [touches anyObject];
+		ZTouchInfo *ti = [touchInfoStore touchInfoForTouch:touch];
 		if (touch.tapCount == 2 && s_doubleTapsEnabled) {
-			ZTouchInfo *ti = [touchInfoStore touchInfoForTouch:touch];
 			ti.doubleTap = YES;
+		} else if (!ti.moved && !ti.pinched) {
+			CGPoint p = [touch locationInView:self];
+			if (!self.panned && !iphone_getpos) {
+				CGPoint center = CGPointMake(self.bounds.size.width/2, self.bounds.size.height/2);
+				CGPoint delta = CGPointMake(p.x-center.x, center.y-p.y);
+				if (fabs(delta.x) < selfTapRectSize.width/2 && fabs(delta.y) < selfTapRectSize.height/2) {
+					[[MainViewController instance] handleCenterTouchX:u.ux y:u.uy forLocation:p inView:self];
+				}
+			}
 		}
 	} else if (touches.count == 2) {
 		NSArray *allTouches = [touches allObjects];
@@ -180,6 +189,11 @@ static BOOL s_doubleTapsEnabled = NO;
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
+	if ([[MainViewController instance] pieMenuHasItems]) {
+		[[MainViewController instance] pieMenuMoved:touches withEvent:event];
+		return;
+	}
+	
 	if (touches.count == 1) {
 		UITouch *touch = [touches anyObject];
 		ZTouchInfo *ti = [touchInfoStore touchInfoForTouch:[touches anyObject]];
@@ -230,6 +244,8 @@ static BOOL s_doubleTapsEnabled = NO;
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+	[[MainViewController instance] pieMenuEnded:touches withEvent:event]; // Will close the menu upon finger lift.
+	 
 	if (touches.count == 1) {
 		UITouch *touch = [touches anyObject];
 		ZTouchInfo *ti = [touchInfoStore touchInfoForTouch:touch];
@@ -262,6 +278,9 @@ static BOOL s_doubleTapsEnabled = NO;
 }
 
 - (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
+	if ([[MainViewController instance] pieMenuHasItems])
+		[self touchesEnded:touches withEvent:event];
+	
 	[touchInfoStore removeTouches:touches];
 }
 

@@ -71,8 +71,8 @@ static MainViewController* instance;
 	[super awakeFromNib]; // responsible for viewDidLoad
 	
 	pieMenu = [[PieMenu alloc] init];
-	pieMenu.fingerSize = [defaults integerForKey:@"fingerSize"];
-	pieMenu.leftHanded = [defaults boolForKey:@"leftHanded"];
+	//pieMenu.fingerSize = [defaults integerForKey:@"fingerSize"];
+	//pieMenu.leftHanded = [defaults boolForKey:@"leftHanded"];
 	
 	instance = self;
 }
@@ -547,9 +547,9 @@ static MainViewController* instance;
 	} else if (!iphone_getpos) {
 		if (u.ux == x && u.uy == y) {
 			// tap on self
-			NSArray *commands = [NhCommand currentCommands];
+			/*NSArray *commands = [NhCommand currentCommands];
 			self.actionViewController.actions = commands;
-			[self presentModalViewController:actionViewController animated:YES];
+			[self presentModalViewController:actionViewController animated:YES];*/
 		} else {
 			coord delta = CoordMake(u.ux-x, u.uy-y);
 			if (abs(delta.x) <= 1 && abs(delta.y) <= 1 ) {
@@ -648,6 +648,116 @@ static MainViewController* instance;
 - (void) itemSelected:(PieMenuItem *)item {
 	NSLog(@"Item '%s' selected", [item.title UTF8String]);
 	[item invoke:self];
+}
+
+- (void)handleCenterTouchX:(int)x y:(int)y forLocation:(CGPoint)p inView:(UIView *)view {
+
+	if (!iphone_getpos) {
+		if (u.ux == x && u.uy == y) {
+			// tap on self
+			[[self pieMenu] showInView:self.view atPoint:p];
+		}
+	}
+}
+
+- (void)pieMenuMoved:(NSSet *)touches withEvent:(UIEvent *)event {
+	if ([[pieMenu items] count]) {
+		[[pieMenu pieView] touchesMoved:touches withEvent:event];
+	}
+}
+
+- (BOOL)pieMenuHasItems {
+	return [[pieMenu items] count];
+}
+
+- (void)pieMenuEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+	if ([[pieMenu items] count]) {
+		[[pieMenu pieView] touchesEnded:touches withEvent:event];
+		[pieMenu removeAllItems];
+	}
+}
+
+- (PieMenu *)pieMenu {
+	if (!pieMenu) {
+		pieMenu = [[PieMenu alloc] init];
+	}
+	[pieMenu removeAllItems];
+	NSDictionary *actions = [NhCommand currentCommands];
+	NSEnumerator *enumerator = [actions objectEnumerator];
+	NhCommand *cmd;
+	
+	NSLog(@"Item Count: %d", actions.count);
+	
+	if (actions.count > 7) {
+		NSLog(@"Actions: %@", actions);
+		OrganizedAction *oActions = [[OrganizedAction alloc] init];
+		[oActions organizeDict:actions];
+		NSLog(@"oActions: %@", oActions);
+		
+		// Main Pie Menu
+		if ([[oActions mainActions] count]) {
+			PieMenuItem * mainItem = [[PieMenuItem alloc] initWithTitle:@"Main" label:nil target:self selector:@selector(itemSelected:) userInfo:nil icon:[UIImage imageNamed:@"icon2.png"] command:nil];
+			enumerator = [[oActions mainActions] objectEnumerator];
+			for (cmd in enumerator) {
+				PieMenuItem *item = [[PieMenuItem alloc] initWithTitle:[cmd title] label:nil target:self selector:@selector(itemSelected:) userInfo:nil icon:[UIImage imageNamed:@"icon2.png"] command:cmd];
+				[mainItem addSubItem:item];
+				[item release];	
+			}
+			[pieMenu addItem:mainItem];
+			[mainItem release];
+		}
+		// Magic Sub Menu		
+		if ([[oActions magicActions] count]) {
+			PieMenuItem * magicItem = [[PieMenuItem alloc] initWithTitle:@"Magic" label:nil target:self selector:@selector(itemSelected:) userInfo:nil icon:[UIImage imageNamed:@"icon2.png"] command:nil];
+			enumerator = [[oActions magicActions] objectEnumerator];
+			for (cmd in enumerator) {
+				PieMenuItem *item = [[PieMenuItem alloc] initWithTitle:[cmd title] label:nil target:self selector:@selector(itemSelected:) userInfo:nil icon:[UIImage imageNamed:@"icon2.png"] command:cmd];
+				[magicItem addSubItem:item];
+				[item release];	
+			}
+			[pieMenu addItem:magicItem];
+			[magicItem release];
+		}
+		// Object Sub Menu
+		if ([[oActions objectActions] count]) {
+			PieMenuItem * objectItem = [[PieMenuItem alloc] initWithTitle:@"Object" label:nil target:self selector:@selector(itemSelected:) userInfo:nil icon:[UIImage imageNamed:@"icon2.png"] command:nil];
+			enumerator = [[oActions objectActions] objectEnumerator];
+			for (cmd in enumerator) {
+				PieMenuItem *item = [[PieMenuItem alloc] initWithTitle:[cmd title] label:nil target:self selector:@selector(itemSelected:) userInfo:nil icon:[UIImage imageNamed:@"icon2.png"] command:cmd];
+				[objectItem addSubItem:item];
+				[item release];	
+			}
+			[pieMenu addItem:objectItem];
+			[objectItem release];
+		}
+		// Door Sub Menu
+		if ([[oActions doorActions] count]) {
+			PieMenuItem * doorItem = [[PieMenuItem alloc] initWithTitle:@"Door" label:nil target:self selector:@selector(itemSelected:) userInfo:nil icon:[UIImage imageNamed:@"icon2.png"] command:nil];
+			enumerator = [[oActions doorActions] objectEnumerator];
+			for (cmd in enumerator) {
+				PieMenuItem *item = [[PieMenuItem alloc] initWithTitle:[cmd title] label:nil target:self selector:@selector(itemSelected:) userInfo:nil icon:[UIImage imageNamed:@"icon2.png"] command:cmd];
+				[doorItem addSubItem:item];
+				[item release];	
+			}
+			[pieMenu addItem:doorItem];
+			[doorItem release];
+		}		
+	} else if (actions.count > 0) {  // Just checking for the number of action first
+		while ((cmd = [enumerator nextObject])) {
+			PieMenuItem *item = [[PieMenuItem alloc] initWithTitle:[cmd title]
+															 label:nil 
+															target:self 
+														  selector:@selector(itemSelected:) 
+														  userInfo:nil 
+															  icon:[UIImage imageNamed:@"icon2.png"]
+														   command:cmd];
+			[pieMenu addItem:item];
+			[item release];
+		}
+	} else {
+		NSLog(@"Too many or too few items in the command list.");
+	}
+	return pieMenu;
 }
 
 #pragma mark UIAlertViewDelegate
