@@ -234,7 +234,7 @@ enum rotation_lock {
 			[toolbarItems addObject:[NhCommand commandWithTitle:"Fire" key:'f']];
 			[toolbarItems addObject:[NhCommand commandWithTitle:"Alt" key:'x']];
 			[toolbarItems addObject:[NhCommand commandWithTitle:"Cast" key:'Z']];
-			[toolbarItems addObject:[NhCommand commandWithTitle:"Ext" key:'#']];
+			[toolbarItems addObject:[NhCommand commandWithTitle:"#Ext" key:'#']];
 			[toolbarItems addObject:[Action actionWithTitle:@"Info" target:self action:@selector(infoMenuAction:) arg:nil]];
 			[toolbarItems addObject:[Action actionWithTitle:@"Tools" target:self action:@selector(toolsMenuAction:) arg:nil]];
 			[toolbarItems addObject:[Action actionWithTitle:@"Tilesets" target:self action:@selector(tilesetMenuAction:) arg:nil]];
