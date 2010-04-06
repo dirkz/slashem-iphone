@@ -82,6 +82,7 @@ enum InvFlags {
 	NSMutableArray *commands = [NSMutableArray array];
 	int inv = 0;
 	struct obj *oTinningKit = NULL;
+	struct obj *oCorpse = NULL; // corpse lying around
 
 	for (struct obj *otmp = invent; otmp; otmp = otmp->nobj) {
 		if (otmp->unpaid) {
@@ -154,10 +155,13 @@ enum InvFlags {
 				}
 			} else if (is_edible(object)) {
 				[self addCommand:[NhCommand commandWithTitle:"Eat what's here" keys:"e,"] toCommands:commands];
-				if (object->otyp == CORPSE && (inv & fTinningKit)) {
-					NhObject *tinningKit = [NhObject objectWithObject:oTinningKit];
-					[self addCommand:[NhCommand commandWithObject:tinningKit title:"Tin what's here" keys:"a" direction:","]
-						  toCommands:commands]; 
+				if (object->otyp == CORPSE) {
+					oCorpse = object;
+					if (inv & fTinningKit) {
+						NhObject *tinningKit = [NhObject objectWithObject:oTinningKit];
+						[self addCommand:[NhCommand commandWithObject:tinningKit title:"Tin what's here" keys:"a" direction:","]
+							  toCommands:commands]; 
+					}
 				}
 			}
 			struct obj *otmp = shop_object(u.ux, u.uy);
@@ -169,13 +173,20 @@ enum InvFlags {
 	}
 
 	if (IS_ALTAR(levl[u.ux][u.uy].typ) && (inv & fCorpse)) {
+		[self addCommand:[NhCommand commandWithTitle:"What's here" key:':'] toCommands:commands];
 		[self addCommand:[NhCommand commandWithTitle:"Offer" key:M('o')] toCommands:commands];
+		if (oCorpse) {
+			char cmd[] = { M('o'), ',', 0 };
+			[self addCommand:[NhCommand commandWithTitle:"Offer what's here" keys:cmd] toCommands:commands];
+		}
 	}
 	if (IS_FOUNTAIN(levl[u.ux][u.uy].typ) || IS_SINK(levl[u.ux][u.uy].typ) || IS_TOILET(levl[u.ux][u.uy].typ)) {
+		[self addCommand:[NhCommand commandWithTitle:"What's here" key:':'] toCommands:commands];
 		[self addCommand:[NhCommand commandWithTitle:"Quaff" keys:"q."] toCommands:commands];
 		[self addCommand:[NhCommand commandWithTitle:"Dip" key:M('d')] toCommands:commands];
 	}
 	if (IS_THRONE(levl[u.ux][u.uy].typ)) {
+		[self addCommand:[NhCommand commandWithTitle:"What's here" key:':'] toCommands:commands];
 		[self addCommand:[NhCommand commandWithTitle:"Sit" key:M('s')] toCommands:commands];
 	}
 	
@@ -219,6 +230,7 @@ enum InvFlags {
 			}
 			struct trap *t = t_at(tx, ty);
 			if (t) {
+				// todo check for knowledge about trap
 				[self addCommand:[NhCommand commandWithTitle:"Untrap" key:M('u')] toCommands:commands];
 				[self addCommand:[NhCommand commandWithTitle:"Identify Trap" key:'^'] toCommands:commands];
 			}
