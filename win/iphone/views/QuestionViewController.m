@@ -69,7 +69,14 @@
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
     
-	cell.textLabel.text = [NSString stringWithFormat:@"%c", question.choices[indexPath.row]];
+	NSString *title = nil;
+	if (question.choices[indexPath.row] == '\033') {
+		title = @"Cancel";
+	} else {
+		title = [NSString stringWithFormat:@"%c", question.choices[indexPath.row]];
+	}
+
+	cell.textLabel.text = title;
 
     return cell;
 }

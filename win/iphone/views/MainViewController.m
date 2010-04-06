@@ -394,17 +394,14 @@ enum rotation_lock {
 			[self parseYnChoices:args specials:&specials items:&items];
 			
 			if (specials) {
+				specials = [NSString stringWithFormat:@"%@\033", specials];
 				currentYnQuestion = q;
 				[currentYnQuestion overrideChoices:specials];
-				UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:@"Question" message:q.question
-																delegate:self cancelButtonTitle:nil otherButtonTitles:nil]
-									  autorelease];
-				const char *pStr = q.choices;
-				while (*pStr) {
-					[alert addButtonWithTitle:[NSString stringWithFormat:@"%c", *pStr]];
-					pStr++;
-				}
-				[alert show];
+				QuestionViewController *questionViewController = [[QuestionViewController alloc]
+																  initWithNibName:@"QuestionViewController" bundle:nil];
+				questionViewController.question = q;
+				[questionViewController autorelease];
+				[self presentModalViewController:questionViewController animated:YES];
 			} else {
 				NSLog(@"giving up on question %@", q.question);
 			}
