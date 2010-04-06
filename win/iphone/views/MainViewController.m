@@ -226,6 +226,8 @@ enum rotation_lock {
 	} else {
 		// build bottom bar
 		if (actionBar.actions.count == 0) {
+			actionScrollView.pagingEnabled = YES;
+			actionScrollView.bounces = NO;
 			NSMutableArray *toolbarItems = [NSMutableArray arrayWithCapacity:5];
 			[toolbarItems addObject:[NhCommand commandWithTitle:"Wait" key:'.']];
 			[toolbarItems addObject:[NhCommand commandWithTitle:"Search" keys:"9s"]];
