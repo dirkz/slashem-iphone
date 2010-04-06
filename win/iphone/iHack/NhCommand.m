@@ -30,25 +30,33 @@
 
 @implementation NhCommand
 
-+ (id)commandWithObject:(NhObject *)object title:(const char *)t key:(char)c {
-	char cmd[3] = { c, '\0', '\0' };
-	cmd[1] = object.inventoryLetter;
-	return [NhCommand commandWithTitle:t keys:cmd];
-}
-
-+ (id)commandWithObject:(NhObject *)object title:(const char *)t keys:(const char *)cmds {
-	int keysLen = strlen(cmds);
-	char cmd[keysLen + 2];
-	sprintf(cmd, "%s%c", cmds, object.inventoryLetter);
-	return [NhCommand commandWithTitle:t keys:cmd];
-}
-
 + (id)commandWithTitle:(const char *)t keys:(const char *)c {
 	return [[[self alloc] initWithTitle:t keys:c] autorelease];
 }
 
 + (id)commandWithTitle:(const char *)t key:(char)c {
 	return [[[self alloc] initWithTitle:t key:c] autorelease];
+}
+
++ (id)commandWithObject:(NhObject *)object title:(const char *)t key:(char)c {
+	return [[[self alloc] initWithObject:object title:t key:c] autorelease];
+}
+
++ (id)commandWithObject:(NhObject *)object title:(const char *)t keys:(const char *)cmds {
+	return [[[self alloc] initWithObject:object title:t keys:cmds] autorelease];
+}
+
++ (id)commandWithObject:(NhObject *)object title:(const char *)t keys:(const char *)cmds direction:(const char *)dir {
+	return [[[self alloc] initWithObject:object title:t keys:cmds direction:dir] autorelease];
+}
+
+- (id)initWithTitle:(const char *)t keys:(const char *)c {
+	if (self = [super init]) {
+		title = [[NSString alloc] initWithCString:t encoding:NSASCIIStringEncoding];
+		keys = malloc(strlen(c)+1);
+		strcpy(keys, c);
+	}
+	return self;
 }
 
 + (void)addCommand:(NhCommand *)cmd toCommands:(NSMutableArray *)commands {
@@ -67,11 +75,13 @@ enum InvFlags {
 	fEdible = 64,
 	fCorpse = 128,
 	fUnpaid = 256,
+	fTinningKit = 512,
 };
 
 + (NSArray *)currentCommands {
 	NSMutableArray *commands = [NSMutableArray array];
 	int inv = 0;
+	struct obj *oTinningKit = NULL;
 
 	for (struct obj *otmp = invent; otmp; otmp = otmp->nobj) {
 		if (otmp->unpaid) {
@@ -92,6 +102,10 @@ enum InvFlags {
 				inv |= fWeapon;
 				break;
 			case TOOL_CLASS:
+				if (otmp->otyp == TINNING_KIT) {
+					inv |= fTinningKit;
+					oTinningKit = otmp;
+				}
 			case POTION_CLASS:
 				inv |= fAppliable;
 				break;
@@ -107,12 +121,6 @@ enum InvFlags {
 		}
 	}
 	
-	// objects lying on the floor
-	struct obj *object = level.objects[u.ux][u.uy];
-	if (object) {
-		[self addCommand:[NhCommand commandWithTitle:"Pickup" key:','] toCommands:commands];
-	}
-	
 	if ((u.ux == xupstair && u.uy == yupstair)
 		|| (u.ux == sstairs.sx && u.uy == sstairs.sy && sstairs.up)
 		|| (u.ux == xupladder && u.uy == yupladder)) {
@@ -123,8 +131,11 @@ enum InvFlags {
 		[self addCommand:[NhCommand commandWithTitle:"Down" key:'>'] toCommands:commands];
 	}
 	
-	// objects lying on the floor again (after pickup has been put up already)
+	// objects lying on the floor
+	struct obj *object = level.objects[u.ux][u.uy];
 	if (object) {
+		[self addCommand:[NhCommand commandWithTitle:"Pickup" key:','] toCommands:commands];
+		[self addCommand:[NhCommand commandWithTitle:"What's here" key:':'] toCommands:commands];
 		while (object) {
 			if (Is_container(object)) {
 				struct obj *cobj = object;
@@ -143,6 +154,11 @@ enum InvFlags {
 				}
 			} else if (is_edible(object)) {
 				[self addCommand:[NhCommand commandWithTitle:"Eat what's here" keys:"e,"] toCommands:commands];
+				if (object->otyp == CORPSE && (inv & fTinningKit)) {
+					NhObject *tinningKit = [NhObject objectWithObject:oTinningKit];
+					[self addCommand:[NhCommand commandWithObject:tinningKit title:"Tin what's here" keys:"a" direction:","]
+						  toCommands:commands]; 
+				}
 			}
 			struct obj *otmp = shop_object(u.ux, u.uy);
 			if (otmp) {
@@ -295,17 +311,28 @@ enum InvFlags {
 			nil];
 }
 
-- (id)initWithTitle:(const char *)t keys:(const char *)c {
-	if (self = [super init]) {
-		title = [[NSString alloc] initWithCString:t encoding:NSASCIIStringEncoding];
-		keys = malloc(strlen(c)+1);
-		strcpy(keys, c);
-	}
-	return self;
-}
-
 - (id)initWithTitle:(const char *)t key:(char)c {
 	char cmd[] = { c, '\0' };
+	return [self initWithTitle:t keys:cmd];
+}
+
+- (id)initWithObject:(NhObject *)object title:(const char *)t key:(char)c {
+	char cmd[3] = { c, '\0', '\0' };
+	cmd[1] = object.inventoryLetter;
+	return [self initWithTitle:t keys:cmd];
+}
+
+- (id)initWithObject:(NhObject *)object title:(const char *)t keys:(const char *)cmds {
+	int keysLen = strlen(cmds);
+	char cmd[keysLen + 2]; // room for inv letter and terminal 0
+	sprintf(cmd, "%s%c", cmds, object.inventoryLetter);
+	return [self initWithTitle:t keys:cmd];
+}
+
+- (id)initWithObject:(NhObject *)object title:(const char *)t keys:(const char *)cmds direction:(const char *)dir {
+	int keysLen = strlen(cmds) + strlen(dir);
+	char cmd[keysLen + 2]; // room for inv letter and terminal 0
+	sprintf(cmd, "%s%c%s", cmds, object.inventoryLetter, dir);
 	return [self initWithTitle:t keys:cmd];
 }
 

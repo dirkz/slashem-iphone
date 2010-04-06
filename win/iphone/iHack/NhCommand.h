@@ -47,10 +47,11 @@
 
 @property (nonatomic, readonly) const char *keys;
 
-+ (id)commandWithObject:(NhObject *)object title:(const char *)t key:(char)c;
-+ (id)commandWithObject:(NhObject *)object title:(const char *)t keys:(const char *)cmds;
 + (id)commandWithTitle:(const char *)t keys:(const char *)c;
 + (id)commandWithTitle:(const char *)t key:(char)c;
++ (id)commandWithObject:(NhObject *)object title:(const char *)t key:(char)c;
++ (id)commandWithObject:(NhObject *)object title:(const char *)t keys:(const char *)cmds;
++ (id)commandWithObject:(NhObject *)object title:(const char *)t keys:(const char *)cmds direction:(const char *)dir;
 
 // all commands possible at this stage
 + (NSArray *)currentCommands;
@@ -63,5 +64,8 @@
 
 - (id)initWithTitle:(const char *)t keys:(const char *)c;
 - (id)initWithTitle:(const char *)t key:(char)c;
+- (id)initWithObject:(NhObject *)object title:(const char *)t key:(char)c;
+- (id)initWithObject:(NhObject *)object title:(const char *)t keys:(const char *)cmds;
+- (id)initWithObject:(NhObject *)object title:(const char *)t keys:(const char *)cmds direction:(const char *)dir;
 
 @end
