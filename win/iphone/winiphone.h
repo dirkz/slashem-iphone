@@ -30,6 +30,10 @@
 #define kWizard (@"kWizard")
 #define kCharacterName (@"kCharacterName")
 #define kNetHackTileSet (@"kNetHackTileSet")
+#define kRotationLock (@"kRotationLock")
+#define kRotationLockNone (@"kRotationLockNone")
+#define kRotationLockPortrait (@"kRotationLockPortrait")
+#define kRotationLockLandscape (@"kRotationLockLandscape")
 
 void iphone_init_nhwindows(int* argc, char** argv);
 void iphone_player_selection();

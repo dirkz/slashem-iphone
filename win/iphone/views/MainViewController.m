@@ -53,6 +53,29 @@ static MainViewController* instance;
 
 @implementation MainViewController
 
+enum rotation_lock {
+	none, portrait, landscape
+} g_rotationLock;
+
++ (void)initialize {
+    NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
+	
+	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+	[defaults registerDefaults:[NSDictionary dictionaryWithObjectsAndKeys:
+								@"kRotationLockNone", kRotationLock,
+								nil]];
+	
+	NSString *rotationLock = [defaults stringForKey:kRotationLock];
+	if ([rotationLock isEqual:kRotationLockNone]) {
+		g_rotationLock = none;
+	} else if ([rotationLock isEqual:kRotationLockPortrait]) {
+		g_rotationLock = portrait;
+	} else if ([rotationLock isEqual:kRotationLockLandscape]) {
+		g_rotationLock = landscape;
+	}
+	[pool drain];
+}
+
 + (MainViewController *)instance {
 	return instance;
 }
@@ -62,8 +85,17 @@ static MainViewController* instance;
 	instance = self;
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-	return YES;
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)iO {
+	switch (g_rotationLock) {
+		case none:
+			return YES;
+		case portrait:
+			return iO == UIInterfaceOrientationPortrait || iO == UIInterfaceOrientationPortraitUpsideDown;
+		case landscape:
+			return iO == UIInterfaceOrientationLandscapeLeft || iO == UIInterfaceOrientationLandscapeRight;
+		default:
+			return YES;
+	}
 }
 
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
