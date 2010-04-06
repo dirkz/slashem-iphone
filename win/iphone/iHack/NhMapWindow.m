@@ -28,6 +28,8 @@
 
 @implementation NhMapWindow
 
+@synthesize glyphs;
+
 - (id) initWithType:(int)t {
 	if (self = [super initWithType:t]) {
 		size_t numBytes = COLNO * ROWNO * sizeof(int);
@@ -42,7 +44,7 @@
 }
 
 - (int) glyphAtX:(XCHAR_P)x y:(XCHAR_P)y {
-	return glyphs[y * COLNO + x];
+	return glyphAt(glyphs, x, y);
 }
 
 - (void) clear {

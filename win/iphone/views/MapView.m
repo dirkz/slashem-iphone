@@ -108,13 +108,14 @@ static BOOL s_doubleTapsEnabled = NO;
 		CGContextSetFillColor(ctx, backgroundColor);
 		CGContextFillRect(ctx, rect);
 
+		int *glyphs = map.glyphs;
 		for (int j = 0; j < ROWNO; ++j) {
 			for (int i = 0; i < COLNO; ++i) {
 				CGPoint p = CGPointMake(start.x+i*tileSize.width,
 										start.y-j*tileSize.height);
 				CGRect r = CGRectMake(p.x, p.y, tileSize.width, tileSize.height);
 				if (CGRectIntersectsRect(r, rect)) {
-					int glyph = [map glyphAtX:i y:j];
+					int glyph = glyphAt(glyphs, i, j);
 					if (glyph != kNoGlyph) {
 						CGImageRef tileImg = [[TileSet instance] imageForGlyph:glyph atX:i y:j];
 						CGContextDrawImage(ctx, r, tileImg);

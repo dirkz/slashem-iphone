@@ -29,12 +29,16 @@
 #include "hack.h"
 
 #define kNoGlyph (-1)
+#define glyphAt(g, x, y)(g[y * COLNO + x])
 
 @interface NhMapWindow : NhWindow {
 	
 	int *glyphs;
 
 }
+
+// for faster bulk access
+@property (nonatomic, readonly) int *glyphs;
 
 - (id) initWithType:(int)t;
 - (void) printGlyph:(int)glyph atX:(XCHAR_P)x y:(XCHAR_P)y;
