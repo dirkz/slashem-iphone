@@ -156,7 +156,7 @@ enum InvFlags {
 		[self addCommand:[NhCommand commandWithTitle:"Offer" key:M('o')] toCommands:commands];
 	}
 	if (IS_FOUNTAIN(levl[u.ux][u.uy].typ) || IS_SINK(levl[u.ux][u.uy].typ) || IS_TOILET(levl[u.ux][u.uy].typ)) {
-		[self addCommand:[NhCommand commandWithTitle:"Quaff" key:'q'] toCommands:commands];
+		[self addCommand:[NhCommand commandWithTitle:"Quaff" keys:"q."] toCommands:commands];
 		[self addCommand:[NhCommand commandWithTitle:"Dip" key:M('d')] toCommands:commands];
 	}
 	if (IS_THRONE(levl[u.ux][u.uy].typ)) {
