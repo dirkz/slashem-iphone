@@ -26,7 +26,7 @@
 
 @implementation NhYnQuestion
 
-@synthesize question, choices;
+@synthesize question;
 
 - (id) initWithQuestion:(const char *)q choices:(const char *)ch default:(int)def {
 	if (self = [super init]) {
@@ -36,8 +36,21 @@
 	return self;
 }
 
+- (void)overrideChoices:(NSString *)ch {
+	overriddenChoices = [ch copy];
+}
+
+- (const char *)choices {
+	if (overriddenChoices) {
+		return [overriddenChoices cStringUsingEncoding:NSASCIIStringEncoding];
+	} else {
+		return choices;
+	}
+}
+
 - (void) dealloc {
 	[question release];
+	[overriddenChoices release];
 	[super dealloc];
 }
 

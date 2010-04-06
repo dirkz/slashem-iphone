@@ -28,12 +28,14 @@
 	
 	NSString *question;
 	const char *choices;
+	NSString *overriddenChoices;
 
 }
 
 @property (nonatomic, readonly) NSString *question;
 @property (nonatomic, readonly) const char *choices;
 
-- (id) initWithQuestion:(const char *)q choices:(const char *)ch default:(int)def;
+- (id)initWithQuestion:(const char *)q choices:(const char *)ch default:(int)def;
+- (void)overrideChoices:(NSString *)ch;
 
 @end

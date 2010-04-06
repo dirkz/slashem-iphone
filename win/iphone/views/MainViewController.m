@@ -284,7 +284,7 @@ enum rotation_lock {
 	directionQuestion = YES;
 }
 
-// Parses the stuff in [] and returns the special characters like $-?* etc.
+// Parses the stuff in [] (without the brackets) and returns the special characters like $-?* etc.
 // examples:
 // [$abcdf or ?*]
 // [a or ?*]
@@ -293,6 +293,7 @@ enum rotation_lock {
 // [- a or ?*]
 // [- a-cw-z or ?*]
 // [- a-cW-Z or ?*]
+// [* or ,] // this doesn't parse correctly
 - (void)parseYnChoices:(NSString *)lets specials:(NSString **)specials items:(NSString **)items {
 	char cSpecials[BUFSZ];
 	char cItems[BUFSZ];
@@ -338,6 +339,7 @@ enum rotation_lock {
 				}
 				break;
 			case end:
+				// this is supposed to skip 'or' at the end
 				if (!isalpha(c) && c != ' ') {
 					*pSpecials++ = c;
 				}
@@ -384,21 +386,27 @@ enum rotation_lock {
 				}
 			}
 		} else {
-			// very general question, could be everything
+			// no choices, could be everything
+			NSLog(@"no-choice question %@", q.question);
 			NSString *args = [q.question substringBetweenDelimiters:@"[]"];
-			BOOL questionMark = NO;
-			if (args) {
-				const char *pStr = [args cStringUsingEncoding:NSASCIIStringEncoding];
+			
+			NSString *specials = nil, *items = nil;
+			[self parseYnChoices:args specials:&specials items:&items];
+			
+			if (specials) {
+				currentYnQuestion = q;
+				[currentYnQuestion overrideChoices:specials];
+				UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:@"Question" message:q.question
+																delegate:self cancelButtonTitle:nil otherButtonTitles:nil]
+									  autorelease];
+				const char *pStr = q.choices;
 				while (*pStr) {
-					if (*pStr++ == '?') {
-						questionMark = YES;
-					}
+					[alert addButtonWithTitle:[NSString stringWithFormat:@"%c", *pStr]];
+					pStr++;
 				}
-			}
-			if (questionMark) {
-				[[NhEventQueue instance] addKey:'?'];
+				[alert show];
 			} else {
-				NSLog(@"unknown question %@", q.question);
+				NSLog(@"giving up on question %@", q.question);
 			}
 		}
 	}
