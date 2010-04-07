@@ -200,9 +200,11 @@ enum InvFlags {
 		}
 	}
 
-	if (IS_ALTAR(levl[u.ux][u.uy].typ) && (inv & fCorpse)) {
+	if (IS_ALTAR(levl[u.ux][u.uy].typ)) {
 		[self addCommand:[NhCommand commandWithTitle:"What's here" key:':'] toCommands:commands key:kDungeon];
-		[self addCommand:[NhCommand commandWithTitle:"Offer" key:M('o')] toCommands:commands key:kDungeon];
+		if (inv & fCorpse) {
+			[self addCommand:[NhCommand commandWithTitle:"Offer" key:M('o')] toCommands:commands key:kDungeon];
+		}
 		if (oCorpse) {
 			char cmd[] = { M('o'), ',', 0 };
 			[self addCommand:[NhCommand commandWithTitle:"Offer what's here" keys:cmd] toCommands:commands key:kDungeon];
