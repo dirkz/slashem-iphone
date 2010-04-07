@@ -22,6 +22,8 @@
  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
+#import <QuartzCore/CALayer.h>
+
 #import "MessageView.h"
 #import "NhWindow.h"
 
@@ -44,6 +46,7 @@
 	CGSize content = self.contentSize;
 	CGSize bounds = self.bounds.size;
 	//NSLog(@"%3.2f (%3.2f / %3.2f)", self.contentOffset.y, content.height, bounds.height);
+	[self.layer removeAllAnimations];
 	if (content.height > bounds.height) {
 		[self setContentOffset:CGPointMake(0.0f, -(bounds.height-content.height)) animated:YES];
 	} else {
@@ -57,18 +60,22 @@
 }
 
 - (IBAction)toggleView:(id)sender {
+	static NSString *kEnlarge = @"enlarge";
+	static NSString *kShrink = @"shrink";
 	if (messageWindow) {
 		if (!historyDisplayed) {
-			CGRect frame = originalFrame = self.frame;
+			[self.layer removeAnimationForKey:kEnlarge];
+			 CGRect frame = originalFrame = self.frame;
 			CGRect superBounds = self.superview.bounds;
 			frame.size.height = superBounds.size.height/3;
-			[UIView beginAnimations:@"enlarge" context:NULL];
+			[UIView beginAnimations:kEnlarge context:NULL];
 			self.frame = frame;
 			[self setText:messageWindow.historyText];
 			[UIView commitAnimations];
 			historyDisplayed = YES;
 		} else {
-			[UIView beginAnimations:@"downsize" context:NULL];
+			[self.layer removeAnimationForKey:kShrink];
+			[UIView beginAnimations:kShrink context:NULL];
 			self.frame = originalFrame;
 			[UIView commitAnimations];
 			historyDisplayed = NO;
