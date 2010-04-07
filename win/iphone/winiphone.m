@@ -128,7 +128,9 @@ coord CoordMake(xchar i, xchar j) {
 								@"gltile32.png", kNetHackTileSet,
 								nil]];
 
-	char nethackBaseOptions[512] = "boulder:0,time,autopickup,autodig,showexp,pickup_types:$!?\"=/,norest_on_space,runmode:walk";
+	char nethackBaseOptions[512] = "boulder:0,time,autopickup,autodig"
+	",showexp,pickup_types:$!?\"=/,norest_on_space,runmode:walk"
+	",toptenwin";
 	NSString *netHackOptions = [defaults stringForKey:kNetHackOptions];
 	if (netHackOptions && netHackOptions.length > 0) {
 		strcpy(nethackBaseOptions, [netHackOptions cStringUsingEncoding:NSASCIIStringEncoding]);
@@ -199,7 +201,7 @@ void iphone_init_nhwindows(int* argc, char** argv) {
 	}
 
 #if TARGET_OS_IPHONE && TARGET_IPHONE_SIMULATOR
-	wizard = TRUE; /* debugging */
+	//wizard = TRUE; /* debugging */
 #endif
 	
 }
