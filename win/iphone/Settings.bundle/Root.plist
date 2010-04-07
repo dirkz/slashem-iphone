@@ -62,6 +62,44 @@
 			<key>DefaultValue</key>
 			<true/>
 		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+			<key>Title</key>
+			<string>Pie Menu</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSToggleSwitchSpecifier</string>
+			<key>Title</key>
+			<string>Left Handed</string>
+			<key>Key</key>
+			<string>leftHanded</string>
+			<key>DefaultValue</key>
+			<false/>
+		</dict>
+		<dict>
+			<key>Titles</key>
+			<array>
+				<string>Tiny</string>
+				<string>Normal</string>
+				<string>Big</string>
+			</array>
+			<key>Values</key>
+			<array>
+				<integer>0</integer>
+				<integer>1</integer>
+				<integer>2</integer>
+			</array>
+			<key>Type</key>
+			<string>PSMultiValueSpecifier</string>
+			<key>Title</key>
+			<string>Finger Size</string>
+			<key>Key</key>
+			<string>fingerSize</string>
+			<key>DefaultValue</key>
+			<integer>1</integer>
+		</dict>
 	</array>
 </dict>
 </plist>

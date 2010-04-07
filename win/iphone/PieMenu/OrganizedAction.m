@@ -18,10 +18,12 @@
 @synthesize mainActions;
 @synthesize magicActions;
 @synthesize objectActions;
+@synthesize	otherActions;
+@synthesize restActions;
 
 - (NSString*) description {
-	return [NSString stringWithFormat:@"allActions: %@\ndoorActions: %@\nmainActions: %@\nmagicActions: %@\nobjectActions: %@",
-			allActions, doorActions, mainActions, magicActions, objectActions];
+	return [NSString stringWithFormat:@"allActions: %@\ndoorActions: %@\nmainActions: %@\nmagicActions: %@\nobjectActions: %@\notherActions: %@\nrestActions: %@",
+			allActions, doorActions, mainActions, magicActions, objectActions, otherActions, restActions];
 }
 
 - (id) init {
@@ -30,7 +32,8 @@
 	mainActions = [[NSMutableDictionary alloc] initWithCapacity:kMaxNumberOfItems];
 	magicActions = [[NSMutableDictionary alloc] initWithCapacity:kMaxNumberOfItems];
 	objectActions = [[NSMutableDictionary alloc] initWithCapacity:kMaxNumberOfItems];
-	
+	otherActions = [[NSMutableDictionary alloc] initWithCapacity:kMaxNumberOfItems];
+	restActions = [[NSMutableDictionary alloc] initWithCapacity:kMaxNumberOfItems];
 	return self;
 }
 
@@ -40,6 +43,8 @@
 	[mainActions release];
 	[magicActions release];
 	[objectActions release];
+	[otherActions release];
+	[restActions release];
     [super dealloc];
 }
 
@@ -65,6 +70,8 @@
 			[key intValue] == kDown		||
 			[key intValue] == kOffer	|| 
 			[key intValue] == kQuaff	||
+			[key intValue] == kDip		||
+			[key intValue] == kSit		||
 			[key intValue] == kFire)
 			[mainActions setObject:[unsortedDict objectForKey:key] forKey:key];
 		else if (
@@ -77,14 +84,28 @@
 				 [key intValue] == kEat			||
 				 [key intValue] == kObjForce	|| 
 				 [key intValue] == kObjApply	||
+				 [key intValue] == kInvApply    ||
 				 [key intValue] == kLoot)
 			[objectActions setObject:[unsortedDict objectForKey:key] forKey:key];
 		else if (
 				 [key intValue] == kOpen		|| 
 				 [key intValue] == kClose		||
 				 [key intValue] == kDoorApply	|| 
-				 [key intValue] == kDoorForce)
+				 [key intValue] == kDoorForce   ||
+				 [key intValue] == kKickDoor)
 			[doorActions setObject:[unsortedDict objectForKey:key] forKey:key];
+		else if (
+				 [key intValue] == kUntrap		||
+				 [key intValue] == kIDTrap		||
+				 [key intValue] == kObjChat		||
+				 [key intValue] == kPay			||
+				 [key intValue] == kReadHere	||
+				 [key intValue] == kPray)
+			[otherActions setObject:[unsortedDict objectForKey:key] forKey:key];
+		else if (
+				 [key intValue] == kRest19		||
+				 [key intValue] == kRest99)
+			[restActions setObject:[unsortedDict objectForKey:key] forKey:key];
 	}
 }
 

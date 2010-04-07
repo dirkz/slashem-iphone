@@ -52,13 +52,13 @@
 	return [[[self alloc] initWithTitle:t key:c] autorelease];
 }
 
++ (void)addCommand:(NhCommand *)cmd toCommands:(NSMutableArray *)commands {
+	if (![commands containsObject:cmd])
+		[commands addObject:cmd];
+}
+
 + (void)addCommand:(NhCommand *)cmd toCommands:(NSMutableDictionary *)commands withKey:(NSNumber *)key  {
 	[commands setObject:cmd forKey:key];
-	
-	/*
-	if (![commands containsObject:cmd]) {
-		[commands addObject:cmd];
-	}*/
 }
 
 enum InvFlags {
@@ -138,7 +138,7 @@ enum InvFlags {
 						  toCommands:cmdDictionary withKey:[NSNumber numberWithInt: kLoot]];
 				} else {
 					char cmdUntrapDown[] = {M('u'), '>', 0};
-					char forceDown[] = {M('f'), '>', 0};
+					//char forceDown[] = {M('f'), '>', 0};
 					[self addCommand:[NhCommand commandWithTitle:"Untrap Container" keys:cmdUntrapDown]
 						  toCommands:cmdDictionary withKey:[NSNumber numberWithInt: kObjUntrap]];
 					if (inv & fWieldedWeapon) { // Force Container
@@ -151,8 +151,9 @@ enum InvFlags {
 					}
 				}
 			} else if (is_edible(object)) {
-				[self addCommand:[NhCommand commandWithTitle:"Eat" key:"e,"] 
-					  toCommands:cmdDictionary withKey:[NSNumber numberWithInt: kEat]]; // Eat Whats Here
+				char cmdEatDown[] = {'e', ',' ,0};
+				[self addCommand:[NhCommand commandWithTitle:"Eat" key:cmdEatDown] 
+					  toCommands:cmdDictionary withKey:[NSNumber numberWithInt: kEat]]; // Eat Whats Here e,
 			}
 			struct obj *otmp = shop_object(u.ux, u.uy);
 			if (otmp) {
@@ -218,7 +219,7 @@ enum InvFlags {
 					}
 					// if polymorphed into something that can't open doors, kick should there for either door mask
 					[self addCommand:[NhCommand commandWithTitle:"Kick" key:C('d')] 
-						  toCommands:cmdDictionary withKey:[NSNumber numberWithInt: kKick]];
+						  toCommands:cmdDictionary withKey:[NSNumber numberWithInt: kKickDoor]];
 				}
 			}
 			struct trap *t = t_at(tx, ty);
@@ -290,8 +291,8 @@ enum InvFlags {
 	return [NhCommand commandWithTitle:t keys:cmd];
 }
 
-+ (NSMutableDictionary *)commandsForAdjacentTile:(coord)tp {
-	NSMutableDictionary *cmdDictionary = [[NSMutableDictionary alloc] init];
++ (NSArray *)commandsForAdjacentTile:(coord)tp {
+	NSMutableArray *commands = [NSMutableArray array];
 	coord nhDelta = CoordMake(tp.x-u.ux, tp.y-u.uy);
 	int dir = xytod(nhDelta.x, nhDelta.y);
 	char direction = sdir[dir];
@@ -300,40 +301,40 @@ enum InvFlags {
 			int mask = levl[tp.x][tp.y].doormask;
 			if (mask & D_ISOPEN) {
 				[self addCommand:[self directionCommandWithTitle:"Close" key:'c' direction:direction] 
-					  toCommands:cmdDictionary withKey:[NSNumber numberWithInt: kClose]];
+					  toCommands:commands];
 				[self addCommand:[NhCommand commandWithTitle:"Move" key:direction] 
-					  toCommands:cmdDictionary withKey:[NSNumber numberWithInt: kMove]];
+					  toCommands:commands];
 			} else {
 				if (mask & D_CLOSED) {
 					[self addCommand:[self directionCommandWithTitle:"Open" key:'o' direction:direction] 
-						  toCommands:cmdDictionary withKey:[NSNumber numberWithInt: kOpen]];
+						  toCommands:commands];
 					[self addCommand:[self directionCommandWithTitle:"Kick" key:C('d') direction:direction] 
-						  toCommands:cmdDictionary withKey:[NSNumber numberWithInt: kKick]];
+						  toCommands:commands];
 				} else if (mask & D_LOCKED) {
 					[self addCommand:[NhCommand commandWithTitle:"Force" key:M('f')] 
-						  toCommands:cmdDictionary withKey:[NSNumber numberWithInt: kDoorForce]];
+						  toCommands:commands];
 					[self addCommand:[NhCommand commandWithTitle:"Apply" key:'a'] 
-						  toCommands:cmdDictionary withKey:[NSNumber numberWithInt: kDoorApply]];
+						  toCommands:commands];
 					[self addCommand:[self directionCommandWithTitle:"Kick" key:C('d') direction:direction] 
-						  toCommands:cmdDictionary withKey:[NSNumber numberWithInt: kKick]];
+						  toCommands:commands];
 				}
 			}
 		}
 		struct trap *t = t_at(tp.x, tp.y);
 		if (t) {
 			[self addCommand:[self directionCommandWithTitle:"Untrap" key:M('u') direction:direction] 
-				  toCommands:cmdDictionary	withKey:[NSNumber numberWithInt: kUntrap]];
+				  toCommands:commands];
 			
 		}
 		struct monst *mtmp = m_at(tp.x, tp.y);
 		if (mtmp) {
 			[self addCommand:[self directionCommandWithTitle:"Chat" key:M('c') direction:direction] 
-				  toCommands:cmdDictionary withKey:[NSNumber numberWithInt: kMonsterChat]];
+				  toCommands:commands];
 			[self addCommand:[NhCommand commandWithTitle:"Move" key:direction] 
-				  toCommands:cmdDictionary withKey:[NSNumber numberWithInt: kMove]];
+				  toCommands:commands];
 		}
 	}
-	return cmdDictionary;
+	return commands;
 }
 
 + (NSArray *)directionCommands {

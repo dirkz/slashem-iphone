@@ -16,6 +16,8 @@
 	NSMutableDictionary *mainActions;
 	NSMutableDictionary *magicActions;
 	NSMutableDictionary *objectActions;
+	NSMutableDictionary *otherActions;
+	NSMutableDictionary *restActions;
 }
 
 @property (nonatomic, retain) NSMutableDictionary *allActions;
@@ -23,6 +25,8 @@
 @property (nonatomic, retain) NSMutableDictionary *mainActions;
 @property (nonatomic, retain) NSMutableDictionary *magicActions;
 @property (nonatomic, retain) NSMutableDictionary *objectActions;
+@property (nonatomic, retain) NSMutableDictionary *otherActions;
+@property (nonatomic, retain) NSMutableDictionary *restActions;
 
 - (id) init;
 - (void) organizeDict:(NSDictionary *)unsortedDict;

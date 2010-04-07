@@ -70,9 +70,11 @@ static MainViewController* instance;
 - (void)awakeFromNib {
 	[super awakeFromNib]; // responsible for viewDidLoad
 	
+	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+	
 	pieMenu = [[PieMenu alloc] init];
-	//pieMenu.fingerSize = [defaults integerForKey:@"fingerSize"];
-	//pieMenu.leftHanded = [defaults boolForKey:@"leftHanded"];
+	pieMenu.fingerSize = [defaults integerForKey:@"fingerSize"];
+	pieMenu.leftHanded = [defaults boolForKey:@"leftHanded"];
 	
 	instance = self;
 }
@@ -742,6 +744,30 @@ static MainViewController* instance;
 			[pieMenu addItem:doorItem];
 			[doorItem release];
 		}		
+		// Other Sub Menu
+		if ([[oActions otherActions] count]) {
+			PieMenuItem * otherItem = [[PieMenuItem alloc] initWithTitle:@"Other" label:nil target:self selector:@selector(itemSelected:) userInfo:nil icon:[UIImage imageNamed:@"icon2.png"] command:nil];
+			enumerator = [[oActions otherActions] objectEnumerator];
+			for (cmd in enumerator) {
+				PieMenuItem *item = [[PieMenuItem alloc] initWithTitle:[cmd title] label:nil target:self selector:@selector(itemSelected:) userInfo:nil icon:[UIImage imageNamed:@"icon2.png"] command:cmd];
+				[otherItem addSubItem:item];
+				[item release];	
+			}
+			[pieMenu addItem:otherItem];
+			[otherItem release];
+		}		
+		// Rest Actions
+		if ([[oActions restActions] count]) {
+			PieMenuItem * restItem = [[PieMenuItem alloc] initWithTitle:@"Rest" label:nil target:self selector:@selector(itemSelected:) userInfo:nil icon:[UIImage imageNamed:@"icon2.png"] command:nil];
+			enumerator = [[oActions restActions] objectEnumerator];
+			for (cmd in enumerator) {
+				PieMenuItem *item = [[PieMenuItem alloc] initWithTitle:[cmd title] label:nil target:self selector:@selector(itemSelected:) userInfo:nil icon:[UIImage imageNamed:@"icon2.png"] command:cmd];
+				[restItem addSubItem:item];
+				[item release];	
+			}
+			[pieMenu addItem:restItem];
+			[restItem release];
+		}				
 	} else if (actions.count > 0) {  // Just checking for the number of action first
 		while ((cmd = [enumerator nextObject])) {
 			PieMenuItem *item = [[PieMenuItem alloc] initWithTitle:[cmd title]
