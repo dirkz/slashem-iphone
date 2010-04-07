@@ -167,10 +167,11 @@ enum InvFlags {
 				[self addCommand:[NhCommand commandWithTitle:"Untrap Container" keys:cmdUntrapDown]
 					  toCommands:commands key:kFloor];
 				if (!cobj->olocked) {
-					[self addCommand:[NhCommand commandWithTitle:"Loot" key:M('l')] toCommands:commands key:kFloor];
+					char cmdLoot[] = {M('l'), 'y', 0};
+					[self addCommand:[NhCommand commandWithTitle:"Loot" keys:cmdLoot] toCommands:commands key:kFloor];
 				} else {
 					if (inv & fWieldedWeapon) {
-						char forceDown[] = {M('f'), '>', 0};
+						char forceDown[] = {M('f'), '>', 'y', 0};
 						[self addCommand:[NhCommand commandWithTitle:"Force Container" keys:forceDown]
 							  toCommands:commands key:kFloor];
 					}
