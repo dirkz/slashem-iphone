@@ -163,14 +163,14 @@ enum InvFlags {
 		while (object) {
 			if (Is_container(object)) {
 				struct obj *cobj = object;
+				char cmdUntrapDown[] = {M('u'), '>', 0};
+				[self addCommand:[NhCommand commandWithTitle:"Untrap Container" keys:cmdUntrapDown]
+					  toCommands:commands key:kFloor];
 				if (!cobj->olocked) {
 					[self addCommand:[NhCommand commandWithTitle:"Loot" key:M('l')] toCommands:commands key:kFloor];
 				} else {
-					char cmdUntrapDown[] = {M('u'), '>', 0};
-					char forceDown[] = {M('f'), '>', 0};
-					[self addCommand:[NhCommand commandWithTitle:"Untrap Container" keys:cmdUntrapDown]
-						  toCommands:commands key:kFloor];
 					if (inv & fWieldedWeapon) {
+						char forceDown[] = {M('f'), '>', 0};
 						[self addCommand:[NhCommand commandWithTitle:"Force Container" keys:forceDown]
 							  toCommands:commands key:kFloor];
 					}
