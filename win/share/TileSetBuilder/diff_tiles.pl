@@ -4,9 +4,6 @@
 #
 # Copyright 2010 Dirk Zimmermann.
 #
-# TODO
-# Make it customizable through command line options.
-#
 
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
@@ -24,26 +21,10 @@
 
 use Data::Dumper;
 
-# change both base dirs
-my $BASE_DIR1 = "/Users/dirk/Documents/xcode/slashem-0.0.7E0";
-my $BASE_DIR2 = "/Users/dirk/Documents/xcode/slashem-0.0.7E7F3";
+my $BASE_DIR1 = undef;
+my $BASE_DIR2 = undef;
 
-my %TILES1 = (
-			  monsters => "$BASE_DIR1/win/share/monsters.txt",
-			  objects => "$BASE_DIR1/win/share/objects.txt",
-			  other => "$BASE_DIR1/win/share/other.txt",
-			  extras => "$BASE_DIR1/win/share/extras.txt",
-			  zap => "$BASE_DIR1/win/share/zap.txt"
-			 );
-
-my %TILES2 = (
-			  monsters => "$BASE_DIR2/win/share/monsters.txt",
-			  objects => "$BASE_DIR2/win/share/objects.txt",
-			  other => "$BASE_DIR2/win/share/other.txt",
-			  extras => "$BASE_DIR2/win/share/extras.txt",
-			  zap => "$BASE_DIR2/win/share/zap.txt"
-			 );
-
+# the filenames that will be diffed
 my @KEYS = qw(monsters objects other extras zap);
 
 sub gather_tiles {
@@ -77,10 +58,46 @@ sub gather_all_tiles {
   return \%tiles_result;
 }
 
-$tile_info1 = gather_all_tiles \%TILES1;
-$tile_info2 = gather_all_tiles \%TILES2;
+sub usage {
+  return <<"END";
 
-foreach $key qw(monsters objects other) {
+Diffs tiles between Slash'EM / NetHack versions.
+
+Usage:
+$0 dir1 dir2
+
+Where dir1 and dir2 are the top-level source distribution directories,
+order matters because it's basically a transition path from dir1 to dir2.
+
+END
+}
+
+#
+# main
+#
+
+@ARGV == 2 or die usage;
+
+$dirs[0] = $ARGV[0];
+$dirs[1] = $ARGV[1];
+
+defined($dirs[0]) or die usage;
+defined($dirs[1]) or die usage;
+
+my @tiles = ();
+
+foreach $dir (@dirs) {
+  my $hash = {};
+  foreach $file (@KEYS) {
+	$hash->{$file} = "$dir/win/share/$file.txt";
+  }
+  push @tiles, $hash;
+}
+
+my $tile_info1 = gather_all_tiles $tiles[0];
+my $tile_info2 = gather_all_tiles $tiles[1];
+
+foreach $key (@KEYS) {
   my $index = 0;
   foreach $tile_name1 (@{$tile_info1->{$key}->{tiles}}) {
 	my $tile_name2 = $tile_info2->{$key}->{tiles}->[$index];
