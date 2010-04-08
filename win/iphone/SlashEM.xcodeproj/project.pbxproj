@@ -400,6 +400,7 @@
 		438622D21159104100295E23 /* QuestionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 438622D11159104100295E23 /* QuestionViewController.xib */; };
 		43C52F4511535404001FAA6D /* AsciiTileSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 43C52F4411535404001FAA6D /* AsciiTileSet.m */; };
 		43D4D3E3116CF22E000D14B2 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43D4D3E2116CF22E000D14B2 /* QuartzCore.framework */; };
+		43E0FB39116E029D007671D0 /* chozo32.png in Resources */ = {isa = PBXBuildFile; fileRef = 43E0FB38116E029D007671D0 /* chozo32.png */; };
 		43E8F5181150D7E700BD7CAA /* absurd32.png in Resources */ = {isa = PBXBuildFile; fileRef = 43E8F5171150D7E700BD7CAA /* absurd32.png */; };
 /* End PBXBuildFile section */
 
@@ -956,6 +957,7 @@
 		43C52F4311535404001FAA6D /* AsciiTileSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsciiTileSet.h; sourceTree = "<group>"; };
 		43C52F4411535404001FAA6D /* AsciiTileSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsciiTileSet.m; sourceTree = "<group>"; };
 		43D4D3E2116CF22E000D14B2 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		43E0FB38116E029D007671D0 /* chozo32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chozo32.png; sourceTree = "<group>"; };
 		43E8F5171150D7E700BD7CAA /* absurd32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = absurd32.png; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* SlashEM-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "SlashEM-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1654,6 +1656,7 @@
 		437A957A11500A16000046FD /* tilesets */ = {
 			isa = PBXGroup;
 			children = (
+				43E0FB38116E029D007671D0 /* chozo32.png */,
 				437A970B11501EB1000046FD /* tilesets.plist */,
 				43E8F5171150D7E700BD7CAA /* absurd32.png */,
 				437A957B11500A16000046FD /* gltile32.png */,
@@ -1933,6 +1936,7 @@
 				093E9D7511633AD0006B0BFE /* icon2.png in Resources */,
 				093E9D7611633AD0006B0BFE /* icon3.png in Resources */,
 				093E9D7711633AD0006B0BFE /* icon4.png in Resources */,
+				43E0FB39116E029D007671D0 /* chozo32.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

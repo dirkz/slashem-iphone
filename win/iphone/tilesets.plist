@@ -15,6 +15,12 @@
 		<string>gltile32.png</string>
 	</dict>
 	<dict>
+		<key>author</key>
+		<string>James Hogwood</string>
+		<key>filename</key>
+		<string>chozo32.png</string>
+	</dict>
+	<dict>
 		<key>title</key>
 		<string>ascii</string>
 	</dict>
