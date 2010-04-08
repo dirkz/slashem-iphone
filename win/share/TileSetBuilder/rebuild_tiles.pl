@@ -152,7 +152,17 @@ sub build_tiles {
   # build tile lookup
   my %tile_lookup;
   for $png_info (@$pngs) {
-	$tile_lookup{$png_info->{name}} = $png_info->{tile};
+	my $existing = $tile_lookup{$png_info->{name}};
+	if (!$existing) {
+	  $tile_lookup{$png_info->{name}} = $png_info->{tile};
+	} else {
+	  print "duplicate $png_info->{name}\n";
+	  my @dupls = ($existing, $png_info->{tile});
+	  if (ref($existing) eq 'ARRAY') {
+		@dupls = (@$existing, $png_info->{tile});
+	  }
+	  $tile_lookup{$png_info->{name}} = \@dupls;
+	}
   }
 
   my $tile_count = @all_tiles;
@@ -183,6 +193,9 @@ sub build_tiles {
 		$image->copy($replacement_tile, $x, $y, 0, 0, $tile_width, $tile_height);
 	  }
 	} else {
+	  if (ref($tile_image) eq 'ARRAY') {
+		$tile_image = shift @$tile_image;
+	  }
 	  $image->copy($tile_image, $x, $y, 0, 0, $tile_width, $tile_height);
 	}
 	$x += $tile_width;
