@@ -21,9 +21,6 @@
 
 use Data::Dumper;
 
-my $BASE_DIR1 = undef;
-my $BASE_DIR2 = undef;
-
 # the filenames that will be diffed
 my @KEYS = qw(monsters objects other extras zap);
 
