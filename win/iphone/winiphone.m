@@ -277,9 +277,6 @@ void iphone_putstr(winid wid, int attr, const char *text) {
 		wid = BASE_WINDOW;
 	}
 	[(NhWindow *) wid print:text];
-	if (wid == WIN_MESSAGE || wid == BASE_WINDOW) {
-		[[MainViewController instance] refreshMessages];
-	}
 }
 
 void iphone_display_file(const char *filename, BOOLEAN_P must_exist) {
@@ -327,6 +324,7 @@ void iphone_end_menu(winid wid, const char *prompt) {
 	if (prompt) {
 		((NhMenuWindow *) wid).prompt = [NSString stringWithFormat:@"%s", prompt];
 		iphone_putstr(WIN_MESSAGE, 0, prompt);
+		[[MainViewController instance] refreshMessages];
 	} else {
 		((NhMenuWindow *) wid).prompt = nil;
 	}
@@ -381,6 +379,7 @@ void iphone_print_glyph(winid wid, XCHAR_P x, XCHAR_P y, int glyph) {
 void iphone_raw_print(const char *str) {
 	NSLog(@"raw_print %s", str);
 	iphone_putstr((winid) [NhWindow messageWindow], 0, str);
+	[[MainViewController instance] refreshMessages];
 }
 
 void iphone_raw_print_bold(const char *str) {
@@ -420,6 +419,7 @@ char iphone_yn_function(const char *question, const char *choices, CHAR_P def) {
 		return 'y';
 	}
 	iphone_putstr(WIN_MESSAGE, 0, question);
+	[[MainViewController instance] refreshMessages];
 	NhEvent *e = nil;
 	if ([[NhEventQueue instance] peek]) {
 		e = [[NhEventQueue instance] nextEvent];
@@ -435,6 +435,7 @@ char iphone_yn_function(const char *question, const char *choices, CHAR_P def) {
 void iphone_getlin(const char *prompt, char *line) {
 	//NSLog(@"getlin %s", prompt);
 	iphone_putstr(WIN_MESSAGE, 0, prompt);
+	[[MainViewController instance] refreshMessages];
 	[[MainViewController instance] refreshAllViews];
 	char keys[80];
 	char *pStr = keys;

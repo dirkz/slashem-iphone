@@ -46,7 +46,6 @@
 	CGSize content = self.contentSize;
 	CGSize bounds = self.bounds.size;
 	//NSLog(@"%3.2f (%3.2f / %3.2f)", self.contentOffset.y, content.height, bounds.height);
-	[self.layer removeAllAnimations];
 	if (content.height > bounds.height) {
 		[self setContentOffset:CGPointMake(0.0f, -(bounds.height-content.height)) animated:YES];
 	} else {
