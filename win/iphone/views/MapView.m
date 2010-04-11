@@ -165,9 +165,12 @@ static BOOL s_doubleTapsEnabled = NO;
 	[touchInfoStore storeTouches:touches];
 	if (touches.count == 1) {
 		UITouch *touch = [touches anyObject];
-		if (touch.tapCount == 2 && s_doubleTapsEnabled) {
+		if (s_doubleTapsEnabled && touch.tapCount == 2 &&
+			touch.timestamp - touchInfoStore.singleTapTimestamp < 0.2f) {
 			ZTouchInfo *ti = [touchInfoStore touchInfoForTouch:touch];
 			ti.doubleTap = YES;
+		} else {
+			touchInfoStore.singleTapTimestamp = touch.timestamp;
 		}
 	} else if (touches.count == 2) {
 		NSArray *allTouches = [touches allObjects];
