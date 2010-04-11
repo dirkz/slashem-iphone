@@ -397,7 +397,11 @@ boolean taken;
 			    makeknown(obj->otyp);
 			    obj->known = obj->bknown = obj->dknown = obj->rknown = 1;
 			}
+#if TARGET_OS_IPHONE
+			(void) display_inventory((char *)0, FALSE);
+#else
 			(void) display_inventory((char *)0, TRUE);
+#endif
 			container_contents(invent, TRUE, TRUE);
 		}
 		if (c == 'q')  done_stopprint++;
