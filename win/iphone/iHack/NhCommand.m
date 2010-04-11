@@ -130,6 +130,10 @@ enum InvFlags {
 					inv |= fTinningKit;
 					oTinningKit = otmp;
 				}
+				// activated lightsabers act the same as a wielded weapon (#force)
+				if (otmp->owornmask & W_WEP && is_lightsaber(otmp) && otmp->lamplit) {
+					inv |= fWieldedWeapon;
+				}
 			case POTION_CLASS:
 				inv |= fAppliable;
 				break;
