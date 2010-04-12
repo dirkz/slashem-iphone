@@ -166,23 +166,27 @@ enum InvFlags {
 		[self addCommand:[NhCommand commandWithTitle:"What's here" key:':'] toCommands:commands key:kDungeon];
 		while (object) {
 			if (Is_container(object)) {
-				struct obj *cobj = object;
-				char cmdUntrapDown[] = {M('u'), '>', 'y', 0};
-				[self addCommand:[NhCommand commandWithTitle:"Untrap Container" keys:cmdUntrapDown]
-					  toCommands:commands key:kFloor];
-				if (!cobj->olocked) {
+				if (Is_box(object)) { // not a bag or medkit
+					char cmdUntrapDown[] = {M('u'), '>', 'y', 0};
+					[self addCommand:[NhCommand commandWithTitle:"Untrap Container" keys:cmdUntrapDown]
+						  toCommands:commands key:kFloor];
+					if (object->olocked) {
+						if (inv & fWieldedWeapon) {
+							char forceDown[] = {M('f'), '>', 'y', 0};
+							[self addCommand:[NhCommand commandWithTitle:"Force Container" keys:forceDown]
+								  toCommands:commands key:kFloor];
+						}
+						if (inv & fAppliable) {
+							[self addCommand:[NhCommand commandWithTitle:"Apply" key:'a']
+								  toCommands:commands key:kFloor];
+						}
+					} else {
+						char cmdLoot[] = {M('l'), 'y', 0};
+						[self addCommand:[NhCommand commandWithTitle:"Loot Container" keys:cmdLoot] toCommands:commands key:kFloor];
+					}
+				} else { // bags, medkit etc.
 					char cmdLoot[] = {M('l'), 'y', 0};
 					[self addCommand:[NhCommand commandWithTitle:"Loot Container" keys:cmdLoot] toCommands:commands key:kFloor];
-				} else {
-					if (inv & fWieldedWeapon) {
-						char forceDown[] = {M('f'), '>', 'y', 0};
-						[self addCommand:[NhCommand commandWithTitle:"Force Container" keys:forceDown]
-							  toCommands:commands key:kFloor];
-					}
-					if (inv & fAppliable) {
-						[self addCommand:[NhCommand commandWithTitle:"Apply" key:'a']
-							  toCommands:commands key:kFloor];
-					}
 				}
 			} else if (is_edible(object)) {
 				[self addCommand:[NhCommand commandWithTitle:"Eat what's here" keys:"e,"]
