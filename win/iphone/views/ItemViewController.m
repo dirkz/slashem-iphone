@@ -209,6 +209,9 @@
 				}
 				break;
 			case GEM_CLASS:
+				if (is_graystone(item.object)) {
+					[actions addObject:[NhCommand commandWithObject:item title:"Rub" key:M('r')]];
+				}
 				[actions addObject:[NhCommand commandWithObject:item title:"Engrave" key:'E']];
 				[actions addObject:[NhCommand commandWithObject:item title:"Quiver" key:'Q']];
 				break;
