@@ -94,11 +94,12 @@ enum InvFlags {
 	fReadable = 4,
 	fWeapon = 8,
 	fAppliable = 16,
-	fEngraved = 32,
+	fEngraved = 32, // something readable on the ground, engraved or written in the dust
 	fEdible = 64,
 	fCorpse = 128,
 	fUnpaid = 256,
 	fTinningKit = 512,
+	fDustWritten = 1024,
 };
 
 + (NSDictionary *)currentCommands {
@@ -232,6 +233,9 @@ enum InvFlags {
 	struct engr *ep = engr_at(u.ux, u.uy);
 	if (ep) {
 		inv |= fEngraved; // not really inventory
+		if (ep->engr_type == DUST) {
+			inv |= fDustWritten;
+		}
 	}
 	
 	int positions[][2] = {
@@ -286,7 +290,9 @@ enum InvFlags {
 	
 	[self addCommand:[NhCommand commandWithTitle:"Kick" key:C('d')] toCommands:commands key:kDungeon];
 	if (inv & fEngraved) {
-		[self addCommand:[NhCommand commandWithTitle:"E-Word" keys:"E-nElbereth"] toCommands:commands key:kMisc];
+		if (inv & fDustWritten) {
+			[self addCommand:[NhCommand commandWithTitle:"E-Word" keys:"E-nElbereth"] toCommands:commands key:kMisc];
+		}
 	} else {
 		[self addCommand:[NhCommand commandWithTitle:"E-Word" keys:"E-Elbereth"] toCommands:commands key:kMisc];
 	}
