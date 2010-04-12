@@ -76,6 +76,10 @@ extern int unixmain(int argc, char **argv);
 - (void)applicationWillTerminate:(UIApplication *)application {
 	if (!program_state.gameover && program_state.something_worth_saving) {
 		dosave0();
+	} else {
+		// clean up locks / levelfiles
+		delete_levelfile(ledger_no(&u.uz));
+		delete_levelfile(0);
 	}
 }
 
