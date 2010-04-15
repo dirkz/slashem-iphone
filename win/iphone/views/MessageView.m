@@ -33,6 +33,8 @@
 
 - (void)setup {
 	self.font = [self.font fontWithSize:14.0f];
+	displayState = eNormal;
+	originalHeight = self.frame.size.height;
 }
 
 - (id)initWithCoder:(NSCoder *)aDecoder {
@@ -42,12 +44,42 @@
 	return self;
 }
 
-- (void)scrollToBottom {
-	CGSize content = self.contentSize;
+- (void)enlargeContentSize:(CGSize)contentSize bounds:(CGSize)bounds {
+	switch (displayState) {
+		case eNormal:
+		case eEnlarged: {
+			CGRect frame = self.frame;
+			CGRect superBounds = self.superview.bounds;
+			frame.size.height = superBounds.size.height/3;
+			if (frame.size.height > contentSize.height) {
+				frame.size.height = contentSize.height;
+			}
+			self.frame = frame;
+			[self setContentOffset:CGPointMake(0.0f, -(self.bounds.size.height-contentSize.height)) animated:NO];
+			displayState = eEnlarged;
+		}
+			break;
+		default:
+			break;
+	}
+}
+
+- (void)shrinkBack {
+	CGRect frame = self.frame;
+	frame.size.height = originalHeight;
+	self.frame = frame;
+	[self scrollToBottomResize:NO];
+}
+
+- (void)scrollToBottomResize:(BOOL)enlarge {
+	CGSize contentSize = self.contentSize;
 	CGSize bounds = self.bounds.size;
-	//NSLog(@"%3.2f (%3.2f / %3.2f)", self.contentOffset.y, content.height, bounds.height);
-	if (content.height > bounds.height) {
-		[self setContentOffset:CGPointMake(0.0f, -(bounds.height-content.height)) animated:YES];
+	if (contentSize.height > bounds.height) {
+		if (enlarge) {
+			[self enlargeContentSize:contentSize bounds:bounds];
+		} else {
+			[self setContentOffset:CGPointMake(0.0f, -(self.bounds.size.height-contentSize.height)) animated:NO];
+		}
 	} else {
 		[self setContentOffset:CGPointMake(0.0f, 0.0f) animated:YES];
 	}
@@ -55,32 +87,18 @@
 
 - (void)setText:(NSString *)s {
 	[super setText:s];
-	[self scrollToBottom];
+	[self scrollToBottomResize:YES];
 }
 
-- (IBAction)toggleView:(id)sender {
-	static NSString *kEnlarge = @"enlarge";
-	static NSString *kShrink = @"shrink";
-	if (messageWindow) {
-		if (!historyDisplayed) {
-			[self.layer removeAnimationForKey:kEnlarge];
-			 CGRect frame = originalFrame = self.frame;
-			CGRect superBounds = self.superview.bounds;
-			frame.size.height = superBounds.size.height/3;
-			[UIView beginAnimations:kEnlarge context:NULL];
-			self.frame = frame;
-			[self setText:messageWindow.historyText];
-			[UIView commitAnimations];
-			historyDisplayed = YES;
-		} else {
-			[self.layer removeAnimationForKey:kShrink];
-			[UIView beginAnimations:kShrink context:NULL];
-			self.frame = originalFrame;
-			[UIView commitAnimations];
-			historyDisplayed = NO;
-		}
+- (IBAction)toggleMessageHistory:(id)sender {
+	//NSLog(@"toggleMessageHistory");
+	if (historyDisplayed) {
+		[self shrinkBack];
+		historyDisplayed = NO;
+	} else if (messageWindow) {
+		[self setText:messageWindow.text];
+		historyDisplayed = YES;
 	}
-	[self scrollToBottom];
 }
 
 #pragma mark UIResponder
@@ -90,6 +108,10 @@
 }
 
 - (BOOL)becomeFirstResponder {
+	if (displayState == eEnlarged) {
+		[self shrinkBack];
+		displayState = eNormal;
+	}
 	return NO;
 }
 
