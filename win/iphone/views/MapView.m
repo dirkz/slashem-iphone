@@ -115,8 +115,18 @@ static BOOL s_doubleTapsEnabled = NO;
 										start.y-j*tileSize.height);
 				CGRect r = CGRectMake(p.x, p.y, tileSize.width, tileSize.height);
 				if (CGRectIntersectsRect(r, rect)) {
-					int glyph = glyphAt(glyphs, i, j);
+					// draw background
+					int glyph = back_to_glyph(i, j);
 					if (glyph != kNoGlyph) {
+						// tile 1184, glyph 3627 is dark floor
+						//NSLog(@"back %d in %d,%d (player %d,%d)", glyph2tile[backGlyph], i, j, u.ux, u.uy);
+						CGImageRef tileImg = [[TileSet instance] imageForGlyph:glyph atX:i y:j];
+						CGContextDrawImage(ctx, r, tileImg);
+					}
+					// draw actual glyph if different from background
+					int backGlyph = glyph;
+					glyph = glyphAt(glyphs, i, j);
+					if (glyph != kNoGlyph && glyph != backGlyph) {
 						CGImageRef tileImg = [[TileSet instance] imageForGlyph:glyph atX:i y:j];
 						CGContextDrawImage(ctx, r, tileImg);
 						if (u.ux == i && u.uy == j) {
