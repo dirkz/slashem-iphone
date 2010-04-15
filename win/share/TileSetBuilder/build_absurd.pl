@@ -5,9 +5,6 @@
 #
 # Copyright 2010 Dirk Zimmermann.
 #
-# TODO
-# Make it customizable through command line options.
-#
 
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
@@ -26,18 +23,42 @@
 use Data::Dumper;
 use GD;
 use POSIX qw(ceil);
-
-# vanilla Slash'EM
-my $BASE_DIR = "/Users/dirk/Documents/xcode/slashem-0.0.7E7F3";
+use Getopt::Long;
 
 my %CONFIG = (
-			  tileset_path => "/Users/dirk/Documents/roguelikes/absurd single tiles",
-			  monsters => "$BASE_DIR/win/share/monsters.txt",
-			  objects => "$BASE_DIR/win/share/objects.txt",
-			  other => "$BASE_DIR/win/share/other.txt",
 			  tile_size => {width => 128, height => 128},
 			  columns => 38,
 			 );
+
+GetOptions(
+		   'tileset=s' => \$CONFIG{tileset_path},
+		   'base=s' => \$CONFIG{base_dir},
+		   'output=s' => \$CONFIG{output_filename},
+		  );
+
+sub usage {
+  return <<"END";
+
+Builds Absurd Tileset from given distribution and single tiles. Supports Jedi tiles.
+Note that ALL single tile filenames have to be lowercase.
+
+Usage:
+$0
+  --tileset <tileset>      # Complete path to the Absurd single tiles
+  --base <distribution>    # Distribution base directory
+  --output <filename.png>  # Output filename
+
+END
+}
+
+defined $CONFIG{tileset_path} or die usage;
+defined $CONFIG{base_dir} or die usage;
+defined $CONFIG{output_filename} or die usage;
+
+$CONFIG{tileset_path} = "/Users/dirk/Documents/roguelikes/absurd single tiles";
+$CONFIG{monsters} = "$CONFIG{base_dir}/win/share/monsters.txt";
+$CONFIG{objects} = "$CONFIG{base_dir}/win/share/objects.txt";
+$CONFIG{other} = "$CONFIG{base_dir}/win/share/other.txt";
 
 my @KEYS = qw(monsters objects other);
 
@@ -108,6 +129,8 @@ sub filename_for_tile {
   $name =~ s/.* \/ //; # only look at last part of components separated by slashes
   $name =~ s/'//; # remove all '
 
+  #print "looking for $name\n";
+
   # zaps
   my ($type, $direction) = ($name =~ /zap (\d) (\d)/);
   if (defined($type) && defined($direction)) {
@@ -160,6 +183,7 @@ sub filename_for_tile {
 
 sub process_all_tiles {
   my ($key, $filename) = @_;
+  my $error = undef;
   my @png_files;
   open TILEFILE, "<$filename" or die "could not read $filename";
   my $index = 0;
@@ -167,15 +191,20 @@ sub process_all_tiles {
 	my ($num, $name) = ($line =~ /^# tile (\d+) \((.*)\).*/);
 	if (defined $num) {
 	  my $png_filename = filename_for_tile $key, $name, $index;
-	  if (!$png_filename || !-e "$CONFIG{tileset_path}/$png_filename") {
+	  #print "$png_filename\n";
+	  if ($png_filename && -e "$CONFIG{tileset_path}/$png_filename") {
+		push @png_files, $png_filename;
+		$index++;
+	  } else {
+		$error = 1;
 		print STDERR "no file for $index $name\n";
 	  }
-	  #print "$png_filename\n";
-	  push @png_files, $png_filename;
-	  $index++;
 	}
   }
   close TILEFILE;
+  if ($error) {
+	die "Aborting due to missing tiles";
+  }
   @png_files;
 }
 
@@ -228,7 +257,7 @@ sub create_tileset_image {
 
   # write file
   my $png_blob = $image->png();
-  my $image_filename = "tileset.png";
+  my $image_filename = $CONFIG{output_filename};
   print "writing $image_filename ...\n";
   open PNGFILE, ">$image_filename" or die "could not save to $image_filename: $!";
   binmode PNGFILE;
