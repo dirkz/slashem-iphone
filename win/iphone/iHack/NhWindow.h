@@ -51,5 +51,6 @@
 - (void)print:(const char *)str;
 - (void)clear;
 - (NSString *)textWithDelimiter:(NSString *)del;
+- (NSString *)historyTextWithDelimiter:(NSString *)del;
 
 @end

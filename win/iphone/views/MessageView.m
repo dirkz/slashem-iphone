@@ -33,7 +33,6 @@
 
 - (void)setup {
 	self.font = [self.font fontWithSize:14.0f];
-	displayState = eNormal;
 	originalHeight = self.frame.size.height;
 }
 
@@ -44,42 +43,31 @@
 	return self;
 }
 
-- (void)enlargeContentSize:(CGSize)contentSize bounds:(CGSize)bounds {
-	switch (displayState) {
-		case eNormal:
-		case eEnlarged: {
-			CGRect frame = self.frame;
-			CGRect superBounds = self.superview.bounds;
-			frame.size.height = superBounds.size.height/3;
-			if (frame.size.height > contentSize.height) {
-				frame.size.height = contentSize.height;
-			}
-			self.frame = frame;
-			[self setContentOffset:CGPointMake(0.0f, -(self.bounds.size.height-contentSize.height)) animated:NO];
-			displayState = eEnlarged;
-		}
-			break;
-		default:
-			break;
+- (BOOL)enlarged {
+	return self.frame.size.height > originalHeight;
+}
+
+- (void)resize {
+	CGSize contentSize = self.contentSize;
+	CGRect frame = self.frame;
+	frame.size.height = contentSize.height;
+	if (frame.size.height > self.superview.bounds.size.height/3) {
+		frame.size.height = self.superview.bounds.size.height/3;
 	}
+	self.frame = frame;
 }
 
 - (void)shrinkBack {
 	CGRect frame = self.frame;
 	frame.size.height = originalHeight;
 	self.frame = frame;
-	[self scrollToBottomResize:NO];
+	[self scrollToBottom];
 }
 
-- (void)scrollToBottomResize:(BOOL)enlarge {
+- (void)scrollToBottom {
 	CGSize contentSize = self.contentSize;
-	CGSize bounds = self.bounds.size;
-	if (contentSize.height > bounds.height) {
-		if (enlarge) {
-			[self enlargeContentSize:contentSize bounds:bounds];
-		} else {
-			[self setContentOffset:CGPointMake(0.0f, -(self.bounds.size.height-contentSize.height)) animated:NO];
-		}
+	if (contentSize.height > self.bounds.size.height) {
+		[self setContentOffset:CGPointMake(0.0f, -(self.bounds.size.height-contentSize.height)) animated:NO];
 	} else {
 		[self setContentOffset:CGPointMake(0.0f, 0.0f) animated:YES];
 	}
@@ -87,16 +75,20 @@
 
 - (void)setText:(NSString *)s {
 	[super setText:s];
-	[self scrollToBottomResize:YES];
+	if (!s) {
+		[self setContentSize:CGSizeZero];
+	}
+	[self resize];
+	[self scrollToBottom];
+	historyDisplayed = NO; // assume it didn't originate from toggleMessageHistory
 }
 
 - (IBAction)toggleMessageHistory:(id)sender {
-	//NSLog(@"toggleMessageHistory");
 	if (historyDisplayed) {
 		[self shrinkBack];
 		historyDisplayed = NO;
 	} else if (messageWindow) {
-		[self setText:messageWindow.text];
+		[self setText:messageWindow.historyText];
 		historyDisplayed = YES;
 	}
 }
@@ -108,9 +100,8 @@
 }
 
 - (BOOL)becomeFirstResponder {
-	if (displayState == eEnlarged) {
+	if (self.enlarged) {
 		[self shrinkBack];
-		displayState = eNormal;
 	}
 	return NO;
 }

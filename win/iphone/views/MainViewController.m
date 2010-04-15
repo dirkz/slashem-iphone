@@ -101,7 +101,7 @@ enum rotation_lock {
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
 	[self clipAround];
 	[mapView setNeedsDisplay];
-	[messageView scrollToBottomResize:YES];
+	[messageView scrollToBottom];
 }
 
 - (void)releaseIfDefined:(id *)thing {

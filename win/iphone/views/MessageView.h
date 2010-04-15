@@ -30,19 +30,14 @@
 	
 	NhWindow *messageWindow;
 	CGFloat originalHeight;
-
-	enum _enum_ {
-		eNormal,
-		eEnlarged
-	} displayState;
-	
 	BOOL historyDisplayed;
 
 }
 
 @property (nonatomic, retain) NhWindow *messageWindow;
+@property (nonatomic, readonly) BOOL enlarged;
 
-- (void)scrollToBottomResize:(BOOL)enlarge;
+- (void)scrollToBottom;
 - (void)setText:(NSString *)s;
 - (IBAction)toggleMessageHistory:(id)sender;
 

@@ -139,17 +139,21 @@ static const int maxHistoryLineCount = 50;
 }
 
 - (NSString *)historyText {
-	NSString *t = nil;
-	NSArray *messages = [self history];
-	if (messages && messages.count > 0) {
-		t = [messages componentsJoinedByString:lineDelimiter];
-	}
-	return t;
+	return [self historyTextWithDelimiter:lineDelimiter];
 }
 
 - (NSString *)textWithDelimiter:(NSString *)del {
 	NSString *t = nil;
 	NSArray *messages = [self messages];
+	if (messages && messages.count > 0) {
+		t = [messages componentsJoinedByString:del];
+	}
+	return t;
+}
+
+- (NSString *)historyTextWithDelimiter:(NSString *)del {
+	NSString *t = nil;
+	NSArray *messages = [self history];
 	if (messages && messages.count > 0) {
 		t = [messages componentsJoinedByString:del];
 	}
