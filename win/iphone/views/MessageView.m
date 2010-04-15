@@ -102,6 +102,7 @@
 - (BOOL)becomeFirstResponder {
 	if (self.enlarged) {
 		[self shrinkBack];
+		historyDisplayed = NO;
 	}
 	return NO;
 }
