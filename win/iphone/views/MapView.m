@@ -278,16 +278,16 @@ static BOOL s_doubleTapsEnabled = NO;
 	[touchInfoStore removeTouches:touches];
 }
 
-- (void) moveAlongVector:(CGPoint)d {
+- (void)moveAlongVector:(CGPoint)d {
 	panOffset.x += d.x;
 	panOffset.y += d.y;
 }
 
-- (void) resetPanOffset {
+- (void)resetPanOffset {
 	panOffset = CGPointMake(0.0f, 0.0f);
 }
 
-- (void) zoom:(CGFloat)d {
+- (void)zoom:(CGFloat)d {
 	d /= 5;
 	CGSize originalSize = tileSize;
 	tileSize.width += d;
