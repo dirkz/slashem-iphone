@@ -441,7 +441,9 @@ void iphone_getlin(const char *prompt, char *line) {
 	char *pStr = keys;
 	while ([[NhEventQueue instance] peek]) {
 		NhEvent *e = [[NhEventQueue instance] nextEvent];
-		if (e.isKeyEvent) {
+		// effectively reads all over all coming key events until a terminate is found,
+		// which is then swallowed
+		if (e.isKeyEvent && e.key != '\n') {
 			*pStr++ = e.key;
 		} else {
 			break;
