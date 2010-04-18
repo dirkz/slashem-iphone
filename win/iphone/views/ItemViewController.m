@@ -146,6 +146,9 @@
 					[actions addObject:[NhCommand commandWithObject:item title:"Dip" key:M('d')]];
 				}
 				switch (item.object->otyp) {
+					case MAGIC_MARKER:
+						[actions addObject:[NhCommand commandWithObject:item title:"Engrave" key:'E']];
+						break;
 					case BRASS_LANTERN:
 					case OIL_LAMP:
 					case MAGIC_LAMP:
