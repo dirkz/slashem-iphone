@@ -40,6 +40,7 @@
 #define kDungeon (@"Dungeon")
 #define kFloor (@"Floor")
 #define kMisc (@"Misc")
+#define kInventory (@"Inventory")
 #define kInternal (@"Internal")
 
 @class NhObject;

@@ -107,6 +107,7 @@ enum InvFlags {
 	int inv = 0;
 	struct obj *oTinningKit = NULL;
 	struct obj *oCorpse = NULL; // corpse lying around
+	struct obj *oWieldedWeapon = NULL;
 
 	for (struct obj *otmp = invent; otmp; otmp = otmp->nobj) {
 		if (otmp->unpaid) {
@@ -123,6 +124,7 @@ enum InvFlags {
 			case WEAPON_CLASS:
 				if (otmp->owornmask & W_WEP) {
 					inv |= fWieldedWeapon;
+					oWieldedWeapon = otmp;
 				}
 				inv |= fWeapon;
 				break;
@@ -134,6 +136,7 @@ enum InvFlags {
 				// activated lightsabers act the same as a wielded weapon (#force)
 				if (otmp->owornmask & W_WEP && is_lightsaber(otmp) && otmp->lamplit) {
 					inv |= fWieldedWeapon;
+					oWieldedWeapon = otmp;
 				}
 			case POTION_CLASS:
 				inv |= fAppliable;
@@ -209,7 +212,7 @@ enum InvFlags {
 			object = object->nexthere;
 		}
 	}
-
+	
 	if (IS_ALTAR(levl[u.ux][u.uy].typ)) {
 		[self addCommand:[NhCommand commandWithTitle:"What's here" key:':'] toCommands:commands key:kDungeon];
 		if (inv & fCorpse) {
@@ -228,6 +231,12 @@ enum InvFlags {
 	if (IS_THRONE(levl[u.ux][u.uy].typ)) {
 		[self addCommand:[NhCommand commandWithTitle:"What's here" key:':'] toCommands:commands key:kDungeon];
 		[self addCommand:[NhCommand commandWithTitle:"Sit" key:M('s')] toCommands:commands key:kDungeon];
+	}
+	
+	if (oWieldedWeapon) {
+		NhObject *wieldedWeapon = [NhObject objectWithObject:oWieldedWeapon];
+		[self addCommand:[NhCommand commandWithObject:wieldedWeapon title:"Apply wielded weapon" keys:"a"]
+			  toCommands:commands key:kInventory]; 
 	}
 	
 	struct engr *ep = engr_at(u.ux, u.uy);
