@@ -402,6 +402,7 @@
 		43D4D3E3116CF22E000D14B2 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43D4D3E2116CF22E000D14B2 /* QuartzCore.framework */; };
 		43E0FB65116E3C10007671D0 /* chozo32c.png in Resources */ = {isa = PBXBuildFile; fileRef = 43E0FB64116E3C10007671D0 /* chozo32c.png */; };
 		43E8F5181150D7E700BD7CAA /* absurd32.png in Resources */ = {isa = PBXBuildFile; fileRef = 43E8F5171150D7E700BD7CAA /* absurd32.png */; };
+		43F64B271182F06A0016061C /* StatusView.m in Sources */ = {isa = PBXBuildFile; fileRef = 43F64B261182F06A0016061C /* StatusView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -959,6 +960,8 @@
 		43D4D3E2116CF22E000D14B2 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		43E0FB64116E3C10007671D0 /* chozo32c.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chozo32c.png; sourceTree = "<group>"; };
 		43E8F5171150D7E700BD7CAA /* absurd32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = absurd32.png; sourceTree = "<group>"; };
+		43F64B251182F06A0016061C /* StatusView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusView.h; sourceTree = "<group>"; };
+		43F64B261182F06A0016061C /* StatusView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusView.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* SlashEM-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "SlashEM-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -1176,6 +1179,8 @@
 				437A94D91150019A000046FD /* CommandButtonItem.m */,
 				438622C411590FC700295E23 /* QuestionViewController.h */,
 				438622C511590FC700295E23 /* QuestionViewController.m */,
+				43F64B251182F06A0016061C /* StatusView.h */,
+				43F64B261182F06A0016061C /* StatusView.m */,
 			);
 			name = Views;
 			path = views;
@@ -2107,6 +2112,7 @@
 				093E9D651163385D006B0BFE /* PieMenu.m in Sources */,
 				093E9D661163385D006B0BFE /* PieMenuItem.m in Sources */,
 				093E9D6911633871006B0BFE /* PieView.m in Sources */,
+				43F64B271182F06A0016061C /* StatusView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

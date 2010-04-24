@@ -34,13 +34,12 @@
 @class MessageView;
 @class MapView;
 @class ActionBar;
-@class NhStatus;
+@class StatusView;
 
 @interface MainViewController : UIViewController <UITextFieldDelegate> {
 
 	IBOutlet MessageView *messageView;
-	IBOutlet UILabel *statusView1;
-	IBOutlet UILabel *statusView2;
+	IBOutlet StatusView *statusView;
 	IBOutlet MapView *mapView;
 	IBOutlet ActionBar *actionBar;
 	IBOutlet UIScrollView *actionScrollView;
@@ -54,8 +53,6 @@
 	
 	int clipX;
 	int clipY;
-	
-	NhStatus *playerStatus;
 	
 }
 

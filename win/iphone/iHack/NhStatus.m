@@ -46,6 +46,8 @@ extern const char * const enc_stat[];
 @synthesize ac;
 @synthesize xlvl;
 @synthesize turn;
+@synthesize updatedOnce;
+@synthesize hungryState;
 
 + (id)status {
 	return [[[self alloc] init] autorelease];
@@ -69,24 +71,45 @@ extern const char * const enc_stat[];
 	return status;
 }
 
+- (char *)level {
+	return level;
+}
+
+- (char *)hunger {
+	return hunger;
+}
+
+// removes whitespace at beginning and end
+void trimStringInPlace(char *s) {
+	char tmp[strlen(s)+1];
+	
+	// remove prefixes
+	int index = 0;
+	while (s[index] == ' ') {
+		index++;
+	}
+	if (index) {
+		strcpy(tmp, s+index);
+		strcpy(s, tmp);
+	}
+	
+	index = strlen(s)-1;
+	while (s[index] == ' ') {
+		s[index--] = '\0';
+	}
+}
+
 - (NSString *)description {
 	return [[self messages] componentsJoinedByString:@"\n"];
 }
 
 - (NSArray *)messages {
-	if (!updated) {
+	if (!updatedOnce) {
 		return nil;
 	}
-	char level[10];
-	describe_level(level, false);
-	size_t last = strlen(level)-1;
-	while (level[last] == ' ') {
-		level[last] = '\0';
-		last = strlen(level)-1;
-	}
-	NSString *bot1 = [NSString stringWithFormat:@"Str:%s Dx:%d Con:%d Int:%d Wis:%d Cha:%d %s",
+	NSString *bot1 = [NSString stringWithFormat:@"Str:%s Dx:%u Con:%u Int:%u Wis:%u Cha:%u %s",
 					  strength, dexterity, constitution, intelligence, wisdom, charisma, alignment];
-	NSString *bot2 = [NSString stringWithFormat:@"%s $%d Hp:%d/%d Pw:%d/%d AC:%d XP:%d T:%d %s",
+	NSString *bot2 = [NSString stringWithFormat:@"%s $%d Hp:%u/%u Pw:%u/%u AC:%d XP:%u T:%u %s",
 					  level, money, hitpoints, maxHitpoints, power, maxPower, ac, xlvl, turn, status];
 	return [NSArray arrayWithObjects:bot1, bot2, nil];
 }
@@ -95,7 +118,15 @@ extern const char * const enc_stat[];
 	if (program_state.gameover || !program_state.something_worth_saving) {
 		return;
 	}
-	updated = YES;
+	updatedOnce = YES;
+
+	describe_level(level, false);
+	size_t last = strlen(level)-1;
+	while (level[last] == ' ') {
+		level[last] = '\0';
+		last = strlen(level)-1;
+	}
+	
 	if (ACURR(A_STR) > 18) {
 		if (ACURR(A_STR) > STR18(100)) {
 			sprintf(strength, "%2d", ACURR(A_STR)-100); //Sprintf(nb = eos(nb),"St:%2d ",ACURR(A_STR)-100);
@@ -121,17 +152,17 @@ extern const char * const enc_stat[];
 	maxPower = u.uenmax;
 	ac = u.uac;
 	if (Upolyd) {
-		xlvl = mons[u.umonnum].mlevel;
+		xlvl = (u.ulycn == u.umonnum) ? u.ulevel : mons[u.umonnum].mlevel;
 	} else {
 		xlvl = u.ulevel;
 	}
 	turn = moves;
 	
-	strcpy(status, hu_stat[u.uhs]);
-	// if first char is space this is empty
-	if (status[0] == ' ') {
-		status[0] = '\0';
-	}
+	hungryState = u.uhs;
+	strcpy(hunger, hu_stat[u.uhs]);
+	trimStringInPlace(hunger);
+	
+	status[0] = '\0';
 	if (Confusion) {
 		strcat(status, " Conf");
 	}
@@ -157,14 +188,11 @@ extern const char * const enc_stat[];
 	}
 	int cap = near_capacity();
 	if (cap > UNENCUMBERED) {
+		strcat(status, " ");
 		strcat(status, enc_stat[cap]);
 	}
 
-	if (status[0] == ' ') {
-		char tmp[strlen(status)+1];
-		strcpy(tmp, status+1);
-		strcpy(status, tmp);
-	}
+	trimStringInPlace(status);
 }
 
 - (void)dealloc {
