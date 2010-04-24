@@ -196,6 +196,11 @@
 				[actions addObject:[NhCommand commandWithObject:item title:"Engrave" key:'E']];
 				break;
 			case SPBOOK_CLASS:
+				if (item.object->owornmask & W_WEP) {
+					[actions addObject:[NhCommand commandWithTitle:"Unwield" keys:"w-"]];
+				} else {
+					[actions addObject:[NhCommand commandWithObject:item title:"Wield" key:'w']];
+				}
 			case SCROLL_CLASS:
 				[actions addObject:[NhCommand commandWithObject:item title:"Read" key:'r']];
 				if ([inventory containsObjectClass:POTION_CLASS] ||
