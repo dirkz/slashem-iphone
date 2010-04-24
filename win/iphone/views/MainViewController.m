@@ -44,6 +44,7 @@
 #import "CommandButtonItem.h"
 #import "ActionBar.h"
 #import "QuestionViewController.h"
+#import "NhStatus.h"
 
 #import "winiphone.h" // ipad_getpos etc.
 
@@ -82,6 +83,7 @@ enum rotation_lock {
 
 - (void)awakeFromNib {
 	[super awakeFromNib]; // responsible for viewDidLoad
+	playerStatus = [[NhStatus alloc] init];
 	instance = self;
 }
 
@@ -270,9 +272,9 @@ enum rotation_lock {
 	if (![NSThread isMainThread]) {
 		[self performSelectorOnMainThread:@selector(refreshMessages) withObject:nil waitUntilDone:NO];
 	} else {
+		[playerStatus update];
 		messageView.text = [[NhWindow messageWindow] textWithDelimiter:@" "];
-		messageView.messageWindow = [NhWindow messageWindow];
-		NSArray *messages = [[NhWindow statusWindow] messages];
+		NSArray *messages = [playerStatus messages];
 		if (messages && messages.count == 2) {
 			statusView1.text = [messages objectAtIndex:0];
 			statusView2.text = [messages objectAtIndex:1];
@@ -688,6 +690,7 @@ enum rotation_lock {
 #pragma mark misc
 
 - (void)dealloc {
+	[playerStatus release];
     [super dealloc];
 }
 

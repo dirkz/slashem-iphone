@@ -29,8 +29,6 @@
 
 @implementation MessageView
 
-@synthesize messageWindow;
-
 - (void)setup {
 	self.font = [self.font fontWithSize:14.0f];
 	originalHeight = self.frame.size.height;
@@ -87,7 +85,7 @@
 	if (historyDisplayed) {
 		[self shrinkBack];
 		historyDisplayed = NO;
-	} else if (messageWindow) {
+	} else if (messageWindow = [NhWindow messageWindow]) {
 		[self setText:messageWindow.historyText];
 		historyDisplayed = YES;
 	}

@@ -34,6 +34,7 @@
 @class MessageView;
 @class MapView;
 @class ActionBar;
+@class NhStatus;
 
 @interface MainViewController : UIViewController <UITextFieldDelegate> {
 
@@ -53,6 +54,8 @@
 	
 	int clipX;
 	int clipY;
+	
+	NhStatus *playerStatus;
 	
 }
 

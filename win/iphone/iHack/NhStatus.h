@@ -24,15 +24,15 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NhCharInfo : NSObject {
+@interface NhStatus : NSObject {
 	
-	float strength;
+	char strength[5];
 	int dexterity;
 	int constitution;
 	int intelligence;
 	int wisdom;
 	int charisma;
-	NSString *alignment;
+	char alignment[10];
 	int dlvl; // dungeon level
 	int money;
 	int hitpoints;
@@ -41,18 +41,21 @@
 	int maxPower;
 	int ac;
 	int xlvl; // experience level
-	NSString *status;
+	char status[20];
 	int turn;
+	
+	/** flag whether status has even updated once */
+	BOOL updated;
 
 }
 
-@property (nonatomic, readonly) float strength;
+@property (nonatomic, readonly) char *strength;
 @property (nonatomic, readonly) int dexterity;
 @property (nonatomic, readonly) int constitution;
 @property (nonatomic, readonly) int intelligence;
 @property (nonatomic, readonly) int wisdom;
 @property (nonatomic, readonly) int charisma;
-@property (nonatomic, readonly) NSString *alignment;
+@property (nonatomic, readonly) char *alignment;
 @property (nonatomic, readonly) int dlvl;
 @property (nonatomic, readonly) int money;
 @property (nonatomic, readonly) int hitpoints;
@@ -61,9 +64,12 @@
 @property (nonatomic, readonly) int maxPower;
 @property (nonatomic, readonly) int ac;
 @property (nonatomic, readonly) int xlvl;
-@property (nonatomic, readonly) NSString *status;
+@property (nonatomic, readonly) char *status;
 @property (nonatomic, readonly) int turn;
+@property (nonatomic, readonly) NSArray *messages;
 
-+ (id)info;
++ (id)status;
+
+- (void)update;
 
 @end

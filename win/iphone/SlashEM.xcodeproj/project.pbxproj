@@ -26,7 +26,7 @@
 		434C9D47115BE57F00A6EBD6 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 434C9D46115BE57F00A6EBD6 /* Settings.bundle */; };
 		4365D6FC115154E600B15085 /* ExtendedCommandsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4365D6FB115154E600B15085 /* ExtendedCommandsController.xib */; };
 		437A90E7114FF57A000046FD /* Action.m in Sources */ = {isa = PBXBuildFile; fileRef = 437A90B8114FF57A000046FD /* Action.m */; };
-		437A90E8114FF57A000046FD /* NhCharInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 437A90BA114FF57A000046FD /* NhCharInfo.m */; };
+		437A90E8114FF57A000046FD /* NhStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 437A90BA114FF57A000046FD /* NhStatus.m */; };
 		437A90E9114FF57A000046FD /* NhCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 437A90BC114FF57A000046FD /* NhCommand.m */; };
 		437A90EA114FF57A000046FD /* NhEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 437A90BE114FF57A000046FD /* NhEvent.m */; };
 		437A90EB114FF57A000046FD /* NhEventQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 437A90C0114FF57A000046FD /* NhEventQueue.m */; };
@@ -433,8 +433,8 @@
 		4365D6FB115154E600B15085 /* ExtendedCommandsController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExtendedCommandsController.xib; sourceTree = "<group>"; };
 		437A90B7114FF57A000046FD /* Action.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Action.h; sourceTree = "<group>"; };
 		437A90B8114FF57A000046FD /* Action.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Action.m; sourceTree = "<group>"; };
-		437A90B9114FF57A000046FD /* NhCharInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NhCharInfo.h; sourceTree = "<group>"; };
-		437A90BA114FF57A000046FD /* NhCharInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NhCharInfo.m; sourceTree = "<group>"; };
+		437A90B9114FF57A000046FD /* NhStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NhStatus.h; sourceTree = "<group>"; };
+		437A90BA114FF57A000046FD /* NhStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NhStatus.m; sourceTree = "<group>"; };
 		437A90BB114FF57A000046FD /* NhCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NhCommand.h; sourceTree = "<group>"; };
 		437A90BC114FF57A000046FD /* NhCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NhCommand.m; sourceTree = "<group>"; };
 		437A90BD114FF57A000046FD /* NhEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NhEvent.h; sourceTree = "<group>"; };
@@ -1091,8 +1091,8 @@
 			children = (
 				437A90B7114FF57A000046FD /* Action.h */,
 				437A90B8114FF57A000046FD /* Action.m */,
-				437A90B9114FF57A000046FD /* NhCharInfo.h */,
-				437A90BA114FF57A000046FD /* NhCharInfo.m */,
+				437A90B9114FF57A000046FD /* NhStatus.h */,
+				437A90BA114FF57A000046FD /* NhStatus.m */,
 				437A90BB114FF57A000046FD /* NhCommand.h */,
 				437A90BC114FF57A000046FD /* NhCommand.m */,
 				437A90BD114FF57A000046FD /* NhEvent.h */,
@@ -1950,7 +1950,7 @@
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				1D3623260D0F684500981E51 /* SlashEMAppDelegate.m in Sources */,
 				437A90E7114FF57A000046FD /* Action.m in Sources */,
-				437A90E8114FF57A000046FD /* NhCharInfo.m in Sources */,
+				437A90E8114FF57A000046FD /* NhStatus.m in Sources */,
 				437A90E9114FF57A000046FD /* NhCommand.m in Sources */,
 				437A90EA114FF57A000046FD /* NhEvent.m in Sources */,
 				437A90EB114FF57A000046FD /* NhEventQueue.m in Sources */,

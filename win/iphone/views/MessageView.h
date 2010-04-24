@@ -34,7 +34,6 @@
 
 }
 
-@property (nonatomic, retain) NhWindow *messageWindow;
 @property (nonatomic, readonly) BOOL enlarged;
 
 - (void)scrollToBottom;
