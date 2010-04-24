@@ -15,7 +15,7 @@ sh setup.sh
 
 cd ../..
 
-cd util && make spotless all
+cd util && make spotless makedefs
 cd src
 ../util/makedefs -v # date.h
 ../util/makedefs -p # pm.h
