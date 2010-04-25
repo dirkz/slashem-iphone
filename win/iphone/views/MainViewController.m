@@ -356,7 +356,8 @@ enum rotation_lock {
 	if (![NSThread isMainThread]) {
 		[self performSelectorOnMainThread:@selector(showYnQuestion:) withObject:q waitUntilDone:NO];
 	} else {
-		if ([q.question containsString:@"direction"]) {
+		if ([q.question containsString:@"direction"] ||
+			[q.question containsString:@"Enter Blitz Command"]) {
 			[self handleDirectionQuestion:q];
 		} else if (q.choices) {
 			// simple YN question
