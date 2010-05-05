@@ -59,12 +59,27 @@
 
 - (void)viewWillAppear:(BOOL)animated {
 	[super viewWillAppear:animated];
+	[[NSNotificationCenter defaultCenter] addObserver:self
+											 selector:@selector(keyboardWillShow:)
+												 name:UIKeyboardWillShowNotification object:nil];
 	[textField becomeFirstResponder];
 	[messageTextView setText:[[NhWindow messageWindow] text]];
 }
 
-- (void)dealloc {
-    [super dealloc];
+- (void)viewWillDisappear:(BOOL)animated {
+	[super viewWillDisappear:animated];
+	[[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void)keyboardWillShow:(NSDictionary *)dict {
+//	NSValue *valueFrame = [dict valueForKey:UIKeyboardBoundsUserInfoKey];
+//	CGRect frame;
+//	[valueFrame getValue:&frame];
+//	NSLog(@"%3.2f,%3.2f %3.2fx%3.2f", frame.origin.x, frame.origin.y, frame.size.width, frame.size.height);
+//
+//	NSValue *valueCenter = [dict valueForKey:UIKeyboardCenterEndUserInfoKey];
+//	[valueCenter getValue:&frame.origin];
+//	NSLog(@"%3.2f,%3.2f %3.2fx%3.2f", frame.origin.x, frame.origin.y, frame.size.width, frame.size.height);
 }
 
 #pragma mark UITextFieldDelegate
@@ -83,6 +98,12 @@
 	} else {
 		return NO;
 	}
+}
+
+#pragma mark memory management
+
+- (void)dealloc {
+    [super dealloc];
 }
 
 @end

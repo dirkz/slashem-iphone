@@ -31,4 +31,6 @@
 
 }
 
+- (void)keyboardWillShow:(NSDictionary *)dict;
+
 @end
