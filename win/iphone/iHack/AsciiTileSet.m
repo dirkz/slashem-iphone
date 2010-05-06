@@ -107,7 +107,7 @@ extern int total_tiles_used; // from tile.c
 	return nil;
 }
 
-- (UIColor *) mapNetHackColor:(int)ocolor {
+- (UIColor *)mapNetHackColor:(int)ocolor {
 	return [colorTable objectAtIndex:ocolor];
 }
 
