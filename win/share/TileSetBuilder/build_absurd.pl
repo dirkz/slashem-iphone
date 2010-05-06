@@ -79,6 +79,77 @@ my %EXCEPTIONS = (
 				  'thrown boomerang, open right' => ["cmap.effect.thrown boomerang.open right.png"],
 				 );
 
+my %HARD_EXCEPTIONS = (
+					   'objects' => {
+									 'clear / water' => 'object.potions.clear.water.png',
+									 'silver / teleportation' => 'object.rings.silver.teleportation.png',
+									 'VENZAR BORGAVVE / teleportation' => 'object.scrolls.venzar borgavve.teleportation.png',
+									 'iridium / teleportation' => 'object.wands.iridium.teleportation.png',
+									 'DUAM XNAHT / amnesia' => 'object.scrolls.duam xnaht.amnesia.png',
+									 'sparkling / amnesia' => 'object.potions.sparkling.amnesia.png',
+									 'turquoise / create monster' => 'object.spell books.turquoise.create monster.png',
+									 'maple / create monster' => 'object.wands.maple.create monster.png',
+									 'white / healing' => 'object.spell books.white.healing.png',
+									 'bamboo / healing' => 'object.wands.bamboo.healing.png',
+									 'plaid / extra healing' => 'object.spell books.plaid.extra healing.png',
+									 'bronze / extra healing' => 'object.wands.bronze.extra healing.png',
+									 'light brown / restore ability' => 'object.spell books.light brown.restore ability.png',
+									 'dark blue / clairvoyance' => 'object.spell books.dark blue.clairvoyance.png',
+									 'cloth / light' => 'object.spell books.cloth.light.png',
+									 'magenta / see invisible' => 'object.potions.magenta.see invisible.png',
+									 'engagement / see invisible' => 'object.rings.engagement.see invisible.png',
+									 'wedding / sleeping' => 'object.rings.wedding.sleeping.png',
+									 'effervescent / sleeping' => 'object.potions.effervescent.sleeping.png',
+									 'wire / invisibility' => 'object.rings.wire.invisibility.png',
+									 'brilliant blue / invisibility' => 'object.potions.brilliant blue.invisibility.png',
+									 'dark brown / invisibility' => 'object.spell books.dark brown.invisibility.png',
+									 'agate / levitation' => 'object.rings.agate.levitation.png',
+									 'cyan / levitation' => 'object.potions.cyan.levitation.png',
+									 'tan / levitation' => 'object.spell books.tan.levitation.png',
+									 'ivory / polymorph' => 'object.rings.ivory.polymorph.png',
+									 'golden / polymorph' => 'object.potions.golden.polymorph.png',
+									 'silver / polymorph' => 'object.wands.silver.polymorph.png',
+									 'KERNOD WEL / identify' => 'object.scrolls.kernod wel.identify.png',
+									 'bronze / identify' => 'object.spell books.bronze.identify.png',
+									 'ELAM EBOW / magic mapping' => 'object.scrolls.elam ebow.magic mapping.png',
+									 'dusty / magic mapping' => 'object.spell books.dusty.magic mapping.png',
+									 'NR 9 / confuse monster' => 'object.scrolls.nr 9.confuse monster.png',
+									 'orange / confuse monster' => 'object.spell books.orange.confuse monster.png',
+									 'DAIYEN FOOELS / enchant weapon' => 'object.scrolls.daiyen fooels.enchant weapon.png',
+									 'dull / enchant weapon' => 'object.spell books.dull.enchant weapon.png',
+									 'ZELGO MER / enchant armor' => 'object.scrolls.zelgo mer.enchant armor.png',
+									 'thin / enchant armor' => 'object.spell books.thin.enchant armor.png',
+									 'black onyx / protection' => 'object.rings.black onyx.protection.png',
+									 'wide / protection' => 'object.spell books.wide.protection.png',
+									 'PRATYAVAYAH / remove curse' => 'object.scrolls.pratyavayah.remove curse.png',
+									 'wrinkled / remove curse' => 'object.spell books.wrinkled.remove curse.png',
+									 'unlabeled / blank paper' => 'object.scrolls.unlabeled.blank paper.png',
+									 'plain / blank paper' => 'object.spell books.plain.blank paper.png',
+									 'VERR YED HORRE / light' => 'object.scrolls.verr yed horre.light.png',
+									 'cloth / light' => 'object.spell books.cloth.light.png',
+									 'glass / light' => 'object.wands.glass.light.png',
+									 'swirly / enlightenment' => 'object.potions.swirly.enlightenment.png',
+									 'crystal / enlightenment' => 'object.wands.crystal.enlightenment.png',
+									 'light green / slow monster' => 'object.spell books.light green.slow monster.png',
+									 'tin / slow monster' => 'object.wands.tin.slow monster.png',
+									 'shining / cancellation' => 'object.spell books.shining.cancellation.png',
+									 'platinum / cancellation' => 'object.wands.platinum.cancellation.png',
+									 'vellum / magic missile' => 'object.spell books.vellum.magic missile.png',
+									 'steel / magic missile' => 'object.wands.steel.magic missile.png',
+									 'ANDOVA BEGARIN / fire' => 'object.scrolls.andova begarin.fire.png',
+									 'hexagonal / fire' => 'object.wands.hexagonal.fire.png',
+									 'mottled / sleep' => 'object.spell books.mottled.sleep.png',
+									 'runed / sleep' => 'object.wands.runed.sleep.png',
+									 'rainbow / lightning' => 'object.spell books.rainbow.lightning.png',
+									 'curved / lightning' => 'object.wands.curved.lightning.png',
+									 'ragged / fireball' => 'object.spell books.ragged.fireball.png',
+									 'octagonal / fireball' => 'object.wands.octagonal.fireball.png',
+									 'long / death' => 'object.wands.long.death.png',
+									 'silver / polymorph' => ['object.spell books.silver.polymorph.png', 'object.wands.silver.polymorph.png'],
+									 '' => '',
+									},
+					  );
+
 my @DIRECTIONS = (
 				  "top left",
 				  "top center",
@@ -123,11 +194,31 @@ my @WALLS = (
 			 "tee right"
 			);
 
+my %VISITED;
+
 sub filename_for_tile {
-  my ($key, $name, $index) = @_;
+  my ($src_filename, $key, $name, $index) = @_;
+  my ($category) = ($src_filename =~ m|.*/([^/]*)\.txt$|);
+
+  # look for hard exceptions
+  my $hard_exception = $HARD_EXCEPTIONS{$category}->{$name};
+  if ($hard_exception) {
+ 	#print "$category $name -> $hard_exception\n";
+	if (ref $hard_exception eq 'ARRAY') {
+	  $hard_exception = shift @$hard_exception;
+	}
+ 	return $hard_exception;
+  }
+
   $name = lc $name;
   $name =~ s/.* \/ //; # only look at last part of components separated by slashes
   $name =~ s/'//; # remove all '
+
+  if ($VISITED{$category}->{$name}) {
+	#print STDERR "duplicate $category $name\n";
+  } else {
+	$VISITED{$category}->{$name} = 1;
+  }
 
   #print "looking for $name\n";
 
@@ -190,7 +281,7 @@ sub process_all_tiles {
   while ($line = <TILEFILE>) {
 	my ($num, $name) = ($line =~ /^# tile (\d+) \((.*)\).*/);
 	if (defined $num) {
-	  my $png_filename = filename_for_tile $key, $name, $index;
+	  my $png_filename = filename_for_tile $filename, $key, $name, $index;
 	  #print "$png_filename\n";
 	  if ($png_filename && -e "$CONFIG{tileset_path}/$png_filename") {
 		push @png_files, $png_filename;
