@@ -88,11 +88,13 @@ static BOOL s_doubleTapsEnabled = NO;
 	if (map) {
 		CGContextRef ctx = UIGraphicsGetCurrentContext();
 	
-		// indicate map bounds
-		float boundsColor[] = { 0.4f, 0.4f, 0.4f, 1.0f };
-		CGContextSetStrokeColor(ctx, boundsColor);
-		CGRect boundsRect = self.bounds;
-		CGContextStrokeRectWithWidth(ctx, boundsRect, 3.0f);
+		// erase background
+		float backgroundColor[] = { 0.0f, 0.0f, 0.0f, 1.0f };
+		CGContextSetFillColor(ctx, backgroundColor);
+		CGContextFillRect(ctx, rect);
+		
+		float foregroundColor[] = { 1.0f, 1.0f, 1.0f, 1.0f };
+		CGContextSetFillColor(ctx, foregroundColor);
 		
 		// switch to right-handed coordinate system (quartz)
 		CGContextTranslateCTM(ctx, 0.0f, self.bounds.size.height);
@@ -103,11 +105,12 @@ static BOOL s_doubleTapsEnabled = NO;
 		CGPoint start = CGPointMake(clipOffset.x+panOffset.x,
 									self.bounds.size.height-tileSize.height-clipOffset.y-panOffset.y);
 		
-		// erase background
-		float backgroundColor[] = { 0.0f, 0.0f, 0.0f, 1.0f };
-		CGContextSetFillColor(ctx, backgroundColor);
-		CGContextFillRect(ctx, rect);
-
+		// indicate map bounds
+		float boundsColor[] = { 0.4f, 0.4f, 0.4f, 1.0f };
+		CGContextSetStrokeColor(ctx, boundsColor);
+		CGRect boundsRect = CGRectMake(start.x, start.y+tileSize.height, COLNO * tileSize.width, -ROWNO * tileSize.height);
+		CGContextStrokeRectWithWidth(ctx, boundsRect, 3.0f);
+		
 		int *glyphs = map.glyphs;
 		for (int j = 0; j < ROWNO; ++j) {
 			for (int i = 0; i < COLNO; ++i) {
