@@ -31,6 +31,6 @@
 
 }
 
-- (void)keyboardWillShow:(NSDictionary *)dict;
+- (void)keyboardWillShow:(NSNotification *)notification;
 
 @end

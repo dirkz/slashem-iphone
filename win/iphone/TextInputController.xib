@@ -70,7 +70,7 @@
 					<object class="IBUITextView" id="722328309">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">306</int>
-						<string key="NSFrame">{{0, 31}, {320, 223}}</string>
+						<string key="NSFrame">{{0, 31}, {320, 429}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="IBUIBackgroundColor" ref="923272914"/>
 						<bool key="IBUIOpaque">NO</bool>
@@ -81,6 +81,7 @@
 						<bool key="IBUIDelaysContentTouches">NO</bool>
 						<bool key="IBUICanCancelContentTouches">NO</bool>
 						<bool key="IBUIBouncesZoom">NO</bool>
+						<bool key="IBUIEditable">NO</bool>
 						<string key="IBUIText"/>
 						<object class="NSColor" key="IBUITextColor">
 							<int key="NSColorSpace">1</int>
@@ -198,7 +199,7 @@
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<string>TextInputController</string>
 					<string>UIResponder</string>
-					<string>{{563, 126}, {320, 480}}</string>
+					<string>{{629, 324}, {320, 480}}</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>

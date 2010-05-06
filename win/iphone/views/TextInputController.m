@@ -71,15 +71,18 @@
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
-- (void)keyboardWillShow:(NSDictionary *)dict {
-//	NSValue *valueFrame = [dict valueForKey:UIKeyboardBoundsUserInfoKey];
-//	CGRect frame;
-//	[valueFrame getValue:&frame];
-//	NSLog(@"%3.2f,%3.2f %3.2fx%3.2f", frame.origin.x, frame.origin.y, frame.size.width, frame.size.height);
-//
-//	NSValue *valueCenter = [dict valueForKey:UIKeyboardCenterEndUserInfoKey];
-//	[valueCenter getValue:&frame.origin];
-//	NSLog(@"%3.2f,%3.2f %3.2fx%3.2f", frame.origin.x, frame.origin.y, frame.size.width, frame.size.height);
+- (void)keyboardWillShow:(NSNotification *)notification {
+	NSDictionary *userInfo = [notification userInfo];
+	NSValue *value = [userInfo valueForKey:UIKeyboardBoundsUserInfoKey];
+	CGRect keyboardFrame;
+	[value getValue:&keyboardFrame];
+
+	CGRect messageFrame = messageTextView.frame;
+	CGFloat overlap = messageFrame.origin.y + messageFrame.size.height - (self.view.bounds.size.height - keyboardFrame.size.height);
+	if (overlap != 0.0f) {
+		messageFrame.size.height -= overlap;
+		messageTextView.frame = messageFrame;
+	}
 }
 
 #pragma mark UITextFieldDelegate
