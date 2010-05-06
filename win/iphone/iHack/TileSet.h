@@ -35,10 +35,14 @@ extern short glyph2tile[];
 	int numberOfCachedImages;
 	CGImageRef *cachedImages;
 	NSString *title;
+	BOOL supportsTransparency;
 
 }
 
 @property (nonatomic, readonly) NSString *title;
+
+// whether tilesets supports backglyphs with transparent foreground tiles
+@property (nonatomic, assign) BOOL supportsTransparency;
 
 + (TileSet *)instance;
 + (void)setInstance:(TileSet *)ts;

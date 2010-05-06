@@ -34,6 +34,7 @@ static CGSize defaultTileSize = {32.0f, 32.0f};
 @implementation TileSet
 
 @synthesize title;
+@synthesize supportsTransparency;
 
 + (TileSet *)instance {
 	return s_instance;
@@ -54,14 +55,10 @@ static CGSize defaultTileSize = {32.0f, 32.0f};
 
 + (TileSet *)tileSetFromDictionary:(NSDictionary *)dict {
 	NSString *filename = [dict objectForKey:@"filename"];
-	NSString *title = [dict objectForKey:@"title"];
-	TileSet *tileSet = nil;
-	if (filename) {
-		UIImage *tilesetImage = [UIImage imageNamed:filename];
-		tileSet = [[TileSet alloc] initWithImage:tilesetImage tileSize:defaultTileSize title:filename];
-	} else {
-		tileSet = [[AsciiTileSet alloc] initWithTileSize:defaultTileSize title:title];
+	if (!filename) {
+		filename = [dict objectForKey:@"title"];
 	}
+	TileSet *tileSet = [self tileSetFromTitleOrFilename:filename];;
 	return tileSet;
 }
 
@@ -70,6 +67,9 @@ static CGSize defaultTileSize = {32.0f, 32.0f};
 	if ([title endsWithString:@".png"]) {
 		UIImage *tilesetImage = [UIImage imageNamed:title];
 		tileSet = [[TileSet alloc] initWithImage:tilesetImage tileSize:defaultTileSize title:title];
+		if ([title containsString:@"absurd"]) {
+			tileSet.supportsTransparency = YES;
+		}
 	} else {
 		tileSet = [[AsciiTileSet alloc] initWithTileSize:defaultTileSize title:title];
 	}

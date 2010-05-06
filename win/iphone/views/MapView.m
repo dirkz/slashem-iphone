@@ -112,6 +112,7 @@ static BOOL s_doubleTapsEnabled = NO;
 		CGContextStrokeRectWithWidth(ctx, boundsRect, 3.0f);
 		
 		int *glyphs = map.glyphs;
+		BOOL supportsTransparency = [[TileSet instance] supportsTransparency];
 		for (int j = 0; j < ROWNO; ++j) {
 			for (int i = 0; i < COLNO; ++i) {
 				CGPoint p = CGPointMake(start.x+i*tileSize.width,
@@ -121,12 +122,14 @@ static BOOL s_doubleTapsEnabled = NO;
 					int glyph = glyphAt(glyphs, i, j);
 					if (glyph != kNoGlyph) {
 						// draw background
-						int backGlyph = back_to_glyph(i, j);
-						if (backGlyph != kNoGlyph && backGlyph != glyph) {
-							// tile 1184, glyph 3627 is dark floor
-							//NSLog(@"back %d in %d,%d (player %d,%d)", glyph2tile[backGlyph], i, j, u.ux, u.uy);
-							CGImageRef tileImg = [[TileSet instance] imageForGlyph:backGlyph atX:i y:j];
-							CGContextDrawImage(ctx, r, tileImg);
+						if (supportsTransparency) {
+							int backGlyph = back_to_glyph(i, j);
+							if (backGlyph != kNoGlyph && backGlyph != glyph) {
+								// tile 1184, glyph 3627 is dark floor
+								//NSLog(@"back %d in %d,%d (player %d,%d)", glyph2tile[backGlyph], i, j, u.ux, u.uy);
+								CGImageRef tileImg = [[TileSet instance] imageForGlyph:backGlyph atX:i y:j];
+								CGContextDrawImage(ctx, r, tileImg);
+							}
 						}
 						// draw front
 						CGImageRef tileImg = [[TileSet instance] imageForGlyph:glyph atX:i y:j];
