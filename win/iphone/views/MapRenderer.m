@@ -84,46 +84,44 @@ typedef struct _vertex {
 		glLoadIdentity();
 		
 		glOrthof(0.0f, width, height, 0.0f, 1.0f, -1.0f);
-		
-		static vertex triangles[4] = {
-			{ 0.0f,  0.0f, 0, 0 },
-			{ TILE_WIDTH,  0.0f, 1, 0 },
-			{ 0.0f,   TILE_HEIGHT, 0, 1 },
-			{ TILE_WIDTH, TILE_HEIGHT, 1, 1}
-		};
+		const CGRect boundingRect = CGRectMake(0.0f, 0.0f, width, height);
 		
 		glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT);
 		
 		glPushMatrix();
 		
-		glTranslatef(width/2-TILE_WIDTH/2 - view.clipX * TILE_WIDTH + view.panOffset.x,
-					 height/2-TILE_HEIGHT/2 - view.clipY * TILE_HEIGHT + view.panOffset.y,
-					 0.0f);
-
 		int *glyphs = map.glyphs;
 		//BOOL supportsTransparency = [[TileSet instance] supportsTransparency];
 		for (int j = 0; j < ROWNO; ++j) {
 			for (int i = 0; i < COLNO; ++i) {
 				int glyph = glyphAt(glyphs, i, j);
 				if (glyph != kNoGlyph) {
-					glPushMatrix();
-					glTranslatef(i * TILE_WIDTH, j * TILE_HEIGHT, 0.0f);
+					const GLfloat x = width/2-TILE_WIDTH/2 - view.clipX * TILE_WIDTH + view.panOffset.x + i * TILE_WIDTH;
+					const GLfloat y = height/2-TILE_HEIGHT/2 - view.clipY * TILE_HEIGHT + view.panOffset.y + j * TILE_HEIGHT;
+					const vertex triangles[4] = {
+						{ x,  y, 0, 0 },
+						{ x+TILE_WIDTH, y, 1, 0 },
+						{ x, y+TILE_HEIGHT, 0, 1 },
+						{ x+TILE_WIDTH, y+TILE_HEIGHT, 1, 1}
+					};
+					const CGRect rect = CGRectMake(x, y, TILE_WIDTH, TILE_HEIGHT);
 					
-					glVertexPointer(2, GL_FLOAT, sizeof(vertex), triangles);
-					glEnableClientState(GL_VERTEX_ARRAY);
-					
-					glTexCoordPointer(2, GL_SHORT, sizeof(vertex), &triangles[0].s);
-					glEnableClientState(GL_TEXTURE_COORD_ARRAY);
-					
-					glBindTexture(GL_TEXTURE_2D, [tileSet textureForGlyph:glyph atX:i y:j]);
-					glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-					glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-					glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
-					glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-
-					glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
-					glPopMatrix();
+					if (CGRectIntersectsRect(rect, boundingRect)) {
+						glVertexPointer(2, GL_FLOAT, sizeof(vertex), triangles);
+						glEnableClientState(GL_VERTEX_ARRAY);
+						
+						glTexCoordPointer(2, GL_SHORT, sizeof(vertex), &triangles[0].s);
+						glEnableClientState(GL_TEXTURE_COORD_ARRAY);
+						
+						glBindTexture(GL_TEXTURE_2D, [tileSet textureForGlyph:glyph atX:i y:j]);
+						glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+						glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+						glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+						glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+						
+						glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
+					}
 				}
 			}
 		}
