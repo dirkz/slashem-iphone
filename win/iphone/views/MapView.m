@@ -25,6 +25,7 @@
 #import "MapView.h"
 #import "NhMapWindow.h"
 #import "TileSet.h"
+#import "TileSetGL.h"
 #import "MainViewController.h"
 #import "winiphone.h"
 #import "ZTouchInfo.h"
@@ -60,7 +61,7 @@ static BOOL s_doubleTapsEnabled = NO;
 	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 	NSString *filename = [defaults objectForKey:kNetHackTileSet];
 
-	TileSet *tileSet = [TileSet tileSetFromTitleOrFilename:filename];
+	TileSet *tileSet = [TileSetGL tileSetFromTitleOrFilename:filename];
 	[TileSet setInstance:tileSet];
 	NSString *bundlePath = [[NSBundle mainBundle] resourcePath];
 	petMark = CGImageRetain([UIImage imageWithContentsOfFile:[bundlePath

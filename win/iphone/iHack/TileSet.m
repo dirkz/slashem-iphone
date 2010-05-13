@@ -29,7 +29,7 @@
 #include "hack.h"
 
 static TileSet *s_instance = nil;
-static CGSize defaultTileSize = {32.0f, 32.0f};
+static const CGSize defaultTileSize = {32.0f, 32.0f};
 
 @implementation TileSet
 
@@ -66,7 +66,7 @@ static CGSize defaultTileSize = {32.0f, 32.0f};
 	TileSet *tileSet = nil;
 	if ([title endsWithString:@".png"]) {
 		UIImage *tilesetImage = [UIImage imageNamed:title];
-		tileSet = [[TileSet alloc] initWithImage:tilesetImage tileSize:defaultTileSize title:title];
+		tileSet = [[self alloc] initWithImage:tilesetImage tileSize:defaultTileSize title:title];
 		if ([title containsString:@"absurd"]) {
 			tileSet.supportsTransparency = YES;
 		}
@@ -124,7 +124,9 @@ static CGSize defaultTileSize = {32.0f, 32.0f};
 			CGImageRelease(cachedImages[i]);
 		}
 	}
-	free(cachedImages);
+	if (cachedImages) {
+		free(cachedImages);
+	}
 	[image release];
 	[title release];
 	[super dealloc];

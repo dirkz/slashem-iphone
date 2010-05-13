@@ -201,7 +201,7 @@ void iphone_init_nhwindows(int* argc, char** argv) {
 	}
 
 #if TARGET_OS_IPHONE && TARGET_IPHONE_SIMULATOR
-	wizard = TRUE; /* debugging */
+	//wizard = TRUE; /* debugging */
 #endif
 	
 }
