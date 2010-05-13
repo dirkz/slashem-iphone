@@ -38,7 +38,7 @@
 		zoomFactor = 1.0f;
 
         // Get the layer
-        CAEAGLLayer *eaglLayer = (CAEAGLLayer *)self.layer;
+        CAEAGLLayer *eaglLayer = (CAEAGLLayer *) self.layer;
         
         eaglLayer.opaque = TRUE;
         eaglLayer.drawableProperties = [NSDictionary dictionaryWithObjectsAndKeys:
