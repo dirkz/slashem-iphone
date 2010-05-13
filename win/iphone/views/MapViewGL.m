@@ -87,11 +87,6 @@
 		zoomFactor = 0.25f;
 	}
 	
-	if (self.panned) {
-		panOffset.x *= zoomFactor;
-		panOffset.y *= zoomFactor;
-	}
-	
 	[renderer render];
 }
 

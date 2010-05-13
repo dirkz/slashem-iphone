@@ -74,12 +74,16 @@ typedef struct _vertex {
 
 		glViewport(0, 0, backingWidth, backingHeight);
 		
+		GLfloat zoomFactor = view.zoomFactor;
+		GLfloat width = backingWidth * 1/zoomFactor;
+		GLfloat height = backingHeight * 1/zoomFactor;
+		
 		glMatrixMode(GL_PROJECTION);
 		glLoadIdentity();
 		glMatrixMode(GL_MODELVIEW);
 		glLoadIdentity();
 		
-		glOrthof(0.0f, backingWidth, backingHeight, 0.0f, 1.0f, -1.0f);
+		glOrthof(0.0f, width, height, 0.0f, 1.0f, -1.0f);
 		
 		static vertex triangles[4] = {
 			{ 0.0f,  0.0f, 0, 0 },
@@ -93,13 +97,10 @@ typedef struct _vertex {
 		
 		glPushMatrix();
 		
-		glScalef(view.zoomFactor, view.zoomFactor, 0.0f);
-		GLfloat tileWidth = TILE_WIDTH * view.zoomFactor;
-		GLfloat tileHeight = TILE_HEIGHT * view.zoomFactor;
-		glTranslatef(backingWidth/2-tileWidth/2 - view.clipX * tileWidth + view.panOffset.x,
-					 backingHeight/2-tileHeight/2 - view.clipY * tileHeight + view.panOffset.y,
+		glTranslatef(width/2-TILE_WIDTH/2 - view.clipX * TILE_WIDTH + view.panOffset.x,
+					 height/2-TILE_HEIGHT/2 - view.clipY * TILE_HEIGHT + view.panOffset.y,
 					 0.0f);
-		
+
 		int *glyphs = map.glyphs;
 		//BOOL supportsTransparency = [[TileSet instance] supportsTransparency];
 		for (int j = 0; j < ROWNO; ++j) {

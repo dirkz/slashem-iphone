@@ -37,6 +37,4 @@
 
 @property (nonatomic, readonly) CGFloat zoomFactor;
 
-- (void)drawView:(id)sender;
-
 @end
