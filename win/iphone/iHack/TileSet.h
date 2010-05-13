@@ -24,6 +24,8 @@
 
 #import <Foundation/Foundation.h>
 
+const CGSize defaultTileSize;
+
 extern short glyph2tile[];
 
 @interface TileSet : NSObject {

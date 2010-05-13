@@ -29,7 +29,7 @@
 #include "hack.h"
 
 static TileSet *s_instance = nil;
-static const CGSize defaultTileSize = {32.0f, 32.0f};
+const CGSize defaultTileSize = {32.0f, 32.0f};
 
 @implementation TileSet
 

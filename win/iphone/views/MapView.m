@@ -39,6 +39,8 @@ static BOOL s_doubleTapsEnabled = NO;
 @implementation MapView
 
 @synthesize tileSize;
+@synthesize clipX, clipY;
+@synthesize panOffset;
 
 + (void)load {
     NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];

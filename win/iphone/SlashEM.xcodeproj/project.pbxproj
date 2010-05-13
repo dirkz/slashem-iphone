@@ -25,6 +25,8 @@
 		4339A7FC115A7F3100741CE5 /* actionButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 4339A7FB115A7F3100741CE5 /* actionButton.png */; };
 		43434D89119BE6FA0023ABF1 /* TileSetGL.m in Sources */ = {isa = PBXBuildFile; fileRef = 43434D88119BE6FA0023ABF1 /* TileSetGL.m */; };
 		43434DA8119BE73B0023ABF1 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43434DA7119BE73B0023ABF1 /* OpenGLES.framework */; };
+		43434E38119BF62E0023ABF1 /* MapViewGL.m in Sources */ = {isa = PBXBuildFile; fileRef = 43434E37119BF62E0023ABF1 /* MapViewGL.m */; };
+		43434E91119BF9490023ABF1 /* MapRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 43434E90119BF9490023ABF1 /* MapRenderer.m */; };
 		434C9D47115BE57F00A6EBD6 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 434C9D46115BE57F00A6EBD6 /* Settings.bundle */; };
 		4365D6FC115154E600B15085 /* ExtendedCommandsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4365D6FB115154E600B15085 /* ExtendedCommandsController.xib */; };
 		437A90E7114FF57A000046FD /* Action.m in Sources */ = {isa = PBXBuildFile; fileRef = 437A90B8114FF57A000046FD /* Action.m */; };
@@ -435,6 +437,11 @@
 		43434D87119BE6FA0023ABF1 /* TileSetGL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TileSetGL.h; sourceTree = "<group>"; };
 		43434D88119BE6FA0023ABF1 /* TileSetGL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TileSetGL.m; sourceTree = "<group>"; };
 		43434DA7119BE73B0023ABF1 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		43434E31119BF5EA0023ABF1 /* ESRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESRenderer.h; sourceTree = "<group>"; };
+		43434E36119BF62E0023ABF1 /* MapViewGL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewGL.h; sourceTree = "<group>"; };
+		43434E37119BF62E0023ABF1 /* MapViewGL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewGL.m; sourceTree = "<group>"; };
+		43434E8F119BF9490023ABF1 /* MapRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapRenderer.h; sourceTree = "<group>"; };
+		43434E90119BF9490023ABF1 /* MapRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapRenderer.m; sourceTree = "<group>"; };
 		434C9D46115BE57F00A6EBD6 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		4365D6FB115154E600B15085 /* ExtendedCommandsController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExtendedCommandsController.xib; sourceTree = "<group>"; };
 		437A90B7114FF57A000046FD /* Action.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Action.h; sourceTree = "<group>"; };
@@ -1162,6 +1169,11 @@
 				437A910D114FF58E000046FD /* MainViewController.m */,
 				437A910E114FF58E000046FD /* MapView.h */,
 				437A910F114FF58E000046FD /* MapView.m */,
+				43434E31119BF5EA0023ABF1 /* ESRenderer.h */,
+				43434E8F119BF9490023ABF1 /* MapRenderer.h */,
+				43434E90119BF9490023ABF1 /* MapRenderer.m */,
+				43434E36119BF62E0023ABF1 /* MapViewGL.h */,
+				43434E37119BF62E0023ABF1 /* MapViewGL.m */,
 				437A960911501275000046FD /* ActionBar.h */,
 				437A960A11501275000046FD /* ActionBar.m */,
 				437A9100114FF58E000046FD /* ActionViewController.h */,
@@ -2123,6 +2135,8 @@
 				093E9D6911633871006B0BFE /* PieView.m in Sources */,
 				43F64B271182F06A0016061C /* StatusView.m in Sources */,
 				43434D89119BE6FA0023ABF1 /* TileSetGL.m in Sources */,
+				43434E38119BF62E0023ABF1 /* MapViewGL.m in Sources */,
+				43434E91119BF9490023ABF1 /* MapRenderer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

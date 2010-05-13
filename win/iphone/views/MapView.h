@@ -55,10 +55,16 @@
 	
 	// the hit box to hit for detecting tap on self
 	CGSize selfTapRectSize;
+	
 }
 
 @property (nonatomic, readonly) CGSize tileSize;
 @property (nonatomic, readonly) BOOL panned;
+
+// opengl rendering support
+@property (nonatomic, readonly) int clipX;
+@property (nonatomic, readonly) int clipY;
+@property (nonatomic, readonly) CGPoint panOffset;
 
 - (void)clipAroundX:(int)x y:(int)y;
 
