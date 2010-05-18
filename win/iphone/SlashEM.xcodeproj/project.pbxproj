@@ -2159,11 +2159,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Dirk Zimmermann";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B9A8DE8B-0686-4819-AC6A-55DC45577447";
 				SDKROOT = iphoneos3.0;
 			};
 			name = Distribution;
@@ -2179,7 +2180,7 @@
 				GCC_PREFIX_HEADER = SlashEM_Prefix.pch;
 				INFOPLIST_FILE = "SlashEM-Info.plist";
 				PRODUCT_NAME = SlashEM;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "5F085237-BDB4-4D95-9007-8775D541CFA4";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B9A8DE8B-0686-4819-AC6A-55DC45577447";
 			};
 			name = Distribution;
 		};
