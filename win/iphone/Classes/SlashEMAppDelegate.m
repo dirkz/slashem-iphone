@@ -55,6 +55,7 @@ extern int unixmain(int argc, char **argv);
 	NSString *baseDirectory = [paths objectAtIndex:0];
 	NSLog(@"baseDir %@", baseDirectory);
 	setenv("NETHACKDIR", [baseDirectory cStringUsingEncoding:NSASCIIStringEncoding], 1);
+	//setenv("SHOPTYPE", "G", 1); // force general stores on every level in wizard mode
 	NSString *saveDirectory = [baseDirectory stringByAppendingPathComponent:@"save"];
 	mkdir([saveDirectory cStringUsingEncoding:NSASCIIStringEncoding], 0777);
 	
