@@ -53,16 +53,18 @@ extern int unixmain(int argc, char **argv);
 	// create necessary directories
 	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
 	NSString *baseDirectory = [paths objectAtIndex:0];
-	NSLog(@"baseDir %@", baseDirectory);
+	//NSLog(@"baseDir %@", baseDirectory);
 	setenv("NETHACKDIR", [baseDirectory cStringUsingEncoding:NSASCIIStringEncoding], 1);
 	//setenv("SHOPTYPE", "G", 1); // force general stores on every level in wizard mode
 	NSString *saveDirectory = [baseDirectory stringByAppendingPathComponent:@"save"];
 	mkdir([saveDirectory cStringUsingEncoding:NSASCIIStringEncoding], 0777);
 	
 	// show directory (for debugging)
+#if 0	
 	for (NSString *filename in [[NSFileManager defaultManager] enumeratorAtPath:baseDirectory]) {
 		NSLog(@"%@", filename);
 	}
+#endif
 	
 	// set plname (very important for save files and getlock)
 	[[NSUserName() capitalizedString] getCString:plname maxLength:PL_NSIZ encoding:NSASCIIStringEncoding];
