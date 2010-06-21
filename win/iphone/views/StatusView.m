@@ -47,7 +47,7 @@
 
 - (void)drawRect:(CGRect)rect {
 	float space = 5.0f;
-	UIFont *font = [UIFont systemFontOfSize:12.0f];
+	UIFont *font = [UIFont systemFontOfSize:13.0f];
 	CGContextRef ctx = UIGraphicsGetCurrentContext();
 	CGContextSetStrokeColorWithColor(ctx, [UIColor whiteColor].CGColor);
 	CGContextSetFillColorWithColor(ctx, [UIColor whiteColor].CGColor);
@@ -60,6 +60,12 @@
 					  status.level, status.money, status.hitpoints, status.maxHitpoints, status.power,
 					  status.maxPower, status.ac, status.xlvl, status.turn];
 	p.y += size.height;
+	
+	// make font smaller if a lot to display
+	if (self.bounds.size.width <= 320.0f && (status.hungryState != 1 || strlen(status.status))) {
+		font = [UIFont systemFontOfSize:10.0f];
+	}
+	
 	size = [bot2 drawAtPoint:p withFont:font];
 
 	p.x += size.width + space;
