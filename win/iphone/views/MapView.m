@@ -109,8 +109,10 @@ static BOOL s_doubleTapsEnabled = NO;
 		// indicate map bounds
 		float boundsColor[] = { 0.4f, 0.4f, 0.4f, 1.0f };
 		CGContextSetStrokeColor(ctx, boundsColor);
-		CGRect boundsRect = CGRectMake(start.x, start.y+tileSize.height, COLNO * tileSize.width, -ROWNO * tileSize.height);
-		CGContextStrokeRectWithWidth(ctx, boundsRect, 3.0f);
+		float thickness = 3.0f;
+		CGRect boundsRect = CGRectMake(start.x - thickness, start.y + tileSize.height + thickness,
+									   COLNO * tileSize.width + thickness, -ROWNO * tileSize.height + thickness);
+		CGContextStrokeRectWithWidth(ctx, boundsRect, thickness);
 		
 		int *glyphs = map.glyphs;
 		BOOL supportsTransparency = [[TileSet instance] supportsTransparency];
