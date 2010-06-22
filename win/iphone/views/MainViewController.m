@@ -383,7 +383,7 @@ enum rotation_lock {
 			}
 		} else {
 			// no choices, could be everything
-			NSLog(@"no-choice question %@", q.question);
+			DLog(@"no-choice question %@", q.question);
 			NSString *args = [q.question substringBetweenDelimiters:@"[]"];
 			
 			NSString *specials = nil, *items = nil;
@@ -403,7 +403,7 @@ enum rotation_lock {
 					[self presentModalViewController:questionViewController animated:YES];
 				}
 			} else {
-				NSLog(@"giving up on question %@", q.question);
+				DLog(@"giving up on question %@", q.question);
 			}
 		}
 	}
@@ -547,7 +547,7 @@ enum rotation_lock {
 }
 
 - (void)handleMapTapTileX:(int)x y:(int)y forLocation:(CGPoint)p inView:(UIView *)view {
-	//NSLog(@"tap on %d,%d (u %d,%d)", x, y, u.ux, u.uy);
+	//DLog(@"tap on %d,%d (u %d,%d)", x, y, u.ux, u.uy);
 	if (directionQuestion) {
 		if (u.ux == x && u.uy == y) {
 			// tap on self
@@ -562,10 +562,10 @@ enum rotation_lock {
 			directionQuestion = NO;
 			CGPoint delta = CGPointMake(x*32.0f-u.ux*32.0f, y*32.0f-u.uy*32.0f);
 			delta.y *= -1;
-			//NSLog(@"delta %3.2f,%3.2f", delta.x, delta.y);
+			//DLog(@"delta %3.2f,%3.2f", delta.x, delta.y);
 			e_direction direction = [ZDirection directionFromEuclideanPointDelta:&delta];
 			int key = [self keyFromDirection:direction];
-			//NSLog(@"key %c", key);
+			//DLog(@"key %c", key);
 			[[NhEventQueue instance] addKey:key];
 		}
 	} else if (!iphone_getpos) {
