@@ -97,6 +97,13 @@
 	}
 	
 	if (item.object) {
+		// you can try to wield pretty much anything
+		if (item.object->owornmask & W_WEP) {
+			[actions addObject:[NhCommand commandWithTitle:"Unwield" keys:"w-"]];
+		} else {
+			[actions addObject:[NhCommand commandWithObject:item title:"Wield" key:'w']];
+		}
+		
 		// worn items can't be dropped except for wielded or alternative weapons
 		// so drop is only allowed on items not worn, except for wielded/alternate/quivered ...
 		if (!item.object->owornmask || item.object->owornmask & W_WEP || item.object->owornmask & W_SWAPWEP ||
@@ -109,18 +116,12 @@
 		switch (item.object->oclass) {
 			case WEAPON_CLASS:
 				if (item.object->owornmask & W_WEP) {
-					[actions addObject:[NhCommand commandWithTitle:"Unwield" keys:"w-"]];
 					[actions addObject:[NhCommand commandWithTitle:"Force" key:M('f')]];
 					[actions addObject:[NhCommand commandWithTitle:"Set as alternative Weapon" key:'x']];
 				} else {
-					[actions addObject:[NhCommand commandWithObject:item title:"Wield" key:'w']];
 					[actions addObject:[NhCommand commandWithObject:item title:"Quiver" key:'Q']];
 				}
 				[actions addObject:[NhCommand commandWithObject:item title:"Apply" key:'a']];
-				if ([inventory containsObjectClass:POTION_CLASS] ||
-					IS_FOUNTAIN(levl[u.ux][u.uy].typ) || IS_SINK(levl[u.ux][u.uy].typ)) {
-					[actions addObject:[NhCommand commandWithObject:item title:"Dip" key:M('d')]];
-				}
 				[actions addObject:[NhCommand commandWithObject:item title:"Engrave" key:'E']];
 				break;
 			case ARMOR_CLASS:
@@ -166,21 +167,9 @@
 						}
 						break;
 				}
-				if (item.object->owornmask & W_WEP) {
-					[actions addObject:[NhCommand commandWithTitle:"Unwield" keys:"w-"]];
-				} else {
-					[actions addObject:[NhCommand commandWithObject:item title:"Wield" key:'w']];
-				}
 				break;
 			case FOOD_CLASS:
 				[actions addObject:[NhCommand commandWithObject:item title:"Eat" key:'e']];
-				if (item.object->otyp == CORPSE) {
-					if (item.object->owornmask & W_WEP) {
-						[actions addObject:[NhCommand commandWithTitle:"Unwield" keys:"w-"]];
-					} else {
-						[actions addObject:[NhCommand commandWithObject:item title:"Wield" key:'w']];
-					}
-				}
 				break;
 			case RING_CLASS:
 			case AMULET_CLASS:
@@ -195,26 +184,13 @@
 				}
 				[actions addObject:[NhCommand commandWithObject:item title:"Engrave" key:'E']];
 				break;
-			case SPBOOK_CLASS:
-				if (item.object->owornmask & W_WEP) {
-					[actions addObject:[NhCommand commandWithTitle:"Unwield" keys:"w-"]];
-				} else {
-					[actions addObject:[NhCommand commandWithObject:item title:"Wield" key:'w']];
-				}
 			case SCROLL_CLASS:
 				[actions addObject:[NhCommand commandWithObject:item title:"Read" key:'r']];
-				if ([inventory containsObjectClass:POTION_CLASS] ||
-					IS_FOUNTAIN(levl[u.ux][u.uy].typ) || IS_SINK(levl[u.ux][u.uy].typ)) {
-					[actions addObject:[NhCommand commandWithObject:item title:"Dip" key:M('d')]];
-				}
 				break;
 			case POTION_CLASS:
 				[actions addObject:[NhCommand commandWithObject:item title:"Quaff" key:'q']];
 				if ([inventory containsObjectClass:TOOL_CLASS] || [inventory containsObjectClass:WAND_CLASS]) {
 					[actions addObject:[NhCommand commandWithObject:item title:"Apply" key:'a']];
-				}
-				if (IS_FOUNTAIN(levl[u.ux][u.uy].typ) || IS_SINK(levl[u.ux][u.uy].typ)) {
-					[actions addObject:[NhCommand commandWithObject:item title:"Dip" key:M('d')]];
 				}
 				break;
 			case GEM_CLASS:
@@ -225,6 +201,12 @@
 				[actions addObject:[NhCommand commandWithObject:item title:"Quiver" key:'Q']];
 				break;
 		}
+		
+		// can try to #dip pretty much anything
+		if ([inventory containsObjectClass:POTION_CLASS]) {
+			[actions addObject:[NhCommand commandWithObject:item title:"Dip" key:M('d')]];
+		}
+
 		char cmd[BUFSZ];
 		sprintf(cmd, "%cn%c", M('n'), item.inventoryLetter);
 		[actions addObject:[NhCommand commandWithTitle:"Name Class" keys:cmd]];
@@ -239,8 +221,8 @@
 				[actions addObject:[NhCommand commandWithTitle:"Pay" key:'p']];
 				break;
 			case '-':
-				[actions addObject:[NhCommand commandWithObject:item title:"Engrave" key:'E']];
 				[actions addObject:[NhCommand commandWithObject:item title:"Wield" key:'w']];
+				[actions addObject:[NhCommand commandWithObject:item title:"Engrave" key:'E']];
 				break;
 			default:
 				break;
