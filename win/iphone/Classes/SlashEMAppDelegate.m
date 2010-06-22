@@ -88,6 +88,7 @@ extern int unixmain(int argc, char **argv);
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
+	[[NSUserDefaults standardUserDefaults] synchronize];
 	[TileSet setInstance:nil];
 	save_currentstate();
 }
