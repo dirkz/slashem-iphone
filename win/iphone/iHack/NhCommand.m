@@ -247,6 +247,13 @@ enum InvFlags {
 		}
 	}
 	
+	struct trap *t = t_at(u.ux, u.uy);
+	if (t) {
+		// todo check for knowledge about trap
+		[self addCommand:[NhCommand commandWithTitle:"Untrap" key:M('u')] toCommands:commands key:kDungeon];
+		[self addCommand:[NhCommand commandWithTitle:"Identify Trap" key:'^'] toCommands:commands key:kDungeon];
+	}
+
 	int positions[][2] = {
 		{ u.ux, u.uy-1 },
 		{ u.ux, u.uy+1 },
