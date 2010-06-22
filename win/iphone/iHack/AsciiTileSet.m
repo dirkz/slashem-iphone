@@ -88,6 +88,7 @@ extern int total_tiles_used; // from tile.c
 		
 		UIGraphicsBeginImageContext(tileSize);
 		CGContextRef ctx = UIGraphicsGetCurrentContext();
+		CGContextSetBlendMode(ctx, kCGBlendModeNormal);
 
 		// black background, needed for display in menu
 		CGContextSetFillColorWithColor(ctx, [UIColor blackColor].CGColor);

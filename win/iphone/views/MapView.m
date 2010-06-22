@@ -82,6 +82,7 @@ static BOOL s_doubleTapsEnabled = NO;
 	NhMapWindow *map = (NhMapWindow *) [NhWindow mapWindow];
 	if (map) {
 		CGContextRef ctx = UIGraphicsGetCurrentContext();
+		CGContextSetBlendMode(ctx, kCGBlendModeNormal);
 	
 		// erase background
 		float backgroundColor[] = { 0.0f, 0.0f, 0.0f, 1.0f };
