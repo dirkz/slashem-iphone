@@ -52,9 +52,8 @@ extern short glyph2tile[];
 
 - (id)initWithImage:(UIImage *)img tileSize:(CGSize)ts title:(NSString *)t;
 - (id)initWithImage:(UIImage *)img title:(NSString *)t;
+
 - (CGImageRef)imageForGlyph:(int)glyph atX:(int)x y:(int)y;
-- (CGImageRef)imageForTile:(int)tile atX:(int)x y:(int)y;
 - (CGImageRef)imageForGlyph:(int)glyph;
-- (CGImageRef)imageForTile:(int)tile;
 
 @end

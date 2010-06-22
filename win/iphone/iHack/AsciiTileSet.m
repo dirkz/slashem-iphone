@@ -35,7 +35,7 @@ extern int total_tiles_used; // from tile.c
 	if (self = [super init]) {
 		tileSize = ts;
 		
-		numberOfCachedImages = total_tiles_used;
+		numberOfCachedImages = MAX_GLYPH;
 		cachedImages = calloc(numberOfCachedImages, sizeof(CGImageRef));
 		memset(cachedImages, 0, numberOfCachedImages*sizeof(CGImageRef));
 		title = [t copy];
@@ -68,9 +68,12 @@ extern int total_tiles_used; // from tile.c
 	return self;
 }
 
+- (UIColor *)mapNetHackColor:(int)ocolor {
+	return [colorTable objectAtIndex:ocolor];
+}
+
 - (CGImageRef)imageForGlyph:(int)glyph atX:(int)x y:(int)y {
-	int tile = glyph2tile[glyph];
-	if (!cachedImages[tile]) {
+	if (!cachedImages[glyph]) {
 		UIFont *font = [UIFont boldSystemFontOfSize:28];
 		int ochar, ocolor;
 		unsigned special;
@@ -96,19 +99,10 @@ extern int total_tiles_used; // from tile.c
 		CGContextSetFillColorWithColor(ctx, color.CGColor);
 		[s drawAtPoint:p withFont:font];
 		UIImage *img = UIGraphicsGetImageFromCurrentImageContext();
-		cachedImages[tile] = CGImageRetain(img.CGImage);
+		cachedImages[glyph] = CGImageRetain(img.CGImage);
 		UIGraphicsEndImageContext();
 	}
-	return cachedImages[tile];
-}
-
-// not supported for ASCII
-- (CGImageRef)imageForTile:(int)tile atX:(int)x y:(int)y {
-	return nil;
-}
-
-- (UIColor *)mapNetHackColor:(int)ocolor {
-	return [colorTable objectAtIndex:ocolor];
+	return cachedImages[glyph];
 }
 
 @end

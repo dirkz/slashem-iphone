@@ -94,11 +94,6 @@ static const CGSize defaultTileSize = {32.0f, 32.0f};
 	return [self initWithImage:img tileSize:defaultTileSize title:t];
 }
 
-- (CGImageRef)imageForGlyph:(int)glyph atX:(int)x y:(int)y {
-	int tile = glyph2tile[glyph];
-	return [self imageForTile:tile atX:x y:y];
-}
-
 - (CGImageRef)imageForTile:(int)tile atX:(int)x y:(int)y {
 	if (!cachedImages[tile]) {
 		int row = tile/columns;
@@ -110,12 +105,13 @@ static const CGSize defaultTileSize = {32.0f, 32.0f};
 	return cachedImages[tile];
 }
 
-- (CGImageRef)imageForGlyph:(int)glyph {
-	return [self imageForGlyph:glyph atX:0 y:0];
+- (CGImageRef)imageForGlyph:(int)glyph atX:(int)x y:(int)y {
+	int tile = glyph2tile[glyph];
+	return [self imageForTile:tile atX:x y:y];
 }
 
-- (CGImageRef)imageForTile:(int)tile {
-	return [self imageForTile:tile atX:0 y:0];
+- (CGImageRef)imageForGlyph:(int)glyph {
+	return [self imageForGlyph:glyph atX:0 y:0];
 }
 
 - (void)dealloc {

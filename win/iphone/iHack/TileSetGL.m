@@ -86,7 +86,7 @@ void glCreateTexture(CGImageRef cgImage, GLuint name) {
 - (GLuint)textureForGlyph:(int)glyph atX:(int)x y:(int)y {
 	int tile = glyph2tile[glyph];
 	if (!textureCreated[tile]) {
-		glCreateTexture([self imageForTile:tile], textures[tile]);
+		glCreateTexture([self imageForGlyph:glyph atX:x y:y], textures[tile]);
 	}
 	return textures[tile];
 }
