@@ -86,6 +86,11 @@ extern int unixmain(int argc, char **argv);
 	}
 }
 
+- (void)applicationDidEnterBackground:(UIApplication *)application {
+	// todo release resources
+	save_currentstate();
+}
+
 - (void)dealloc {
     [window release];
     [super dealloc];
