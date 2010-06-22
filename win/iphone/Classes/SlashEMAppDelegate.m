@@ -54,7 +54,7 @@ extern int unixmain(int argc, char **argv);
 	// create necessary directories
 	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
 	NSString *baseDirectory = [paths objectAtIndex:0];
-	//NSLog(@"baseDir %@", baseDirectory);
+	DLog(@"baseDir %@", baseDirectory);
 	setenv("NETHACKDIR", [baseDirectory cStringUsingEncoding:NSASCIIStringEncoding], 1);
 	//setenv("SHOPTYPE", "G", 1); // force general stores on every level in wizard mode
 	NSString *saveDirectory = [baseDirectory stringByAppendingPathComponent:@"save"];
