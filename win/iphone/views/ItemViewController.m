@@ -143,9 +143,6 @@
 				break;
 			case TOOL_CLASS:
 				[actions addObject:[NhCommand commandWithObject:item title:"Apply" key:'a']];
-				if ([inventory containsObjectClass:POTION_CLASS]) {
-					[actions addObject:[NhCommand commandWithObject:item title:"Dip" key:M('d')]];
-				}
 				switch (item.object->otyp) {
 					case MAGIC_MARKER:
 						[actions addObject:[NhCommand commandWithObject:item title:"Engrave" key:'E']];
