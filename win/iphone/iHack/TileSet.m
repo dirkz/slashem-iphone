@@ -25,6 +25,7 @@
 #import "TileSet.h"
 #import "AsciiTileSet.h"
 #import "NSString+Z.h"
+#import "winiphone.h" // kNetHackTileSet
 
 #include "hack.h"
 
@@ -37,6 +38,11 @@ static const CGSize defaultTileSize = {32.0f, 32.0f};
 @synthesize supportsTransparency;
 
 + (TileSet *)instance {
+	if (!s_instance) {
+		NSString *filename = [[NSUserDefaults standardUserDefaults] objectForKey:kNetHackTileSet];
+		TileSet *tileSet = [TileSet tileSetFromTitleOrFilename:filename];
+		s_instance = tileSet;
+	}
 	return s_instance;
 }
 

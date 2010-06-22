@@ -56,17 +56,11 @@ static BOOL s_doubleTapsEnabled = NO;
 	maxTileSize = CGSizeMake(32.0f, 32.0f);
 	minTileSize = CGSizeMake(8.0f, 8.0f);
 	selfTapRectSize = CGSizeMake(40.0f, 40.0f);
-	
-	// load gfx
-	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-	NSString *filename = [defaults objectForKey:kNetHackTileSet];
 
-	TileSet *tileSet = [TileSetGL tileSetFromTitleOrFilename:filename];
-	[TileSet setInstance:tileSet];
+	// load gfx
 	NSString *bundlePath = [[NSBundle mainBundle] resourcePath];
 	petMark = CGImageRetain([UIImage imageWithContentsOfFile:[bundlePath
 															  stringByAppendingPathComponent:@"petmark.png"]].CGImage);
-	
 	touchInfoStore = [[ZTouchInfoStore alloc] init];
 }
 
@@ -114,8 +108,10 @@ static BOOL s_doubleTapsEnabled = NO;
 									   COLNO * tileSize.width + thickness, -ROWNO * tileSize.height + thickness);
 		CGContextStrokeRectWithWidth(ctx, boundsRect, thickness);
 		
+		TileSet *tileSet = [TileSet instance];
+		
 		int *glyphs = map.glyphs;
-		BOOL supportsTransparency = [[TileSet instance] supportsTransparency];
+		BOOL supportsTransparency = [tileSet supportsTransparency];
 		for (int j = 0; j < ROWNO; ++j) {
 			for (int i = 0; i < COLNO; ++i) {
 				CGPoint p = CGPointMake(start.x+i*tileSize.width,
@@ -130,12 +126,12 @@ static BOOL s_doubleTapsEnabled = NO;
 							if (backGlyph != kNoGlyph && backGlyph != glyph) {
 								// tile 1184, glyph 3627 is dark floor
 								//NSLog(@"back %d in %d,%d (player %d,%d)", glyph2tile[backGlyph], i, j, u.ux, u.uy);
-								CGImageRef tileImg = [[TileSet instance] imageForGlyph:backGlyph atX:i y:j];
+								CGImageRef tileImg = [tileSet imageForGlyph:backGlyph atX:i y:j];
 								CGContextDrawImage(ctx, r, tileImg);
 							}
 						}
 						// draw front
-						CGImageRef tileImg = [[TileSet instance] imageForGlyph:glyph atX:i y:j];
+						CGImageRef tileImg = [tileSet imageForGlyph:glyph atX:i y:j];
 						CGContextDrawImage(ctx, r, tileImg);
 						if (u.ux == i && u.uy == j) {
 							// hp100 calculation from qt_win.cpp

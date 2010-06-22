@@ -25,6 +25,7 @@
 #import "SlashEMAppDelegate.h"
 #import "MainViewController.h"
 #import "winiphone.h"
+#import "TileSet.h"
 
 #include <sys/stat.h>
 
@@ -87,7 +88,7 @@ extern int unixmain(int argc, char **argv);
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
-	// todo release resources
+	[TileSet setInstance:nil];
 	save_currentstate();
 }
 
