@@ -36,12 +36,47 @@ extern int unixmain(int argc, char **argv);
 @synthesize window;
 @synthesize mainViewController;
 
-- (void)applicationDidFinishLaunching:(UIApplication *)application {    
+- (BOOL)isGameWorthSaving {
+	return !program_state.gameover && program_state.something_worth_saving;
+}
+
+- (void)applicationDidFinishLaunching:(UIApplication *)application {
 	[window addSubview:mainViewController.view];
     [window makeKeyAndVisible];
 	
 	netHackThread = [[NSThread alloc] initWithTarget:self selector:@selector(netHackMainLoop:) object:nil];
 	[netHackThread start];
+}
+
+- (void)cleanUpLocks {
+	// clean up locks / levelfiles
+	delete_levelfile(ledger_no(&u.uz));
+	delete_levelfile(0);
+}
+
+- (void)saveAndQuitGame {
+	if (self.isGameWorthSaving) {
+		dosave0();
+	} else {
+		[self cleanUpLocks];
+	}
+}
+
+- (void)applicationWillTerminate:(UIApplication *)application {
+	[self saveAndQuitGame];
+}
+
+- (void)applicationDidEnterBackground:(UIApplication *)application {
+	if (self.isGameWorthSaving) {
+		save_currentstate();
+	} else {
+		[self cleanUpLocks];
+	}
+	[[NSUserDefaults standardUserDefaults] synchronize];
+	[TileSet setInstance:nil];
+}
+
+- (void)applicationDidBecomeActive:(UIApplication *)application {
 }
 
 - (void) netHackMainLoop:(id)arg {
@@ -75,22 +110,6 @@ extern int unixmain(int argc, char **argv);
 	
 	// clean up thread pool
 	[pool drain];
-}
-
-- (void)applicationWillTerminate:(UIApplication *)application {
-	if (!program_state.gameover && program_state.something_worth_saving) {
-		dosave0();
-	} else {
-		// clean up locks / levelfiles
-		delete_levelfile(ledger_no(&u.uz));
-		delete_levelfile(0);
-	}
-}
-
-- (void)applicationDidEnterBackground:(UIApplication *)application {
-	[[NSUserDefaults standardUserDefaults] synchronize];
-	[TileSet setInstance:nil];
-	save_currentstate();
 }
 
 - (void)dealloc {
