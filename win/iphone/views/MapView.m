@@ -126,7 +126,7 @@ static BOOL s_doubleTapsEnabled = NO;
 							int backGlyph = back_to_glyph(i, j);
 							if (backGlyph != kNoGlyph && backGlyph != glyph) {
 								// tile 1184, glyph 3627 is dark floor
-								//NSLog(@"back %d in %d,%d (player %d,%d)", glyph2tile[backGlyph], i, j, u.ux, u.uy);
+								//DLog(@"back %d in %d,%d (player %d,%d)", glyph2tile[backGlyph], i, j, u.ux, u.uy);
 								CGImageRef tileImg = [tileSet imageForGlyph:backGlyph atX:i y:j];
 								CGContextDrawImage(ctx, r, tileImg);
 							}
