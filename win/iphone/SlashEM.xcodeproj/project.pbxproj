@@ -7,9 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		093E9D641163385D006B0BFE /* OrganizedAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 093E9D5F1163385D006B0BFE /* OrganizedAction.m */; };
-		093E9D651163385D006B0BFE /* PieMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 093E9D611163385D006B0BFE /* PieMenu.m */; };
-		093E9D661163385D006B0BFE /* PieMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 093E9D631163385D006B0BFE /* PieMenuItem.m */; };
 		093E9D7511633AD0006B0BFE /* icon2.png in Resources */ = {isa = PBXBuildFile; fileRef = 093E9D7211633AD0006B0BFE /* icon2.png */; };
 		093E9D7611633AD0006B0BFE /* icon3.png in Resources */ = {isa = PBXBuildFile; fileRef = 093E9D7311633AD0006B0BFE /* icon3.png */; };
 		093E9D7711633AD0006B0BFE /* icon4.png in Resources */ = {isa = PBXBuildFile; fileRef = 093E9D7411633AD0006B0BFE /* icon4.png */; };
@@ -407,13 +404,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		093E9D5D1163385D006B0BFE /* CmdKeyEnum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CmdKeyEnum.h; path = PieMenu/CmdKeyEnum.h; sourceTree = "<group>"; };
-		093E9D5E1163385D006B0BFE /* OrganizedAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrganizedAction.h; path = PieMenu/OrganizedAction.h; sourceTree = "<group>"; };
-		093E9D5F1163385D006B0BFE /* OrganizedAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OrganizedAction.m; path = PieMenu/OrganizedAction.m; sourceTree = "<group>"; };
-		093E9D601163385D006B0BFE /* PieMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PieMenu.h; path = PieMenu/PieMenu.h; sourceTree = "<group>"; };
-		093E9D611163385D006B0BFE /* PieMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PieMenu.m; path = PieMenu/PieMenu.m; sourceTree = "<group>"; };
-		093E9D621163385D006B0BFE /* PieMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PieMenuItem.h; path = PieMenu/PieMenuItem.h; sourceTree = "<group>"; };
-		093E9D631163385D006B0BFE /* PieMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PieMenuItem.m; path = PieMenu/PieMenuItem.m; sourceTree = "<group>"; };
 		093E9D7211633AD0006B0BFE /* icon2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon2.png; sourceTree = "<group>"; };
 		093E9D7311633AD0006B0BFE /* icon3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon3.png; sourceTree = "<group>"; };
 		093E9D7411633AD0006B0BFE /* icon4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon4.png; sourceTree = "<group>"; };
@@ -992,20 +982,6 @@
 			path = Classes;
 			sourceTree = "<group>";
 		};
-		093E9D5C11633825006B0BFE /* PieMenu */ = {
-			isa = PBXGroup;
-			children = (
-				093E9D5D1163385D006B0BFE /* CmdKeyEnum.h */,
-				093E9D5E1163385D006B0BFE /* OrganizedAction.h */,
-				093E9D5F1163385D006B0BFE /* OrganizedAction.m */,
-				093E9D601163385D006B0BFE /* PieMenu.h */,
-				093E9D611163385D006B0BFE /* PieMenu.m */,
-				093E9D621163385D006B0BFE /* PieMenuItem.h */,
-				093E9D631163385D006B0BFE /* PieMenuItem.m */,
-			);
-			name = PieMenu;
-			sourceTree = "<group>";
-		};
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -1035,7 +1011,6 @@
 		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
-				093E9D5C11633825006B0BFE /* PieMenu */,
 				32CA4F630368D1EE00C91783 /* SlashEM_Prefix.pch */,
 				29B97316FDCFA39411CA2CEA /* main.m */,
 			);
@@ -2112,9 +2087,6 @@
 				437A960B11501275000046FD /* ActionBar.m in Sources */,
 				43C52F4511535404001FAA6D /* AsciiTileSet.m in Sources */,
 				438622C611590FC700295E23 /* QuestionViewController.m in Sources */,
-				093E9D641163385D006B0BFE /* OrganizedAction.m in Sources */,
-				093E9D651163385D006B0BFE /* PieMenu.m in Sources */,
-				093E9D661163385D006B0BFE /* PieMenuItem.m in Sources */,
 				43F64B271182F06A0016061C /* StatusView.m in Sources */,
 				43434D89119BE6FA0023ABF1 /* TileSetGL.m in Sources */,
 			);
