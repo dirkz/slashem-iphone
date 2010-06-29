@@ -98,7 +98,7 @@ extern int unixmain(int argc, char **argv);
 	// show directory (for debugging)
 #if 0	
 	for (NSString *filename in [[NSFileManager defaultManager] enumeratorAtPath:baseDirectory]) {
-		NSLog(@"%@", filename);
+		DLog(@"%@", filename);
 	}
 #endif
 	

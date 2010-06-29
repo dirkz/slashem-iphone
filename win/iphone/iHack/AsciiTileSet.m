@@ -80,7 +80,7 @@ extern int total_tiles_used; // from tile.c
 		mapglyph(glyph, &ochar, &ocolor, &special, x, y);
 		char glyphString[] = {ochar, 0};
 		NSString *s = [NSString stringWithCString:glyphString encoding:encoding];
-		//NSLog(@"glyph %4d, tile %4d %2d %3d %c %@", glyph, tile, ocolor, ochar, ochar, s);
+		//DLog(@"glyph %4d, tile %4d %2d %3d %c %@", glyph, tile, ocolor, ochar, ochar, s);
 
 		// center in rectangle
 		CGSize size = [s sizeWithFont:font];

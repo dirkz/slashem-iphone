@@ -30,7 +30,7 @@ extern int total_tiles_used;
 void glCheckError() {
 	GLenum err = glGetError();
 	if (err != GL_NO_ERROR) {
-		NSLog(@"Error uploading texture. glError: 0x%04X", err);
+		DLog(@"Error uploading texture. glError: 0x%04X", err);
 	}
 }
 
