@@ -82,7 +82,34 @@ static const CGSize defaultTileSize = {32.0f, 32.0f};
 	return tileSet;
 }
 
++ (void)dumpTiles {
+	NSMutableDictionary *uniqueACIITiles = [NSMutableDictionary dictionary];
+	int monsters = 0, other = 0;
+	for (int glyph = 0; glyph < MAX_GLYPH; ++glyph) {
+		int ochar, ocolor;
+		unsigned special;
+		mapglyph(glyph, &ochar, &ocolor, &special, 1, 1);
+		int64_t all = ochar + ((int64_t) ocolor) << 32;
+		NSNumber *entry = [NSNumber numberWithLongLong:all];
+		[uniqueACIITiles setObject:entry forKey:entry];
+		if (glyph_is_monster(glyph)) {
+			monsters++;
+		} else {
+			other++;
+		}
+	}
+	DLog(@"%d glyphs, %d monsters, %d other, %d unique ascii", MAX_GLYPH, monsters, other, uniqueACIITiles.count);
+}	
+
+//- (id)init {
+//	if (self = [super init]) {
+//		[TileSet dumpTiles];
+//	}
+//	return self;
+//}
+
 - (id)initWithImage:(UIImage *)img tileSize:(CGSize)ts title:(NSString *)t {
+//	[TileSet dumpTiles];
 	if (self = [super init]) {
 		image = [img retain];
 		tileSize = ts;
@@ -97,6 +124,7 @@ static const CGSize defaultTileSize = {32.0f, 32.0f};
 }
 
 - (id)initWithImage:(UIImage *)img title:(NSString *)t {
+	[TileSet dumpTiles];
 	return [self initWithImage:img tileSize:defaultTileSize title:t];
 }
 
