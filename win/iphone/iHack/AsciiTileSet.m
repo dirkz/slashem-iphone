@@ -27,8 +27,6 @@
 #import "hack.h"
 #import "display.h"
 
-extern int total_tiles_used; // from tile.c
-
 @implementation AsciiTileSet
 
 - (id)initWithTileSize:(CGSize)ts title:(NSString *)t {
