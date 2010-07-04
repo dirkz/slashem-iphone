@@ -307,10 +307,10 @@ enum InvFlags {
 	[self addCommand:[NhCommand commandWithTitle:"Kick" key:C('d')] toCommands:commands key:kDungeon];
 	if (inv & fEngraved) {
 		if (inv & fDustWritten) {
-			[self addCommand:[NhCommand commandWithTitle:"E-Word" keys:"E-nElbereth\nr."] toCommands:commands key:kMisc];
+			[self addCommand:[NhCommand commandWithTitle:"E-Word" keys:"E-nElbereth\n"] toCommands:commands key:kMisc];
 		}
 	} else {
-		[self addCommand:[NhCommand commandWithTitle:"E-Word" keys:"E-Elbereth\nr."] toCommands:commands key:kMisc];
+		[self addCommand:[NhCommand commandWithTitle:"E-Word" keys:"E-Elbereth\n"] toCommands:commands key:kMisc];
 	}
 	if (inside_shop(u.ux, u.uy)) {
 		[self addCommand:[NhCommand commandWithTitle:"Pay" key:'p'] toCommands:commands key:kMisc];

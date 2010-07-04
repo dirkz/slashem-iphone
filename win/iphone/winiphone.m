@@ -213,6 +213,7 @@ void iphone_askname() {
 
 void iphone_get_nh_event() {
 	//DLog(@"get_nh_event");
+	[[NhEventQueue instance] reset];
 }
 
 void iphone_exit_nhwindows(const char *str) {

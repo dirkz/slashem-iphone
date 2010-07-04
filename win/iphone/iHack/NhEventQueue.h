@@ -47,4 +47,7 @@
 // non-blocking
 - (NhEvent *)peek;
 
+// throws away all unhandled events
+- (void)reset;
+
 @end

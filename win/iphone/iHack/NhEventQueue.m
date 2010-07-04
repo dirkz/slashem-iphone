@@ -102,6 +102,12 @@ static NhEventQueue *s_eventQueue;
 	return nil;
 }
 
+- (void)reset {
+	[condition lock];
+	[events removeAllObjects];
+	[condition unlock];
+}
+
 - (void) dealloc {
 	[condition release];
 	[events release];
