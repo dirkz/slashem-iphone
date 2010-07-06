@@ -19,8 +19,6 @@
 		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
 		4339A7F0115A7E8800741CE5 /* petmark.png in Resources */ = {isa = PBXBuildFile; fileRef = 4339A7EF115A7E8800741CE5 /* petmark.png */; };
 		4339A7FC115A7F3100741CE5 /* actionButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 4339A7FB115A7F3100741CE5 /* actionButton.png */; };
-		43434D89119BE6FA0023ABF1 /* TileSetGL.m in Sources */ = {isa = PBXBuildFile; fileRef = 43434D88119BE6FA0023ABF1 /* TileSetGL.m */; };
-		43434DA8119BE73B0023ABF1 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43434DA7119BE73B0023ABF1 /* OpenGLES.framework */; };
 		434C9D47115BE57F00A6EBD6 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 434C9D46115BE57F00A6EBD6 /* Settings.bundle */; };
 		4365D6FC115154E600B15085 /* ExtendedCommandsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4365D6FB115154E600B15085 /* ExtendedCommandsController.xib */; };
 		437A90E7114FF57A000046FD /* Action.m in Sources */ = {isa = PBXBuildFile; fileRef = 437A90B8114FF57A000046FD /* Action.m */; };
@@ -419,9 +417,6 @@
 		32CA4F630368D1EE00C91783 /* SlashEM_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlashEM_Prefix.pch; sourceTree = "<group>"; };
 		4339A7EF115A7E8800741CE5 /* petmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = petmark.png; sourceTree = "<group>"; };
 		4339A7FB115A7F3100741CE5 /* actionButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = actionButton.png; sourceTree = "<group>"; };
-		43434D87119BE6FA0023ABF1 /* TileSetGL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TileSetGL.h; sourceTree = "<group>"; };
-		43434D88119BE6FA0023ABF1 /* TileSetGL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TileSetGL.m; sourceTree = "<group>"; };
-		43434DA7119BE73B0023ABF1 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		434C9D46115BE57F00A6EBD6 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		4365D6FB115154E600B15085 /* ExtendedCommandsController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExtendedCommandsController.xib; sourceTree = "<group>"; };
 		437A90B7114FF57A000046FD /* Action.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Action.h; sourceTree = "<group>"; };
@@ -966,7 +961,6 @@
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */,
 				43D4D3E3116CF22E000D14B2 /* QuartzCore.framework in Frameworks */,
-				43434DA8119BE73B0023ABF1 /* OpenGLES.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1050,7 +1044,6 @@
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
 				288765FC0DF74451002DB57D /* CoreGraphics.framework */,
 				43D4D3E2116CF22E000D14B2 /* QuartzCore.framework */,
-				43434DA7119BE73B0023ABF1 /* OpenGLES.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1111,8 +1104,6 @@
 				437A90DE114FF57A000046FD /* TileSet.m */,
 				43C52F4311535404001FAA6D /* AsciiTileSet.h */,
 				43C52F4411535404001FAA6D /* AsciiTileSet.m */,
-				43434D87119BE6FA0023ABF1 /* TileSetGL.h */,
-				43434D88119BE6FA0023ABF1 /* TileSetGL.m */,
 				437A90DF114FF57A000046FD /* ZDirection.h */,
 				437A90E0114FF57A000046FD /* ZDirection.m */,
 				437A90E1114FF57A000046FD /* ZObjectCache.h */,
@@ -2088,7 +2079,6 @@
 				43C52F4511535404001FAA6D /* AsciiTileSet.m in Sources */,
 				438622C611590FC700295E23 /* QuestionViewController.m in Sources */,
 				43F64B271182F06A0016061C /* StatusView.m in Sources */,
-				43434D89119BE6FA0023ABF1 /* TileSetGL.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

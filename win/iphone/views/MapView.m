@@ -25,7 +25,6 @@
 #import "MapView.h"
 #import "NhMapWindow.h"
 #import "TileSet.h"
-#import "TileSetGL.h"
 #import "MainViewController.h"
 #import "winiphone.h"
 #import "ZTouchInfo.h"
