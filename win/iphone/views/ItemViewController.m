@@ -69,17 +69,15 @@
 }
 
 - (NhCommand *)dropOneCommand {
-	return [NhCommand commandWithObject:item title:"Drop 1" keys:"d1"];
+	return [NhCommand commandWithObject:item title:"Drop one" keys:"d1"];
 }
 
-- (NhCommand *)dropExceptOneCommand {
+- (NhCommand *)dropAllButOneCommand {
 	if (item.amount > 2) {
 		int dropAmount = item.amount-1;
 		char cmd[10];
 		sprintf(cmd, "d%d", dropAmount);
-		char title[15];
-		sprintf(title, "Drop %d", dropAmount);
-		return [NhCommand commandWithObject:item title:title keys:cmd];
+		return [NhCommand commandWithObject:item title:"Drop all but one" keys:cmd];
 	}
 	return nil;
 }
@@ -109,7 +107,7 @@
 		if (!item.object->owornmask || item.object->owornmask & W_WEP || item.object->owornmask & W_SWAPWEP ||
 			item.object->owornmask & W_QUIVER) {
 			[self addAction:[self dropOneCommand]];
-			[self addAction:[self dropExceptOneCommand]];
+			[self addAction:[self dropAllButOneCommand]];
 			[actions addObject:[NhCommand commandWithObject:item title:"Throw" key:'t']];
 		}
 
@@ -214,7 +212,9 @@
 		switch (item.inventoryLetter) {
 			case '$':
 				[self addAction:[self dropOneCommand]];
-				[self addAction:[self dropExceptOneCommand]];
+				[self addAction:[self dropAllButOneCommand]];
+				[actions addObject:[NhCommand commandWithObject:item title:"Throw all" key:'t']];
+				[actions addObject:[NhCommand commandWithObject:item title:"Throw one" keys:"t1"]];
 				[actions addObject:[NhCommand commandWithTitle:"Pay" key:'p']];
 				break;
 			case '-':
