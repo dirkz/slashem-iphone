@@ -179,6 +179,7 @@
 				}
 				[actions addObject:[NhCommand commandWithObject:item title:"Engrave" key:'E']];
 				break;
+			case SPBOOK_CLASS:
 			case SCROLL_CLASS:
 				[actions addObject:[NhCommand commandWithObject:item title:"Read" key:'r']];
 				break;
