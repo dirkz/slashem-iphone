@@ -66,19 +66,6 @@ extern int unixmain(int argc, char **argv);
 	[self saveAndQuitGame];
 }
 
-- (void)applicationDidEnterBackground:(UIApplication *)application {
-	if (self.isGameWorthSaving) {
-		save_currentstate();
-	} else {
-		[self cleanUpLocks];
-	}
-	[[NSUserDefaults standardUserDefaults] synchronize];
-	[TileSet setInstance:nil];
-}
-
-- (void)applicationDidBecomeActive:(UIApplication *)application {
-}
-
 - (void) netHackMainLoop:(id)arg {
     NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
 	char *argv[] = {
