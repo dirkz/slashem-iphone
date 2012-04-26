@@ -11,6 +11,8 @@
 
 #undef SHORT_FILENAMES
 
+#define LIGHTSABERS
+#define JEDI
 
 /*#define DEBUG*/
 /*#define DDEBUG*/

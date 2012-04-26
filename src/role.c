@@ -201,6 +201,38 @@ const struct Role roles[] = {
 	0, 1, 0, 
 	2, 10, A_INT, SPE_CONE_OF_COLD,    -4 /* From old role.c */
 },
+#ifdef JEDI
+{	{"Jedi", 0}, {
+	{"Youngling",     0},
+	//{"Padawan",       0},
+	{"Padawan",       0},
+	//{"Jedi Apprentice", 0},
+	{"Jedi Apprentice", 0},
+	//{"Jedi Knight",    0},
+	{"Jedi Knight",    0},
+	{"Jedi Hero",      0},
+	{"Jedi Master",    0} },
+	"the Light Side", "the Force", "the Dark Side",
+	"Jed", "the Jedi Temple", "the Outer Rim",
+	PM_JEDI, NON_PM, PM_LITTLE_DOG,
+	PM_THE_JEDI_MASTER, PM_PADAWAN, PM_LORD_SIDIOUS,
+	PM_STORMTROOPER, PM_STORMTROOPER, S_HUMAN, S_HUMAN,
+#if 0
+	???
+#endif
+	ART_LIGHTSABER_PROTOTYPE,
+	MH_HUMAN|MH_ELF|MH_HOBBIT| 
+	ROLE_MALE|ROLE_FEMALE|ROLE_LAWFUL,
+	/* Str Int Wis Dex Con Cha */
+	{  10,  7, 14, 12, 10, 14 },
+	{  30, 15, 15, 10, 20, 10 },
+	/* Init   Lower  Higher */
+	{ 15, 4,  0, 8,  2, 4 },	/* Hit points */
+	{  1, 4,  0, 1,  0, 4 },10,	/* Energy */
+	0, 12 , -1, 
+	2, 10, A_INT, SPE_CHARM_MONSTER,    -4
+},
+#endif
 {	{"Knight", 0}, {
 	{"Gallant",     0},
 	{"Esquire",     0},

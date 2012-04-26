@@ -859,6 +859,9 @@ static const char *build_opts[] = {
 # else
 		"lightsabers",
 # endif
+# ifdef JEDI
+		"Jedi",
+# endif
 #endif
 #ifdef P_SPOON
 		"Houchou",

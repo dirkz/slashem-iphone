@@ -42,6 +42,8 @@ MONSTER: '@', "healer", random, hostile
 MONSTER: '@', "healer", random, hostile
 MONSTER: '@', "ice mage", random, hostile
 MONSTER: '@', "ice mage", random, hostile
+MONSTER: '@', "jedi", random, hostile
+MONSTER: '@', "padawan", random, hostile
 MONSTER: '@', "knight", random, hostile
 MONSTER: '@', "knight", random, hostile
 MONSTER: '@', "monk", random, hostile

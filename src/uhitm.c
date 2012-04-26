@@ -282,7 +282,14 @@ register struct monst *mtmp;
 	    You("dishonorably attack the innocent!");
 	    adjalign(-1);
 	}
-
+#ifdef JEDI
+/* as well as for the way of the Jedi */
+	if (Role_if(PM_JEDI) && mtmp->mpeaceful &&
+	    u.ualign.record > -10) {
+	    You("violate the way of the Jedi!");
+	    adjalign(-1);
+	}
+#endif
 /*	Adjust vs. (and possibly modify) monster state.		*/
 
 	if(mtmp->mstun) tmp += 2;
@@ -326,6 +333,18 @@ register struct monst *mtmp;
 		   tmp += (u.ulevel / 9) + 1;
 		}
 	}
+#ifdef JEDI
+	if(Role_if(PM_JEDI) && !Upolyd) {
+		if (((uwep && is_lightsaber(uwep) && uwep->lamplit) ||
+		    (uswapwep && u.twoweap && is_lightsaber(uswapwep) && uswapwep->lamplit)) &&
+		   (uarm &&
+		   (uarm->otyp < ROBE || uarm->otyp > ROBE_OF_WEAKNESS))){
+		    char yourbuf[BUFSZ];
+		    You("can't use %s %s effectively in this armor...", shk_your(yourbuf, uwep), xname(uwep));
+		    tmp-=20; // sorry
+		}
+	}
+#endif
 	/* special class effect uses... */
 	if (tech_inuse(T_KIII)) tmp += 4;
 	if (tech_inuse(T_BERSERK)) tmp += 2;
@@ -894,7 +913,6 @@ int thrown;
 		ispoisoned = TRUE;
 
 	    noeffect = objenchant < canhitmon && !ispoisoned;
-
 	    Strcpy(saved_oname, cxname(obj));
 	    if(obj->oclass == WEAPON_CLASS || is_weptool(obj) ||
 	       obj->oclass == GEM_CLASS) {
@@ -994,6 +1012,30 @@ int thrown;
 			}
 			hittxt = TRUE;
 		    }
+#ifdef JEDI
+		    else if (obj == uwep &&
+			  (Role_if(PM_JEDI) && is_lightsaber(obj)) &&
+			  ((wtype = uwep_skill_type()) != P_NONE &&
+			    P_SKILL(wtype) >= P_SKILLED) &&
+			  ((monwep = MON_WEP(mon)) != 0 &&
+			   !is_lightsaber(monwep) && // no cutting other lightsabers :)
+			   !monwep->oartifact && // no cutting artifacts either
+			   !obj_resists(monwep,
+				 50 + 15 * greatest_erosion(obj), 100))) {
+			setmnotwielded(mon,monwep);
+			MON_NOWEP(mon);
+			mon->weapon_check = NEED_WEAPON;
+			Your("%s cuts %s %s in half!",
+			      xname(obj),
+			      s_suffix(mon_nam(mon)), xname(monwep));
+			m_useup(mon, monwep);
+			/* If someone just shattered MY weapon, I'd flee! */
+			if (rn2(4)) {
+			    monflee(mon, d(2,3), TRUE, TRUE);
+			}
+			hittxt = TRUE;
+		    }
+#endif
 
 		    if (obj->oartifact &&
 			artifact_hit(&youmonst, mon, obj, &tmp, dieroll)) {

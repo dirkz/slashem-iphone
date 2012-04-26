@@ -346,6 +346,12 @@ dodrink()
 		pline("If you can't breathe air, how can you drink liquid?");
 		return 0;
 	}
+#ifdef JEDI
+	if (uarmh && uarmh->otyp == PLASTEEL_HELM){
+		pline("The %s covers your whole face.", xname(uarmh));
+		return 0;
+	}
+#endif
 
 	*qp++ = ALLOW_FLOOROBJ;
 	if (!u.uswallow && (IS_FOUNTAIN(levl[u.ux][u.uy].typ) ||

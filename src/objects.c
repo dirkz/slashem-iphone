@@ -433,6 +433,10 @@ ARMOR("T-shirt", (char *)0,
 /* Suits of armor */
 ARMOR("plate mail", (char *)0,
 	1, 0, 1, 0,	40, 5, 450, 600,  3, 2, ARM_SUIT, IRON, HI_METAL),
+#ifdef JEDI
+ARMOR("plasteel armor", (char *)0,
+	1, 0, 1, 0,      0, 5, 150,  80,  4, 0, ARM_SUIT, PLASTIC, CLR_WHITE),
+#endif
 ARMOR("crystal plate mail", (char *)0,
 	1, 0, 1, 0,	10, 5, 450, 820,  3, 2, ARM_SUIT, GLASS, CLR_WHITE),
 #ifdef TOURIST
@@ -569,6 +573,10 @@ HELM("dunce cap", "conical hat",
 		0, 1, 0,			3, 1,  4,   1,10, 0, CLOTH, CLR_BLUE),
 HELM("dented pot", (char *)0,
 		1, 0, 0,			2, 0, 10,   8, 9, 0, IRON, CLR_BLACK),
+#ifdef JEDI
+HELM("plasteel helm", (char *)0,
+		1, 0, 0,                        0, 1,  6,  20, 7, 9, PLASTIC, CLR_WHITE),
+#endif
 /* ...with shuffled appearances */
 HELM("helmet", "plumed helmet",
 		0, 0, 0,		   10, 1, 30,  10, 9, 0, IRON, HI_METAL),
@@ -583,6 +591,10 @@ HELM("helm of telepathy", "visored helmet",
 /* these have their color but not material shuffled, so the IRON must stay
  * CLR_BROWN (== HI_LEATHER)
  */
+#ifdef JEDI
+GLOVES("plasteel gloves", "white gloves",
+		0, 0,  0,                        0, 1,  9, 25,  8, 0, PLASTIC, CLR_WHITE),
+#endif
 GLOVES("leather gloves", "old gloves",
 		0, 0,  0,			16, 1, 10,  8,  9, 0, LEATHER, HI_LEATHER),
 GLOVES("gauntlets of fumbling", "padded gloves",
@@ -612,6 +624,10 @@ SHIELD("shield of reflection", "polished silver shield",
 		0, 1, 0, REFLECTING, 3, 0, 50, 50,  8, 0, SILVER, HI_SILVER),
 
 /* Boots */
+#ifdef JEDI
+BOOTS("plasteel boots", (char *)0,
+		0, 0,  0,          0, 2, 8,  25,  8, 9, PLASTIC, CLR_WHITE),
+#endif
 BOOTS("low boots", "walking shoes",
 		0, 0,  0,	  25, 2, 10,  8,  9, 0, LEATHER, HI_LEATHER),
 BOOTS("iron shoes", "hard shoes",
@@ -841,6 +857,16 @@ WEPTOOL("red lightsaber",  "lightsaber",
 	0, 0, 1, 0,  1, 60, 500, 9,  11, -3, SLASH, P_LIGHTSABER, PLATINUM, HI_METAL),
 WEPTOOL("red double lightsaber",  "double lightsaber",
 	0, 0, 1, 1,  0, 60,1000, 9,  11, -4, SLASH, P_LIGHTSABER, PLATINUM, HI_METAL),
+# ifdef D_SABER
+#if 0 // just an idea...
+WEPTOOL("yellow lightsaber",  "lightsaber",
+	0, 0, 1, 0,  0, 60, 500, 5,  7, -3, SLASH, P_LIGHTSABER, PLATINUM, HI_METAL),
+WEPTOOL("violet lightsaber",  "lightsaber",
+	0, 0, 1, 0,  0, 60, 500, 5,  7, -3, SLASH, P_LIGHTSABER, PLATINUM, HI_METAL),
+WEPTOOL("white lightsaber",  "lightsaber",
+	0, 0, 1, 0,  0, 60, 500, 5,  7, -3, SLASH, P_LIGHTSABER, PLATINUM, HI_METAL),
+# endif /* D_SABER */
+#endif
 #endif	/* LIGHTSABERS */
 
 /* Other tools */

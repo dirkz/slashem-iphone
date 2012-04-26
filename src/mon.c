@@ -1388,6 +1388,33 @@ struct monst *magr,	/* monster that is currently deciding where to move */
 	if(magr->data == &mons[PM_WOODCHUCK] && mdef->data == &mons[PM_ORACLE])
 		return ALLOW_M|ALLOW_TM;
 
+#ifdef JEDI
+	/* Stormtroopers vs. Padawans */
+	if(magr->data == &mons[PM_STORMTROOPER] && mdef->data == &mons[PM_PADAWAN])
+		return ALLOW_M|ALLOW_TM;
+	/* and vice versa */
+	if(mdef->data == &mons[PM_STORMTROOPER] && magr->data == &mons[PM_PADAWAN])
+		return ALLOW_M|ALLOW_TM;
+	/* Stormtroopers vs. Jedi */
+	if(magr->data == &mons[PM_STORMTROOPER] && mdef->data == &mons[PM_JEDI])
+		return ALLOW_M|ALLOW_TM;
+	/* and vice versa */
+	if(mdef->data == &mons[PM_STORMTROOPER] && magr->data == &mons[PM_JEDI])
+		return ALLOW_M|ALLOW_TM;
+	/* Stormtroopers vs. The Jedi Master */
+	//if(magr->data == &mons[PM_STORMTROOPER] && mdef->data == &mons[PM_THE_JEDI_MASTER])
+		//return ALLOW_M|ALLOW_TM;
+	/* and vice versa */
+	//if(mdef->data == &mons[PM_STORMTROOPER] && magr->data == &mons[PM_THE_JEDI_MASTER])
+		//return ALLOW_M|ALLOW_TM;
+	/* Jedi vs. Lord Sidious */
+	if(magr->data == &mons[PM_LORD_SIDIOUS] && mdef->data == &mons[PM_JEDI])
+		return ALLOW_M|ALLOW_TM;
+	/* and vice versa */
+	if(mdef->data == &mons[PM_LORD_SIDIOUS] && magr->data == &mons[PM_JEDI])
+		return ALLOW_M|ALLOW_TM;
+#endif
+
 	return 0L;
 }
 
