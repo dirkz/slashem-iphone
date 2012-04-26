@@ -17,9 +17,6 @@ static int FDECL(techeffects, (int));
 static void FDECL(hurtmon, (struct monst *,int));
 static int FDECL(mon_to_zombie, (int));
 STATIC_PTR int NDECL(tinker);
-#ifdef ENFORCER
-STATIC_PTR int NDECL(charge_saber);
-#endif
 STATIC_PTR int NDECL(draw_energy);
 static const struct innate_tech * NDECL(role_tech);
 static const struct innate_tech * NDECL(race_tech);
@@ -83,11 +80,6 @@ STATIC_OVL NEARDATA const char *tech_names[] = {
 	"power surge",
 	"spirit bomb",
 	"draw blood",
-#ifdef ENFORCER
-	"enforcer jump",
-	"charge saber",
-	"telekinesis",
-#endif
 	""
 };
 
@@ -114,12 +106,6 @@ static const struct innate_tech
 		       {  12, T_POWER_SURGE, 1},
 		       {  20, T_SIGIL_DISCHARGE, 1},
 		       {   0, 0, 0} },
-#ifdef ENFORCER
-	enf_tech[] = { {   1, T_ENF_JUMP, 1},
-		       {   5, T_CHARGE_SABER, 1},
-		       {   8, T_TELEKINESIS, 1},
-		       {   0, 0, 0,} },
-#endif
 	kni_tech[] = { {   1, T_TURN_UNDEAD, 1},
 		       {   1, T_HEAL_HANDS, 1},
 		       {   0, 0, 0} },
@@ -1497,116 +1483,6 @@ int tech_no;
 			(const char *)0);
 		t_timeout = rn1(1000, 500);
 		break;
-#ifdef ENFORCER
-	    case T_ENF_JUMP:
-		if (u.uen < 25){
-			You("can't channel the force around you.");
-			break;
-		}
-		u.uen -= 25;
-		jump((techlev(tech_no)/5)+1);
-		t_timeout = 50;
-		break;
-	    case T_TELEKINESIS:
-	      {
-		coord cc;
-		struct trap *ttrap;
-		cc.x=u.ux;
-		cc.y=u.uy;
-		pline("Where do you want to apply telekinesis?");
-		if (getpos(&cc, TRUE, "apply telekinesis where") < 0)
-			break;
-		if (!cansee(cc.x, cc.y)){
-			You("can't see what's there!");
-			break;
-		}
-		if ((ttrap=t_at(cc.x, cc.y)) && ttrap->tseen &&
-			yn("Handle the trap here?") == 'y'){
-		  if (yn("Disarm the trap?") == 'y'){
-		    techt_inuse(tech_no) = 1;
-		    /* copied from trap.c */
-		switch(ttrap->ttyp) {
-			case BEAR_TRAP:
-			case WEB:
-				t_timeout = 250;
-				return disarm_holdingtrap(ttrap);
-			case LANDMINE:
-				t_timeout = 250;
-				return disarm_landmine(ttrap);
-			case SQKY_BOARD:
-				t_timeout = 250;
-				return disarm_squeaky_board(ttrap);
-			case DART_TRAP:
-				t_timeout = 250;
-				return disarm_shooting_trap(ttrap, DART);
-			case ARROW_TRAP:
-				t_timeout = 250;
-				return disarm_shooting_trap(ttrap, ARROW);
-			case RUST_TRAP:
-				t_timeout = 250;
-				return disarm_rust_trap(ttrap);
-			case FIRE_TRAP:
-				t_timeout = 250;
-				return disarm_fire_trap(ttrap);
-			default:
-				You("cannot disable %s trap.", (u.dx || u.dy) ? "that" : "this");
-				return 1;
-		    }
-		  } else if(yn("Spring this trap?")=='y') {
-		    switch(ttrap->ttyp) {
-		      case LANDMINE: 
-			You("trigger the landmine.");
-			pline("KABLAAAM!");
-			blow_up_landmine(ttrap);
-			fill_pit(cc.x, cc.y);
-			newsym(cc.x, cc.y);
-		        t_timeout = 250;
-			break;
-		      case ROLLING_BOULDER_TRAP:
-		      {
-			int style = ROLL | (ttrap->tseen ? LAUNCH_KNOWN : 0);
-			You("trigger the trap!");
-			if(!launch_obj(BOULDER, ttrap->launch.x, ttrap->launch.y, ttrap->launch2.x, ttrap->launch2.y, style)){
-			  deltrap(ttrap);
-			  newsym(cc.x, cc.y);
-			  pline("But no boulder was released.");
-		        }
-		        t_timeout = 250;
-		      }
-		      default:
-		        You("can't spring this trap.");
-		        break;
-		    }
-		  }
-		} else if ((otmp = level.objects[cc.x][cc.y]) != 0) {
-		  char buf[BUFSZ];
-		  sprintf(buf, "Pick up %s?", the(xname(otmp)));
-		  if (yn(buf) == 'n')
-			  break;
-		  You("pick up an object from the %s.", surface(cc.x,cc.y));
-		  (void) pickup_object(otmp, 1L, TRUE);
-		  newsym(cc.x, cc.y);
-		  t_timeout = 250;
-		} else {
-		  You("can't do anything there");
-		}
-		break;
-	      }
-	    case T_CHARGE_SABER:
-	      if (!uwep || !is_lightsaber(uwep)){
-		      You("are not holding a lightsaber!");
-		      break;
-	      }
-	      if (u.uen < 5){
-		      You("lack the concentration to charge %s.", the(xname(uwep)));
-		      break;
-	      }
-	      You("start charging %s.", the(xname(uwep)));
-	      delay=-10;
-	      set_occupation(charge_saber, "charging", 0);
-	      t_timeout = 500;
-	      break;
-#endif
 	    default:
 	    	pline ("Error!  No such effect (%i)", tech_no);
 		break;
@@ -1755,9 +1631,6 @@ role_tech()
 		case PM_FLAME_MAGE:	return (fla_tech);
 		case PM_HEALER:		return (hea_tech);
 		case PM_ICE_MAGE:	return (ice_tech);
-#ifdef ENFORCER
-		case PM_ENFORCER:	return (enf_tech);
-#endif
 		case PM_KNIGHT:		return (kni_tech);
 		case PM_MONK: 		return (mon_tech);
 		case PM_NECROMANCER:	return (nec_tech);
@@ -1850,35 +1723,6 @@ int monnum;
 	else return PM_GHOUL;
 }
 
-#ifdef ENFORCER
-STATIC_PTR int
-charge_saber()
-{
-	int i, tlevel;
-	if(delay) {
-		delay++;
-		return(1);
-	}
-	for (i = 0; i < MAXTECH; i++) {
-	    if (techid(i) == NO_TECH)
-		continue;
-	    if (techid(i) != T_CHARGE_SABER)
-		continue;
-	    tlevel = techlev(i);
-	}
-	if (tlevel >= 10 && !rn2(5)){
-		You("manage to channel the force perfectly!");
-		uwep->age+=1500; // Jackpot!
-	} else
-		You("channel the force into %s.", the(xname(uwep)));
-
-	// yes no return above, it's a bonus :)
-	uwep->age+=u.uen*((techlev(T_CHARGE_SABER)/10)+1);
-	u.uen=0;
-	flags.botl=1;
-	return(0);
-}
-#endif
 
 /*WAC tinker code*/
 STATIC_PTR int

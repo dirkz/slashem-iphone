@@ -230,20 +230,6 @@ register boolean special;
 		    if (rn2(4)) helm = HELM_OF_BRILLIANCE;
 		    shield = STRANGE_OBJECT;
 		    break;
-#ifdef ENFORCER
-		case PM_ENFORCER:
-		case PM_NEOPHYTE:
-		    switch(rnd(3)){
-		      case 1: weapon = RED_LIGHTSABER; break;
-		      case 2: weapon = BLUE_LIGHTSABER; break;
-		      case 3: weapon = GREEN_LIGHTSABER; break;
-		    }
-		    cloak = STRANGE_OBJECT;
-		    armor = rn2(2) ? ROBE : ROBE_OF_POWER;
-		    helm = STRANGE_OBJECT;
-		    shield = STRANGE_OBJECT;
-		    break;
-#endif
 		default: impossible("bad mplayer monster");
 		    weapon = 0;
 		    break;

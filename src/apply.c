@@ -1145,7 +1145,7 @@ struct obj *obj;
 			    return;
 			} else obj->altmode = FALSE;
 		    }
-		    	lightsaber_deactivate(obj, TRUE);
+		    lightsaber_deactivate(obj, TRUE);
 		    return;
 #endif
 		} else if (artifact_light(obj)) {
@@ -1157,12 +1157,6 @@ struct obj *obj;
 		end_burn(obj, TRUE);
 		return;
 	}
-#ifdef ENFORCER
-	// for some reason, the lightsaber prototype is created with
-	// age == 0
-	if (obj->oartifact == ART_LIGHTSABER_PROTOTYPE)
-		obj->age = 300L;
-#endif
 	/* magic lamps with an spe == 0 (wished for) cannot be lit */
 	if ((!Is_candle(obj) && obj->age == 0)
 			|| (obj->otyp == MAGIC_LAMP && obj->spe == 0)) {
@@ -3479,16 +3473,10 @@ doapply()
 	case GREEN_LIGHTSABER:
 #ifdef D_SABER
   	case BLUE_LIGHTSABER:
-#if 0
-	case VIOLET_LIGHTSABER:
-	case WHITE_LIGHTSABER:
-	case YELLOW_LIGHTSABER:
-#endif
 #endif
 	case RED_LIGHTSABER:
 	case RED_DOUBLE_LIGHTSABER:
-		if (!(uswapwep == obj && u.twoweap))
-		  if (uwep != obj && !wield_tool(obj, (const char *)0)) break;
+		if (uwep != obj && !wield_tool(obj, (const char *)0)) break;
 		/* Fall through - activate via use_lamp */
 #endif
 	case OIL_LAMP:

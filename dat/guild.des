@@ -42,8 +42,6 @@ MONSTER: '@', "healer", random, hostile
 MONSTER: '@', "healer", random, hostile
 MONSTER: '@', "ice mage", random, hostile
 MONSTER: '@', "ice mage", random, hostile
-MONSTER: '@', "enforcer", random, hostile
-MONSTER: '@', "neophyte", random, hostile
 MONSTER: '@', "knight", random, hostile
 MONSTER: '@', "knight", random, hostile
 MONSTER: '@', "monk", random, hostile

@@ -88,15 +88,8 @@ struct blitz_tab {
 #define T_POWER_SURGE 	39
 #define T_SPIRIT_BOMB 	40
 #define T_DRAW_BLOOD	41
-#ifdef ENFORCER
-#define T_ENF_JUMP	42
-#define T_CHARGE_SABER	43
-#define T_TELEKINESIS	44
 
-#define MAXTECH 44
-#else /* ENFORCER */
 #define MAXTECH 41
-#endif /* ENFORCER */
 
 
 #endif /* TECH_H */

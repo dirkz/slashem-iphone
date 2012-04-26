@@ -279,11 +279,6 @@ struct monst *mon;
 		case GREEN_LIGHTSABER:  tmp +=13; break;
 #ifdef D_SABER
 		case BLUE_LIGHTSABER:   tmp +=12; break;
-#if 0
-		case VIOLET_LIGHTSABER:
-		case WHITE_LIGHTSABER:
-		case YELLOW_LIGHTSABER:
-#endif
 #endif
 		case RED_DOUBLE_LIGHTSABER: 
 					if (otmp->altmode) tmp += rnd(11);
@@ -320,11 +315,6 @@ struct monst *mon;
 		case GREEN_LIGHTSABER:  tmp +=9; break;
 #ifdef D_SABER
 		case BLUE_LIGHTSABER:   tmp +=8; break;
-#if 0
-		case VIOLET_LIGHTSABER:
-		case WHITE_LIGHTSABER:
-		case YELLOW_LIGHTSABER:
-#endif
 #endif
 		case RED_DOUBLE_LIGHTSABER:
 					if (otmp->altmode) tmp += rnd(9);
@@ -624,9 +614,6 @@ static const NEARDATA short hwep[] = {
 	  RED_DOUBLE_LIGHTSABER, RED_LIGHTSABER,
 #ifdef D_SABER
 	  BLUE_LIGHTSABER,
-#if 0
-	  YELLOW_LIGHTSABER, WHITE_LIGHTSABER, VIOLET_LIGHTSABER,
-#endif
 #endif
 	  GREEN_LIGHTSABER,
 #endif
@@ -870,12 +857,6 @@ struct monst * mon;
 	/* No obj or not lightsaber */
 	if (!obj || !is_lightsaber(obj)) return;
 
-#ifdef ENFORCER
-	// for some reason, the lightsaber prototype is created with
-	// age == 0
-	if (obj->oartifact == ART_LIGHTSABER_PROTOTYPE)
-		obj->age = 300L;
-#endif
 	/* WAC - Check lightsaber is on */
 	if (!obj->lamplit) {
 	    if (obj->cursed && !rn2(2)) {
@@ -1481,11 +1462,6 @@ struct obj *weapon;
 		if (type == P_LANCE) bonus++;
 	}
 #endif
-#ifdef ENFORCER
-	/* Enforcers are trained in lightsabers, no to-hit penalty for them */
-	if (Role_if(PM_ENFORCER) && is_lightsaber(weapon))
-		bonus-=objects[weapon->otyp].oc_hitbon;
-#endif
 
     return bonus;
 }
@@ -1562,19 +1538,6 @@ struct obj *weapon;
 		    case P_BASIC:       break;
 		    case P_SKILLED:     bonus += 1; break;
 		    case P_EXPERT:      bonus += 2; break;
-		}
-	}
-#endif
-
-#ifdef ENFORCER
-	/* Enforcers are simply better */
-	if (Role_if(PM_ENFORCER) && weapon && is_lightsaber(weapon)){
-		switch (P_SKILL(type)){
-			case P_EXPERT: bonus +=3; /* fall through */
-			case P_SKILLED: bonus +=2; break;
-			case P_BASIC: break;
-			case P_UNSKILLED: break;
-			default: impossible("unknown lightsaber skill for an enforcer"); break;
 		}
 	}
 #endif

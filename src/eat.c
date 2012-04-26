@@ -2335,12 +2335,6 @@ doeat()		/* generic "eat" command funtion (see cmd.c) */
 		pline("If you can't breathe air, how can you consume solids?");
 		return 0;
 	}
-#ifdef ENFORCER
-	if (uarmh && uarmh->otyp == PLASTEEL_HELM){
-		pline("The %s covers your whole face.", xname(uarmh));
-		return 0;
-	}
-#endif
 	if (!(otmp = floorfood("eat"))) return 0;
 	if (check_capacity((char *)0)) return 0;
 

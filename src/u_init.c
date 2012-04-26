@@ -102,27 +102,6 @@ static struct trobj Ice_Mage[] = {
 	{ UNDEF_TYP, UNDEF_SPE, SPBOOK_CLASS, 1, 1 },
 	{ 0, 0, 0, 0, 0 }
 };
-#ifdef ENFORCER
-static struct trobj Enforcer[] = {
-	{ ROBE, 1, ARMOR_CLASS, 1, UNDEF_BLESS },
-	{ LEATHER_GLOVES, 0, ARMOR_CLASS, 1, UNDEF_BLESS },
-	{ 0, 0, 0, 0, 0 }
-};
-static struct trobj GreenSaber[] = {
-	{ GREEN_LIGHTSABER, 1, WEAPON_CLASS, 1, UNDEF_BLESS },
-	{ 0, 0, 0, 0, 0, }
-};
-#ifdef D_SABER
-static struct trobj BlueSaber[] = {
-	{ BLUE_LIGHTSABER, 1, WEAPON_CLASS, 1, UNDEF_BLESS },
-	{ 0, 0, 0, 0, 0, }
-};
-#endif
-static struct trobj RedSaber[] = {
-	{ RED_LIGHTSABER, 1, WEAPON_CLASS, 1, UNDEF_BLESS },
-	{ 0, 0, 0, 0, 0, }
-};
-#endif
 static struct trobj Knight[] = {
 	{ LONG_SWORD, 1, WEAPON_CLASS, 1, UNDEF_BLESS },
 	{ LANCE, 0, WEAPON_CLASS, 1, UNDEF_BLESS },
@@ -553,19 +532,6 @@ static const struct def_skill Skill_I[] = {
     { P_NONE, 0 }
 };
 
-#ifdef ENFORCER
-static const struct def_skill Skill_J[] = {
-    { P_LIGHTSABER, P_EXPERT },
-    { P_SHORT_SWORD, P_BASIC }, { P_BROAD_SWORD, P_BASIC },
-    { P_LONG_SWORD, P_SKILLED }, { P_SABER, P_SKILLED },
-    { P_HEALING_SPELL, P_BASIC },
-#ifdef STEED
-    { P_RIDING, P_SKILLED },
-#endif
-    { P_TWO_WEAPON_COMBAT, P_BASIC }, { P_BARE_HANDED_COMBAT, P_EXPERT },
-    { P_NONE, 0 }
-};
-#endif
 static const struct def_skill Skill_K[] = {
     { P_DAGGER, P_BASIC },		{ P_KNIFE, P_BASIC },
     { P_AXE, P_SKILLED },		{ P_PICK_AXE, P_BASIC },
@@ -1129,29 +1095,6 @@ u_init()
 		else if(!rn2(5)) ini_inv(Magicmarker);
 		skill_init(Skill_I);
 		break;
-#ifdef ENFORCER
-	case PM_ENFORCER:
-		ini_inv(Enforcer);
-#ifdef D_SABER
-		switch(rnd(3)) {
-			case 1: ini_inv(RedSaber); break;
-			case 2: ini_inv(BlueSaber); break;
-			case 3: ini_inv(GreenSaber); break;
-			default: break;
-		}
-#else
-		switch(rnd(2)) {
-			case 1: ini_inv(RedSaber); break;
-			case 2: ini_inv(GreenSaber); break;
-			default: break;
-		}
-#endif
-		if(!rn2(2)) ini_inv(Blindfold);
-		skill_init(Skill_J);
-		knows_class(WEAPON_CLASS);
-		knows_class(ARMOR_CLASS);
-		break;
-#endif
 	case PM_KNIGHT:
 		ini_inv(Knight);
 		knows_class(WEAPON_CLASS);
@@ -1619,14 +1562,6 @@ register struct trobj *trop;
 				obj = mkobj(trop->trclass, FALSE);
 				otyp = obj->otyp;
 			}
-
-#ifdef ENFORCER
-			if (is_lightsaber(obj))
-				obj->age = 1500;
-			// start with maxed lightsaber
-			// only Enforcer start with one, so no need to check
-			// Role_if here
-#endif
 
 			/* Don't start with +0 or negative rings */
 			if (objects[otyp].oc_charged && obj->spe <= 0)

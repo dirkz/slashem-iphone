@@ -1415,11 +1415,6 @@ long timeout;
 	    case GREEN_LIGHTSABER: 
 #ifdef D_SABER
 	    case BLUE_LIGHTSABER:
-#if 0
-	    case VIOLET_LIGHTSABER:
-	    case WHITE_LIGHTSABER:
-	    case YELLOW_LIGHTSABER:
-#endif
 #endif
 	    case RED_LIGHTSABER:
 	        /* Callback is checked every 5 turns - 
@@ -1575,21 +1570,10 @@ begin_burn(obj, already_lit)
 	    case RED_LIGHTSABER:
 #ifdef D_SABER
 	    case BLUE_LIGHTSABER:
-#if 0
-	    case VIOLET_LIGHTSABER:
-	    case WHITE_LIGHTSABER:
-	    case YELLOW_LIGHTSABER:
-#endif
 #endif
 	    case GREEN_LIGHTSABER:
 	    	turns = 1;
     	    	radius = 1;
-#ifdef ENFORCER
-		if (obj->oartifact == ART_LIGHTSABER_PROTOTYPE){
-			do_timer = FALSE;
-			obj->lamplit = 1;
-		}
-#endif
 		break;
 #endif
 	    case POT_OIL:
@@ -1686,9 +1670,6 @@ end_burn(obj, timer_attached)
 	}
 
 	if (obj->otyp == MAGIC_LAMP || obj->otyp == MAGIC_CANDLE ||
-#ifdef ENFORCER
-		obj->oartifact == ART_LIGHTSABER_PROTOTYPE ||
-#endif
 		artifact_light(obj))
 	    timer_attached = FALSE;
 

@@ -2061,13 +2061,6 @@ E int FDECL(tech_inuse, (int));
 E void NDECL(tech_timeout);
 E boolean FDECL(tech_known, (SHORT_P));
 E void FDECL(learntech, (SHORT_P,long,int));
-E int FDECL(disarm_holdingtrap, (struct trap *));
-E int FDECL(disarm_rust_trap, (struct trap *));
-E int FDECL(disarm_fire_trap, (struct trap *));
-E int FDECL(disarm_landmine, (struct trap *));
-E int FDECL(disarm_squeaky_board, (struct trap *));
-E int FDECL(disarm_shooting_trap, (struct trap *, int));
-
 
 /* ### teleport.c ### */
 

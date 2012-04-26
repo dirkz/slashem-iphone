@@ -65,14 +65,6 @@ const char *name;	/* if null, then format `obj' */
 		if(Blind || !flags.verbose) pline("It misses.");
 		else You("are almost hit by %s.", onm);
 		return(0);
-#ifdef ENFORCER
-	} else if (Role_if(PM_ENFORCER) && uwep && is_lightsaber(uwep) &&
-		uwep->lamplit && P_SKILL(weapon_type(uwep)) >= P_SKILLED &&
-		rn2(5)){ // dodge four of five missiles, even when blind
-			 // see "A new hope" for blindness reference
-		You("dodge %s with %s.", onm, yname(uwep));
-		return(0);
-#endif
 	} else {
 		if(Blind || !flags.verbose) You("are hit!");
 		else You("are hit by %s%s", onm, exclam(dam));
