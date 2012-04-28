@@ -30,32 +30,7 @@
 
 @class ZTouchInfoStore;
 
-@interface MapView : UIView {
-
-	CGSize tileSize;
-	
-	CGSize maxTileSize;
-	CGSize minTileSize;
-
-	CGImageRef petMark;
-	
-	ZTouchInfoStore *touchInfoStore;
-	
-	int clipX;
-	int clipY;
-
-	// the translation needed to center player, based on clip
-	CGPoint clipOffset;
-
-	// created by panning around
-	CGPoint panOffset;
-	
-	// for zooming
-	CGFloat initialDistance;
-	
-	// the hit box to hit for detecting tap on self
-	CGSize selfTapRectSize;
-}
+@interface MapView : UIView
 
 @property (nonatomic, readonly) CGSize tileSize;
 @property (nonatomic, readonly) BOOL panned;

@@ -35,7 +35,30 @@
 
 static BOOL s_doubleTapsEnabled = NO;
 
-@implementation MapView
+@implementation MapView{
+    
+	CGSize maxTileSize;
+	CGSize minTileSize;
+    
+	CGImageRef petMark;
+	
+	ZTouchInfoStore *touchInfoStore;
+	
+	int clipX;
+	int clipY;
+    
+	// the translation needed to center player, based on clip
+	CGPoint clipOffset;
+    
+	// created by panning around
+	CGPoint panOffset;
+	
+	// for zooming
+	CGFloat initialDistance;
+	
+	// the hit box to hit for detecting tap on self
+	CGSize selfTapRectSize;
+}
 
 @synthesize tileSize;
 
