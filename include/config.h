@@ -497,7 +497,7 @@ typedef unsigned char	uchar;
 
 /* #define SHOUT */ /* JRN -- shouting and petcommands - not implemented */
 
-#define DISPLAY_LAYERS	/* Improved support for transparent tile sets - ALI */
+/*#define DISPLAY_LAYERS */ /* Improved support for transparent tile sets - ALI */
 
 /*
  * Section 5:  EXPERIMENTAL STUFF
