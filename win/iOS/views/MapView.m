@@ -35,7 +35,12 @@
 
 static BOOL s_doubleTapsEnabled = NO;
 
-@implementation MapView{
+@interface MapView ()
+@end
+
+@implementation MapView {
+    
+    CGFloat scale;
     
 	CGSize maxTileSize;
 	CGSize minTileSize;
@@ -73,6 +78,13 @@ static BOOL s_doubleTapsEnabled = NO;
 }
 
 - (void)setup {
+    UIScreen *mainScreen = [UIScreen mainScreen];
+    if ([mainScreen respondsToSelector:@selector(scale)]) {
+        scale = mainScreen.scale;
+    } else {
+         scale = 1.f;
+    }
+    
 	self.multipleTouchEnabled = YES;
 	tileSize = CGSizeMake(32.0f, 32.0f);
 	maxTileSize = CGSizeMake(32.0f, 32.0f);
@@ -98,6 +110,13 @@ static BOOL s_doubleTapsEnabled = NO;
 		[self setup];
 	}
     return self;
+}
+
+- (void)dealloc {
+	CGImageRelease(petMark);
+	[[TileSet instance] release];
+	[touchInfoStore release];
+    [super dealloc];
 }
 
 - (void)drawRect:(CGRect)rect {
@@ -196,7 +215,7 @@ static BOOL s_doubleTapsEnabled = NO;
 	clipOffset = CGPointMake(center.x-playerPos.x-tileSize.width/2, center.y-playerPos.y-tileSize.height/2);
 }
 
-#pragma mark touch handling
+#pragma mark - Touch handling
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
 	[touchInfoStore storeTouches:touches];
@@ -346,15 +365,6 @@ static BOOL s_doubleTapsEnabled = NO;
 	p.y -= tileSize.height/2;
 	*px = roundf(p.x / tileSize.width);
 	*py = roundf(p.y / tileSize.height);
-}
-
-#pragma mark misc
-
-- (void)dealloc {
-	CGImageRelease(petMark);
-	[[TileSet instance] release];
-	[touchInfoStore release];
-    [super dealloc];
 }
 
 @end
