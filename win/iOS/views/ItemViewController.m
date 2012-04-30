@@ -143,6 +143,10 @@
 				[actions addObject:[NhCommand commandWithObject:item title:"Apply" key:'a']];
 				switch (item.object->otyp) {
 					case MAGIC_MARKER:
+                    case GREEN_LIGHTSABER:
+                    case BLUE_LIGHTSABER:
+                    case RED_LIGHTSABER:
+                    case RED_DOUBLE_LIGHTSABER:
 						[actions addObject:[NhCommand commandWithObject:item title:"Engrave" key:'E']];
 						break;
 					case BRASS_LANTERN:
