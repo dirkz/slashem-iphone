@@ -81,14 +81,17 @@ static BOOL s_doubleTapsEnabled = NO;
     UIScreen *mainScreen = [UIScreen mainScreen];
     if ([mainScreen respondsToSelector:@selector(scale)]) {
         scale = mainScreen.scale;
+        tileSize = CGSizeMake(16.f, 16.f);
+        maxTileSize = CGSizeMake(64.0f, 64.0f);
+        minTileSize = CGSizeMake(8.0f, 8.0f);
     } else {
          scale = 1.f;
+        tileSize = CGSizeMake(32.0f, 32.0f);
+        maxTileSize = CGSizeMake(32.0f, 32.0f);
+        minTileSize = CGSizeMake(8.0f, 8.0f);
     }
     
 	self.multipleTouchEnabled = YES;
-	tileSize = CGSizeMake(32.0f, 32.0f);
-	maxTileSize = CGSizeMake(32.0f, 32.0f);
-	minTileSize = CGSizeMake(8.0f, 8.0f);
 	selfTapRectSize = CGSizeMake(40.0f, 40.0f);
 
 	// load gfx

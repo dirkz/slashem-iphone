@@ -72,7 +72,7 @@
 
 - (CGImageRef)imageForGlyph:(int)glyph atX:(int)x y:(int)y {
 	if (!cachedImages[glyph]) {
-		UIFont *font = [UIFont boldSystemFontOfSize:28];
+		UIFont *font = [UIFont boldSystemFontOfSize:self.screenScale == 1.f ? 28 : 48];
 		int ochar, ocolor;
 		unsigned special;
 		mapglyph(glyph, &ochar, &ocolor, &special, x, y);

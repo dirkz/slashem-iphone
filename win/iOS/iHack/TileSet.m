@@ -36,6 +36,7 @@ static const CGSize defaultTileSize = {32.0f, 32.0f};
 
 @synthesize title;
 @synthesize supportsTransparency;
+@synthesize screenScale;
 
 + (TileSet *)instance {
 	if (!s_instance) {
@@ -77,7 +78,14 @@ static const CGSize defaultTileSize = {32.0f, 32.0f};
 			tileSet.supportsTransparency = YES;
 		}
 	} else {
-		tileSet = [[AsciiTileSet alloc] initWithTileSize:defaultTileSize title:title];
+        UIScreen *mainScreen = [UIScreen mainScreen];
+        if ([mainScreen respondsToSelector:@selector(scale)]) {
+            CGFloat scale = [mainScreen scale];
+            CGSize tilesize = CGSizeMake(defaultTileSize.width * scale, defaultTileSize.height * scale);
+            tileSet = [[AsciiTileSet alloc] initWithTileSize:tilesize title:title];
+        } else {
+            tileSet = [[AsciiTileSet alloc] initWithTileSize:defaultTileSize title:title];
+        }
 	}
 	return tileSet;
 }
@@ -111,6 +119,13 @@ static const CGSize defaultTileSize = {32.0f, 32.0f};
 - (id)initWithImage:(UIImage *)img tileSize:(CGSize)ts title:(NSString *)t {
 //	[TileSet dumpTiles];
 	if (self = [super init]) {
+        UIScreen *mainScreen = [UIScreen mainScreen];
+        if ([mainScreen respondsToSelector:@selector(scale)]) {
+            screenScale = mainScreen.scale;
+        } else {
+            screenScale = 1.f;
+        }
+
 		image = [img retain];
 		tileSize = ts;
 		rows = image.size.height / tileSize.height;
