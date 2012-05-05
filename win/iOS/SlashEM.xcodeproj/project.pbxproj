@@ -394,6 +394,7 @@
 		437A97D81150289F000046FD /* TextInputController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 437A97D71150289F000046FD /* TextInputController.xib */; };
 		438622C611590FC700295E23 /* QuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 438622C511590FC700295E23 /* QuestionViewController.m */; };
 		438622D21159104100295E23 /* QuestionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 438622D11159104100295E23 /* QuestionViewController.xib */; };
+		43B1E54A15551780001018F1 /* Icon@2.png in Resources */ = {isa = PBXBuildFile; fileRef = 43B1E54915551780001018F1 /* Icon@2.png */; };
 		43C52F4511535404001FAA6D /* AsciiTileSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 43C52F4411535404001FAA6D /* AsciiTileSet.m */; };
 		43D4D3E3116CF22E000D14B2 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43D4D3E2116CF22E000D14B2 /* QuartzCore.framework */; };
 		43E0FB65116E3C10007671D0 /* chozo32c.png in Resources */ = {isa = PBXBuildFile; fileRef = 43E0FB64116E3C10007671D0 /* chozo32c.png */; };
@@ -942,6 +943,7 @@
 		438622C411590FC700295E23 /* QuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionViewController.h; sourceTree = "<group>"; };
 		438622C511590FC700295E23 /* QuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionViewController.m; sourceTree = "<group>"; };
 		438622D11159104100295E23 /* QuestionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuestionViewController.xib; sourceTree = "<group>"; };
+		43B1E54915551780001018F1 /* Icon@2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2.png"; sourceTree = "<group>"; };
 		43C52F4311535404001FAA6D /* AsciiTileSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsciiTileSet.h; sourceTree = "<group>"; };
 		43C52F4411535404001FAA6D /* AsciiTileSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsciiTileSet.m; sourceTree = "<group>"; };
 		43D4D3E2116CF22E000D14B2 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -1017,6 +1019,7 @@
 				434C9D46115BE57F00A6EBD6 /* Settings.bundle */,
 				8D1107310486CEB800E47090 /* SlashEM-Info.plist */,
 				437A97411150207A000046FD /* Entitlements.plist */,
+				43B1E54915551780001018F1 /* Icon@2.png */,
 				437A957911500A16000046FD /* Icon.png */,
 				4339A7EE115A7E8800741CE5 /* gfx */,
 				437A957A11500A16000046FD /* tilesets */,
@@ -1919,6 +1922,7 @@
 				093E9D7611633AD0006B0BFE /* icon3.png in Resources */,
 				093E9D7711633AD0006B0BFE /* icon4.png in Resources */,
 				43E0FB65116E3C10007671D0 /* chozo32c.png in Resources */,
+				43B1E54A15551780001018F1 /* Icon@2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
