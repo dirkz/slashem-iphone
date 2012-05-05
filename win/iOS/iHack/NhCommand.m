@@ -108,6 +108,7 @@ enum InvFlags {
 	struct obj *oTinningKit = NULL;
 	struct obj *oCorpse = NULL; // corpse lying around
 	struct obj *oWieldedWeapon = NULL;
+	struct obj *oWieldedAthame = NULL;
 
 	for (struct obj *otmp = invent; otmp; otmp = otmp->nobj) {
 		if (otmp->unpaid) {
@@ -125,6 +126,9 @@ enum InvFlags {
 				if (otmp->owornmask & W_WEP) {
 					inv |= fWieldedWeapon;
 					oWieldedWeapon = otmp;
+                    if (otmp->otyp == ATHAME) {
+                        oWieldedAthame = otmp;
+                    }
 				}
 				inv |= fWeapon;
 				break;
@@ -133,11 +137,14 @@ enum InvFlags {
 					inv |= fTinningKit;
 					oTinningKit = otmp;
 				}
-				// activated lightsabers act the same as a wielded weapon (#force)
-				if (otmp->owornmask & W_WEP && is_lightsaber(otmp) && otmp->lamplit) {
+                if (otmp->owornmask & W_WEP && is_lightsaber(otmp) && otmp->lamplit) {
+                    // activated lightsabers can engrave
+                    oWieldedAthame = otmp;
+                 
+                    // activated lightsabers act the same as a wielded weapon (#force)
 					inv |= fWieldedWeapon;
 					oWieldedWeapon = otmp;
-				}
+                }
 			case POTION_CLASS:
 				inv |= fAppliable;
 				break;
@@ -305,13 +312,26 @@ enum InvFlags {
 	}
 	
 	[self addCommand:[NhCommand commandWithTitle:"Kick" key:C('d')] toCommands:commands key:kDungeon];
-	if (inv & fEngraved) {
-		if (inv & fDustWritten) {
-			[self addCommand:[NhCommand commandWithTitle:"E-Word" keys:"E-nElbereth\n"] toCommands:commands key:kMisc];
-		}
-	} else {
-		[self addCommand:[NhCommand commandWithTitle:"E-Word" keys:"E-Elbereth\n"] toCommands:commands key:kMisc];
-	}
+    if (oWieldedAthame) {
+        char keys[20];
+        char title[50];
+        sprintf(title, "E-Word (%s)", xname(oWieldedAthame));
+        if (inv & fEngraved) {
+            sprintf(keys, "E%cnElbereth\n", oWieldedAthame->invlet);
+        } else {
+            sprintf(keys, "E%cElbereth\n", oWieldedAthame->invlet);
+        }
+        [self addCommand:[NhCommand commandWithTitle:title keys:keys] toCommands:commands key:kMisc];
+    } else {
+        if (inv & fEngraved) {
+            if (inv & fDustWritten) {
+                [self addCommand:[NhCommand commandWithTitle:"E-Word" keys:"E-nElbereth\n"] toCommands:commands key:kMisc];
+            }
+        } else {
+            [self addCommand:[NhCommand commandWithTitle:"E-Word" keys:"E-Elbereth\n"] toCommands:commands key:kMisc];
+        }
+    }
+
 	if (inside_shop(u.ux, u.uy)) {
 		[self addCommand:[NhCommand commandWithTitle:"Pay" key:'p'] toCommands:commands key:kMisc];
 	}
