@@ -109,6 +109,7 @@ enum InvFlags {
 	struct obj *oCorpse = NULL; // corpse lying around
 	struct obj *oWieldedWeapon = NULL;
 	struct obj *oWieldedAthame = NULL;
+	struct obj *oWieldedLightsaber = NULL;
 
 	for (struct obj *otmp = invent; otmp; otmp = otmp->nobj) {
 		if (otmp->unpaid) {
@@ -137,13 +138,17 @@ enum InvFlags {
 					inv |= fTinningKit;
 					oTinningKit = otmp;
 				}
-                if (otmp->owornmask & W_WEP && is_lightsaber(otmp) && otmp->lamplit) {
-                    // activated lightsabers can engrave
-                    oWieldedAthame = otmp;
-                 
-                    // activated lightsabers act the same as a wielded weapon (#force)
-					inv |= fWieldedWeapon;
-					oWieldedWeapon = otmp;
+                if (otmp->owornmask & W_WEP && is_lightsaber(otmp)) {
+                    if (otmp->lamplit) {
+                        // activated lightsabers can engrave
+                        oWieldedAthame = otmp;
+                        
+                        // activated lightsabers act the same as a wielded weapon (#force)
+                        inv |= fWieldedWeapon;
+                        oWieldedWeapon = otmp;
+                    } else {
+                        oWieldedLightsaber = otmp;
+                    }
                 }
 			case POTION_CLASS:
 				inv |= fAppliable;
@@ -240,12 +245,6 @@ enum InvFlags {
 		[self addCommand:[NhCommand commandWithTitle:"Sit" key:M('s')] toCommands:commands key:kDungeon];
 	}
 	
-	if (oWieldedWeapon) {
-		NhObject *wieldedWeapon = [NhObject objectWithObject:oWieldedWeapon];
-		[self addCommand:[NhCommand commandWithObject:wieldedWeapon title:"Apply wielded weapon" keys:"a"]
-			  toCommands:commands key:kInventory]; 
-	}
-	
 	struct engr *ep = engr_at(u.ux, u.uy);
 	if (ep) {
 		inv |= fEngraved; // not really inventory
@@ -312,6 +311,23 @@ enum InvFlags {
 	}
 	
 	[self addCommand:[NhCommand commandWithTitle:"Kick" key:C('d')] toCommands:commands key:kDungeon];
+
+    if (oWieldedWeapon) {
+        char title[50];
+        sprintf(title, "Apply %s", xname(oWieldedWeapon));
+		NhObject *wieldedWeapon = [NhObject objectWithObject:oWieldedWeapon];
+		[self addCommand:[NhCommand commandWithObject:wieldedWeapon title:title keys:"a"]
+			  toCommands:commands key:kInventory]; 
+	}
+	
+    if (oWieldedLightsaber) {
+        char title[50];
+        sprintf(title, "Apply %s", xname(oWieldedLightsaber));
+		NhObject *wieldedWeapon = [NhObject objectWithObject:oWieldedLightsaber];
+		[self addCommand:[NhCommand commandWithObject:wieldedWeapon title:title keys:"a"]
+			  toCommands:commands key:kInventory]; 
+	}
+	
     if (oWieldedAthame) {
         char keys[20];
         char title[50];
