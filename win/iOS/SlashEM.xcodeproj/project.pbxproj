@@ -2112,6 +2112,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = SlashEM_Prefix.pch;
@@ -2126,12 +2127,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Dirk Zimmermann";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Dirk Zimmermann";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.1;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B9A8DE8B-0686-4819-AC6A-55DC45577447";
+				PROVISIONING_PROFILE = "E119E0C3-BC72-4DC3-B24F-96E0BF383420";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "E119E0C3-BC72-4DC3-B24F-96E0BF383420";
 				SDKROOT = iphoneos;
 			};
 			name = Distribution;
@@ -2140,7 +2143,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_ENTITLEMENTS = Entitlements.plist;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Dirk Zimmermann";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -2148,7 +2150,7 @@
 				INFOPLIST_FILE = "SlashEM-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				PRODUCT_NAME = SlashEM;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B9A8DE8B-0686-4819-AC6A-55DC45577447";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "E119E0C3-BC72-4DC3-B24F-96E0BF383420";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Distribution;
