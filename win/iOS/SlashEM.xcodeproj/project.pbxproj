@@ -387,7 +387,6 @@
 		437A96D011501B1F000046FD /* ActionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 437A96CF11501B1F000046FD /* ActionViewController.xib */; };
 		437A970C11501EB1000046FD /* tilesets.plist in Resources */ = {isa = PBXBuildFile; fileRef = 437A970B11501EB1000046FD /* tilesets.plist */; };
 		437A971411501F74000046FD /* TileSetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 437A971311501F74000046FD /* TileSetViewController.xib */; };
-		437A97421150207A000046FD /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 437A97411150207A000046FD /* Entitlements.plist */; };
 		437A977111502196000046FD /* ToolsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 437A977011502196000046FD /* ToolsViewController.xib */; };
 		437A978D115022E0000046FD /* InventoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 437A978C115022E0000046FD /* InventoryViewController.xib */; };
 		437A979B11502433000046FD /* ItemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 437A979A11502433000046FD /* ItemViewController.xib */; };
@@ -935,7 +934,6 @@
 		437A96CF11501B1F000046FD /* ActionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActionViewController.xib; sourceTree = "<group>"; };
 		437A970B11501EB1000046FD /* tilesets.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = tilesets.plist; sourceTree = SOURCE_ROOT; };
 		437A971311501F74000046FD /* TileSetViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TileSetViewController.xib; sourceTree = "<group>"; };
-		437A97411150207A000046FD /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 		437A977011502196000046FD /* ToolsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ToolsViewController.xib; sourceTree = "<group>"; };
 		437A978C115022E0000046FD /* InventoryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InventoryViewController.xib; sourceTree = "<group>"; };
 		437A979A11502433000046FD /* ItemViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemViewController.xib; sourceTree = "<group>"; };
@@ -1018,7 +1016,6 @@
 			children = (
 				434C9D46115BE57F00A6EBD6 /* Settings.bundle */,
 				8D1107310486CEB800E47090 /* SlashEM-Info.plist */,
-				437A97411150207A000046FD /* Entitlements.plist */,
 				43B1E54915551780001018F1 /* Icon@2.png */,
 				437A957911500A16000046FD /* Icon.png */,
 				4339A7EE115A7E8800741CE5 /* gfx */,
@@ -1906,7 +1903,6 @@
 				437A96D011501B1F000046FD /* ActionViewController.xib in Resources */,
 				437A970C11501EB1000046FD /* tilesets.plist in Resources */,
 				437A971411501F74000046FD /* TileSetViewController.xib in Resources */,
-				437A97421150207A000046FD /* Entitlements.plist in Resources */,
 				437A977111502196000046FD /* ToolsViewController.xib in Resources */,
 				437A978D115022E0000046FD /* InventoryViewController.xib in Resources */,
 				437A979B11502433000046FD /* ItemViewController.xib in Resources */,
