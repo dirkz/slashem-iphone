@@ -394,6 +394,11 @@
 		438622C611590FC700295E23 /* QuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 438622C511590FC700295E23 /* QuestionViewController.m */; };
 		438622D21159104100295E23 /* QuestionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 438622D11159104100295E23 /* QuestionViewController.xib */; };
 		43B1E54A15551780001018F1 /* Icon@2.png in Resources */ = {isa = PBXBuildFile; fileRef = 43B1E54915551780001018F1 /* Icon@2.png */; };
+		43BE95E415897D150063E5B0 /* Jed-fila.lev in Resources */ = {isa = PBXBuildFile; fileRef = 43BE95DF15897D150063E5B0 /* Jed-fila.lev */; };
+		43BE95E515897D150063E5B0 /* Jed-filb.lev in Resources */ = {isa = PBXBuildFile; fileRef = 43BE95E015897D150063E5B0 /* Jed-filb.lev */; };
+		43BE95E615897D150063E5B0 /* Jed-goal.lev in Resources */ = {isa = PBXBuildFile; fileRef = 43BE95E115897D150063E5B0 /* Jed-goal.lev */; };
+		43BE95E715897D150063E5B0 /* Jed-loca.lev in Resources */ = {isa = PBXBuildFile; fileRef = 43BE95E215897D150063E5B0 /* Jed-loca.lev */; };
+		43BE95E815897D150063E5B0 /* Jed-strt.lev in Resources */ = {isa = PBXBuildFile; fileRef = 43BE95E315897D150063E5B0 /* Jed-strt.lev */; };
 		43C52F4511535404001FAA6D /* AsciiTileSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 43C52F4411535404001FAA6D /* AsciiTileSet.m */; };
 		43D4D3E3116CF22E000D14B2 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43D4D3E2116CF22E000D14B2 /* QuartzCore.framework */; };
 		43E0FB65116E3C10007671D0 /* chozo32c.png in Resources */ = {isa = PBXBuildFile; fileRef = 43E0FB64116E3C10007671D0 /* chozo32c.png */; };
@@ -942,6 +947,11 @@
 		438622C511590FC700295E23 /* QuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionViewController.m; sourceTree = "<group>"; };
 		438622D11159104100295E23 /* QuestionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuestionViewController.xib; sourceTree = "<group>"; };
 		43B1E54915551780001018F1 /* Icon@2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2.png"; sourceTree = "<group>"; };
+		43BE95DF15897D150063E5B0 /* Jed-fila.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jed-fila.lev"; sourceTree = "<group>"; };
+		43BE95E015897D150063E5B0 /* Jed-filb.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jed-filb.lev"; sourceTree = "<group>"; };
+		43BE95E115897D150063E5B0 /* Jed-goal.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jed-goal.lev"; sourceTree = "<group>"; };
+		43BE95E215897D150063E5B0 /* Jed-loca.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jed-loca.lev"; sourceTree = "<group>"; };
+		43BE95E315897D150063E5B0 /* Jed-strt.lev */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jed-strt.lev"; sourceTree = "<group>"; };
 		43C52F4311535404001FAA6D /* AsciiTileSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsciiTileSet.h; sourceTree = "<group>"; };
 		43C52F4411535404001FAA6D /* AsciiTileSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsciiTileSet.m; sourceTree = "<group>"; };
 		43D4D3E2116CF22E000D14B2 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -1398,6 +1408,11 @@
 		437A9299114FFBF4000046FD /* dat */ = {
 			isa = PBXGroup;
 			children = (
+				43BE95DF15897D150063E5B0 /* Jed-fila.lev */,
+				43BE95E015897D150063E5B0 /* Jed-filb.lev */,
+				43BE95E115897D150063E5B0 /* Jed-goal.lev */,
+				43BE95E215897D150063E5B0 /* Jed-loca.lev */,
+				43BE95E315897D150063E5B0 /* Jed-strt.lev */,
 				437A929A114FFBF4000046FD /* air.lev */,
 				437A929B114FFBF4000046FD /* Arc-fila.lev */,
 				437A929C114FFBF4000046FD /* Arc-filb.lev */,
@@ -1919,6 +1934,11 @@
 				093E9D7711633AD0006B0BFE /* icon4.png in Resources */,
 				43E0FB65116E3C10007671D0 /* chozo32c.png in Resources */,
 				43B1E54A15551780001018F1 /* Icon@2.png in Resources */,
+				43BE95E415897D150063E5B0 /* Jed-fila.lev in Resources */,
+				43BE95E515897D150063E5B0 /* Jed-filb.lev in Resources */,
+				43BE95E615897D150063E5B0 /* Jed-goal.lev in Resources */,
+				43BE95E715897D150063E5B0 /* Jed-loca.lev in Resources */,
+				43BE95E815897D150063E5B0 /* Jed-strt.lev in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
