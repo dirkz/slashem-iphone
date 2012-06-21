@@ -5,12 +5,11 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleDisplayName</key>
-	<string>Slash'EM</string>
+	<string>Slash&apos;EM</string>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIconFiles</key>
 	<array>
-		<string></string>
 		<string>Icon@2.png</string>
 		<string>Icon.png</string>
 	</array>
@@ -20,7 +19,6 @@
 		<dict>
 			<key>CFBundleIconFiles</key>
 			<array>
-				<string></string>
 				<string>Icon@2.png</string>
 				<string>Icon.png</string>
 			</array>
