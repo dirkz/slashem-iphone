@@ -857,12 +857,6 @@ doengrave()
 		break;
 
 	    case TOOL_CLASS:
-#ifdef LIGHTSABERS
-		if (is_lightsaber(otmp)) {
-			if (otmp->lamplit) type = BURN;
-			else Your("%s is deactivated!", aobjnam(otmp,"are"));
-		} else
-#endif
 		if(otmp == ublindf) {
 		    pline(
 		"That is a bit difficult to engrave with, don't you think?");
